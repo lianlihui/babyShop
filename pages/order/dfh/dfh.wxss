@@ -90,27 +90,27 @@
   line-height: 1;
   color: #414141;
   font-size: 28rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 25rpx;
   display: block;
 }
 .order-list-item-dzf-body .dfh-item-title{
   line-height: 1;
   color: #414141;
   font-size: 28rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 25rpx;
   display: block;
 }
 
 .order-list-item-dzf-body .item-day{
   color: #7b7b7b;
   font-size: 28rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 25rpx;
   display: block;
 }
 .order-list-item-dzf-body .item-spec{
   color: #7b7b7b;
   font-size: 28rpx;
-  margin-bottom: 25rpx;
+  margin-bottom: 20rpx;
   display: block;
 }
 .order-list-item-dzf-body .item-spec-one{
