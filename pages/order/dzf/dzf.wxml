@@ -1,0 +1,95 @@
+<view class="order-header">
+  <view class="order-header-item">
+    <span class="span-item">
+      全部
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item-active">
+      待付款
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      待发货
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      待收货
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      使用中
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      逾期中
+    </span>
+  </view>
+</view>
+
+<view class="order-list">
+  <!--待支付-->
+  <view class="order-list-item-dzf">
+    <view class="order-list-item-dzf-head">
+      <span class="orderno-tag">订单号:</span>
+      <span class="orderno-imp">123456789</span>
+    </view>
+
+    <view class="order-list-item-dzf-body">
+      <image src="/images/order/edit.png" class="item-edit"/>
+      <view class="item-left">
+        <image class="item-img" src="/images/order/good.png"></image>
+      </view>
+      <view class="item-right">
+        <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
+        <text class="item-day">租用天数：15天</text>
+        <view class="item-spec">
+          <span class="item-spec-one">规格：50x60cm</span>
+          <span>颜色：红色</span>
+        </view>
+        <view class="item-spec">
+          <span class="item-spec-one">价格：10元/天</span>
+          <span>数量：2个</span>
+        </view>
+      </view>
+    </view>
+
+    <view class="order-list-item-dzf-body">
+      <image src="/images/order/edit.png" class="item-edit"/>
+      <view class="item-left">
+        <image class="item-img" src="/images/order/good.png"></image>
+      </view>
+      <view class="item-right">
+        <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
+        <text class="item-day">租用天数：15天</text>
+        <view class="item-spec">
+          <span class="item-spec-one">规格：50x60cm</span>
+          <span>颜色：红色</span>
+        </view>
+        <view class="item-spec">
+          <span class="item-spec-one">价格：10元/天</span>
+          <span>数量：2个</span>
+        </view>
+      </view>
+    </view>
+
+    <view class="order-list-item-dzf-money">
+      <span class="item-price">¥96.00</span>
+      <span class="item-hj">合计:</span>
+      <span class="item-num">共2件商品</span>
+    </view>
+  </view>
+</view>
+
+<view class="order-list-item-dzf-foot">
+  <button class="btn-zf">
+    去支付
+  </button>
+  <button class="btn-qx">
+    取消订单
+  </button>
+</view>

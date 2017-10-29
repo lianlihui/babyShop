@@ -1,0 +1,97 @@
+<view class="order-header">
+  <view class="order-header-item">
+    <span class="span-item">
+      全部
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      待付款
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      待发货
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      待收货
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item-active">
+      使用中
+    </span>
+  </view>
+  <view class="order-header-item">
+    <span class="span-item">
+      逾期中
+    </span>
+  </view>
+</view>
+
+<view class="order-list">
+  <!--待支付-->
+  <view class="order-list-item-dzf">
+    <view class="order-list-item-dzf-head">
+      <view class="orderno-icon"></view>
+      <span class="orderno-tag">物流号:</span>
+      <span class="orderno-imp">123456789</span>
+    </view>
+
+    <view class="order-list-item-dzf-body">
+      <view class="item-left">
+        <image class="item-img" src="/images/order/good.png"></image>
+      </view>
+      <view class="item-right">
+        <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
+        <text class="item-day">已租用天数：15天</text>
+        <text class="item-day">剩余天数：15天</text>
+        <view class="item-spec">
+          <button class="btn-pj">
+            评价
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-list-item-dzf">
+    <view class="order-list-item-dzf-head">
+      <view class="orderno-icon"></view>
+      <span class="orderno-tag">物流号:</span>
+      <span class="orderno-imp">123456789</span>
+    </view>
+
+    <view class="order-list-item-dzf-body">
+      <view class="item-left">
+        <image class="item-img" src="/images/order/good.png"></image>
+      </view>
+      <view class="item-right">
+        <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
+        <text class="item-day">已租用天数：15天</text>
+        <text class="item-day">剩余天数：15天</text>
+        <view class="item-spec">
+          <button class="btn-pj">
+            评价
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="order-list-item-dzf-foot">
+  <view class="btn-icon"></view>
+  <text class="btn-txt">全选</text>
+  <button class="btn-zf">
+    续租
+  </button>
+  <button class="btn-qx">
+    换货
+  </button>
+  <button class="btn-qx">
+    退还
+  </button>
+</view>

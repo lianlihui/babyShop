@@ -1,0 +1,49 @@
+<view class="address">
+
+  <view class="address-list">
+    <view class="address-item">
+      <view class="address-item-content-contact">
+        <span>潘森森</span>
+        <span class="phone">188******49</span>
+        <image src="/images/address/icon.png" class="arrow"/>
+      </view>
+      <view class="address-item-content-address">
+        <span class="defaut">[默认]</span>
+        <span class="adrss">广东省广州市天河区棠下村大山大街广东省广州市天河区棠下村大山大街</span>
+      </view>
+    </view>
+
+    <view class="address-item">
+      <view class="address-item-content-contact">
+        <span>潘森森</span>
+        <span class="phone">188******49</span>
+        <image src="/images/address/icon.png" class="arrow"/>
+      </view>
+      <view class="address-item-content-address">
+        <span class="defaut"></span>
+        <span class="adrss">广东省广州市天河区棠下村大山大街广东省广州市天河区棠下村大山大街</span>
+      </view>
+    </view>
+
+    <view class="address-item">
+      <view class="address-item-content-contact">
+        <span>潘森森</span>
+        <span class="phone">188******49</span>
+        <image src="/images/address/icon.png" class="arrow"/>
+      </view>
+      <view class="address-item-content-address">
+        <span class="defaut"></span>
+        <span class="adrss">广东省广州市天河区棠下村大山大街广东省广州市天河区棠下村大山大街</span>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="address-btn">
+    <navigator url="/pages/address/edit/edit?id=-1">
+      <button class="address-btn-impl">
+        <span>+</span>添加新地址
+      </button>
+    </navigator>
+</view>

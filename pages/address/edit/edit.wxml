@@ -1,0 +1,47 @@
+<view class="address">
+
+  <view class="addrss-edit">
+  
+    <view class="addrss-edit-item">
+      <view class="addrss-edit-item-impl">
+        <text class="addrss-edit-item-text">收货人</text>
+        <input placeholder="请输入收货人姓名" name="ordername" class="addrss-edit-item-inp"/>        
+      </view>
+    </view>
+
+    <view class="addrss-edit-item">
+      <view class="addrss-edit-item-impl">
+        <text class="addrss-edit-item-text">联系方式</text>
+        <input placeholder="请输入收货人手机号码" name="mobile" class="addrss-edit-item-inp" maxlength="11"/>        
+      </view>
+    </view>
+
+    <view class="addrss-edit-item">
+      <view class="addrss-edit-item-impl">
+        <text class="addrss-edit-item-text">省市地区</text>
+        <input placeholder="请点击选择送货区域" name="ordername" class="addrss-edit-item-inp"/> 
+      </view>
+    </view>
+
+    <view class="addrss-edit-item">
+      <view class="addrss-edit-item-impl">
+        <text class="addrss-edit-item-xtext">详细地址</text>
+        <textarea name="detailaddress" placeholder="请输入详细地址(5-120个字）" auto-height class="addrss-edit-item-textarea"/>        
+      </view>
+    </view>
+
+    <view class="addrss-edit-item">
+      <view class="addrss-edit-item-implm">
+        <text class="addrss-edit-item-mtext">设置默认地址</text>
+        <view class="addrss-edit-item-icon" bindtap="defaultChange"></view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="address-add-btn">
+      <button class="address-add-impl">
+        保存
+      </button>
+  </view>
+</view>

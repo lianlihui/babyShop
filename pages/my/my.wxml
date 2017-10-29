@@ -1,0 +1,32 @@
+<view class="page-my-top">
+  <image src="/images/my/my_bg.png" class="page-my-top-bg"/>
+  <view class="page-my-top-lf">
+    <image src="{{myInfo.headimgurl}}" class="page-my-top-img" />
+  </view>
+  <view class="page-my-top-rt">
+    <view class="page-my-top-name" >莫小目</view>
+    <!--<view class="page-my-top-name" wx:if="{{myInfo.nickname}}">{{myInfo.nickname}}</view>-->
+    <view class="page-my-top-score">88积分</view>
+  </view>
+  <navigator url="/pages/scroce/scroce" class="page-my-top-right-score">积分明细</navigator>
+</view>
+
+<view class="page-my-list">
+  <navigator url="/pages/order/list/list" class="page-my-list-item">
+    <image src="/images/my/icon1.png" class="page-my-item-icon" />
+    <text>我的订单</text>
+  </navigator>
+  <navigator url="/pages/address/list/list" class="page-my-list-item">
+    <image src="/images/my/icon2.png" class="page-my-item-icon" />
+    <text>我的租用</text>
+  </navigator>
+  <navigator url="/pages/address/list/list" class="page-my-list-item">
+    <image src="/images/my/icon3.png" class="page-my-item-icon" />
+    <text>我的地址</text>
+  </navigator>
+  <navigator url="/pages/address/list/list" class="page-my-list-item">
+    <image src="/images/my/icon5.png" class="page-my-item-icon" />
+    <text>我的评论</text>
+  </navigator>
+</view>
+
