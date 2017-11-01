@@ -1,0 +1,84 @@
+<view class="order-list">
+    <view class="order-list-item-dzf">
+      <view class="order-list-item-dzf-head">
+        <view class="orderno-icon orderno-icon-30top"></view>
+        <span class="orderno-tag">全选</span>
+        <span class="money">编辑</span>
+      </view>
+    
+
+      <view class="order-list-item-dzf-bd">
+        <image src="/images/order/edit.png" class="item-edit"/>
+        <view class="item-left-icon">
+          <view class="orderno-icon-45top orderno-icon"></view>
+        </view>
+        <view class="item-left">
+          <image class="item-img" src="/images/relet/good.png"></image>
+        </view>
+        <view class="item-right">
+          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣</text>
+          <text class="item-day">租用天数：15天</text>
+          <view class="item-spec">
+            <span class="item-spec-one">规格：50x60cm</span>
+            <span>颜色：红色</span>
+          </view>
+          <view class="item-spec">
+            <span class="item-spec-one"><span class="item-price-red">¥10</span>/天</span>
+            <span>数量：2个</span>
+          </view>
+        </view>
+      </view>
+
+      <view class="order-list-item-dzf-bd">
+        <image src="/images/order/edit.png" class="item-edit"/>
+        <view class="item-left-icon">
+          <view class="orderno-icon-45top orderno-icon"></view>
+        </view>
+        <view class="item-left">
+          <image class="item-img" src="/images/relet/good.png"></image>
+        </view>
+        <view class="item-right">
+          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣</text>
+          <text class="item-day">租用天数：15天</text>
+          <view class="item-spec">
+            <span class="item-spec-one">规格：50x60cm</span>
+            <span>颜色：红色</span>
+          </view>
+          <view class="item-spec">
+            <span class="item-spec-one"><span class="item-price-red">¥10</span>/天</span>
+            <span>数量：2个</span>
+          </view>
+        </view>
+      </view>
+
+      <view class="order-list-item-dzf-bd">
+        <image src="/images/order/edit.png" class="item-edit"/>
+        <view class="item-left-icon">
+          <view class="orderno-icon-45top orderno-icon"></view>
+        </view>
+        <view class="item-left">
+          <image class="item-img" src="/images/relet/good.png"></image>
+        </view>
+        <view class="item-right">
+          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣</text>
+          <text class="item-day">租用天数：15天</text>
+          <view class="item-spec">
+            <span class="item-spec-one">规格：50x60cm</span>
+            <span>颜色：红色</span>
+          </view>
+          <view class="item-spec">
+            <span class="item-spec-one"><span class="item-price-red">¥10</span>/天</span>
+            <span>数量：2个</span>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+
+<view class="order-list-item-dzf-foot">
+  <span class="foot-hj">合计:</span>
+  <span class="foot-je">¥1196.00</span>
+  <button class="btn-qx">
+    结算
+  </button>
+</view>

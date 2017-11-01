@@ -1,0 +1,92 @@
+<view class="order-list">
+    <view class="address-btn">
+        <navigator url="/pages/address/edit/edit?id=-1">
+          <button class="address-btn-impl">
+            <span>+</span>添加寄货地址
+          </button>
+        </navigator>
+    </view>
+
+    <!--地址信息-->
+    <view class="address-wrap">
+      <view class="address-left">
+        <image class="address-icon" src="/images/order/addr-icon.png"></image>
+      </view>
+      
+      <view class="address-right">
+        <view class="address-accept">
+          <span class="address-name">收货人：莫小牧</span>
+          <span class="address-phone">13400000000</span>
+        </view>
+        <view class="address-info">
+          收货人地址：广东省广东省广东省广东省广东省广东省广东省广东省广东省广东省广东省
+        </view>
+      </view>
+    </view>
+
+    <view class="order-list-item-dzf">
+      <view class="order-list-item-dzf-head">
+        <span class="orderno-tag">物流号：</span>
+        <span class="orderno-imp">123456789</span>
+      </view>
+    
+
+      <view class="order-list-item-dzf-bd">
+        <image src="/images/order/edit.png" class="item-edit"/>
+        <view class="item-left">
+          <image class="item-img" src="/images/relet/good.png"></image>
+        </view>
+        <view class="item-right">
+          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
+          <text class="item-day">当前单价：¥100/天</text>
+          <text class="item-day">总时长：100天</text>
+          <text class="item-day">已租赁时长：80天</text>
+          <text class="item-day">续租天数：10天</text>
+          <span class="item-day">续租价格：<span class="item-price-red">¥96.00</span></span>
+        </view>
+      </view>
+
+      <view class="order-list-item-dzf-bd">
+        <image src="/images/order/edit.png" class="item-edit"/>
+        <view class="item-left">
+          <image class="item-img" src="/images/relet/good.png"></image>
+        </view>  
+        <view class="item-right">
+          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
+          <text class="item-day">当前单价：¥100/天</text>
+          <text class="item-day">总时长：100天</text>
+          <text class="item-day">已租赁时长：80天</text>
+          <text class="item-day">续租天数：10天</text>
+          <span class="item-day">续租价格：<span class="item-price-red">¥96.00</span></span>
+        </view>
+      </view>
+
+      <view class="order-list-item-dzf-head item-noborderbottom">
+        <view class="orderno-icon active"></view>
+        <span class="orderno-jf">积分抵扣现金</span>
+        <span class="orderno-jfmoney">¥96.00</span>
+      </view>
+    </view>
+
+    <view class="order-remark">
+      <textarea class="order-remark-textarea" placeholder="备注信息"></textarea>
+    </view>
+
+    <view class="order-wl">
+      <span class="yj">一键预约物流</span>
+      <span class="no">123456789</span>
+    </view>
+
+    <view class="order-zwl">
+      <span class="zyj">自己叫物流</span>
+      <input class="zno"></input>
+    </view>
+</view>
+
+<view class="order-list-item-dzf-foot">
+  <span class="foot-hj">应付金额:</span>
+  <span class="foot-je">¥1196.00</span>
+  <button class="btn-qx">
+    立即支付
+  </button>
+</view>

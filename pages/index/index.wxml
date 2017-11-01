@@ -27,7 +27,7 @@
      <!-- 为你推荐列表 -->
     <view class="product-list">
       <view class="product-list-item">
-        <navigator url="">
+        <navigator url="/pages/product/info/info">
           <image src="/images/index/list1.jpg" mode="widthFix"/>
           <view class="product-desc">母婴用品初生宝宝秋冬季</view>
           <view class="product-price"><span>¥88</span><view class="del-price">¥188<span></span></view></view>

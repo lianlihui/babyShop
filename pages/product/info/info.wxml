@@ -1,0 +1,73 @@
+<view class="product">
+
+  <view class="product-header">
+    <view class="product-img">
+    </view>
+
+    <view class="product-title">
+      <text class="product-title-txt">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
+      <span class="product-title-price"><span class="product-price-red">¥96.00</span>/天</span>
+    </view>
+  </view>
+
+  <view class="product-info">
+    <view class="product-info-tag">
+      产品详情
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">型号</span>
+      <span class="item-txt">BHD-DESC</span>
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">货号</span>
+      <span class="item-txt">BHD-DESC</span>
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">适用年龄</span>
+      <span class="item-txt">6-12个月</span>
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">颜色分类</span>
+      <span class="item-txt">分类分类分类</span>
+    </view>
+  </view>
+
+  <view class="product-enjoy">
+    <view class="product-enjoy-tag"> 
+      猜你喜欢
+    </view>
+    <view class="product-list">
+      <view class="product-list-item">
+        <navigator url="/pages/product/info/info">
+          <image src="/images/index/list1.jpg" mode="widthFix"/>
+          <view class="product-desc">母婴用品初生宝宝秋冬季秋冬季</view>
+          <view class="product-price"><span class="del-price">¥96.00</span>/天</view>
+        </navigator>
+      </view>
+      <view class="product-list-item">
+       <navigator url="">
+          <image src="/images/index/list1.jpg" mode="widthFix"/>
+          <view class="product-desc">母婴用品初生宝宝秋冬季秋冬季</view>
+          <view class="product-price"><span class="del-price">¥96.00</span>/天</view>
+        </navigator>
+      </view>
+      <view class="product-list-item">
+        <navigator url="">
+          <image src="/images/index/list1.jpg" mode="widthFix"/>
+          <view class="product-desc">母婴用品初生宝宝秋冬季秋冬季</view>
+          <view class="product-price"><span class="del-price">¥96.00</span>/天</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-list-item-dzf-foot">
+    <image src="/images/info/cart.png" class="item-edit"></image>
+    <button class="btn-buy">
+      立即购买
+    </button>
+    <button class="btn-cart">
+      加入购物车
+    </button>
+  </view>
+</view>

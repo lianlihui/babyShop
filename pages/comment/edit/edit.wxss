@@ -1,0 +1,113 @@
+.order-list-item-dzf{
+  background: #ffffff;
+  padding-top: 30rpx;
+}
+.order-list-item-dzf-head{
+  padding: 0rpx 27rpx;
+  font-size: 36rpx;
+  position: relative;
+}
+.order-list-item-dzf-head .orderno-tag{
+  color: #7b7b7b;
+  display: inline-block;
+}
+.order-list-item-dzf-head .orderno-imp{
+  color: #7b7b7b;
+  display: inline-block;
+  margin-left:30rpx; 
+}
+.order-list-item-dzf-head .money{
+  color: #ff4965;
+  display: inline-block;
+  position: absolute;
+  right: 27rpx;
+}
+.order-list-item-dzf-bd{
+  padding:30rpx 27rpx 12rpx;
+  background:#fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  position: relative;
+}
+.order-list-item-dzf-bd .item-left{
+  width:160rpx;
+  height:160rpx;
+  margin-right:30rpx;
+  overflow:hidden;
+  background:#fff;
+}
+.order-list-item-dzf-bd .item-img{
+  width:160rpx;
+  height:160rpx;
+}
+.order-list-item-dzf-bd .item-right{
+  position: relative;
+  -webkit-box-flex: 1.0;
+}
+.order-list-item-dzf-bd .item-title{
+  line-height: 1.3;
+  color: #414141;
+  font-size: 28rpx;
+  margin-bottom: 25rpx;
+  display: block;
+}
+.order-list-item-dzf-bd .dfh-item-title{
+  line-height: 1.3;
+  color: #414141;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.order-list-item-dzf-bd .item-day{
+  color: #7b7b7b;
+  font-size: 28rpx;
+  margin-bottom: 25rpx;
+  display: block;
+}
+.order-list-item-dzf-bd .item-spec{
+  color: #7b7b7b;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+.order-list-item-dzf-bd .item-spec-one{
+  width: 310rpx;
+  display: inline-block;
+}
+
+.comment-text{
+  padding: 0rpx 27rpx;
+  width:100%;
+  position: relative;
+  height: 200rpx;
+}
+
+.comment-text-textarea{
+  height: 172rpx;
+  font-size: 24rpx;
+  color: #333;
+  margin-top:2rpx;
+  border: 1rpx #d6d6d6 solid;
+  padding:10rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 27rpx;
+  right: 27rpx;
+}
+
+.comment-add-btn{
+  width: 100%;
+  margin-top:80rpx;
+  background:#fff;
+}
+.comment-add-impl{
+  width:586rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ff4965;
+  font-size: 42rpx;
+  color: #ffffff;
+  border-radius: 100rpx;
+}
