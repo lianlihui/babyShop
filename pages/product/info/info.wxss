@@ -142,3 +142,99 @@
   margin-left: 27rpx;
   margin-top:24rpx;
 }
+
+/**弹框样式*/
+.modal-wrap {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  background: rgba(0,0,0,0.2);
+}
+.modal {
+  width: 615rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.modal-body {
+  padding: 50rpx 20rpx 0rpx;
+}
+.modal-item{
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1rpx #ebebeb solid;
+  font-size: 28rpx;
+  color: #414141;
+  position: relative;
+}
+.modal-item-desc{
+  display: inline-block;
+}
+.modal-item-inp{
+  display: inline-block;
+  position: absolute;
+  left: 160rpx;
+  color: #ff4965;
+}
+.modal-item-inp .inp{
+  border: 1rpx #ebebeb solid;
+  width: 280rpx;
+}
+.modal-spec-item{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: #414141;
+}
+.modal-body .spec {
+  display: inline-block;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 24rpx;
+  color: #777;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #ebebeb;
+  border-radius: 5rpx;
+  margin-right: 38rpx;
+  margin-bottom: 10rpx;
+}
+.modal-body .spec.active {
+  background: #ff4965;
+  color: #ffffff;
+}
+
+.modal-footer{
+  margin-top:30rpx;
+  width:100%;
+  margin-bottom:50rpx;
+}
+.modal-qd{
+  width:400rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  background: #ff4965;
+  font-size: 30rpx;
+  color: #ffffff;
+  display: block;
+  border-radius: 100rpx;
+}
+
+.vertical-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}

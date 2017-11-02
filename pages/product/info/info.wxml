@@ -63,7 +63,7 @@
 
   <view class="order-list-item-dzf-foot">
     <image src="/images/info/cart.png" class="item-edit"></image>
-    <button class="btn-buy">
+    <button class="btn-buy" bindtap="openModal">
       立即购买
     </button>
     <button class="btn-cart">
@@ -71,3 +71,39 @@
     </button>
   </view>
 </view>
+
+<!-- 规格弹窗 -->
+<view hidden="{{!modalSpecShow}}" class="modal-spec modal-wrap vertical-center"
+    bindtap="closeModal" data-modal="specModal">
+  <view class="modal">
+    <view class="modal-body">
+      <view class="modal-item">
+        <span class="modal-item-desc">租用天数:</span>
+        <span class="modal-item-inp"><input class="inp"></input></span>
+      </view>
+      <view class="modal-item">
+        <span class="modal-item-desc">数量:</span>
+        <span class="modal-item-inp">5个</span>
+      </view>
+
+      <view class="modal-spec-item">
+        规格:
+      </view>
+      <view class="spec-wrap">
+        <text class="spec active">50x60cm</text>
+        <text class="spec">50x60cm</text>
+        <text class="spec">500x600cm</text>
+        <text class="spec">50x600cm</text>
+        <text class="spec">500x60cm</text>
+        <text class="spec">50x60cm</text>
+        <text class="spec">50x60cm</text>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="modal-qd" bindtap="closeModal">
+        确定
+      </button>
+    </view>
+  </view>
+</view>
+<!-- /规格弹窗 -->
