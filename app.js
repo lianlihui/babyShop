@@ -11,6 +11,7 @@ App({
 
     wx.login({
       success: function (res) {
+        console.log(res);
         var _code = res.code;
         var url = self.globalData.serviceUrl + 'mwxgettoken.html?_code=' + _code;
         var data = {_code: _code};

@@ -4,12 +4,9 @@ var app = getApp();
 
 Page({
   data: {
-    'imgUrls': [{
-      url: 'http://hao123.com',
-      linkurl: '/images/index/index.jpg'
-    }],
+    'imgUrls': [],
     'imageRootPath': '',
-    'warelablelist': [],
+    'warelist': [],
     'indicatorDots': true,
     'indicatorColor': '#bdaea7',
     'indicatorActiveColor': '#5eaaf9',
@@ -35,12 +32,10 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function(res) {
-        console.log(res);
-        // wx.hideLoading();
         self.setData({
           imgUrls: res.data.poslinklist,
           imageRootPath: res.data.imageRootPath,
-          warelablelist: res.data.warelablelist
+          warelist: res.data.warelist
         });
       },
       failCallback: function(res) {

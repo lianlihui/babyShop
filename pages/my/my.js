@@ -20,6 +20,7 @@ Page({
       data: { token: app.globalData.token},
       method: 'POST',
       successCallback: function(res) {
+        console.log(res);
         if(res.code == 0) {
           self.setData({
             myInfo: res.data.userbean

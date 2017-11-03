@@ -26,47 +26,13 @@
 
      <!-- 为你推荐列表 -->
     <view class="product-list">
-      <view class="product-list-item">
+      <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1">
         <navigator url="/pages/product/info/info">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季</view>
-          <view class="product-price"><span>¥88</span><view class="del-price">¥188<span></span></view></view>
+          <image src="{{imageRootPath}}{{item1.pic1}}" mode="widthFix"/>
+          <view class="product-desc">{{item1.name}}</view>
+          <view class="product-price"><span>¥{{item1.price}}</span><view class="del-price">押金：¥{{item1.rent_cost}}</view></view>
         </navigator>
       </view>
-      <view class="product-list-item">
-       <navigator url="">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季</view>
-          <view class="product-price"><span>¥88</span><view class="del-price">¥188<span></span></view></view>
-        </navigator>
-      </view>
-      <view class="product-list-item">
-        <navigator url="">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季</view>
-          <view class="product-price"><span>¥88</span><view class="del-price">¥188<span></span></view></view>
-        </navigator>
-      </view>
-    </view>
-  </view>
-
-  <view wx:for="{{warelablelist}}" wx:key="unique1">
-    <view class="classify-box">
-      <view class="classify-title-box">
-        <text class="classify-title">{{item.name}}</text>
-      </view>
-      <scroll-view class="scroll-view" scroll-x="true" style="width: 100%">
-        <view class="scroll-view-item" wx:for="{{item.warelist}}" wx:for-item="item1">
-          <navigator url="/pages/roomservice/roomservice?id={{item1.id}}">
-            <image src="{{imageRootPath}}{{item1.pic1}}" class="scroll-view-item-img" mode="aspectFill"/>
-            <view class="scroll-view-item-info">
-              <text>{{item1.name}}</text>
-              <text class="scroll-view-item-num">月售：{{item1.number}}份</text>
-            </view>
-            <text class="scroll-view-item-price">￥{{item1.price}}</text>
-          </navigator>
-        </view>
-      </scroll-view>
     </view>
   </view>
 
