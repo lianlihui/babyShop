@@ -68,6 +68,6 @@ App({
     orderTab:'sy',
     token:'',
     userInfo: null,
-    serviceUrl: 'https://hjx.pnkoo.cn/'
+    serviceUrl: 'http://naike.pnkoo.cn/'
   }
 })

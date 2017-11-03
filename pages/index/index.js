@@ -20,7 +20,7 @@ Page({
   },
   onShow: function() {
     // wx.showLoading({title: '页面加载中', mask: true})
-    //this.getIndexData();
+    this.getIndexData();
   },
 
   getIndexData: function() {
@@ -35,6 +35,7 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function(res) {
+        console.log(res);
         // wx.hideLoading();
         self.setData({
           imgUrls: res.data.poslinklist,
