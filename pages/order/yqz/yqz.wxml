@@ -1,30 +1,30 @@
 <view class="order-header">
-  <view class="order-header-item">
+  <view class="order-header-item" catchtap="menuClick" data-idx="1">
     <span class="span-item">
       全部
     </span>
   </view>
-  <view class="order-header-item">
+  <view class="order-header-item" catchtap="menuClick" data-idx="2">
     <span class="span-item">
       待付款
     </span>
   </view>
-  <view class="order-header-item">
+  <view class="order-header-item" catchtap="menuClick" data-idx="3">
     <span class="span-item">
       待发货
     </span>
   </view>
-  <view class="order-header-item">
+  <view class="order-header-item" catchtap="menuClick" data-idx="4">
     <span class="span-item">
       待收货
     </span>
   </view>
-  <view class="order-header-item">
+  <view class="order-header-item" catchtap="menuClick" data-idx="5">
     <span class="span-item">
       使用中
     </span>
   </view>
-  <view class="order-header-item">
+  <view class="order-header-item" catchtap="menuClick" data-idx="6">
     <span class="span-item-active">
       逾期中
     </span>

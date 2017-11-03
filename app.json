@@ -14,7 +14,11 @@
     "pages/order/dzf/dzf",
     "pages/order/syz/syz",
     "pages/order/yqz/yqz",
-    "pages/scroce/scroce"
+    "pages/order/relet/relet",
+    "pages/order/exchange/exchange",
+    "pages/order/confirm/confirm",
+    "pages/scroce/scroce",
+    "pages/comment/edit/edit"
   ],
   "tabBar": {
     "color": "#414141",

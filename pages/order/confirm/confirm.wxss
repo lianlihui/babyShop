@@ -1,59 +1,67 @@
-.order-list{
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-}
-/**======待支付样式======**/
-.order-list-item-dzf{
+.order{
   width:100%;
-  background: #ffffff;
+  height: 100%;
+  background: #f4f4f4;
 }
-.order-list-item-dzf-head{
-  padding: 0rpx 27rpx;
-  font-size: 36rpx;
+.address-wrap{
+  width: 100%;
   position: relative;
-  height: 90rpx;
-  line-height: 90rpx;
-  border-bottom: 1rpx #ebebeb solid;
+  padding: 20rpx 25rpx;
+  background:#fff;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  display:-webkit-box;
 }
-.order-list-item-dzf-head .orderno-tag{
-  color: #7b7b7b;
+.address-left{
+  width:34rpx;
+  height:75rpx;
+  margin-right:30rpx;
+  overflow:hidden;
+  background:#fff;
+}
+.address-icon{
+  width: 34rpx;
+  height: 46rpx;
+  margin-top: 30rpx;
   display: inline-block;
-  margin-left: 45rpx;
+  vertical-align: middle;
 }
-.order-list-item-dzf-head .money{
-  color: #7b7b7b;
+.address-right{
+  position: relative;
+  -webkit-box-flex: 1.0;
+}
+.address-accept{
+  font-size: 36rpx;
+  color: #414141;
+  margin-bottom: 10rpx;
+  position: relative;
+}
+.address-name{
+  display: inline-block;
+}
+.address-phone{
   display: inline-block;
   position: absolute;
-  right: 27rpx;
+  right: 0rpx;
+}
+.address-info{
+  display: inline-block;
+  line-height: 1.3;
+  font-size: 28rpx;
+  color: #414141;
+}
+.order-wrap{
+  margin-top: 25rpx;
+  margin-bottom: 111rpx;
 }
 .order-list-item-dzf-bd{
-  padding:25rpx 27rpx 0rpx;
+  padding:20rpx 27rpx;
   background:#fff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-box;
-  border-bottom: 1rpx #ebebeb solid;
+  border-top: 1rpx #ebebeb solid;
   position: relative;
-}
-.order-list-item-dzf-bd .item-edit{
-  width: 40rpx;
-  height: 41rpx;
-  position: absolute;
-  top: 40rpx;
-  right: 27rpx;
-}
-.order-list-item-dzf-bd .item-left-icon{
-  width:32rpx;
-  height:215rpx;
-  margin-right:20rpx;
-  overflow:hidden;
-}
-.orderno-icon-45top{
-  margin-top:-45rpx;
-}
-.orderno-icon-30top{
-  margin-top: -30rpx;
 }
 .order-list-item-dzf-bd .item-left{
   width:215rpx;
@@ -71,33 +79,51 @@
   -webkit-box-flex: 1.0;
 }
 .order-list-item-dzf-bd .item-title{
-  padding-right: 44rpx;
   line-height: 1.3;
   color: #414141;
   font-size: 28rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 25rpx;
   display: block;
 }
+
 .order-list-item-dzf-bd .item-day{
   color: #7b7b7b;
   font-size: 28rpx;
   margin-bottom: 20rpx;
   display: block;
 }
-.order-list-item-dzf-bd .item-spec{
-  color: #7b7b7b;
-  font-size: 28rpx;
-  margin-bottom: 20rpx;
+.order-list-item-dzf-bd .item-price{
+  color: #ff4965;
+  font-size: 36rpx;
   display: block;
 }
-.order-list-item-dzf-bd .item-spec-one{
-  width: 270rpx;
+
+.order-list-item-foot{
+  border-top: 1rpx #ebebeb solid;
+  padding: 0rpx 27rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  position: relative;
+  background: #ffffff;
+}
+.order-list-item-foot .left-tag{
+  color: #7b7b7b;
   display: inline-block;
+  margin-left: 45rpx;
+}
+.order-list-item-foot .right-tag{
+  color: #7b7b7b;
+  display: inline-block;
+  position: absolute;
+  right: 27rpx;
 }
 .item-price-red{
-  color: #ff4965 !important;
+  color: #f2506d !important;
 }
-
+.item-nobordertop{
+  border-top:none !important;
+}
 .orderno-icon{
   width: 32rpx;
   height: 60rpx;
@@ -105,31 +131,18 @@
   background-size: 30rpx;
   position: absolute;
   top: 51%;
+  margin-top: -30rpx;
 }
 .orderno-icon.active {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAb1BMVEUAAAA8zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv/////5/v/J8v9Az//h+P+t6/+M4v9t2v9d1v9J0v/w+/+b5v9V1f/c9/++7/953f9z3P/z/P/C8P+27f+U5P9R0/+oSHXLAAAADnRSTlMA6pQE+VdMEMWA7K3HgaFmAEAAAAEDSURBVCjPhZPZkoQgDEVBFMHuBsRde5nt/79xiAKVxpniPkioU5ELSUgU44WgZUlFwRlJVUuqohpZv9MKIBKtEGSFOqlgkV7UH7oEHnLTfH+u+kfV7pmqRGvfDrs/8C9Tuhmtv/ZIOl+n5IfW+vO4HiM8paN2Wo+Yn2zbu6OdDeZFggdIfvqNIMnR8+JoG9+WlO+4d9RMYVd6vE3jDOtkHO5VxP7nrTHLYN3q6DJHTL21sQO/ryf4GlSUCBf7MUDgc7e4KtxHU6sPjcgoJ6wJ8asD+kCUMlwS+/2hzYawTAo69ytOrjPtkGmmTCvmGzk/BuD/1qAhutURoBG8wghe8Qj+Agb0J9qckcweAAAAAElFTkSuQmCC) no-repeat right center;
   background-size: 30rpx;
 }
-.item-noborderbottom{
-  border-bottom:none !important;
-}
-.order-list-item-dzf-head .orderno-jf{
-  font-size: 28rpx;
-  color: #414141;
-  display: inline-block;
-  margin-left: 45rpx;
-}
-.order-list-item-dzf-head .orderno-jfmoney{
-  font-size: 28rpx;
-  color: #ff4965;
-  display: inline-block;
-  margin-left: 65rpx;
-}
+
 .order-remark{
+  margin-top:20rpx; 
   width:100%;
   padding-top:20rpx;
   background: #ffffff;
-  margin-bottom: 111rpx;
 }
 .order-remark-textarea{
   height: 172rpx;
@@ -140,10 +153,9 @@
   border: 1rpx #d6d6d6 solid;
   padding:10rpx;
 }
-
 .order-list-item-dzf-foot{
   height: 110rpx;
-  line-height: 110rpx;
+  padding:0rpx 27rpx;
   position: fixed;
   bottom: 0rpx;
   width: 100%;
@@ -152,26 +164,23 @@
   z-index:1;
   background: #ffffff;
 }
-.foot-hj{
-  display: inline-block;
-  margin-left: 27rpx;
-  font-size: 36rpx;
-  color: #414141;
-}
-.foot-je{
-  display: inline-block;
-  margin-left: 18rpx;
-  font-size: 36rpx;
-  color: #ff4965;
-}
-.btn-qx{
-  width:215rpx;
-  line-height: 110rpx;
-  height: 110rpx;
-  background: #ff4965;
-  font-size: 42rpx;
-  color: #ffffff;
+.all-btn-com{
+  margin-top:28rpx;
+  width:210rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  background: #ffffff;
+  font-size: 30rpx;
   display: block;
   float: right;
-  border-radius: 0rpx;
+  border-radius: 100rpx;
+}
+.btn-qx{
+  color: #7b7b7b;
+  border: 1px #7b7b7b solid;
+  margin-right: 45rpx;
+}
+.btn-zf{
+  color: #f2506d;
+  border: 1px #f2506d solid;
 }
