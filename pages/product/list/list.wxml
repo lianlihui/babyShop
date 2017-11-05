@@ -11,25 +11,11 @@
 
   <!-- 产品列表 -->
   <view class="product-list">
-    <view class="product-list-item">
-      <navigator url="">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季</view>
-          <view class="product-price"><span>¥88</span><view class="del-price">¥188<span></span></view></view>
-        </navigator>
-    </view>
-    <view class="product-list-item">
-      <navigator url="">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季</view>
-          <view class="product-price"><span>¥88</span><view class="del-price">¥188<span></span></view></view>
-        </navigator>
-    </view>
-    <view class="product-list-item">
-      <navigator url="">
-        <image src="/images/index/list1.jpg" mode="widthFix"/>
-        <view class="product-desc">母婴用品初生宝宝秋冬季</view>
-        <view class="product-price"><span>¥88</span><i>/天</i></view>
+    <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1">
+      <navigator url="/pages/product/info/info">
+        <image src="{{imageRootPath}}{{item1.pic1}}" mode="widthFix"/>
+        <view class="product-desc">{{item1.name}}</view>
+        <view class="product-price"><span>¥{{item1.price}}</span><view class="del-price">押金：¥{{item1.rent_cost}}</view></view>
       </navigator>
     </view>
   </view>
