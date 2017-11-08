@@ -1,8 +1,8 @@
-<!--index.wxml-->
+<!--index.wxml -->
 <view class="container">
 
   <!--start banner -->
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+  <swiper indicator-dots="true" autoplay="true" interval="1000" duration="500" indicator-color="#b2b2b2" indicator-active-color="#000000">
     <block wx:for="{{imgUrls}}" wx:key="unique">
       <navigator url="{{item.url}}">
       <swiper-item>
@@ -26,12 +26,10 @@
 
      <!-- 为你推荐列表 -->
     <view class="product-list">
-      <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1">
-        <navigator url="/pages/product/info/info?id=130">
-          <image src="{{imageRootPath}}{{item1.pic1}}" mode="widthFix"/>
-          <view class="product-desc">{{item1.name}}</view>
-          <view class="product-price"><span>¥{{item1.price}}</span><view class="del-price">押金：¥{{item1.rent_cost}}</view></view>
-        </navigator>
+      <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
+        <image src="{{imageRootPath}}{{item1.pic1}}" mode="widthFix"/>
+        <view class="product-desc">{{item1.name}}</view>
+        <view class="product-price"><span>¥{{item1.price}}</span><view class="del-price">押金：¥{{item1.rent_cost}}</view></view>
       </view>
     </view>
   </view>

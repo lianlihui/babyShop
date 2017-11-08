@@ -1,74 +1,69 @@
 <view class="order">
-  <!--地址信息-->
-  <view class="address-wrap">
+  <!-- 地址信息 -->
+  <view class="address-wrap" wx:if="{{addressbean != null}}">
     <view class="address-left">
       <image class="address-icon" src="/images/order/addr-icon.png"></image>
     </view>
     
     <view class="address-right">
       <view class="address-accept">
-        <span class="address-name">收货人：莫小牧</span>
-        <span class="address-phone">13400000000</span>
+        <span class="address-name">收货人：{{addressbean.ordername}}</span>
+        <span class="address-phone">{{addressbean.mobile}}</span>
       </view>
       <view class="address-info">
-        收货人地址：广东省广东省广东省广东省广东省广东省广东省广东省广东省广东省广东省
+        收货人地址：{{addressbean.province}}{{addressbean.city}}{{addressbean.area}}{{addressbean.detailaddress}}
       </view>
     </view>
+  </view>
+  <view wx:else class="address-btn">
+      <button class="address-btn-impl" bindtap="addAddress">
+        <span>+</span>添加寄货地址
+      </button>
   </view>
 
   <!--订单详情-->
   <view class="order-wrap">
-    <view class="order-list-item-dzf-bd">
-      <view class="item-left">
-        <image class="item-img" src="/images/relet/good.png"></image>
-      </view>
-      <view class="item-right">
-        <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-        <text class="item-day">押金：¥20.00</text>
-        <text class="item-day">数量：2个</text>
-        <text class="item-day">当前单价：¥20/天</text>
-        <text class="item-day">租赁时长：15天</text>
-        <text class="item-price">¥96.00</text>
+
+    <view wx:for="{{warelist}}" wx:for-index="idx">
+      <view class="order-list-item-dzf-bd">
+        <view class="item-left">
+          <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
+        </view>
+        <view class="item-right">
+          <text class="item-title">{{item.name}}</text>
+          <text class="item-day">押金：¥{{item.rent_cost}}</text>
+          <text class="item-day">数量：{{item.num}}个</text>
+          <text class="item-day">当前单价：¥{{item.price}}/天</text>
+          <text class="item-day">租赁时长：{{item.rent_date}}天</text>
+          <text class="item-price">¥{{item.total_money}}</text>
+        </view>
       </view>
     </view>
 
-    <view class="order-list-item-dzf-bd">
-      <view class="item-left">
-        <image class="item-img" src="/images/relet/good.png"></image>
-      </view>
-      <view class="item-right">
-        <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-        <text class="item-day">押金：¥20.00</text>
-        <text class="item-day">数量：2个</text>
-        <text class="item-day">当前单价：¥20/天</text>
-        <text class="item-day">租赁时长：15天</text>
-        <text class="item-price">¥96.00</text>
-      </view>
-    </view>
-    
     <view class="order-list-item-foot">
-      <view class="orderno-icon active"></view>
-      <span class="left-tag">积分抵扣金额</span>
-      <span class="right-tag item-price-red">¥10</span>
+      <view wx:if="{{isPoint == 0}}" class="orderno-icon" bindtap="pointChange"></view>
+      <view wx:if="{{isPoint == 1}}" class="orderno-icon active" bindtap="pointChange"></view>
+      <span class="left-tag" bindtap="pointChange">积分抵扣金额</span>
+      <span class="right-tag item-price-red">{{userPoint}}</span>
     </view>
 
     <view class="order-list-item-foot item-nobordertop">
       <span class="left-tag">运费</span>
-      <span class="right-tag">¥10</span>
+      <span class="right-tag">¥{{freight}}</span>
     </view>
     
     <view class="order-list-item-foot">
       <span class="left-tag">实付金额</span>
-      <span class="right-tag item-price-red">¥10</span>
+      <span class="right-tag item-price-red">¥{{totalmoney}}</span>
     </view>
 
     <view class="order-remark">
-      <textarea class="order-remark-textarea" placeholder="备注信息"></textarea>
+      <textarea class="order-remark-textarea" placeholder="备注信息" bindinput="bindRemarksChange"></textarea>
     </view>
   </view>
 
   <view class="order-list-item-dzf-foot">
-    <button class="all-btn-com btn-zf">
+    <button class="all-btn-com btn-zf" bindtap="createOrder">
       去支付
     </button>
     <button class="all-btn-com btn-qx">

@@ -1,47 +1,74 @@
 <view class="address">
-
+<form bindsubmit="formSubmit" bindreset="formReset">
   <view class="addrss-edit">
-  
     <view class="addrss-edit-item">
       <view class="addrss-edit-item-impl">
         <text class="addrss-edit-item-text">收货人</text>
-        <input placeholder="请输入收货人姓名" name="ordername" class="addrss-edit-item-inp"/>        
+        <input placeholder="请输入收货人姓名" name="ordername" class="addrss-edit-item-inp" value="{{ordername}}"/>        
       </view>
     </view>
 
     <view class="addrss-edit-item">
       <view class="addrss-edit-item-impl">
         <text class="addrss-edit-item-text">联系方式</text>
-        <input placeholder="请输入收货人手机号码" name="mobile" class="addrss-edit-item-inp" maxlength="11"/>        
+        <input placeholder="请输入收货人手机号码" name="mobile" class="addrss-edit-item-inp" maxlength="11" value="{{mobile}}"/>        
       </view>
     </view>
 
     <view class="addrss-edit-item">
       <view class="addrss-edit-item-impl">
         <text class="addrss-edit-item-text">省市地区</text>
-        <input placeholder="请点击选择送货区域" name="ordername" class="addrss-edit-item-inp"/> 
+        <picker class="addrss-edit-item-area" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{areaIndex}}" range="{{areaArray}}" range-key="name">
+          <view class="picker">
+            {{address}}
+          </view>
+        </picker>  
       </view>
     </view>
 
     <view class="addrss-edit-item">
       <view class="addrss-edit-item-impl">
         <text class="addrss-edit-item-xtext">详细地址</text>
-        <textarea name="detailaddress" placeholder="请输入详细地址(5-120个字）" auto-height class="addrss-edit-item-textarea"/>        
+        <textarea name="detailaddress" placeholder="请输入详细地址(5-120个字）" auto-height class="addrss-edit-item-textarea" value="{{detailaddress}}"/>        
       </view>
     </view>
 
     <view class="addrss-edit-item">
       <view class="addrss-edit-item-implm">
-        <text class="addrss-edit-item-mtext">设置默认地址</text>
-        <view class="addrss-edit-item-icon" bindtap="defaultChange"></view>
+        <text class="addrss-edit-item-mtext" bindtap="defaultChange">设置默认地址</text>
+        <view wx:if="{{isdefault == 0}}" class="addrss-edit-item-icon" bindtap="defaultChange"></view>
+        <view wx:if="{{isdefault == 1}}" class="addrss-edit-item-icon active" bindtap="defaultChange"></view>
       </view>
     </view>
 
   </view>
 
   <view class="address-add-btn">
-      <button class="address-add-impl">
+      <button class="address-add-impl" formType="submit">
         保存
       </button>
+      <button class="addrss-edit-delete" wx:if="{{ddShow}}" bindtap="deleteAddress">删除</button>
   </view>
+  </form>
+
+  <view wx:if="{{isShow}}" class="picker-view-wrap" bindtap="closeModal" data-modal="selectModal">
+    <view wx:if="{{isShow}}" class="picker-view">
+      <view class="picker-view-header">
+        <view class="picker-view-header-qx" bindtap="closeModal" data-modal="selectModal">取消</view>
+        <view class="picker-view-header-qd" bindtap="qdSelArea">确定</view>
+      </view>
+      <picker-view class="picker-view-impl" indicator-style="height: 40px;" value="{{value}}" bindchange="bindChangeArea">
+        <picker-view-column>
+          <view wx:for="{{provinces}}" class="addr-item" style="line-height: 40px;">{{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{cities}}" class="addr-item" style="line-height: 40px;">{{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column wx:if="{{showDistrict}}">
+          <view wx:for="{{counties}}" class="addr-item" style="line-height: 40px;">{{item.name}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+
 </view>

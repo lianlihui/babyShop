@@ -184,3 +184,20 @@
   color: #f2506d;
   border: 1px #f2506d solid;
 }
+/**添加按钮样式**/
+.address-btn{
+  width: 100%;
+  border-bottom: 1rpx #ebebeb solid;
+  padding:25rpx 0rpx;
+  background: #ffffff;
+}
+.address-btn-impl{
+  width:586rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ffffff;
+  font-size: 42rpx;
+  color: #ff4965;
+  border: 1rpx #ff4965 solid;
+  border-radius: 100rpx;
+}

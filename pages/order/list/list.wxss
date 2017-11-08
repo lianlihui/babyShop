@@ -289,3 +289,9 @@
 .item-marginbottom{
   margin-bottom: 111rpx;
 }
+.loading-status {
+  margin: 20rpx auto;
+  text-align: center;
+  color: #333;
+  font-size: 24rpx;
+}
