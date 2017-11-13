@@ -20,14 +20,14 @@
           </view>
           <view class="item-right" bindtap="updateCart" data-index="{{index}}">
             <text class="item-title">{{item.name}}</text>
-            <text class="item-day">租用天数：{{item.rent_date}}天</text>
+            <text class="item-day">租用月数：{{item.rent_date}}月</text>
             <view class="item-spec">
               <span class="item-spec-one">规格：{{item.sizename}}</span>
               <span>颜色：{{item.color}}</span>
             </view>
             <view class="item-spec">
-              <span class="item-spec-one"><span class="item-price-red">¥{{item.price}}</span>/天</span>
-              <span>数量：2个</span>
+              <span class="item-spec-one"><span class="item-price-red">¥{{item.price}}</span>/月</span>
+              <span>数量：{{item.number}}个</span>
             </view>
           </view>
         </view>
@@ -38,7 +38,7 @@
 
 <view class="order-list-item-dzf-foot">
   <span class="foot-hj">合计:</span>
-  <span class="foot-je">¥1196.00</span>
+  <span class="foot-je">¥{{totalMoney}}</span>
   <button class="btn-qx" bindtap="gotoConfirm">
     结算
   </button>
@@ -58,7 +58,11 @@
         <span class="modal-item-inp">{{updSizeName}}</span>
       </view>
       <view class="modal-item">
-        <span class="modal-item-desc">租用天数:</span>
+        <span class="modal-item-desc">库存:</span>
+        <span class="modal-item-inp">{{updKuncun}}</span>
+      </view>
+      <view class="modal-item">
+        <span class="modal-item-desc">租用月数:</span>
         <span class="modal-item-inp"><input class="inp" value="{{updRentDate}}" bindinput="bindRentdatesChange"></input></span>
       </view>
       <view class="modal-item">

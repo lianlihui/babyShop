@@ -30,6 +30,21 @@ Page({
       failCallback: function(res) {
       }
     });
+  },
+
+  //我的订单
+  gotoMyOrder:function(){
+    wx.redirectTo({ url: "/pages/order/list/list" });
+  },
+
+  //我的地址
+  gotoMyAddress:function(){
+    wx.redirectTo({ url: "/pages/address/list/list" });
+  },
+
+  //我的租用
+  gotoMyRent:function(){
+    wx.redirectTo({ url: "/pages/rent/rent" });
   }
 
 });

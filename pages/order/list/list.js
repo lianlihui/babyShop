@@ -8,16 +8,14 @@ Page({
   data: {
     allStatus:true,  //全部
     dzfStatus:false,  //待支付
-    dfhStatus:false,  //待发货
     dshStatus:false,  //待收货
-    syzStatus:false,  //使用中
-    yqzStatus:false,   //逾期中
+    ywcStatus:false,  //已完成
+    yqxStatus:false,   //已取消
     allCls:'span-item-active',
     dzfCls: 'span-item',
-    dfhCls: 'span-item',
     dshCls: 'span-item',
-    syzCls: 'span-item',
-    yqzCls: 'span-item',
+    ywcCls: 'span-item',
+    yqxCls: 'span-item',
     loading:true,
     noData:false,
     imageRootPath:'',
@@ -65,6 +63,7 @@ Page({
           });
           return false;
         }
+        console.log(list);
         if (self.data.orderlist.length == 0) {
           list = res.data.orderlist;
         } else {
@@ -72,11 +71,10 @@ Page({
           var alist = res.data.orderlist;
           list = self.data.orderlist.concat(alist);
         }
-
+        console.log(list);
         self.setData({
           imageRootPath: res.data.imageRootPath,
-          orderlist: list,
-          loading: false  //隐藏加载
+          orderlist: list
         });
 
         if (res.data.orderlist.length < 10) {
@@ -101,100 +99,75 @@ Page({
       self.setData({
         allStatus: true,  //全部
         dzfStatus: false,  //待支付
-        dfhStatus: false,  //待发货
         dshStatus: false,  //待收货
-        syzStatus: false,  //使用中
-        yqzStatus: false,   //逾期中
+        ywcStatus: false,  //已完成
+        yqxStatus: false,   //已取消
         allCls: 'span-item-active',
         dzfCls: 'span-item',
-        dfhCls: 'span-item',
         dshCls: 'span-item',
-        syzCls: 'span-item',
-        yqzCls: 'span-item'
+        ywcCls: 'span-item',
+        yqxCls: 'span-item',
       });
       self.data.status = 0;
     } else if (idx == 2) {
       self.setData({
         allStatus: false,  //全部
         dzfStatus: true,  //待支付
-        dfhStatus: false,  //待发货
         dshStatus: false,  //待收货
-        syzStatus: false,  //使用中
-        yqzStatus: false,   //逾期中
+        ywcStatus: false,  //已完成
+        yqxStatus: false,   //已取消
         allCls: 'span-item',
         dzfCls: 'span-item-active',
-        dfhCls: 'span-item',
         dshCls: 'span-item',
-        syzCls: 'span-item',
-        yqzCls: 'span-item'
+        ywcCls: 'span-item',
+        yqxCls: 'span-item',
       });
       self.data.status = 1;
     } else if (idx == 3) {
       self.setData({
         allStatus: false,  //全部
         dzfStatus: false,  //待支付
-        dfhStatus: true,  //待发货
-        dshStatus: false,  //待收货
-        syzStatus: false,  //使用中
-        yqzStatus: false,   //逾期中
+        dshStatus: true,  //待收货
+        ywcStatus: false,  //已完成
+        yqxStatus: false,   //已取消
         allCls: 'span-item',
         dzfCls: 'span-item',
-        dfhCls: 'span-item-active',
-        dshCls: 'span-item',
-        syzCls: 'span-item',
-        yqzCls: 'span-item'
+        dshCls: 'span-item-active',
+        ywcCls: 'span-item',
+        yqxCls: 'span-item',
       });
-      self.data.status = 2;
+      self.data.status = '2,3,5';
     } else if (idx == 4) {
       self.setData({
         allStatus: false,  //全部
         dzfStatus: false,  //待支付
-        dfhStatus: false,  //待发货
-        dshStatus: true,  //待收货
-        syzStatus: false,  //使用中
-        yqzStatus: false,   //逾期中
+        dshStatus: false,  //待收货
+        ywcStatus: true,  //已完成
+        yqxStatus: false,   //已取消
         allCls: 'span-item',
         dzfCls: 'span-item',
-        dfhCls: 'span-item',
-        dshCls: 'span-item-active',
-        syzCls: 'span-item',
-        yqzCls: 'span-item'
+        dshCls: 'span-item',
+        ywcCls: 'span-item-active',
+        yqxCls: 'span-item',
       });
-      self.data.status = 3;
+      self.data.status = 4;
     } else if (idx == 5) {
       self.setData({
         allStatus: false,  //全部
         dzfStatus: false,  //待支付
-        dfhStatus: false,  //待发货
         dshStatus: false,  //待收货
-        syzStatus: true,  //使用中
-        yqzStatus: false,   //逾期中
+        ywcStatus: false,  //已完成
+        yqxStatus: true,   //已取消
         allCls: 'span-item',
         dzfCls: 'span-item',
-        dfhCls: 'span-item',
         dshCls: 'span-item',
-        syzCls: 'span-item-active',
-        yqzCls: 'span-item'
+        ywcCls: 'span-item',
+        yqxCls: 'span-item-active',
       });
-    } else if (idx == 6) {
-      self.setData({
-        allStatus: false,  //全部
-        dzfStatus: false,  //待支付
-        dfhStatus: false,  //待发货
-        dshStatus: false,  //待收货
-        syzStatus: false,  //使用中
-        yqzStatus: true,   //逾期中
-        allCls: 'span-item',
-        dzfCls: 'span-item',
-        dfhCls: 'span-item',
-        dshCls: 'span-item',
-        syzCls: 'span-item',
-        yqzCls: 'span-item-active'
-      });
+      self.data.status = 7;
     }
     self.setData({
       page: 1,
-      loading: true,
       orderlist:[],
       loading: true,
       noData: false,
@@ -204,17 +177,20 @@ Page({
 
   //滚动分页
   onReachBottom: function () {
+    console.log('loading:' + this.data.loading);
     //可以分页
     if (this.data.loading){
       var page = this.data.page + 1;
       if (this.data.allStatus) {
-        self.data.status = 0;
+        this.data.status = 0;
       } else if (this.data.dzfStatus) {
-        self.data.status = 1;
-      } else if (this.data.dfhStatus) {
-        self.data.status = 2;
+        this.data.status = 1;
       } else if (this.data.dshStatus) {
-        self.data.status = 3;
+        this.data.status = 2,3,5;
+      } else if (this.data.ywcStatus) {
+        this.data.status = 4;
+      } else if (this.data.yqxStatus) {
+        this.data.status = 7;
       } 
       this.setData({
         page: page,
@@ -225,10 +201,56 @@ Page({
   },
 
   //订单详情
-  orderDetail:function(){
+  orderDetail: function (event){
     var id = event.currentTarget.dataset.id;
     wx.redirectTo({
-      url: '../detail/detail?id=' + id
+       url: '../detail/detail?id=' + id
+    })
+  },
+
+  //订单支付
+  payOrder:function(e){
+    var id = e.currentTarget.dataset.id;
+    console.log('pay:'+id);
+  },
+
+  //取消订单
+  cancelOrder:function(e){
+    var id = e.currentTarget.dataset.id;
+    var self = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定取消该订单？',
+      success: function (res) {
+        if (res.confirm) {
+          var postData = {
+            token: app.globalData.token,
+            id: id
+          };
+          app.ajax({
+            url: app.globalData.serviceUrl + 'mordercancel.htm',
+            data: postData,
+            method: 'POST',
+            successCallback: function (res) {
+              if (res.code == 0) {
+                var orderlist = self.data.orderlist;
+                for (var i = 0; i < orderlist.length;i++){
+                  if (orderlist[i].id==id){
+                    orderlist[i].status=7;
+                    break;
+                  }
+                }
+                self.setData({
+                  orderlist: orderlist
+                });
+              }
+            },
+            failCallback: function (res) {
+              console.log(res);
+            }
+          });
+        }
+      }
     })
   }
 })

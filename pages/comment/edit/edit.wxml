@@ -11,13 +11,13 @@
         </view>
         <view class="item-right">
           <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">租用天数：15天</text>
+          <text class="item-day">租用月数：15月</text>
           <view class="item-spec">
             <span class="item-spec-one">规格：50x60cm</span>
             <span>颜色：红色</span>
           </view>
           <view class="item-spec">
-            <span class="item-spec-one">价格：10元/天</span>
+            <span class="item-spec-one">价格：10元/月</span>
             <span>数量：2个</span>
           </view>
         </view>

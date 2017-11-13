@@ -6,6 +6,7 @@
     "pages/address/list/list",
     "pages/product/list/list",
     "pages/product/info/info",
+    "pages/product/search/search",
     "pages/cart/cart",
     "pages/order/list/list",
     "pages/order/detail/detail",
@@ -18,6 +19,7 @@
     "pages/order/exchange/exchange",
     "pages/order/confirm/confirm",
     "pages/scroce/scroce",
+    "pages/rent/rent",
     "pages/comment/edit/edit"
   ],
   "tabBar": {

@@ -13,8 +13,10 @@ Page({
     updId:'',  //修改id
     updName:'',  //修改的商品
     updSizeName:'',  //修改的规格
-    updRentDate:0,  //修改的租赁天数
-    updNums:0  //修改的数量
+    updKuncun:0,  //修改的库存
+    updRentDate:0,  //修改的租赁月数
+    updNums:0,  //修改的数量
+    totalMoney:0   //总金额
   },
 
   onShow: function () {
@@ -59,11 +61,27 @@ Page({
             imageRootPath: res.data.imageRootPath,
             cartList: retList
           });
+
+          self.countTotalMoney();  //计算总金额
         }
       },
       failCallback: function (res) {
         console.log(res);
       }
+    });
+  },
+
+  //计算总金额
+  countTotalMoney:function(){
+    var cartList = this.data.cartList; 
+    var money=0;
+    for (var i = 0; i < cartList.length; i++) {
+      if (cartList[i].selected) {
+        money = money+cartList[i].total_money
+      }
+    }
+    this.setData({
+      totalMoney: money
     });
   },
 
@@ -88,6 +106,7 @@ Page({
     this.setData({
       selectAllStatus: selectAllStatus
     });
+    this.countTotalMoney();  //计算总金额
   },
 
   //全选事件
@@ -103,6 +122,7 @@ Page({
       selectAllStatus: selectAllStatus,
       cartList: cartList
     });
+    this.countTotalMoney();  //计算总金额
   },
 
   //编辑修改
@@ -130,9 +150,10 @@ Page({
       modalSpecShow: true,
       updId: selCart.id,  //修改id
       updName: selCart.name,  //修改的商品
+      updKuncun: selCart.kuncun,  //修改的商品库存
       updSizeName: selCart.sizename,  //修改的规格
-      updRentDate: selCart.rent_date,  //修改的租赁天数
-      updNums: 0  //修改的数量
+      updRentDate: selCart.rent_date,  //修改的租赁月数
+      updNums: selCart.number  //修改的数量
     });
   },
 
@@ -145,9 +166,10 @@ Page({
       modalSpecShow: true,
       updId: selCart.id,  //修改id
       updName: selCart.name,  //修改的商品
+      updKuncun: selCart.kuncun,  //修改的商品库存
       updSizeName: selCart.sizename,  //修改的规格
-      updRentDate: selCart.rent_date,  //修改的租赁天数
-      updNums: 0  //修改的数量
+      updRentDate: selCart.rent_date,  //修改的租赁月数
+      updNums: selCart.number //修改的数量
     });
   },
 
@@ -158,7 +180,7 @@ Page({
     });
   },
 
-  //租用天数输入
+  //租用月数输入
   bindRentdatesChange: function (e) {
     this.setData({
       updRentDate: e.detail.value
@@ -175,12 +197,12 @@ Page({
   //提交修改
   confirmModal: function (e, modalName) {
     var self = this;
-    //租用天数
+    //租用月数
     var rentdates = self.data.updRentDate;
     if (/^[0-9]+$/.test(rentdates) && rentdates != 0) {
       rentdates = Number(rentdates)
     } else {
-      self.showMsg('请输入正确的租用天数');
+      self.showMsg('请输入正确的租用月数');
       return false;
     }
 
@@ -192,11 +214,11 @@ Page({
       self.showMsg('请输入正确的数量');
       return false;
     }
-    // var specKucun = self.data.specKucun;
-    // if (numbers > specKucun) {
-    //   self.showMsg('数量不能大于库存');
-    //   return false;
-    // }
+    var updKuncun = self.data.updKuncun;
+    if (numbers > updKuncun) {
+       self.showMsg('数量不能大于库存');
+       return false;
+    }
 
     var postData = {
       token: app.globalData.token,
@@ -210,17 +232,12 @@ Page({
       method: 'GET',
       successCallback: function (res) {
         if(res.code==0){
-          //修改成功，回显最新值
-          var cartList = self.data.cartList;
-          for (var i = 0; i < cartList.length; i++) {
-            if (cartList[i].id == self.data.updId){
-              cartList[i].rent_date = rentdates;
-            }
-          }
           self.setData({
             modalSpecShow: false,
-            cartList: cartList
+            cartList: []
           });
+          //修改成功，重新获取数据
+          self.getCartInfo();
         }
       }
     })
@@ -245,18 +262,12 @@ Page({
             method: 'POST',
             successCallback: function (res) {
               if (res.code == 0) {
-                //删除成功，从列表中移除
-                var cartList = self.data.cartList;
-                for (var i = 0; i < cartList.length; i++) {
-                  if (cartList[i].id == self.data.updId) {
-                    cartList.splice(i, 1);
-                    break;
-                  }
-                }
                 self.setData({
                   modalSpecShow: false,
-                  cartList: cartList
+                  cartList: []
                 });
+                //删除成功，从列表中移除
+                self.getCartInfo();
               }
             },
             failCallback: function (res) {
@@ -274,7 +285,7 @@ Page({
     var self=this;
     var wareids = '';  //下单物品id
     var waresizes='';  //下单规格id
-    var rentdates='';   //下单租赁天数
+    var rentdates='';   //下单租赁月数
     var numbers='';   //下单租赁数量
 
     var cartList = self.data.cartList;
@@ -285,7 +296,7 @@ Page({
         wareids = wareids+selCart.wareid+',';
         waresizes = waresizes + selCart.sizeid + ',';
         rentdates = rentdates + selCart.rent_date + ',';
-        numbers = numbers + '1' + ',';
+        numbers = numbers + selCart.number + ',';
         selNums = selNums + 1;
       }
     }

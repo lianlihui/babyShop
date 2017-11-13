@@ -1,5 +1,5 @@
 <view class="order">
-  <!-- 地址信息 -->
+  <!--  地址信息 -->
   <view class="address-wrap">
     <view class="address-left">
       <image class="address-icon" src="/images/order/addr-icon.png"></image>
@@ -50,7 +50,7 @@
         <view class="item-right">
           <text class="item-title">{{item.warename}}</text>
           <text class="item-day">数量：{{item.amount}}个</text>
-          <text class="item-day">租赁时长：{{item.rent_date}}天</text>
+          <text class="item-day">租赁时长：{{item.rent_date}}月</text>
           <text class="item-price">¥{{item.rent_cost}}</text>
         </view>
       </view>
@@ -69,11 +69,11 @@
       <span class="right-tag item-price-red">¥{{order.total_money}}</span>
     </view>
 
-    <view class="order-list-item-all-foot">
-      <button class="all-btn-com btn-zf">
+    <view class="order-list-item-all-foot" wx:if="{{order.status == 1}}">
+      <button class="all-btn-com btn-zf" data-id="{{order.id}}" bindtap="payOrder">
         去支付
       </button>
-      <button class="all-btn-com btn-qx">
+      <button class="all-btn-com btn-qx" data-id="{{order.id}}" bindtap="cancelOrder">
         取消订单
       </button>
     </view>

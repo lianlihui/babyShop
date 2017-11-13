@@ -38,10 +38,10 @@
         </view>
         <view class="item-right">
           <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">当前单价：¥100/天</text>
-          <text class="item-day">总时长：100天</text>
-          <text class="item-day">已租赁时长：80天</text>
-          <text class="item-day">续租天数：10天</text>
+          <text class="item-day">当前单价：¥100/月</text>
+          <text class="item-day">总时长：100月</text>
+          <text class="item-day">已租赁时长：80月</text>
+          <text class="item-day">续租月数：10月</text>
           <span class="item-day">续租价格：<span class="item-price-red">¥96.00</span></span>
         </view>
       </view>
@@ -53,10 +53,10 @@
         </view>  
         <view class="item-right">
           <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">当前单价：¥100/天</text>
-          <text class="item-day">总时长：100天</text>
-          <text class="item-day">已租赁时长：80天</text>
-          <text class="item-day">续租天数：10天</text>
+          <text class="item-day">当前单价：¥100/月</text>
+          <text class="item-day">总时长：100月</text>
+          <text class="item-day">已租赁时长：80月</text>
+          <text class="item-day">续租月数：10月</text>
           <span class="item-day">续租价格：<span class="item-price-red">¥96.00</span></span>
         </view>
       </view>

@@ -1,12 +1,14 @@
 <!--index.wxml-->
 <view class="container">
 
-  <!-- start 搜索 -->
+  <!-- start搜索 -->
   <view class="search-wrap">
-    <view class="search-box" bindtap="gotoSearch">
-        <image src="/images/index/search.png" class="search-img" mode="widthFix"/>
-        <span class="search-text">宝宝服饰</span>
+    <view class="search-box">
+        <input placeholder="搜索产品" class="search-box-inp" bindinput="bindNameChange"/>
     </view>
+    <span class="search-box-qd" wx:if="{{searchStatus}}" bindtap="searchProduct">搜索</span>
+    <span class="search-box-qd" wx:else bindtap="cancelSearch">取消</span>
+   
   </view>
 
   <!-- 产品列表 -->
@@ -17,8 +19,4 @@
         <view class="product-price"><span>¥{{item1.price}}</span><view class="del-price">押金：¥{{item1.rent_cost}}</view></view>
     </view>
   </view>
-
-  
-  <view wx:if="{{loading}}" class="loading-status">加载中...</view>
-  <view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>
 </view>

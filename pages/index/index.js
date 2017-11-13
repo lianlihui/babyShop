@@ -51,6 +51,13 @@ Page({
     wx.redirectTo({
       url: '/pages/product/info/info?id=' + id
     })
+  },
+
+  //跳转到搜索
+  gotoSearch:function(){
+    wx.redirectTo({
+      url: '/pages/product/search/search?source=index'
+    })
   }
 
 })

@@ -1,0 +1,55 @@
+<view class="order-list">
+  <view wx:for="{{rentlist}}" wx:key="unique1">
+    <view class="order-list-item-dzf">
+      <!-- <view class="order-list-item-dzf-head">
+        <view class="orderno-icon"></view>
+        <span class="orderno-tag item-mleft-45">物流号:</span>
+        <span class="orderno-imp">123456789</span>
+      </view> -->
+
+      <view class="order-list-item-dzf-bd">
+        <view class="item-left">
+          <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
+        </view>
+        <view class="item-right">
+          <text class="dfh-item-title">{{item.warename}}</text>
+          <text class="item-day">租用月数：{{item.rent_time}}月</text>
+          <text class="item-day">已租用月数：{{item.have_rent_time}}月</text>
+          <text class="item-day">剩余月数：{{item.left_rent_time}}月</text>
+        </view>
+      </view>
+
+      <view class="order-list-item-all-foot" wx:if="{{item.status == 1}}">
+        <button class="all-btn-com btn-zf" data-id="{{item.id}}" catchtap="payOrder">
+          换货
+        </button>
+        <button class="all-btn-com btn-qx" data-id="{{item.id}}" catchtap="cancelOrder">
+          退还
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="order-list-item-dzf-foot">
+  <view class="btn-icon"></view>
+  <text class="btn-txt">全选</text>
+  <navigator url="/pages/order/exchange/exchange"> 
+    <button class="syz-btn-com btn-hh">
+      换货
+    </button>
+  </navigator>
+  <button class="syz-btn-com btn-th">
+    退还
+  </button>
+  <navigator url="/pages/order/relet/relet"> 
+    <button class="syz-btn-com btn-xz">
+      续租
+    </button>
+  </navigator>
+</view> -->
+
+<view wx:if="{{loading}}" class="loading-status">加载中...</view>
+<view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>
+
+

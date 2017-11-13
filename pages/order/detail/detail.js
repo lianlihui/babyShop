@@ -23,7 +23,7 @@ Page({
     var id = options.id;
     var postData = {
       token: app.globalData.token,
-      id: 306
+      id: id
     };
     app.ajax({
       url: app.globalData.serviceUrl + 'morderdetail.htm',
@@ -41,5 +41,46 @@ Page({
         console.log(res);
       }
     });
+  },
+
+  //订单支付
+  payOrder: function (e) {
+    var id = e.currentTarget.dataset.id;
+    console.log('pay:' + id);
+  },
+
+  //取消订单
+  cancelOrder: function (e) {
+    var id = e.currentTarget.dataset.id;
+    var self = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定取消该订单？',
+      success: function (res) {
+        if (res.confirm) {
+          var postData = {
+            token: app.globalData.token,
+            id: id
+          };
+          app.ajax({
+            url: app.globalData.serviceUrl + 'mordercancel.htm',
+            data: postData,
+            method: 'POST',
+            successCallback: function (res) {
+              if (res.code == 0) {
+                var order = self.data.order;
+                order.status = 7;
+                self.setData({
+                  order: order
+                });
+              }
+            },
+            failCallback: function (res) {
+              console.log(res);
+            }
+          });
+        }
+      }
+    })
   }
 })

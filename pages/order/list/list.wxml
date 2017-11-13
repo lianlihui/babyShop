@@ -1,4 +1,4 @@
-<!--头部tab-->
+<!-- 头部tab -->
 <view class="order-header">
   <view class="order-header-item" catchtap="menuClick" data-idx="1">
     <span class="{{allCls}}">
@@ -11,23 +11,18 @@
     </span>
   </view>
   <view class="order-header-item" catchtap="menuClick" data-idx="3">
-    <span class="{{dfhCls}}">
-      待发货
-    </span>
-  </view>
-  <view class="order-header-item" catchtap="menuClick" data-idx="4">
     <span class="{{dshCls}}">
       待收货
     </span>
   </view>
-  <view class="order-header-item" catchtap="menuClick" data-idx="5">
-    <span class="{{syzCls}}">
-      使用中
+  <view class="order-header-item" catchtap="menuClick" data-idx="4">
+    <span class="{{ywcCls}}">
+      已完成
     </span>
   </view>
-  <view class="order-header-item" catchtap="menuClick" data-idx="6">
-    <span class="{{yqzCls}}">
-      逾期中
+  <view class="order-header-item" catchtap="menuClick" data-idx="5">
+    <span class="{{yqxCls}}">
+      已取消
     </span>
   </view>
 </view>
@@ -35,10 +30,8 @@
 <!--全部订单模块-->
 <view wx:if="{{allStatus}}">
   <view class="order-list">
-    <!--待支付-->
     <view wx:for="{{orderlist}}" wx:key="unique1">
       <view class="order-list-item-dzf" data-id="{{item.id}}" bindtap="orderDetail">
-        <navigator url="/pages/order/detail/detail">
         <view class="order-list-item-dzf-head">
           <span class="orderno-tag">订单号:</span>
           <span class="orderno-imp">{{item.orderno}}</span>
@@ -53,13 +46,13 @@
             </view>
             <view class="item-right">
               <text class="item-title">{{orderware.warename}}</text>
-              <text class="item-day">租用天数：{{orderware.rent_date}}天</text>
+              <text class="item-day">租用月数：{{orderware.rent_date}}月</text>
               <view class="item-spec">
-                <span class="item-spec-one">规格：50x60cm</span>
-                <span>颜色：红色</span>
+                <span class="item-spec-one">规格：{{orderware.sizename}}</span>
+                <span>颜色：{{orderware.color}}</span>
               </view>
               <view class="item-spec">
-                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/天</span>
+                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
               <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
@@ -78,139 +71,17 @@
           <span class="item-hj">合计:</span>
           <span class="item-num">共{{item.orderwarelist.length}}件商品</span>
         </view>
-        </navigator>
 
         <view class="order-list-item-all-foot" wx:if="{{item.status == 1}}">
-          <navigator url="/pages/order/confirm/confirm"> 
-            <button class="all-btn-com btn-zf">
-              去支付
-            </button>
-          </navigator>
-          <button class="all-btn-com btn-qx">
+          <button class="all-btn-com btn-zf" data-id="{{item.id}}" catchtap="payOrder">
+            去支付
+          </button>
+          <button class="all-btn-com btn-qx" data-id="{{item.id}}" catchtap="cancelOrder">
             取消订单
           </button>
         </view>
       </view>
     </view>
-
-    <!--<view class="order-list-item-dzf">
-      <view class="order-list-item-dzf-head">
-        <span class="orderno-tag">订单号:</span>
-        <span class="orderno-imp">123456789</span>
-        <span class="money">¥96.00</span>
-      </view>
-
-      <view class="order-list-item-dzf-bd">
-        <image src="/images/order/edit.png" class="item-edit"/>
-        <view class="item-left">
-          <image class="item-img" src="/images/order/good.png"></image>
-        </view>
-        <view class="item-right">
-          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">租用天数：15天</text>
-          <view class="item-spec">
-            <span class="item-spec-one">规格：50x60cm</span>
-            <span>颜色：红色</span>
-          </view>
-          <view class="item-spec">
-            <span class="item-spec-one">价格：10元/天</span>
-            <span>数量：2个</span>
-          </view>
-        </view>
-      </view>
-
-      <view class="order-list-item-dzf-bd">
-        <image src="/images/order/edit.png" class="item-edit"/>
-        <view class="item-left">
-          <image class="item-img" src="/images/order/good.png"></image>
-        </view>
-        <view class="item-right">
-          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">租用天数：15天</text>
-          <view class="item-spec">
-            <span class="item-spec-one">规格：50x60cm</span>
-            <span>颜色：红色</span>
-          </view>
-          <view class="item-spec">
-            <span class="item-spec-one">价格：10元/天</span>
-            <span>数量：2个</span>
-          </view>
-        </view>
-      </view>
-
-      <view class="order-list-item-dzf-money">
-        <span class="item-price">¥96.00</span>
-        <span class="item-hj">合计:</span>
-        <span class="item-num">共2件商品</span>
-      </view>
-
-      <view class="order-list-item-all-foot">
-        <button class="all-btn-com btn-zf">
-          去支付
-        </button>
-        <button class="all-btn-com btn-qx">
-          取消订单
-        </button>
-      </view>
-    </view>-->
-    
-    <!--待发货-->
-    <!--<view class="order-list-item-dzf">
-      <view class="order-list-item-dzf-head">
-        <span class="orderno-tag">订单号:</span>
-        <span class="orderno-imp">123456789</span>
-      </view>
-
-      <view class="order-list-item-dzf-bd">
-        <view class="item-left">
-          <image class="item-img" src="/images/order/good.png"></image>
-        </view>
-        <view class="item-right">
-          <text class="dfh-item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">租用天数：15天</text>
-          <view class="item-spec">
-            <span class="item-spec-one">规格：50x60cm</span>
-            <span>颜色：红色</span>
-          </view>
-          <view class="item-spec">
-            <span class="item-spec-one">价格：10元/天</span>
-            <span>数量：2个</span>
-          </view>
-        </view>
-      </view>
-
-      <view class="order-list-item-dzf-bd">
-        <view class="item-left">
-          <image class="item-img" src="/images/order/good.png"></image>
-        </view>
-        <view class="item-right">
-          <text class="dfh-item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">租用天数：15天</text>
-          <view class="item-spec">
-            <span class="item-spec-one">规格：50x60cm</span>
-            <span>颜色：红色</span>
-          </view>
-          <view class="item-spec">
-            <span class="item-spec-one">价格：10元/天</span>
-            <span>数量：2个</span>
-          </view>
-        </view>
-      </view>
-
-      <view class="order-list-item-dzf-money">
-        <span class="item-price">¥96.00</span>
-        <span class="item-hj">合计:</span>
-        <span class="dfh-item-price">¥96.00</span>
-        <span class="item-hj">运费:</span>
-        <span class="item-num">共2件商品</span>
-      </view>
-
-      <view class="order-list-item-all-foot">
-        <button class="all-btn-com btn-txfh">
-          提醒发货
-        </button>
-      </view>
-    </view>-->
   </view>
 </view>
 
@@ -233,13 +104,13 @@
             </view>
             <view class="item-right">
               <text class="item-title">{{orderware.warename}}</text>
-              <text class="item-day">租用天数：{{orderware.rent_date}}天</text>
+              <text class="item-day">租用月数：{{orderware.rent_date}}月</text>
               <view class="item-spec">
                 <span class="item-spec-one">规格：50x60cm</span>
                 <span>颜色：红色</span>
               </view>
               <view class="item-spec">
-                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/天</span>
+                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
             </view>
@@ -265,60 +136,9 @@
   </view>
 </view>
 
-<!--待发货订单模块-->
-<view wx:if="{{dfhStatus}}">
-  <view class="order-list">
-
-    <view wx:for="{{orderlist}}" wx:key="unique1">
-      <view class="order-list-item-dzf">
-        <view class="order-list-item-dzf-head">
-          <span class="orderno-tag">订单号:</span>
-          <span class="orderno-imp">{{item.orderno}}</span>
-        </view>
-
-        <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
-          <view class="order-list-item-dzf-bd">
-            <view class="item-left">
-              <image class="item-img" src="{{imageRootPath}}{{orderware.pic}}"></image>
-            </view>
-            <view class="item-right">
-              <text class="dfh-item-title">{{orderware.warename}}</text>
-              <text class="item-day">租用天数：{{orderware.rent_date}}天</text>
-              <view class="item-spec">
-                <span class="item-spec-one">规格：50x60cm</span>
-                <span>颜色：红色</span>
-              </view>
-              <view class="item-spec">
-                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/天</span>
-                <span>数量：{{orderware.amount}}个</span>
-              </view>
-            </view>
-          </view>
-        </view>
-
-        <view class="order-list-item-dzf-money">
-          <span class="item-price item-price-red">¥{{item.total_money}}</span>
-          <span class="item-hj item-price-red">总付款:</span>
-          <span class="dfh-item-price">¥{{item.transportation_cost}}</span>
-          <span class="item-hj">运费:</span>
-          <span class="item-num">共{{item.orderwarelist.length}}件商品</span>
-        </view>
-
-        <view class="order-list-item-all-foot">
-          <button class="all-btn-com btn-zf">
-            提醒发货
-          </button>
-        </view>
-      </view>
-    </view>
-
-  </view>
-</view>
-
 <!--待收货订单模块-->
 <view wx:if="{{dshStatus}}">
   <view class="order-list">
-
     <view wx:for="{{orderlist}}" wx:key="unique1">
       <view class="order-list-item-dzf">
         <view class="order-list-item-dzf-head">
@@ -333,13 +153,13 @@
             </view>
             <view class="item-right">
               <text class="dfh-item-title">{{orderware.warename}}</text>
-              <text class="item-day">租用天数：{{orderware.rent_date}}天</text>
+              <text class="item-day">租用月数：{{orderware.rent_date}}月</text>
               <view class="item-spec">
                 <span class="item-spec-one">规格：50x60cm</span>
                 <span>颜色：红色</span>
               </view>
               <view class="item-spec">
-                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/天</span>
+                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
             </view>
@@ -368,8 +188,150 @@
   </view>
 </view>
 
+<!--已完成订单模块-->
+<view wx:if="{{ywcStatus}}">
+  <view class="order-list">
+    <view wx:for="{{orderlist}}" wx:key="unique1">
+      <view class="order-list-item-dzf" data-id="{{item.id}}" bindtap="orderDetail">
+        <view class="order-list-item-dzf-head">
+          <span class="orderno-tag">订单号:</span>
+          <span class="orderno-imp">{{item.orderno}}</span>
+          <span class="money">¥{{item.total_money}}</span>
+        </view>
+
+        <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
+          <view class="order-list-item-dzf-bd">
+            <image src="/images/order/edit.png" class="item-edit" wx:if="{{item.status == 1}}"/>
+            <view class="item-left">
+              <image class="item-img" src="{{imageRootPath}}{{orderware.pic}}"></image>
+            </view>
+            <view class="item-right">
+              <text class="item-title">{{orderware.warename}}</text>
+              <text class="item-day">租用月数：{{orderware.rent_date}}月</text>
+              <view class="item-spec">
+                <span class="item-spec-one">规格：{{orderware.sizename}}</span>
+                <span>颜色：{{orderware.color}}</span>
+              </view>
+              <view class="item-spec">
+                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/月</span>
+                <span>数量：{{orderware.amount}}个</span>
+              </view>
+              <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
+                <navigator url="/pages/comment/edit/edit"> 
+                  <button class="btn-pj">
+                    评价
+                  </button>
+                </navigator>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-list-item-dzf-money">
+          <span class="item-price">¥{{item.total_money}}</span>
+          <span class="item-hj">合计:</span>
+          <span class="item-num">共{{item.orderwarelist.length}}件商品</span>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--已取消订单模块-->
+<view wx:if="{{yqxStatus}}">
+  <view class="order-list">
+    <view wx:for="{{orderlist}}" wx:key="unique1">
+      <view class="order-list-item-dzf" data-id="{{item.id}}" bindtap="orderDetail">
+        <view class="order-list-item-dzf-head">
+          <span class="orderno-tag">订单号:</span>
+          <span class="orderno-imp">{{item.orderno}}</span>
+          <span class="money">¥{{item.total_money}}</span>
+        </view>
+
+        <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
+          <view class="order-list-item-dzf-bd">
+            <image src="/images/order/edit.png" class="item-edit" wx:if="{{item.status == 1}}"/>
+            <view class="item-left">
+              <image class="item-img" src="{{imageRootPath}}{{orderware.pic}}"></image>
+            </view>
+            <view class="item-right">
+              <text class="item-title">{{orderware.warename}}</text>
+              <text class="item-day">租用月数：{{orderware.rent_date}}月</text>
+              <view class="item-spec">
+                <span class="item-spec-one">规格：{{orderware.sizename}}</span>
+                <span>颜色：{{orderware.color}}</span>
+              </view>
+              <view class="item-spec">
+                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/月</span>
+                <span>数量：{{orderware.amount}}个</span>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-list-item-dzf-money">
+          <span class="item-price">¥{{item.total_money}}</span>
+          <span class="item-hj">合计:</span>
+          <span class="item-num">共{{item.orderwarelist.length}}件商品</span>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--待发货订单模块-->
+<!-- <view wx:if="{{dfhStatus}}">
+  <view class="order-list">
+
+    <view wx:for="{{orderlist}}" wx:key="unique1">
+      <view class="order-list-item-dzf">
+        <view class="order-list-item-dzf-head">
+          <span class="orderno-tag">订单号:</span>
+          <span class="orderno-imp">{{item.orderno}}</span>
+        </view>
+
+        <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
+          <view class="order-list-item-dzf-bd">
+            <view class="item-left">
+              <image class="item-img" src="{{imageRootPath}}{{orderware.pic}}"></image>
+            </view>
+            <view class="item-right">
+              <text class="dfh-item-title">{{orderware.warename}}</text>
+              <text class="item-day">租用月数：{{orderware.rent_date}}月</text>
+              <view class="item-spec">
+                <span class="item-spec-one">规格：50x60cm</span>
+                <span>颜色：红色</span>
+              </view>
+              <view class="item-spec">
+                <span class="item-spec-one">价格：{{orderware.rent_cost}}元/月</span>
+                <span>数量：{{orderware.amount}}个</span>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-list-item-dzf-money">
+          <span class="item-price item-price-red">¥{{item.total_money}}</span>
+          <span class="item-hj item-price-red">总付款:</span>
+          <span class="dfh-item-price">¥{{item.transportation_cost}}</span>
+          <span class="item-hj">运费:</span>
+          <span class="item-num">共{{item.orderwarelist.length}}件商品</span>
+        </view>
+
+        <view class="order-list-item-all-foot">
+          <button class="all-btn-com btn-zf">
+            提醒发货
+          </button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view> -->
+
 <!--使用中订单模块-->
-<view wx:if="{{syzStatus}}">
+<!-- <view wx:if="{{syzStatus}}">
   <view class="order-list">
     <view class="order-list-item-dzf item-nobottom">
       <view class="order-list-item-dzf-head">
@@ -384,8 +346,8 @@
         </view>
         <view class="item-right">
           <text class="dfh-item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">已租用天数：15天</text>
-          <text class="item-day">剩余天数：15天</text>
+          <text class="item-day">已租用月数：15月</text>
+          <text class="item-day">剩余月数：15月</text>
           <view class="item-spec item-relative item-height-60">
             <navigator url="/pages/comment/edit/edit"> 
               <button class="btn-pj">
@@ -410,8 +372,8 @@
         </view>
         <view class="item-right">
           <text class="dfh-item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">已租用天数：15天</text>
-          <text class="item-day">剩余天数：15天</text>
+          <text class="item-day">已租用月数：15月</text>
+          <text class="item-day">剩余月数：15月</text>
           <view class="item-spec item-spec item-relative item-height-60">
             <button class="btn-pj">
               评价
@@ -439,10 +401,10 @@
       </button>
     </navigator>
   </view>
-</view>
+</view> -->
 
 <!--逾期中订单模块-->
-<view wx:if="{{yqzStatus}}">
+<!-- <view wx:if="{{yqzStatus}}">
   <view class="order-list item-marginbottom">
     <view class="order-list-item-dzf item-nobottom">
       <view class="order-list-item-dzf-head">
@@ -457,9 +419,9 @@
         </view>
         <view class="item-right">
           <text class="dfh-item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">已租用天数：15天</text>
-          <text class="item-day">剩余天数：15天</text>
-          <span class="item-day">逾期：<span class="item-price-red">15天</span></span>
+          <text class="item-day">已租用月数：15月</text>
+          <text class="item-day">剩余月数：15月</text>
+          <span class="item-day">逾期：<span class="item-price-red">15月</span></span>
           <view class="item-spec item-relative item-height-60">
             <button class="btn-pj">
               评价
@@ -482,9 +444,9 @@
         </view>
         <view class="item-right">
           <text class="dfh-item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">已租用天数：15天</text>
-          <text class="item-day">剩余天数：15天</text>
-          <span class="item-day">逾期：<span class="item-price-red">15天</span></span>
+          <text class="item-day">已租用月数：15月</text>
+          <text class="item-day">剩余月数：15月</text>
+          <span class="item-day">逾期：<span class="item-price-red">15月</span></span>
           <view class="item-spec item-spec item-relative item-height-60">
             <button class="btn-pj">
               评价
@@ -507,9 +469,9 @@
         </view>
         <view class="item-right">
           <text class="dfh-item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">已租用天数：15天</text>
-          <text class="item-day">剩余天数：15天</text>
-          <span class="item-day">逾期：<span class="item-price-red">15天</span></span>
+          <text class="item-day">已租用月数：15月</text>
+          <text class="item-day">剩余月数：15月</text>
+          <span class="item-day">逾期：<span class="item-price-red">15月</span></span>
           <view class="item-spec item-spec item-relative item-height-60">
             <button class="btn-pj">
               评价
@@ -530,7 +492,7 @@
       续租
     </button>
   </view>
-</view>
+</view> -->
 
 <view wx:if="{{loading}}" class="loading-status">加载中...</view>
 <view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>

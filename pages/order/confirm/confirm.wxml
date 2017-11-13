@@ -33,8 +33,8 @@
           <text class="item-title">{{item.name}}</text>
           <text class="item-day">押金：¥{{item.rent_cost}}</text>
           <text class="item-day">数量：{{item.num}}个</text>
-          <text class="item-day">当前单价：¥{{item.price}}/天</text>
-          <text class="item-day">租赁时长：{{item.rent_date}}天</text>
+          <text class="item-day">当前单价：¥{{item.price}}/月</text>
+          <text class="item-day">租赁时长：{{item.rent_date}}月</text>
           <text class="item-price">¥{{item.total_money}}</text>
         </view>
       </view>

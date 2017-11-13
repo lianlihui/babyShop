@@ -13,7 +13,7 @@
 
     <view class="product-title">
       <text class="product-title-txt"> {{warebean.name}}</text>
-      <span class="product-title-price"><span class="product-price-red">¥{{warebean.price}}</span>/天</span>
+      <span class="product-title-price"><span class="product-price-red">¥{{warebean.price}}</span>/月</span>
     </view>
   </view>
 
@@ -22,12 +22,12 @@
       产品详情
     </view>
     <view class="product-info-spec">
-      <span class="item-tag">型号</span>
-      <span class="item-txt">BHD-DESC</span>
+      <span class="item-tag">品牌</span>
+      <span class="item-txt">{{warebean.pinpai}}</span>
     </view>
     <view class="product-info-spec">
-      <span class="item-tag">货号</span>
-      <span class="item-txt">BHD-DESC</span>
+      <span class="item-tag">尺寸</span>
+      <span class="item-txt">{{warebean.chicun}}</span>
     </view>
     <view class="product-info-spec">
       <span class="item-tag">适用年龄</span>
@@ -44,26 +44,10 @@
       猜你喜欢
     </view>
     <view class="product-list">
-      <view class="product-list-item">
-        <navigator url="/pages/product/info/info">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季秋冬季</view>
-          <view class="product-price"><span class="del-price">¥96.00</span>/天</view>
-        </navigator>
-      </view>
-      <view class="product-list-item">
-       <navigator url="">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季秋冬季</view>
-          <view class="product-price"><span class="del-price">¥96.00</span>/天</view>
-        </navigator>
-      </view>
-      <view class="product-list-item">
-        <navigator url="">
-          <image src="/images/index/list1.jpg" mode="widthFix"/>
-          <view class="product-desc">母婴用品初生宝宝秋冬季秋冬季</view>
-          <view class="product-price"><span class="del-price">¥96.00</span>/天</view>
-        </navigator>
+      <view class="product-list-item" wx:for="{{suggestwarelist}}" wx:for-item="item" data-id="{{item.id}}" bindtap="productInfo">
+          <image src="{{imageRootPath}}{{item.pic1}}" mode="widthFix"/>
+          <view class="product-desc">{{item.name}}</view>
+          <view class="product-price"><span class="del-price">¥{{item.price}}</span>/月</view>
       </view>
     </view>
   </view>
@@ -85,7 +69,7 @@
     <image src="/images/modal-close.png" class="modal-close" bindtap="closeModal" data-modal="specModal"></image>
     <view class="modal-body">
       <view class="modal-item">
-        <span class="modal-item-desc">租用天数:</span>
+        <span class="modal-item-desc">租用月数:</span>
         <span class="modal-item-inp"><input class="inp" bindinput="bindRentdatesChange"></input></span>
       </view>
       <view class="modal-item">

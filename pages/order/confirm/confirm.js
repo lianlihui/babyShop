@@ -10,7 +10,7 @@ Page({
     wareids: '',   //物品ID
     numbers: 0,   //	数量
     waresizes: '',  //规格ID
-    rentdates: 0,   //租用天数
+    rentdates: 0,   //租用月数
     addressid:'',  //地址id
     point:0,  //积分
     remarks:'',  //备注
@@ -104,12 +104,16 @@ Page({
     if (self.data.isPoint==1){
       point = self.data.userPoint > self.data.maxpoint ? self.data.maxpoint : self.data.userPoint;
     }
+    if (self.data.addressbean==null){
+      self.showMsg('请先填写寄货地址');
+      return false;
+    }
     var postData = {
       token: app.globalData.token,
       wareids: self.data.wareids,   //物品id
       numbers: self.data.numbers,   //数量
       waresizes: self.data.waresizes,   //规格id
-      rentdates: self.data.rentdates,   //租用天数
+      rentdates: self.data.rentdates,   //租用月数
       addressid: self.data.addressbean.id,    //地址id
       point: point,    //积分
       remarks: self.data.remarks   //备注

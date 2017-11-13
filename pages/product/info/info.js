@@ -9,6 +9,7 @@ Page({
     modalSpecShow:false,
     id: 0, //产品id
     warebean: null, //产品详情
+    suggestwarelist:[], //猜您喜欢商品 
     imageRootPath:'',
     waresizelist:[],  //规格
     imgUrls:[],
@@ -16,7 +17,7 @@ Page({
     specKucun:0,
     waresizes: '',   //购买规格id
     numbers:0,   //购买数量
-    rentdates:0,    //租用天数
+    rentdates:0,    //租用月数
     isCart:0   //加入购物车弹框
   },
 
@@ -48,7 +49,8 @@ Page({
           self.setData({
             imageRootPath: res.data.imageRootPath,
             warebean: res.data.warebean,
-            waresizelist: res.data.waresizelist
+            waresizelist: res.data.waresizelist,
+            suggestwarelist:res.data.suggestwarelist
           });
           //设置第一个规格库存显示
           if (res.data.waresizelist!=null){
@@ -111,7 +113,7 @@ Page({
     });
   },
 
-  //租用天数输入
+  //租用月数输入
   bindRentdatesChange: function (e) {
     this.setData({
       rentdates: e.detail.value
@@ -136,12 +138,12 @@ Page({
   //提交订单
   confirmModal: function (e, modalName) {
     var self=this;
-    //租用天数
+    //租用月数
     var rentdates = self.data.rentdates;  
     if (/^[0-9]+$/.test(rentdates) && rentdates != 0) {
       rentdates = Number(rentdates)
     } else {
-      self.showMsg('请输入正确的租用天数');
+      self.showMsg('请输入正确的租用月数');
       return false;
     }
 
@@ -211,6 +213,14 @@ Page({
       specKucun: data.kuncun,
       waresizes: data.id
     });
+  },
+
+  //商品详情
+  productInfo: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/product/info/info?id=' + id
+    })
   },
 
   showMsg: function (msg) {
