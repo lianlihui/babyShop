@@ -8,7 +8,7 @@
 .search-box {
   width: 600rpx;
   height: 60rpx;
-  margin: 28rpx auto;
+  margin: 28rpx 20rpx;
   text-align: center;
   background: #fff;
   border-radius: 30rpx;
@@ -27,20 +27,22 @@
 .search-box-inp{
   width:570rpx;
   margin:0rpx auto;
+  font-size: 30rpx;
 }
 .search-box-qd{
   height: 60rpx;
   line-height: 60rpx;
-  width: 60rpx;
+  width: 80rpx;
   position: absolute;
   top: 30rpx;
-  right:0%;
+  right: 20rpx;
   display: inline-block;
   background: #eeeeee;
   border: 1px solid #ebebeb;
   font-size: 28rpx;
   text-align: center;
   color: #414141;
+  border-radius: 0.25rem;
 }
 
 .product-list {
@@ -92,4 +94,15 @@
   text-align: center;
   color: #333;
   font-size: 24rpx;
+}
+.product-empty {
+  margin: 50rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+}
+.product-empty.hide {
+  display: none;
+}
+.product-empty.show {
+  display: block;
 }

@@ -182,27 +182,25 @@
   padding: 50rpx 20rpx 0rpx;
 }
 .modal-item{
-  height: 70rpx;
-  line-height: 70rpx;
+  padding: 20rpx 0;
   border-bottom: 1rpx #ebebeb solid;
   font-size: 28rpx;
   color: #414141;
   position: relative;
 }
 .modal-item-desc{
+  width: 160rpx;
   display: inline-block;
+  vertical-align: middle;
 }
 .modal-item-inp{
   display: inline-block;
-  position: absolute;
-  left: 160rpx;
+  vertical-align: middle;
   color: #ff4965;
 }
 .modal-item-inp .inp{
-  border: 1rpx #ebebeb solid;
+  border: 1rpx solid #ebebeb;
   width: 280rpx;
-  height: 60rpx;
-  margin-top:5rpx;
 }
 .modal-spec-item{
   height: 70rpx;

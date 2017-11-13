@@ -8,7 +8,8 @@ Page({
     'warelist': [],
     'source':'',   //入口来源
     'name':'',
-    'searchStatus': false    //是否进行搜索
+    'searchStatus': false,    //是否进行搜索
+    'hide': 'hide'
   },
 
   /**
@@ -49,10 +50,14 @@ Page({
       data: postData,
       method: 'POST',
       successCallback: function (res) {
-        self.setData({
-          imageRootPath: res.data.imageRootPath,
-          warelist: res.data.warelist
-        });
+        if (res.data) {
+          var isShow = res.data.warelist > 0 ? 'hide' : 'show';
+          self.setData({
+            imageRootPath: res.data.imageRootPath,
+            warelist: res.data.warelist,
+            hide: isShow
+          });
+        }
       },
       failCallback: function (res) {
         console.log(res);
