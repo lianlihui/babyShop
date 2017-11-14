@@ -24,7 +24,7 @@
       <image src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
     </view>
 
-     <!-- 为你推荐列表 -->
+    <!-- 为你推荐列表 -->
     <view class="product-list">
       <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
         <image src="{{imageRootPath}}{{item1.pic1}}" mode="widthFix"/>
