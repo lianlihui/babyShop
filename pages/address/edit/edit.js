@@ -32,7 +32,8 @@ Page({
     wareids:'',
     waresizes:'',
     rentdates:0,
-    numbers:0
+    numbers:0,
+    warenumbers:''
   },
 
   bindMultiPickerChange: function (e) {
@@ -75,14 +76,20 @@ Page({
       return false;
     }
 
-    //判断是否为订单提交页面过来
     if (options.source=='confirm'){
+      //判断是否为订单提交页面过来
       this.setData({
         source:options.source,
         wareids: options.wareids,
         numbers: options.numbers,
         waresizes: options.waresizes,
         rentdates: options.rentdates
+      });
+    } else if (options.source == 'exchange') {
+      //判断是否为换货提交页面过来
+      this.setData({
+        source: options.source,
+        warenumbers: options.warenumbers
       });
     }
 
@@ -304,7 +311,11 @@ Page({
             wx.redirectTo({
               url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates
             })
-          } else {
+          } else if (self.data.source == 'exchange') {
+            wx.redirectTo({
+              url: '/pages/order/exchange/exchange?warenumbers=' + self.data.warenumbers
+            })
+          }else {
             wx.redirectTo({
               url: '../list/list' + (self.data.isSelect ? '?select=1' : '')
             })

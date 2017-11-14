@@ -45,6 +45,11 @@ Page({
   //我的租用
   gotoMyRent:function(){
     wx.redirectTo({ url: "/pages/rent/rent" });
-  }
+  },
+
+  //常见问题
+  gotoQuestion:function() {
+    wx.redirectTo({ url: "/pages/question/list/list" });
+  },
 
 });

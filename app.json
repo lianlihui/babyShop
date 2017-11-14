@@ -20,7 +20,9 @@
     "pages/order/confirm/confirm",
     "pages/scroce/scroce",
     "pages/rent/rent",
-    "pages/comment/edit/edit"
+    "pages/comment/edit/edit",
+    "pages/question/list/list",
+    "pages/question/detail/detail"
   ],
   "tabBar": {
     "color": "#414141",

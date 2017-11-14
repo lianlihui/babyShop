@@ -1,0 +1,5 @@
+.qu-title{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}

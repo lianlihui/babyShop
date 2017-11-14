@@ -28,7 +28,7 @@
     <image src="/images/my/icon5.png" class="page-my-item-icon" />
     <text>我的评论</text>
   </view>
-  <view class="page-my-list-item">
+  <view class="page-my-list-item" bindtap="gotoQuestion">
     <image src="/images/my/icon5.png" class="page-my-item-icon" />
     <text>常见问题</text>
   </view>

@@ -1,0 +1,7 @@
+<view class="qu-title">
+  {{guizelist.title}}
+</view>
+
+<view class="qu-content">
+  {{guizelist.content}}
+</view>

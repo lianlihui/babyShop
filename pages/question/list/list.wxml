@@ -1,0 +1,9 @@
+
+<view class="page-my-list">
+  <view wx:for="{{guizelist}}" wx:key="unique1">
+    <view class="page-my-list-item" bindtap="gotoDetail" data-index="{{index}}">
+      <text>{{item.title}}</text>
+    </view>
+  </view> 
+</view>
+

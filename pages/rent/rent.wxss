@@ -24,6 +24,7 @@
   display: inline-block;
 }
 .order-list{
+  margin-bottom:110rpx;
   width: 100%;
   height: 100%;
   background: #f4f4f4;
@@ -295,4 +296,94 @@
   color: #333;
   font-size: 24rpx;
   background: #f4f4f4;
+}
+
+/**弹框样式*/
+.modal-close {
+  width: 22rpx;
+  height: 22rpx;
+  padding: 20rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.modal-wrap {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  background: rgba(0,0,0,0.2);
+}
+.modal {
+  width: 615rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.modal-body {
+  padding: 50rpx 20rpx 0rpx;
+}
+.modal-item{
+  padding: 20rpx 0;
+  border-bottom: 1rpx #ebebeb solid;
+  font-size: 28rpx;
+  color: #414141;
+  position: relative;
+}
+.modal-item-desc{
+  width: 160rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.modal-item-inp{
+  display: inline-block;
+  vertical-align: middle;
+  color: #ff4965;
+}
+.modal-item-inp .inp{
+  border: 1rpx #ebebeb solid;
+  width: 280rpx;
+}
+.modal-footer{
+  margin-top:30rpx;
+  width:100%;
+  margin-bottom:50rpx;
+}
+.modal-qd{
+  width:400rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  background: #ff4965;
+  font-size: 30rpx;
+  color: #ffffff;
+  display: block;
+  border-radius: 100rpx;
+}
+.modal-delete{
+  margin-top:10rpx;
+  width:400rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  background: #ff4965;
+  font-size: 30rpx;
+  color: #ffffff;
+  display: block;
+  border-radius: 100rpx;
+}
+.vertical-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }

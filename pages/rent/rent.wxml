@@ -2,9 +2,29 @@
   <view wx:for="{{rentlist}}" wx:key="unique1">
     <view class="order-list-item-dzf item-nobottom">
       <view class="order-list-item-dzf-head">
-        <view class="orderno-icon" wx:if="{{item.status == 1}}"></view>
-        <span class="orderno-tag item-mleft-45">物品编码:</span>
-        <span class="orderno-imp">{{item.warenumber}}</span>
+        <view wx:if="{{item.status == 1}}">
+          <view wx:if="{{item.selected}}" class="orderno-icon active" bindtap="selectList" data-index="{{index}}"></view>
+          <view wx:else class="orderno-icon" bindtap="selectList" data-index="{{index}}"></view>
+        </view>
+        <span class="orderno-tag item-mleft-45" bindtap="selectList" data-index="{{index}}">物品编码:</span>
+        <span class="orderno-imp" bindtap="selectList" data-index="{{index}}">{{item.warenumber}}</span>
+        <span class="orderno-imp">
+        <view wx:if="{{item.status == 1}}">
+          (在使用中)
+        </view>
+        <view wx:if="{{item.status == 2}}">
+          (已归还)
+        </view>
+        <view wx:if="{{item.status == 3}}">
+          (换货中)
+        </view>
+        <view wx:if="{{item.status == 4}}">
+          (退货中)
+        </view>
+        <view wx:if="{{item.status == 5}}">
+          (逾期中)
+        </view>
+        </span>
       </view>
 
       <view class="order-list-item-dzf-bd">
@@ -22,24 +42,37 @@
   </view>
 </view>
 <view class="order-list-item-dzf-foot">
-  <view class="btn-icon"></view>
-  <text class="btn-txt">全选</text>
-  <navigator url="/pages/order/exchange/exchange"> 
-    <button class="syz-btn-com btn-hh">
-      换货
-    </button>
-  </navigator>
-  <button class="syz-btn-com btn-th">
+  <view wx:if="{{selectAllStatus}}" class="btn-icon active" bindtap="selectAll"></view>
+  <view wx:else class="btn-icon" bindtap="selectAll"></view>
+  <text class="btn-txt" bindtap="selectAll">全选</text>
+  <button class="syz-btn-com btn-hh" bindtap="hhClick">
+    换货 
+  </button>
+  <button class="syz-btn-com btn-th" bindtap="thClick">
     退还
   </button>
-  <navigator url="/pages/order/relet/relet"> 
-    <button class="syz-btn-com btn-xz">
-      续租
-    </button>
-  </navigator>
+  <button class="syz-btn-com btn-xz" bindtap="xzClick">
+    续租
+  </button>
 </view>
-  
-<view wx:if="{{loading}}" class="loading-status">加载中...</view>
-<view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>
+
+<!-- 修改弹窗 -->
+<view hidden="{{!modalSpecShow}}" class="modal-spec modal-wrap vertical-center">
+  <view class="modal">
+    <image src="/images/modal-close.png" class="modal-close" bindtap="closeModal" data-modal="specModal"></image>
+    <view class="modal-body">
+      <view class="modal-item">
+        <span class="modal-item-desc">续租月数:</span>
+        <span class="modal-item-inp"><input class="inp" value="{{updRentdates}}" bindinput="bindRentdatesChange"></input></span>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="modal-qd" bindtap="xzClickImp">
+        确定
+      </button>
+    </view>
+  </view>
+</view>
+<!-- /修改弹窗 -->
 
 

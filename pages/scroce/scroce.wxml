@@ -1,33 +1,16 @@
 <view class="integral">
 
   <view class="integral-list">
-    <view class="integral-item">
-      <view class="integral-item-succ">签到成功</view>
-      <view class="integral-item-time">2017-10-26 22:08:56</view>
-      <image src="/images/integral/icon.png" class="integral-item-icon"/>
-      <span class="integral-item-point">+5</span>
+
+    <view wx:for="{{pointlist}}" wx:key="unique1">
+      <view class="integral-item">
+        <view class="integral-item-succ">{{item.memo}}</view>
+        <view class="integral-item-time">{{item.operatetime}}</view>
+        <image src="/images/integral/icon.png" class="integral-item-icon"/>
+        <span class="integral-item-point">+{{item.point}}</span>
+      </view>
     </view>
 
-    <view class="integral-item">
-      <view class="integral-item-succ">签到成功</view>
-      <view class="integral-item-time">2017-10-26 22:08:56</view>
-      <image src="/images/integral/icon.png" class="integral-item-icon"/>
-      <span class="integral-item-point">+5</span>
-    </view>
-
-    <view class="integral-item">
-      <view class="integral-item-succ">签到成功</view>
-      <view class="integral-item-time">2017-10-26 22:08:56</view>
-      <image src="/images/integral/icon.png" class="integral-item-icon"/>
-      <span class="integral-item-point">+5</span>
-    </view>
-
-    <view class="integral-item">
-      <view class="integral-item-succ">签到成功</view>
-      <view class="integral-item-time">2017-10-26 22:08:56</view>
-      <image src="/images/integral/icon.png" class="integral-item-icon"/>
-      <span class="integral-item-point">+5</span>
-    </view>
   </view>
 
 </view>
