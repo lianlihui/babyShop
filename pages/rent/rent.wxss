@@ -55,7 +55,7 @@
   right: 27rpx;
 }
 .order-list-item-dzf-bd{
-  padding:0rpx 27rpx 12rpx;
+  padding:30rpx 27rpx 12rpx;
   background:#fff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
