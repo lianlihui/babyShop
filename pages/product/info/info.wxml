@@ -39,6 +39,15 @@
     </view>
   </view>
 
+  <view class="product-info">
+    <view class="product-info-tag">
+      产品描述
+    </view>
+    <view class="product-info-spec desc-color">
+      {{warebean.descript}}
+    </view>
+  </view>
+
   <view class="product-enjoy">
     <view class="product-enjoy-tag"> 
       猜你喜欢

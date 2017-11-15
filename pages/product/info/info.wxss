@@ -54,6 +54,9 @@
   font-size:30rpx;
   position: relative;
 }
+.desc-color{
+  color:#414141;
+}
 .item-tag{
   display: inline-block;
   color: #7b7b7b;
