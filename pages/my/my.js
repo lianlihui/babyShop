@@ -32,6 +32,11 @@ Page({
     });
   },
 
+  //积分明细
+  gotoScore:function(){
+    wx.redirectTo({ url: "/pages/scroce/scroce"});
+  },
+
   //我的订单
   gotoMyOrder:function(){
     wx.redirectTo({ url: "/pages/order/list/list" });

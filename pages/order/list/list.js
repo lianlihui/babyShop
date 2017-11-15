@@ -136,7 +136,7 @@ Page({
         ywcCls: 'span-item',
         yqxCls: 'span-item',
       });
-      self.data.status = '2,3,5';
+      self.data.status = '2';
     } else if (idx == 4) {
       self.setData({
         allStatus: false,  //全部
@@ -186,7 +186,7 @@ Page({
       } else if (this.data.dzfStatus) {
         this.data.status = 1;
       } else if (this.data.dshStatus) {
-        this.data.status = 2,3,5;
+        this.data.status = 2;
       } else if (this.data.ywcStatus) {
         this.data.status = 4;
       } else if (this.data.yqxStatus) {
@@ -252,5 +252,45 @@ Page({
         }
       }
     })
+  },
+
+  //确认收货
+  shOrder:function(e){
+    var id = e.currentTarget.dataset.id;
+    var self = this;
+    var postData = {
+      token: app.globalData.token,
+      id: id
+    };
+    app.ajax({
+      url: app.globalData.serviceUrl + 'mordershouhuo.htm',
+      data: postData,
+      method: 'POST',
+      successCallback: function (res) {
+        self.showMsg(res.msg);
+        if (res.code == 0) {
+          //重新加载数据
+          self.setData({
+            page: 1,
+            orderlist: [],
+            loading: true,
+            noData: false,
+          });
+          self.getOrder();
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
+  },
+
+  showMsg: function (msg) {
+    wx.showModal({
+      title: '提示',
+      content: msg,
+      showCancel: false,
+      confirmText: '我知道了'
+    });
   }
 })

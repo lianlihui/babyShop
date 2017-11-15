@@ -170,7 +170,31 @@ Page({
 
   //退还事件
   thClick: function (e) {
+    //获取勾选项
+    var self = this;
+    var rentlist = self.data.rentlist;
+    var selNums = 0;
+    var selIds = '';
+    for (var i = 0; i < rentlist.length; i++) {
+      if (rentlist[i].status == 1 && rentlist[i].selected) {
+        selNums = selNums + 1;
+        selIds = selIds + rentlist[i].warenumber + ',';
+      }
+    }
+    if (selNums == 0) {
+      self.showMsg('至少选择一个退还');
+      return false;
+    }
+    selIds = selIds.substring(0, selIds.length - 1);
 
+    console.log('selIds:' + selIds);
+    self.setData({
+      modalSpecShow: false
+    });
+    //跳转到续租提交页面 
+    wx.redirectTo({
+      url: '/pages/order/return/return?warenumbers=' + selIds
+    })
   },
 
   //换货事件

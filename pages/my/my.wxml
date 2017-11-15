@@ -8,7 +8,7 @@
     <!--<view class="page-my-top-name" wx:if="{{myInfo.nickname}}">{{myInfo.nickname}}</view>-->
     <view class="page-my-top-score">{{myInfo.point}}积分</view>
   </view>
-  <navigator url="/pages/scroce/scroce" class="page-my-top-right-score">积分明细</navigator>
+  <view class="page-my-top-right-score" bindtap="gotoScore">积分明细</view>
 </view>
 
 <view class="page-my-list">

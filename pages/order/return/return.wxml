@@ -1,0 +1,75 @@
+<view class="order-list">
+    <view class="address-btn" bindtap="addAddress">
+        <button class="address-btn-impl">
+          <span>+</span>添加寄货地址
+        </button>
+    </view>
+
+    <!--地址信息-->
+    <view class="address-wrap" wx:if="{{address != null}}">
+      <view class="address-left">
+        <image class="address-icon" src="/images/order/addr-icon.png"></image>
+      </view>
+      
+      <view class="address-right">
+        <view class="address-accept">
+          <span class="address-name">收货人：{{address.ordername}}</span>
+          <span class="address-phone">{{address.ordername}}</span>
+        </view>
+        <view class="address-info">
+          收货人地址：{{address.province}}{{address.city}}{{address.area}}{{address.detailaddress}}
+        </view>
+      </view>
+    </view>
+
+    <view class="order-list-item-dzf">
+      <!-- <view class="order-list-item-dzf-head">
+        <span class="orderno-tag">物流号：</span>
+        <span class="orderno-imp">123456789</span>
+      </view> -->
+    
+      <view wx:for="{{warelist}}" wx:key="unique1">
+        <view class="order-list-item-dzf-bd">
+          <!-- <image src="/images/order/edit.png" class="item-edit"/> -->
+          <view class="item-left">
+            <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
+          </view>
+          <view class="item-right">
+            <text class="item-title">{{item.warename}}</text>
+            <text class="item-day">物品号：{{item.warenumber}}</text>
+            <text class="item-day">总时长：{{item.rent_time}}月</text>
+            <text class="item-day">已租赁时长：{{item.have_rent_time}}月</text>
+            <text class="item-day">剩余租用天数：{{item.left_rent_time}}月</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- <view class="order-list-item-dzf-head item-noborderbottom">
+        <view class="orderno-icon active"></view>
+        <span class="orderno-jf">积分抵扣现金</span>
+        <span class="orderno-jfmoney">¥96.00</span>
+      </view> -->
+    </view>
+
+    <view class="order-remark">
+      <textarea class="order-remark-textarea" placeholder="备注信息" bindinput="bindRemarksChange"></textarea>
+    </view>
+
+    <view class="order-wl">
+      <span class="yj">一键预约物流</span>
+      <span class="no">123456789</span>
+    </view>
+
+    <view class="order-zwl">
+      <span class="zyj">自己叫物流</span>
+      <input class="zno" bindinput="bindTranspotionNumberChange"></input>
+    </view>
+</view>
+
+<view class="order-list-item-dzf-foot">
+  <!-- <span class="foot-hj">应付金额:</span>
+  <span class="foot-je">¥1196.00</span> -->
+  <button class="btn-qx" bindtap="createOrder">
+    提交
+  </button>
+</view>

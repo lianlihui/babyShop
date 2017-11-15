@@ -17,6 +17,7 @@
     "pages/order/yqz/yqz",
     "pages/order/relet/relet",
     "pages/order/exchange/exchange",
+    "pages/order/return/return",
     "pages/order/confirm/confirm",
     "pages/scroce/scroce",
     "pages/rent/rent",

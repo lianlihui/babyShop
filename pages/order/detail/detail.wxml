@@ -77,6 +77,19 @@
         取消订单
       </button>
     </view>
+    <view class="order-list-item-all-foot" wx:if="{{order.status == 3}}">
+      <button class="all-btn-com btn-zf" data-id="{{order.id}}" bindtap="shOrder">
+        确认收货
+      </button>
+      <button class="all-btn-com btn-qx" data-id="{{order.id}}">
+        查看物流
+      </button>
+    </view>
+    <view class="order-list-item-all-foot" wx:if="{{order.status == 4}}">
+      <button class="all-btn-com btn-zf" data-id="{{order.id}}">
+        评价
+      </button>
+    </view>
   </view>
 
 </view>

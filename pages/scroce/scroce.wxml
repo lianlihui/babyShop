@@ -7,7 +7,8 @@
         <view class="integral-item-succ">{{item.memo}}</view>
         <view class="integral-item-time">{{item.operatetime}}</view>
         <image src="/images/integral/icon.png" class="integral-item-icon"/>
-        <span class="integral-item-point">+{{item.point}}</span>
+        <span class="integral-item-point" wx:if="{{item.type == 1}}">+{{item.point}}</span>
+        <span class="integral-item-point" wx:if="{{item.type == 2}}">-{{item.point}}</span>
       </view>
     </view>
 

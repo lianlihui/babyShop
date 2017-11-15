@@ -85,7 +85,7 @@ Page({
         waresizes: options.waresizes,
         rentdates: options.rentdates
       });
-    } else if (options.source == 'exchange') {
+    } else if (options.source == 'exchange' || options.source == 'return') {
       //判断是否为换货提交页面过来
       this.setData({
         source: options.source,
@@ -314,6 +314,10 @@ Page({
           } else if (self.data.source == 'exchange') {
             wx.redirectTo({
               url: '/pages/order/exchange/exchange?warenumbers=' + self.data.warenumbers
+            })
+          } else if (self.data.source == 'return') {
+            wx.redirectTo({
+              url: '/pages/order/return/return?warenumbers=' + self.data.warenumbers
             })
           }else {
             wx.redirectTo({
