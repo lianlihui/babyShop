@@ -51,7 +51,7 @@ Page({
       method: 'POST',
       successCallback: function (res) {
         if (res.data) {
-          var isShow = res.data.warelist > 0 ? 'hide' : 'show';
+          var isShow = res.data.warelist.length > 0 ? 'hide' : 'show';
           self.setData({
             imageRootPath: res.data.imageRootPath,
             warelist: res.data.warelist,

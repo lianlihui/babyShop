@@ -152,6 +152,8 @@
   margin-top:2rpx;
   border: 1rpx #d6d6d6 solid;
   padding:10rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 .order-list-item-dzf-foot{
   height: 110rpx;
