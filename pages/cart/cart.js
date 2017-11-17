@@ -310,7 +310,7 @@ Page({
     numbers = numbers.substring(0, numbers.length - 1);
     console.log('wareids:' + wareids + ';waresizes:' + waresizes + ';rentdates:' + rentdates + ';numbers:' + numbers);
     //跳转到订单提交页面 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/order/confirm/confirm?wareids=' + wareids + '&numbers=' + numbers + '&waresizes=' + waresizes + '&rentdates=' + rentdates
     })
   },

@@ -5,7 +5,7 @@
       <swiper class="swiper-image" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
         <block wx:for="{{imgUrls}}" wx:key="unique">
           <swiper-item>
-            <image src="{{imageRootPath}}{{item.url}}" class="slide-image" mode="widthFix"/>
+            <image src="{{imageRootPath}}{{item.url}}" class="slide-image" mode="aspectFit"/>
           </swiper-item>
         </block>
       </swiper>
@@ -54,7 +54,7 @@
     </view>
     <view class="product-list">
       <view class="product-list-item" wx:for="{{suggestwarelist}}" wx:for-item="item" data-id="{{item.id}}" bindtap="productInfo">
-          <image src="{{imageRootPath}}{{item.pic1}}" mode="widthFix"/>
+          <image src="{{imageRootPath}}{{item.pic1}}" mode="aspectFit"  class="product-image"/>
           <view class="product-desc">{{item.name}}</view>
           <view class="product-price"><span class="del-price">¥{{item.price}}</span>/月</view>
       </view>

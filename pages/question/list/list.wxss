@@ -4,6 +4,7 @@
 }
 .page-my-list-item {
   width: 100%;
+  padding-left: 30rpx;
   height: 119rpx;
   line-height: 119rpx;
   background: #fff;

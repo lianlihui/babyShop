@@ -7,7 +7,7 @@ Page({
 
   onLoad: function (options) {
     // if (!app.globalData.token) {
-    //   wx.redirectTo({ url: "/pages/login/login" });
+    //   wx.navigateTo({ url: "/pages/login/login" });
     //   return false;
     // } 
     this.getMyData();
@@ -34,27 +34,27 @@ Page({
 
   //积分明细
   gotoScore:function(){
-    wx.redirectTo({ url: "/pages/scroce/scroce"});
+    wx.navigateTo({ url: "/pages/scroce/scroce"});
   },
 
   //我的订单
   gotoMyOrder:function(){
-    wx.redirectTo({ url: "/pages/order/list/list" });
+    wx.navigateTo({ url: "/pages/order/list/list" });
   },
 
   //我的地址
   gotoMyAddress:function(){
-    wx.redirectTo({ url: "/pages/address/list/list" });
+    wx.navigateTo({ url: "/pages/address/list/list" });
   },
 
   //我的租用
   gotoMyRent:function(){
-    wx.redirectTo({ url: "/pages/rent/rent" });
+    wx.navigateTo({ url: "/pages/rent/rent" });
   },
 
   //常见问题
   gotoQuestion:function() {
-    wx.redirectTo({ url: "/pages/question/list/list" });
+    wx.navigateTo({ url: "/pages/question/list/list" });
   },
 
 });

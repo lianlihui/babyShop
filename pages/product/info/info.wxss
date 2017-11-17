@@ -15,7 +15,8 @@
   height: 100%;
 }
 .slide-image{
-  height: 100% !important;
+  width: 100%;
+  height: 620rpx;
 }
 
 .product-title{
@@ -48,6 +49,11 @@
   line-height: 100rpx;
   color: #343333;
   font-size: 36rpx;
+}
+.product-image {
+  width: 345rpx;
+  height: 345rpx;
+  margin: 0 auto;
 }
 .product-info-spec{
   margin-bottom: 30rpx;

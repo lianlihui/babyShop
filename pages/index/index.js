@@ -48,7 +48,7 @@ Page({
   //商品详情
   productInfo: function (event){
     var id = event.currentTarget.dataset.id;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/product/info/info?id=' + id
     })
   },
