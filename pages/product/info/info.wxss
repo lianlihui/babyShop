@@ -165,12 +165,16 @@
   height: 53rpx;
 }
 .order-list-item-dzf-foot .item-edit-nums{
+  padding: 0 8rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background: #ff4965;
   position: absolute;
   top: 0rpx;
-  right: 0rpx;
-  color: #ff4965;
-  font-size:30rpx;
-  margin-top:-35rpx;
+  right: -20rpx;
+  color: #fff;
+  font-size:28rpx;
+  border-radius: 20rpx;
 }
 
 /**弹框样式*/
@@ -223,15 +227,25 @@
 }
 .modal-item-inp .inp{
   display: inline-block;
+  vertical-align: middle;
   border: 1rpx solid #ebebeb;
-  width: 180rpx;
+  width: 100rpx;
+  text-align: center;
 }
 .modal-item-inp .ocon{
   display: inline-block;
+  vertical-align: middle;
   border: 1rpx solid #ebebeb;
-  width: 30rpx;
+  width: 50rpx;
   height:1.4rem;
   line-height: 1.4rem;
+  text-align: center;
+}
+.modal-item-inp .ocon-l {
+  border-right: none;
+}
+.modal-item-inp .ocon-r {
+  border-left: none;
 }
 .modal-spec-item{
   height: 70rpx;

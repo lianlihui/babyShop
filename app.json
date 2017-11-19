@@ -23,7 +23,8 @@
     "pages/rent/rent",
     "pages/comment/edit/edit",
     "pages/question/list/list",
-    "pages/question/detail/detail"
+    "pages/question/detail/detail",
+    "pages/service/service"
   ],
   "tabBar": {
     "color": "#414141",

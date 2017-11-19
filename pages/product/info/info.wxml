@@ -64,7 +64,8 @@
   <view class="order-list-item-dzf-foot">
     <view class="item-edit" bindtap="gotoCart">
       <image src="/images/info/cart.png" class="item-edit-img"></image>
-      <text class="item-edit-nums">+{{cartNums}}</text>
+      <text class="item-edit-nums" wx:if="{{cartNums>0}}">{{cartNums}}</text>
+      <text class="item-edit-nums" wx:else>+</text>
     </view>
     <button class="btn-buy" bindtap="openModal">
       立即购买
@@ -83,17 +84,17 @@
       <view class="modal-item">
         <span class="modal-item-desc">租用月数:</span>
         <span class="modal-item-inp">
-          <span class="ocon" bindtap="reduceRentdates">-</span>
+          <span class="ocon ocon-l" bindtap="reduceRentdates">-</span>
           <input class="inp" bindinput="bindRentdatesChange" value="{{rentdates}}"></input>
-          <span class="ocon" bindtap="addRentdates">+</span>
+          <span class="ocon ocon-r" bindtap="addRentdates">+</span>
         </span>
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">数量:</span>
         <span class="modal-item-inp">
-          <span class="ocon" bindtap="reduceNumber">-</span>
+          <span class="ocon ocon-l" bindtap="reduceNumber">-</span>
           <input class="inp" bindinput="bindNumberChange" value="{{numbers}}"></input>
-          <span class="ocon" bindtap="addNumber">+</span>
+          <span class="ocon ocon-r" bindtap="addNumber">+</span>
         </span>
       </view>
       <view class="modal-item">

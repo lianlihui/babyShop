@@ -128,12 +128,14 @@ Page({
   //弹框选择规格
   openModal: function () {
     this.setData({
-      modalSpecShow: true
+      modalSpecShow: true,
+      isCart: 0
     });
   },
 
   //关闭弹框
   closeModal: function () {
+    console.log('oo');
     this.setData({
       modalSpecShow: false,
       isCart: 0

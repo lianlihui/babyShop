@@ -82,7 +82,7 @@ Page({
   //跳转到产品详情
   productInfo: function (e) {
     var id = event.currentTarget.dataset.id;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/product/info/info?id=' + id
     })
   }

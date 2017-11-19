@@ -1,0 +1,18 @@
+.service {
+  margin-top: 50rpx;
+}
+.service-item {
+  padding-left: 30rpx;
+  margin-bottom: 30rpx;
+  font-size: 26rpx;
+}
+.service-icon {
+  width: 27rpx;
+  margin-right: 15rpx;
+}
+.service-style1 {
+  color: #f68c29;
+}
+.service-style2 {
+  color: #75b1fe;
+}

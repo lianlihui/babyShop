@@ -57,4 +57,9 @@ Page({
     wx.navigateTo({ url: "/pages/question/list/list" });
   },
 
+  //常见问题
+  gotoService:function() {
+    wx.navigateTo({ url: "/pages/service/service" });
+  },
+
 });
