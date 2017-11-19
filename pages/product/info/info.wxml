@@ -1,5 +1,5 @@
 <view class="product">
-
+ 
   <view class="product-header">
     <view class="product-img">
       <swiper class="swiper-image" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
@@ -62,7 +62,10 @@
   </view>
 
   <view class="order-list-item-dzf-foot">
-    <image src="/images/info/cart.png" class="item-edit" bindtap="gotoCart"></image>
+    <view class="item-edit" bindtap="gotoCart">
+      <image src="/images/info/cart.png" class="item-edit-img"></image>
+      <text class="item-edit-nums">+{{cartNums}}</text>
+    </view>
     <button class="btn-buy" bindtap="openModal">
       立即购买
     </button>
@@ -79,11 +82,19 @@
     <view class="modal-body">
       <view class="modal-item">
         <span class="modal-item-desc">租用月数:</span>
-        <span class="modal-item-inp"><input class="inp" bindinput="bindRentdatesChange"></input></span>
+        <span class="modal-item-inp">
+          <span class="ocon" bindtap="reduceRentdates">-</span>
+          <input class="inp" bindinput="bindRentdatesChange" value="{{rentdates}}"></input>
+          <span class="ocon" bindtap="addRentdates">+</span>
+        </span>
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">数量:</span>
-        <span class="modal-item-inp"><input class="inp" bindinput="bindNumberChange"></input></span>
+        <span class="modal-item-inp">
+          <span class="ocon" bindtap="reduceNumber">-</span>
+          <input class="inp" bindinput="bindNumberChange" value="{{numbers}}"></input>
+          <span class="ocon" bindtap="addNumber">+</span>
+        </span>
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">库存:</span>

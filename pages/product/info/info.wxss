@@ -153,10 +153,24 @@
   border-radius: 0rpx;
 }
 .order-list-item-dzf-foot .item-edit{
-  width: 71rpx;
-  height: 62rpx;
+  display: inline-block;
+  width: 57rpx;
+  height: 53rpx;
   margin-left: 27rpx;
   margin-top:24rpx;
+  position: relative;
+}
+.order-list-item-dzf-foot .item-edit-img{
+  width: 57rpx;
+  height: 53rpx;
+}
+.order-list-item-dzf-foot .item-edit-nums{
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  color: #ff4965;
+  font-size:30rpx;
+  margin-top:-35rpx;
 }
 
 /**弹框样式*/
@@ -208,8 +222,16 @@
   color: #ff4965;
 }
 .modal-item-inp .inp{
+  display: inline-block;
   border: 1rpx solid #ebebeb;
-  width: 280rpx;
+  width: 180rpx;
+}
+.modal-item-inp .ocon{
+  display: inline-block;
+  border: 1rpx solid #ebebeb;
+  width: 30rpx;
+  height:1.4rem;
+  line-height: 1.4rem;
 }
 .modal-spec-item{
   height: 70rpx;

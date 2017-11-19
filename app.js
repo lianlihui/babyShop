@@ -8,7 +8,6 @@ App({
   //获取token
   getToken: function() {
     var self = this;
-
     wx.login({
       success: function (res) {
         console.log(res);
@@ -28,6 +27,12 @@ App({
             console.log(res);
           }
         });
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res) {
+        console.log(res);
       }
     });
   },

@@ -226,8 +226,16 @@
   color: #ff4965;
 }
 .modal-item-inp .inp{
+  display: inline-block;
   border: 1rpx #ebebeb solid;
-  width: 280rpx;
+  width: 180rpx;
+}
+.modal-item-inp .ocon{
+  display: inline-block;
+  border: 1rpx solid #ebebeb;
+  width: 30rpx;
+  height:1.4rem;
+  line-height: 1.4rem;
 }
 .modal-footer{
   margin-top:30rpx;

@@ -60,14 +60,14 @@
     <view class="order-remark">
       <textarea class="order-remark-textarea" placeholder="备注信息" bindinput="bindRemarksChange"></textarea>
     </view>
-  </view>
+  </view> 
 
   <view class="order-list-item-dzf-foot">
     <button class="all-btn-com btn-zf" bindtap="createOrder">
       去支付
     </button>
-    <button class="all-btn-com btn-qx">
+    <!-- <button class="all-btn-com btn-qx">
       取消订单
-    </button>
+    </button> -->
   </view>
 </view>

@@ -16,9 +16,10 @@ Page({
     modalSpecIndex:0,
     specKucun:0,
     waresizes: '',   //购买规格id
-    numbers:0,   //购买数量
-    rentdates:0,    //租用月数
-    isCart:0   //加入购物车弹框
+    numbers:1,   //购买数量
+    rentdates:1,    //租用月数
+    isCart:0,   //加入购物车弹框
+    cartNums:0
   },
 
   /**
@@ -32,6 +33,32 @@ Page({
 
   onShow: function() {
     this.getInfoData();
+    this.getCartNums();
+  },
+
+  //获取原来购物车数据
+  getCartNums:function(){
+    var self = this;
+    var postData = {
+      token: app.globalData.token
+    };
+    app.ajax({
+      url: app.globalData.serviceUrl + 'mrentlist.htm',
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        if (res.code == 0) {
+          if (res.data.mrentlist != null && res.data.mrentlist.length > 0) {
+            self.setData({
+              cartNums: res.data.mrentlist.length
+            });
+          }
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
   },
 
   //获取产品详情信息
@@ -119,12 +146,78 @@ Page({
       rentdates: e.detail.value
     });
   },
+  //添加租用月数
+  addRentdates:function(){
+    var self=this;
+    var rentdates = self.data.rentdates;
+    if (/^[0-9]+$/.test(rentdates)) {
+      rentdates = Number(rentdates);
+      rentdates = rentdates+1;
+      self.setData({
+        rentdates: rentdates
+      });
+    } else {
+      self.showMsg('请输入正确的租用月数');
+      return false;
+    }
+  },
+  //减少租用月数
+  reduceRentdates: function () {
+    var self = this;
+    var rentdates = self.data.rentdates;
+    if (/^[0-9]+$/.test(rentdates)) {
+      rentdates = Number(rentdates);
+      rentdates = rentdates>1?rentdates - 1:1;
+      self.setData({
+        rentdates: rentdates
+      });
+    } else {
+      self.showMsg('请输入正确的租用月数');
+      return false;
+    }
+  },
 
   //数量输入
   bindNumberChange: function (e) {
     this.setData({
       numbers: e.detail.value
     });
+  },
+  //添加数量
+  addNumber: function () {
+    var self = this;
+    var numbers = self.data.numbers;
+    var specKucun = self.data.specKucun;
+    if (/^[0-9]+$/.test(numbers)) {
+      numbers = Number(numbers);
+      specKucun = Number(specKucun);
+      if (numbers + 1 < specKucun){
+        numbers = numbers + 1;
+      }else{
+        numbers = specKucun;
+      }
+      self.setData({
+        numbers: numbers
+      });
+    } else {
+      self.showMsg('请输入正确的数量');
+      return false;
+    }
+  },
+  //减少数量
+  reduceNumber: function () {
+    var self = this;
+    var numbers = self.data.numbers;
+    if (/^[0-9]+$/.test(numbers)) {
+      numbers = Number(numbers);
+      numbers = numbers > 1 ? numbers - 1 : 1;
+      self.setData({
+        numbers: numbers
+      });
+    } else {
+      self.showMsg('请输入正确的数量');
+      return false;
+    }
   },
 
   //加入购物车弹框
@@ -183,10 +276,14 @@ Page({
         successCallback: function (res) {
           console.log(res);
           if (res.code == 0) {
-            console.log('res:'+res);
-            wx.switchTab({
-              url: '/pages/cart/cart'
-            })
+            // console.log('res:'+res);
+            // wx.switchTab({
+            //   url: '/pages/cart/cart'
+            // })
+            var cartNums = self.data.cartNums+1;
+            self.setData({
+              cartNums: cartNums
+            });
           }
         }
       })

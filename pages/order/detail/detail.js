@@ -46,7 +46,57 @@ Page({
   //订单支付
   payOrder: function (e) {
     var id = e.currentTarget.dataset.id;
-    console.log('pay:' + id);
+    var self = this;
+    var postData = {
+      token: app.globalData.token,
+      id
+    }
+    var url = app.globalData.serviceUrl + 'morderwxpay.htm'
+    wx.showLoading({ title: '正在请求支付', mask: true })
+    app.ajax({
+      url,
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        wx.hideLoading()
+
+        //const { timeStamp, nonceStr, package: pkg, signType, paySign } = res;
+        var timeStamp = res.data.timestamp;
+        var nonceStr = res.data.noncestr;
+        var pkg = res.data.prepayid;
+        var signType = 'MD5';
+        var paySign = res.data.sign;
+        wx.requestPayment({
+          timeStamp, nonceStr, package: pkg, signType, paySign,
+          success(res) {
+            success({ code: 0 })
+          },
+          fail(res) {
+            console.log(res)
+            self.showMsg('支付未完成，请重新支付！')
+          }
+        })
+        function success(res) {
+          const { code, data, msg } = res
+          if (code == 0) {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success'
+            })
+            setTimeout(function () {
+              wx.redirectTo({
+                url: '/pages/order/detail/detail?id=' + id
+              })
+            }, 1500);
+          } else {
+            console.error(msg)
+          }
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    })
   },
 
   //取消订单

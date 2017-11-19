@@ -186,12 +186,78 @@ Page({
       updRentDate: e.detail.value
     });
   },
+  //添加租用月数
+  addRentdates: function () {
+    var self = this;
+    var updRentDate = self.data.updRentDate;
+    if (/^[0-9]+$/.test(updRentDate)) {
+      updRentDate = Number(updRentDate);
+      updRentDate = updRentDate + 1;
+      self.setData({
+        updRentDate: updRentDate
+      });
+    } else {
+      self.showMsg('请输入正确的租用月数');
+      return false;
+    }
+  },
+  //减少租用月数
+  reduceRentdates: function () {
+    var self = this;
+    var updRentDate = self.data.updRentDate;
+    if (/^[0-9]+$/.test(updRentDate)) {
+      updRentDate = Number(updRentDate);
+      updRentDate = updRentDate > 1 ? updRentDate - 1 : 1;
+      self.setData({
+        updRentDate: updRentDate
+      });
+    } else {
+      self.showMsg('请输入正确的租用月数');
+      return false;
+    }
+  },
 
   //数量输入
   bindNumberChange: function (e) {
     this.setData({
       updNums: e.detail.value
     });
+  },
+  //添加数量
+  addNumber: function () {
+    var self = this;
+    var updNums = self.data.updNums;
+    var updKuncun = self.data.updKuncun;
+    if (/^[0-9]+$/.test(updNums)) {
+      updNums = Number(updNums);
+      updKuncun = Number(updKuncun);
+      if (updNums + 1 < updKuncun) {
+        updNums = updNums + 1;
+      } else {
+        updNums = updKuncun;
+      }
+      self.setData({
+        updNums: updNums
+      });
+    } else {
+      self.showMsg('请输入正确的数量');
+      return false;
+    }
+  },
+  //减少数量
+  reduceNumber: function () {
+    var self = this;
+    var updNums = self.data.updNums;
+    if (/^[0-9]+$/.test(updNums)) {
+      updNums = Number(updNums);
+      updNums = updNums > 1 ? updNums - 1 : 1;
+      self.setData({
+        updNums: updNums
+      });
+    } else {
+      self.showMsg('请输入正确的数量');
+      return false;
+    }
   },
 
   //提交修改

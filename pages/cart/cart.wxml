@@ -63,20 +63,28 @@
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">租用月数:</span>
-        <span class="modal-item-inp"><input class="inp" value="{{updRentDate}}" bindinput="bindRentdatesChange"></input></span>
+        <span class="modal-item-inp">
+          <span class="ocon" bindtap="reduceRentdates">-</span>
+          <input class="inp" value="{{updRentDate}}" bindinput="bindRentdatesChange"></input>
+          <span class="ocon" bindtap="addRentdates">+</span>
+        </span>
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">数量:</span>
-        <span class="modal-item-inp"><input class="inp" value="{{updNums}}" bindinput="bindNumberChange"></input></span>
+        <span class="modal-item-inp">
+          <span class="ocon" bindtap="reduceNumber">-</span>
+          <input class="inp" value="{{updNums}}" bindinput="bindNumberChange"></input>
+          <span class="ocon" bindtap="addNumber">+</span>
+        </span>
       </view>
     </view>
     <view class="modal-footer">
       <button class="modal-qd" bindtap="confirmModal">
         修改
       </button>
-      <button class="modal-delete" bindtap="deleteModal">
+      <!-- <button class="modal-delete" bindtap="deleteModal">
         删除
-      </button>
+      </button> -->
     </view>
   </view>
 </view>
