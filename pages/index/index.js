@@ -58,6 +58,15 @@ Page({
     wx.redirectTo({
       url: '/pages/product/search/search?source=index'
     })
+  },
+
+  //分享
+  onShareAppMessage: function () {
+    return {
+      title: '母婴',
+      desc: '母婴描述!',
+      path: '/pages/index/index'
+    }
   }
 
 })

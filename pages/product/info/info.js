@@ -329,5 +329,15 @@ Page({
       showCancel: false,
       confirmText: '我知道了'
     });
+  },
+
+  //分享
+  onShareAppMessage: function () {
+    var id = this.data.id;
+    return {
+      title: '母婴',
+      desc: '母婴描述!',
+      path: '/pages/product/info/info?id=' + id
+    }
   }
 })
