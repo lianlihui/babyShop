@@ -22,19 +22,39 @@
       产品详情
     </view>
     <view class="product-info-spec">
+      <span class="item-tag">商品名</span>
+      <span class="item-txt">{{warebean.name}}</span>
+    </view>
+    <view class="product-info-spec">
       <span class="item-tag">品牌</span>
       <span class="item-txt">{{warebean.pinpai}}</span>
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">材质</span>
+      <span class="item-txt">{{warebean.caizhi}}</span>
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">型号</span>
+      <span class="item-txt">{{warebean.sgzz}}</span>
     </view>
     <view class="product-info-spec">
       <span class="item-tag">尺寸</span>
       <span class="item-txt">{{warebean.chicun}}</span>
     </view>
     <view class="product-info-spec">
-      <span class="item-tag">适用年龄</span>
+      <span class="item-tag">净重</span>
+      <span class="item-txt">{{warebean.jweight}}</span>
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">适用月龄（年龄）</span>
       <span class="item-txt">{{warebean.syage}}</span>
     </view>
     <view class="product-info-spec">
       <span class="item-tag">颜色分类</span>
+      <span class="item-txt">{{warebean.color}}</span>
+    </view>
+    <view class="product-info-spec">
+      <span class="item-tag">新旧程度</span>
       <span class="item-txt">{{warebean.color}}</span>
     </view>
   </view>
@@ -68,7 +88,7 @@
       <text class="item-edit-nums" wx:else>+</text>
     </view>
     <button class="btn-buy" bindtap="openModal">
-      立即购买
+      立即下单
     </button>
     <button class="btn-cart" bindtap="addCartModal">
       加入购物车

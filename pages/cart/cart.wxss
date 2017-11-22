@@ -11,7 +11,7 @@
 }
 .order-list-item-dzf-head{
   padding: 0rpx 27rpx;
-  font-size: 36rpx;
+  font-size: 32rpx;
   position: relative;
   height: 90rpx;
   line-height: 90rpx;

@@ -12,8 +12,12 @@
   box-sizing:border-box;
 }
 .integral-item-succ {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: #414141;
-  font-size: 36rpx;
+  font-size: 34rpx;
 }
 .integral-item-time {
   margin-top:20rpx;
@@ -29,9 +33,14 @@
 }
 .integral-item-point{
   position: absolute;
-  top: 40rpx;
+  top: 49rpx;
   right: 27rpx;
-  font-size: 58rpx;
-  color: #ff4965;
+  font-size: 30rpx;
+  color: #414141;
   display: inline-block;
+}
+.integral-item-point span {
+  color: #ff4965;
+  font-size: 48rpx;
+  margin-right: 3rpx;
 }

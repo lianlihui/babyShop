@@ -34,8 +34,6 @@ Page({
 
   getOrder:function(){
     if (!app.globalData.token) {
-      wx.redirectTo({ url: "/pages/login/login" });
-      console.log("no login");
       return false;
     }
 

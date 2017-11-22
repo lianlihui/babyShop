@@ -47,10 +47,10 @@
       <span class="right-tag item-price-red">{{userPoint}}</span>
     </view>
 
-    <view class="order-list-item-foot item-nobordertop">
+    <!--<view class="order-list-item-foot item-nobordertop">
       <span class="left-tag">运费</span>
       <span class="right-tag">¥{{freight}}</span>
-    </view>
+    </view>-->
     
     <view class="order-list-item-foot">
       <span class="left-tag">实付金额</span>

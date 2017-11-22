@@ -56,10 +56,10 @@
       </view>
     </view>
 
-    <view class="order-list-item-foot">
+    <!--<view class="order-list-item-foot">
       <span class="left-tag">含运费</span>
       <span class="right-tag">¥{{order.transportation_cost}}</span>
-    </view>
+    </view>-->
     <view class="order-list-item-foot">
       <span class="left-tag">积分抵扣金额</span>
       <span class="right-tag">¥{{order.point_cost}}</span>

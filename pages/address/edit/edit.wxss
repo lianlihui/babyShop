@@ -25,7 +25,7 @@
 }
 
 .addrss-edit-item-text{
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #4a4a4a;
   position:absolute;
   top:50%;
@@ -33,7 +33,7 @@
   left: 0;
 }
 .addrss-edit-item-inp{
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #333;
   margin-left:190rpx;
   /*height: 28rpx;
@@ -41,7 +41,7 @@
 }
 
 .addrss-edit-item-area{
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #333;
   margin-left:185rpx;
   height: 28rpx;
@@ -55,20 +55,20 @@
   color: #333;
 }
 .addrss-edit-item-xtext{
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #333333;
   position:absolute;
-  top:30rpx;
+  top:32rpx;
   left: 0;
 }
 .addrss-edit-item-textarea{
   height: 20rpx;
   padding: 0;
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #333;
   margin-left:190rpx;
   width:548rpx;
-  margin-top:2rpx;
+  margin-top:4rpx;
 }
 .addrss-edit-item-implm{
   border-bottom: 1rpx solid #f0f0f0;
@@ -78,9 +78,9 @@
   box-sizing:border-box;
 }
 .addrss-edit-item-mtext{
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #333333;
-  margin-left:35rpx;
+  margin-left:40rpx;
 }
 .addrss-edit-item-icon {
   width: 32rpx;
@@ -112,6 +112,11 @@
   color: #ffffff;
   border-radius: 100rpx;
   margin-bottom: 20rpx;
+}
+.addrss-edit-delete {
+  margin-top: 30rpx;
+  background: #ccc;
+  color: #333;
 }
 
 /*选择器*/

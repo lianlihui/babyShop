@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     if (!app.globalData.token) {
-      wx.redirectTo({ url: "/pages/login/login" });
+      //wx.redirectTo({ url: "/pages/login/login" });
       return false;
     }
 

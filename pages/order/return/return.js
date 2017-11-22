@@ -18,10 +18,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onLoad: function (options) {
-    if (!app.globalData.token) {
-      wx.redirectTo({ url: "/pages/login/login" });
-      return false;
-    }
     var self = this;
     var warenumbers = options.warenumbers;
     self.setData({

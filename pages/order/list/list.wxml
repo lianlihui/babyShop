@@ -169,8 +169,8 @@
         <view class="order-list-item-dzf-money">
           <span class="item-price item-price-red">¥{{item.total_money}}</span>
           <span class="item-hj item-price-red">总付款:</span>
-          <span class="dfh-item-price">¥{{item.transportation_cost}}</span>
-          <span class="item-hj">运费:</span>
+          <!--<span class="dfh-item-price">¥{{item.transportation_cost}}</span>
+          <span class="item-hj">运费:</span>-->
           <span class="item-num">共{{item.orderwarelist.length}}件商品</span>
         </view>
 

@@ -40,13 +40,13 @@
       },
       {
         "pagePath": "pages/product/list/list",
-        "text": "产品",
+        "text": "分类",
         "iconPath": "images/nav/product.png",
         "selectedIconPath": "images/nav/product_active.png"
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "购买车",
+        "text": "我要租",
         "iconPath": "images/nav/cart.png",
         "selectedIconPath": "images/nav/cart_active.png"
       },

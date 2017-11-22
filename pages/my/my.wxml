@@ -14,11 +14,11 @@
 <view class="page-my-list">
   <view class="page-my-list-item" bindtap="gotoMyOrder">
     <image src="/images/my/icon1.png" class="page-my-item-icon" />
-    <text>我的订单</text>
+    <text>全部订单</text>
   </view>
   <view class="page-my-list-item" bindtap="gotoMyRent">
     <image src="/images/my/icon2.png" class="page-my-item-icon" />
-    <text>我的租用</text>
+    <text>正在租用</text>
   </view>
   <view class="page-my-list-item" bindtap="gotoMyAddress">
     <image src="/images/my/icon3.png" class="page-my-item-icon" />
