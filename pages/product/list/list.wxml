@@ -12,17 +12,15 @@
   <view class="category-content">
     <!-- 菜单分类导航 -->
     <scroll-view class="category-wrap" scroll-y="true">
-      <text class="category active">热销榜</text>
-      <text class="category">全部热卖</text>
-      <text class="category">粥底类</text>
-      <text class="category">鱼类</text>
-      <text class="category">蟹类</text>
+      <text class="category {{0 == waretypeid ? ' active' : ''}}" data-id="0" bindtap="getCategoryInfo">全部</text>
+      <text class="category {{item.id == waretypeid ? ' active' : ''}}" wx:for="{{waretypelist}}" wx:for-item="item" wx:key="unique" data-id="{{item.id}}" bindtap="getCategoryInfo">{{item.name}}</text>
     </scroll-view>
     <!-- /菜单分类导航 -->
 
     <!-- 菜单列表 -->
     <scroll-view class="menu-wrap" scroll-y="true">
       <view class="product-list">
+        <view class="product-empty {{hide}}"> 抱歉，没找到商品！ </view>
         <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
             <image src="{{imageRootPath}}{{item1.pic1}}" mode="aspectFit" class="product-image"/>
             <view class="product-desc">{{item1.name}}</view>
@@ -30,6 +28,8 @@
       </view>
     </scroll-view>
     <!-- /菜单列表 -->
+    <view wx:if="{{!loading}}" class="loading-status">加载中...</view>
+    <view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>
   </view>
 
 

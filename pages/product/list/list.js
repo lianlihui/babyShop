@@ -6,11 +6,27 @@ Page({
   data: {
     'imageRootPath': '',
     'warelist': [],
+    'waretypelist': [],
     'page':1,
     'loading': true,
     'noData': false,
+    'isFirst': true,
+    'waretypeid': 0,
+    'hide': 'hide'
   },
   onShow: function() {
+    this.setData({
+      'warelist': [],
+      'waretypelist': [],
+      'page':1,
+      'loading': true,
+      'noData': false,
+      'isFirst': true,
+      'waretypeid': 0,
+      'hide': 'hide'
+    });
+    console.log(this.data.warelist);
+    console.log(this.data.waretypelist);
     if (!app.globalData.token) {
       app.getToken();
     } 
@@ -20,9 +36,12 @@ Page({
   getIndexData: function() {
     var self = this;
     var postData = {
+      waretypeid: self.data.waretypeid,
       page: self.data.page
     };
-    
+
+
+    self.data.loading = false;
     //获取首页数据    
     app.ajax({
       url: app.globalData.serviceUrl + '/mwarelist.html',
@@ -30,6 +49,7 @@ Page({
       method: 'GET',
       successCallback: function(res) {
         var list = [];
+
         if (res.code != 0 || res.data == null) {
           self.setData({
             noData: true,  //显示已经没有数据
@@ -37,25 +57,30 @@ Page({
           });
           return false;
         }
-        if (self.data.warelist.length == 0) {
-          list = res.data.warelablelist;
-        } else {
-          var alist = res.data.warelablelist;
-          list = self.data.warelist.concat(alist);
+
+        if (self.data.isFirst && res.data.waretypelist.length > 0 ) {
+          self.setData({
+            waretypelist: res.data.waretypelist
+          });
+          self.data.isFirst == false;
+        } 
+
+        if (self.data.page == 1 && res.data.warelablelist.length == 0) {
+          self.setData({hide: 'show'})
+          return false;
         }
+
+        var alist = res.data.warelablelist;
+        list = self.data.warelist.concat(alist);
 
         self.setData({
           imageRootPath: res.data.imageRootPath,
-          warelist: res.data.warelablelist,
-          loading: false  //隐藏加载
+          warelist: list,
+          hide: 'hide',
+          loading: true  //隐藏加载
         });
 
-        if (res.data.warelablelist.length < 10) {
-          self.setData({
-            noData: true,  //显示已经没有数据
-            loading: false  //滚动不用再触发
-          });
-        }
+        console.log(self.data.warelist);
       },
       failCallback: function(res) {
         console.log(res);
@@ -89,6 +114,22 @@ Page({
     wx.redirectTo({
       url: '/pages/product/search/search?source=list'
     })
+  },
+
+  //获取分类数据
+  getCategoryInfo: function(event) {
+    var id = event.currentTarget.dataset.id;
+    var self = this;
+    self.setData({
+      page: 1,
+      loading: true,
+      noData: false,
+      warelist: [],
+      waretypeid: id,
+      hide: 'hide'
+    });
+
+    self.getIndexData();
   },
 
   //分享

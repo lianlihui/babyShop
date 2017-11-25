@@ -29,6 +29,7 @@
   width:570rpx;
   margin:0rpx auto;
   font-size: 30rpx;
+  display: inline-block;
 }
 .search-box-qd{
   height: 60rpx;
