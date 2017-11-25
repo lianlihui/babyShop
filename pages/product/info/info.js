@@ -32,6 +32,9 @@ Page({
   },
 
   onShow: function() {
+    if (!app.globalData.token) {
+      app.getToken();
+    } 
     this.getInfoData();
     this.getCartNums();
   },

@@ -8,6 +8,7 @@
 .search-box {
   width: 600rpx;
   height: 60rpx;
+  line-height: 60rpx;
   margin: 28rpx auto;
   text-align: center;
   background: #fff;

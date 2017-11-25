@@ -15,8 +15,11 @@ Page({
     'duration': 1000,
     'foodList': []
   },
+
   onShow: function() {
-    // wx.showLoading({title: '页面加载中', mask: true})
+    if (!app.globalData.token) {
+      app.getToken();
+    } 
     this.getIndexData();
   },
 

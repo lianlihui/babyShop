@@ -11,7 +11,9 @@ Page({
     'noData': false,
   },
   onShow: function() {
-    // wx.showLoading({title: '页面加载中', mask: true})
+    if (!app.globalData.token) {
+      app.getToken();
+    } 
     this.getIndexData();
   },
 
