@@ -8,6 +8,7 @@ Page({
   data: {
     source: '',  //下单来源  pro产品详情跳转过来  cart购物车跳转过来
     wareids: '',   //物品ID
+    rentids: '',
     numbers: 0,   //	数量
     waresizes: '',  //规格ID
     rentdates: 0,   //租用月数
@@ -32,7 +33,8 @@ Page({
       wareids: options.wareids,
       numbers: options.numbers,
       waresizes: options.waresizes,
-      rentdates: options.rentdates
+      rentdates: options.rentdates,
+      rentids: options.rentids
     });
   },
 
@@ -118,6 +120,9 @@ Page({
       point: point,    //积分
       remarks: self.data.remarks   //备注
     };
+    if (self.data.rentids) {
+      postData.rentids = self.data.rentids
+    }
     app.ajax({
       url: app.globalData.serviceUrl + 'mordersub.htm',
       data: postData,
