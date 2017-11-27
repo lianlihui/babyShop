@@ -82,9 +82,9 @@
       <button class="modal-qd" bindtap="confirmModal">
         修改
       </button>
-      <!-- <button class="modal-delete" bindtap="deleteModal">
+      <button class="modal-delete" bindtap="deleteModal">
         删除
-      </button> -->
+      </button>
     </view>
   </view>
 </view>

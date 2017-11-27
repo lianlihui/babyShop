@@ -263,13 +263,13 @@
   border-radius: 100rpx;
 }
 .modal-delete{
-  margin-top:10rpx;
+  margin-top:20rpx;
   width:400rpx;
   line-height: 80rpx;
   height: 80rpx;
-  background: #ff4965;
+  background: #ccc;
   font-size: 30rpx;
-  color: #ffffff;
+  color: #333;
   display: block;
   border-radius: 100rpx;
 }
