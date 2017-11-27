@@ -58,7 +58,7 @@ Page({
           return false;
         }
 
-        if (self.data.isFirst && res.data.waretypelist.length > 0 ) {
+        if (self.data.isFirst && res.data.waretypelist && res.data.waretypelist.length > 0 ) {
           self.setData({
             waretypelist: res.data.waretypelist
           });
