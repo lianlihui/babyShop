@@ -7,8 +7,6 @@ Page({
     'imgUrls': [],
     'imageRootPath': '',
     'warelabellist':[],
-    'warelist': [],
-    'allwarelist': [],
     'indicatorDots': true,
     'indicatorColor': '#bdaea7',
     'indicatorActiveColor': '#5eaaf9',
@@ -39,10 +37,16 @@ Page({
       successCallback: function(res) {
         self.setData({
           imgUrls: res.data.poslinklist,
-          imageRootPath: res.data.imageRootPath,
-          warelabellist: res.data.warelabellist,
-          allwarelist: res.data.warelist,
-          warelist: res.data.warelist[1]
+          imageRootPath: res.data.imageRootPath
+        });
+        var warelabellist = res.data.warelabellist;
+        var allwarelist=res.data.warelist;
+        for (var i = 0; i < warelabellist.length;i++){
+          var warelist = allwarelist[i];
+          warelabellist[i].warelist = warelist;
+        }
+        self.setData({
+          warelabellist: warelabellist
         });
       },
       failCallback: function(res) {

@@ -1,24 +1,29 @@
 <view class="order-list-item-dzf">
       <view class="order-list-item-dzf-head">
         <span class="orderno-tag">订单号:</span>
-        <span class="orderno-imp">123456789</span>
-        <span class="money">¥96.00</span>
+        <span class="orderno-imp">{{order.orderno}}</span>
+        <span class="money">¥{{order.total_money}}</span>
       </view>
 
-      <view class="order-list-item-dzf-bd">
-        <view class="item-left">
-          <image class="item-img" src="/images/order/good.png"></image>
-        </view>
-        <view class="item-right">
-          <text class="item-title">婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服婴儿衣服</text>
-          <text class="item-day">租用月数：15月</text>
-          <view class="item-spec">
-            <span class="item-spec-one">规格：50x60cm</span>
-            <span>颜色：红色</span>
+      <view wx:for="{{warelist}}" wx:for-index="idx">
+        <view class="order-list-item-dzf-bd">
+          <view class="item-left">
+            <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
           </view>
-          <view class="item-spec">
-            <span class="item-spec-one">价格：10元/月</span>
-            <span>数量：2个</span>
+          <view class="item-right">
+            <text class="item-title">{{item.warename}}</text>
+            <view class="item-spec">
+              <span class="item-spec-one">物品号：{{item.warenumber}}</span>
+              <span>总时长：{{item.rent_time}}月</span>
+            </view>
+            <view class="item-spec">
+              <span class="item-spec-one">规格：{{item.sizename}}</span>
+              <span>颜色：{{item.color}}</span>
+            </view>
+            <view class="item-spec">
+              <span class="item-spec-one">已租赁时长：{{item.have_rent_time}}月</span>
+              <span>剩余租用天数：{{item.left_rent_time}}月</span>
+            </view>
           </view>
         </view>
       </view>

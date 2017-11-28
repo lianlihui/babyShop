@@ -2,7 +2,7 @@
 <view class="order-header">
   <view class="order-header-item" catchtap="menuClick" data-idx="1">
     <span class="{{allCls}}">
-      全部
+      全部 
     </span>
   </view>
   <view class="order-header-item" catchtap="menuClick" data-idx="2">
@@ -58,11 +58,11 @@
                 <span class="item-spec-one">价格：{{orderware.price}}元/月</span>
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
-              <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
+              <!-- <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
                   <button class="btn-pj" data-id="{{item.id}}" catchtap="pjOrder">
                     评价
                   </button>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>
@@ -228,13 +228,13 @@
                 <span class="item-spec-one">价格：{{orderware.price}}元/月</span>
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
-              <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
+              <!-- <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
                 <navigator url="/pages/comment/edit/edit?id=item.id"> 
                   <button class="btn-pj" data-id="{{item.id}}" catchtap="pjOrder">
                     评价
                   </button>
                 </navigator>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>

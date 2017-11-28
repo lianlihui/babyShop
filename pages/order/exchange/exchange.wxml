@@ -27,7 +27,7 @@
         <span class="orderno-tag">物流号：</span>
         <span class="orderno-imp">123456789</span>
       </view> -->
-    
+     
       <view wx:for="{{warelist}}" wx:key="unique1">
         <view class="order-list-item-dzf-bd">
           <!-- <image src="/images/order/edit.png" class="item-edit"/> -->

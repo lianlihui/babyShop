@@ -19,14 +19,12 @@
   </view>
 
   <!-- 为你推荐 -->
-  <view class="recommend-box">
-    <view class="recommend-title">
-        <image wx:for="{{warelabellist}}" wx:for-item="item" data-idx="{{index}}" bindtap="productList" src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
-    </view>
+  <view class="recommend-box" wx:for="{{warelabellist}}" wx:for-item="item">
+    <image src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
 
     <!-- 为你推荐列表 -->
     <view class="product-list">
-      <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
+      <view class="product-list-item" wx:for="{{item.warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
         <image src="{{imageRootPath}}{{item1.pic1}}" mode="aspectFit" class="product-image"/>
         <view class="product-desc">{{item1.name}}</view>
         <view class="product-price"><span>¥{{item1.price}}</span><view class="del-price">押金：¥{{item1.rent_cost}}</view></view>

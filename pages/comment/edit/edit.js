@@ -18,8 +18,36 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onLoad: function (options) {
-
+  onLoad: function (options) { 
+    var self = this;
+    var warenumbers = options.warenumbers;
+    self.setData({
+      warenumbers: warenumbers
+    });
+    var self = this;
+    var postData = {
+      token: app.globalData.token,
+      warenumbers: warenumbers
+    };
+    app.ajax({
+      url: app.globalData.serviceUrl + 'tuihuoorderaffirm.htm',
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        if (res.code == 0 && res.data.warelist != null) {
+          self.setData({
+            imageRootPath: res.data.imageRootPath,
+            warelist: res.data.warelist,
+            wareid: orderwarelist[0].wareid,
+            waresizeid: orderwarelist[0].wareid,
+            warenumber: orderwarelist[0].wnnumbers
+          });
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
   },
 
   uploadImgClick: function() {

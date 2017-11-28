@@ -1,27 +1,27 @@
 <view class="service">
 
   <view class="service-item">
-    <image src="/images/service/tel.png" class="service-icon" mode="widthFix"/>
+    <image src="/images/service/tel.png" class="service-icon" mode="widthFix"/> 
     <text>客服热线：</text>
-    <text class="service-style1">400-886-7477</text>
+    <text class="service-style1">{{sysphone}}</text>
   </view>
 
   <view class="service-item">
     <image src="/images/service/qq.png" class="service-icon" mode="widthFix"/>
     <text>客服Q Q：</text>
-    <text class="service-style1">800083086</text>
+    <text class="service-style1">{{sysqq}}</text>
   </view>
 
   <view class="service-item">
     <image src="/images/service/wx.png" class="service-icon" mode="widthFix"/>
-    <text>客服微信：</text>
-    <text class="service-style2">7477手游（公众号）</text>
+    <text>客服email：</text>
+    <text class="service-style2">{{sysemail}}</text>
   </view>
 
   <view class="service-item">
     <image src="/images/service/time.png" class="service-icon" mode="widthFix"/>
-    <text>客服时间：</text>
-    <text class="service-style2">9:00-21:00（节假日：9:00-18:00）</text>
+    <text>客服地址：</text>
+    <text class="service-style2">{{sysaddress}}</text>
   </view>
   
 </view>

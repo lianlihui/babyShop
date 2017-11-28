@@ -220,6 +220,14 @@ Page({
     })
   },
 
+  //评价
+  pjOrder: function (event) {
+    var warenumbers = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/comment/edit/edit?warenumbers=' + warenumbers
+    })
+  },
+
   showMsg: function (msg) {
     wx.showModal({
       title: '提示',
