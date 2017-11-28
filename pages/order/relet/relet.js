@@ -3,7 +3,7 @@ var app = getApp();
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始数据 
    */
   data: {
     imageRootPath: '',
@@ -241,13 +241,73 @@ Page({
       successCallback: function (res) {
         self.showMsg(res.msg);
         if (res.code==0){
-          wx.redirectTo({ url: "/pages/rent/rent" });
+          //实现微信支付
+          self.payOrder(res.data);
+        } else {
+          self.showMsg(res.msg);
         }
       },
       failCallback: function (res) {
         console.log(res);
       }
     });
+  },
+
+  //微信支付
+  payOrder: function (id) {
+    var self = this;
+    var postData = {
+      token: app.globalData.token,
+      id: id
+    }
+    var url = app.globalData.serviceUrl + 'morderwxpay.htm'
+    wx.showLoading({ title: '正在请求支付', mask: true })
+    app.ajax({
+      url,
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        wx.hideLoading()
+
+        var timeStamp = res.timeStamp;
+        var nonceStr = res.nonceStr;
+        var pkg = res.package;
+        var signType = 'MD5';
+        var paySign = res.paySign;
+
+        wx.requestPayment({
+          'timeStamp': timeStamp,
+          'nonceStr': nonceStr,
+          'package': pkg,
+          'signType': 'MD5',
+          'paySign': paySign,
+          'success': function (res) {
+            success({ code: 0 });
+          },
+          'fail': function (res) {
+            self.showMsg('支付未完成，请重新支付！')
+          }
+        });
+
+        function success(res) {
+          const { code, data, msg } = res
+          if (code == 0) {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success'
+            })
+            setTimeout(function () {
+              wx.redirectTo({ url: "/pages/rent/rent" });
+            }, 1500);
+          } else {
+            console.error(msg)
+          }
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    })
   },
 
   //关闭弹框
