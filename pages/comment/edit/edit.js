@@ -64,8 +64,12 @@ Page({
       count: 3 - self.data.picA.length,
       sizeType: ['compressed'],
       success: function(res) {
+        var tempFilePaths = self.data.picA.concat(res.tempFilePaths);
+        console.log('微信给的');
+        console.log(tempFilePaths);
+        console.log('微信给的结束');
         self.setData({
-          picA: res.tempFilePaths
+          picA: tempFilePaths
         });
       },
       fail: function(res) {
@@ -155,7 +159,6 @@ Page({
   publishCommentClick: function(event) {
     var self = this;
 
-    console.log(self.data.commentContent);
     if (!self.data.commentContent) {
       self.showMsg('请输入评价内容');
       return false;
@@ -179,13 +182,11 @@ Page({
     this.setData({
       commentContent: event.detail.value
     });
-    console.log('失去');
   },
   bindTextInput: function(event) {
      this.setData({
       commentContent: event.detail.value
     });
-    console.log('输入');
   },
 
   showMsg: function (msg) {
