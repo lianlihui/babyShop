@@ -1,0 +1,47 @@
+.product-empty {
+  margin: 50rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+}
+.product-empty.hide {
+  display: none;
+}
+.product-empty.show {
+  display: block;
+}
+
+.comment-item {
+  padding: 28rpx;
+  border-bottom: 1px solid #d6d6d6;
+}
+.comment-pic {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.comment-name {
+  font-size: 28rpx;
+  color: #333;
+}
+.comment-item-ct {
+  margin: 20rpx 0;
+  font-size: 26rpx;
+  color: #888;
+}
+.upload-img {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.comment-item-info {
+  margin: 20rpx;
+}
+.comment-text {
+  margin-right: 20rpx;
+}

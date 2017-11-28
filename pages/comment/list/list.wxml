@@ -1,0 +1,23 @@
+
+<view class="comment-list">
+    <view class="product-empty {{hide}}"> 您还没有评价哦 </view>
+
+    <view class="comment-item" wx:for="{{list}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}">
+      <view class="comment-item-top">
+        <image src="{{imageRootPath}}{{item1.pic1}}" class="comment-pic" />
+        <text>我</text>
+      </view>
+      <view class="comment-item-info">
+        <text class="comment-text">商品：{{item1.warename}}</text>
+        <text class="comment-text">颜色：{{item1.color}}</text>
+      </view>
+      <view class="comment-item-ct">
+        {{item1.content}}
+      </view>
+      <view class="comment-item-bt">
+          <image wx:if="{{item1.pica}}" src="{{imageRootPath}}{{item1.pica}}" />
+          <image wx:if="{{item1.picb}}" src="{{imageRootPath}}{{item1.picb}}" />
+          <image wx:if="{{item1.picc}}" src="{{imageRootPath}}{{item1.picc}}" />
+      </view>
+    </view>
+</view>

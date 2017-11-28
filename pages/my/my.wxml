@@ -26,7 +26,7 @@
   </view>
   <view class="page-my-list-item" bindtap="gotoComment">
     <image src="/images/my/icon5.png" class="page-my-item-icon"/>
-    <text>我的评论</text>
+    <text>我的评价</text>
   </view>
   <view class="page-my-list-item" bindtap="gotoQuestion">
     <image src="/images/my/icon5.png" class="page-my-item-icon" />

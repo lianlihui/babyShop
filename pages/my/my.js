@@ -64,7 +64,7 @@ Page({
 
   //去评价
   gotoComment: function() {
-    wx.navigateTo({ url: "/pages/comment/edit/edit" });
+    wx.navigateTo({ url: "/pages/comment/list/list" });
   }
 
 });
