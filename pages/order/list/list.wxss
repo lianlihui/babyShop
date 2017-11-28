@@ -73,7 +73,7 @@
 .order-list-item-dzf-bd .item-left{
   width:160rpx;
   height:160rpx;
-  margin-right:30rpx;
+  margin-right:20rpx;
   overflow:hidden;
   background:#fff;
 }
@@ -115,7 +115,7 @@
   display: block;
 }
 .order-list-item-dzf-bd .item-spec-one{
-  width: 310rpx;
+  width: 290rpx;
   display: inline-block;
 }
 .order-list-item-dzf-money{

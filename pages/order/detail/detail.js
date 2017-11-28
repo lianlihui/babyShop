@@ -149,20 +149,25 @@ Page({
       successCallback: function (res) {
         self.showMsg(res.msg);
         if (res.code == 0) {
-          //重新加载数据
+          var order = self.data.order;
+          order.status = 4;
           self.setData({
-            page: 1,
-            orderlist: [],
-            loading: true,
-            noData: false,
+            order: order
           });
-          self.getOrder();
         }
       },
       failCallback: function (res) {
         console.log(res);
       }
     });
+  },
+
+  //查看物流
+  lookLogistics: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: 'https://m.kuaidi100.com/result.jsp?com=&nu=' + id
+    })
   },
 
   showMsg: function (msg) {

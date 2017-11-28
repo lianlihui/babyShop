@@ -64,9 +64,18 @@ Page({
         console.log(list);
         if (self.data.orderlist.length == 0) {
           list = res.data.orderlist;
+          //处理状态显示
+          for (var i = 0; i < list.length;i++){
+            var txt = self.getStatusTxt(list[i].status);
+            list[i].statusTxt=txt;
+          }
         } else {
-          //时间格式处理
           var alist = res.data.orderlist;
+          //处理状态显示
+          for (var i = 0; i < alist.length; i++) {
+            var txt = self.getStatusTxt(alist[i].status);
+            alist[i].statusTxt = txt;
+          }
           list = self.data.orderlist.concat(alist);
         }
         console.log(list);
@@ -201,8 +210,16 @@ Page({
   //订单详情
   orderDetail: function (event){
     var id = event.currentTarget.dataset.id;
-    wx.redirectTo({
+    wx.navigateTo({
        url: '../detail/detail?id=' + id
+    })
+  },
+
+  //查看物流
+  lookLogistics: function (event){
+    var id = event.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: 'https://m.kuaidi100.com/result.jsp?com=&nu=' + id
     })
   },
 
@@ -285,6 +302,7 @@ Page({
                 for (var i = 0; i < orderlist.length;i++){
                   if (orderlist[i].id==id){
                     orderlist[i].status=7;
+                    orderlist[i].statusTxt = self.getStatusTxt(7);
                     break;
                   }
                 }
@@ -317,14 +335,17 @@ Page({
       successCallback: function (res) {
         self.showMsg(res.msg);
         if (res.code == 0) {
-          //重新加载数据
+          var orderlist = self.data.orderlist;
+          for (var i = 0; i < orderlist.length; i++) {
+            if (orderlist[i].id == id) {
+              orderlist[i].status = 4;
+              orderlist[i].statusTxt = self.getStatusTxt(4);
+              break;
+            }
+          }
           self.setData({
-            page: 1,
-            orderlist: [],
-            loading: true,
-            noData: false,
+            orderlist: orderlist
           });
-          self.getOrder();
         }
       },
       failCallback: function (res) {
@@ -340,5 +361,23 @@ Page({
       showCancel: false,
       confirmText: '我知道了'
     });
+  },
+
+  getStatusTxt:function(status){
+    var ret='';
+    if (status==1){
+      ret = '未支付';
+    } else if (status == 2) {
+      ret = '待发货';
+    } else if (status == 3) {
+      ret = '配送中';
+    } else if (status == 4) {
+      ret = '交易成功';
+    } else if (status == 5) {
+      ret = '备货中';
+    } else if (status == 7) {
+      ret = '已取消';
+    }
+    return ret;
   }
 })

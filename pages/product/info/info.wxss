@@ -33,11 +33,18 @@
   color: #414141;
   font-size: 40rpx;
   margin-bottom: 25rpx;
-  display: block;
+  display:inline-block;
 }
 .product-price-red{
   color: #ff4965;
   font-size: 50rpx;
+}
+.product-title-price-del{
+  font-size:28rpx;
+  color:#585858;
+  display:inline-block;
+  margin-left:26rpx;
+  position:relative;
 }
 .product-info{
   padding: 0rpx 27rpx;

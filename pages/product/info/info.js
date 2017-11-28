@@ -15,6 +15,8 @@ Page({
     imgUrls:[],
     modalSpecIndex:0,
     specKucun:0,
+    specPrice:0,
+    specRentCost:0,
     waresizes: '',   //购买规格id
     numbers:1,   //购买数量
     rentdates:1,    //租用月数
@@ -80,7 +82,9 @@ Page({
             imageRootPath: res.data.imageRootPath,
             warebean: res.data.warebean,
             waresizelist: res.data.waresizelist,
-            suggestwarelist:res.data.suggestwarelist
+            suggestwarelist:res.data.suggestwarelist,
+            specPrice: res.data.warebean.price,
+            specRentCost: res.data.warebean.rent_cost
           });
           //设置第一个规格库存显示
           if (res.data.waresizelist!=null){

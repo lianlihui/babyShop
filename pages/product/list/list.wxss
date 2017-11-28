@@ -80,7 +80,7 @@
   margin-right: -1px;
 }
 .product-list-item {
-  width: 33%;
+  width: 50%;
   float: left;
   margin-top: 32rpx;
   box-sizing: border-box;
