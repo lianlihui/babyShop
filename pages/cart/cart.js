@@ -54,7 +54,8 @@ Page({
           }
           self.setData({
             imageRootPath: res.data.imageRootPath,
-            cartList: retList
+            cartList: retList,
+            selectAllStatus:true
           });
 
           self.countTotalMoney();  //计算总金额
@@ -293,12 +294,19 @@ Page({
       method: 'GET',
       successCallback: function (res) {
         if(res.code==0){
+          //修改成功，重新赋值
+          var cartList = self.data.cartList
+          for (var i = 0; i < cartList.length; i++) {
+            if (cartList[i].id == self.data.updId) {
+              cartList[i].rent_date = rentdates;
+              cartList[i].number = numbers;
+              break;
+            }
+          }
           self.setData({
             modalSpecShow: false,
-            cartList: []
+            cartList: cartList
           });
-          //修改成功，重新获取数据
-          self.getCartInfo();
         }
       }
     })
@@ -323,12 +331,18 @@ Page({
             method: 'POST',
             successCallback: function (res) {
               if (res.code == 0) {
+                //删除成功，直接在数组删除
+                var cartList = self.data.cartList
+                for (var i = 0; i < cartList.length;i++){
+                  if (cartList[i].id == self.data.updId){
+                    cartList.splice(i,1);
+                    break;
+                  }
+                }
                 self.setData({
                   modalSpecShow: false,
-                  cartList: []
+                  cartList: cartList
                 });
-                //删除成功，从列表中移除
-                self.getCartInfo();
               }
             },
             failCallback: function (res) {

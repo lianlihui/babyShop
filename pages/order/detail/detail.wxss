@@ -110,7 +110,7 @@
 .order-list-item-dzf-bd .item-day{
   color: #7b7b7b;
   font-size: 28rpx;
-  margin-bottom: 25rpx;
+  margin-bottom: 5rpx;
   display: block;
 }
 .order-list-item-dzf-bd .item-price{

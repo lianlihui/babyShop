@@ -47,7 +47,6 @@
 .order-list-item-dzf-bd .item-left-icon{
   width:32rpx;
   height:215rpx;
-  margin-right:20rpx;
   overflow:hidden;
 }
 .orderno-icon-45top{
@@ -59,7 +58,7 @@
 .order-list-item-dzf-bd .item-left{
   width:215rpx;
   height:215rpx;
-  margin-right:20rpx;
+  margin-right:10rpx;
   overflow:hidden;
   background:#fff;
 }
@@ -92,7 +91,7 @@
   display: block;
 }
 .order-list-item-dzf-bd .item-spec-one{
-  width: 270rpx;
+  width: 260rpx;
   display: inline-block;
 }
 .item-price-red{

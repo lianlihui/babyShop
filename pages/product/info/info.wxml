@@ -14,6 +14,7 @@
     <view class="product-title">
       <text class="product-title-txt"> {{warebean.name}}</text>
       <span class="product-title-price"><span class="product-price-red">¥{{warebean.price}}</span>/月</span>
+      <span class="product-title-price-del">¥{{warebean.rent_cost}}/月</span>
     </view>
   </view>
 
@@ -116,6 +117,14 @@
           <input class="inp" bindinput="bindNumberChange" value="{{numbers}}"></input>
           <span class="ocon ocon-r" bindtap="addNumber">+</span>
         </span>
+      </view>
+      <view class="modal-item">
+        <span class="modal-item-desc">价格:</span>
+        <span class="modal-item-inp">¥{{specPrice}}/月</span>
+      </view>
+      <view class="modal-item">
+        <span class="modal-item-desc">押金:</span>
+        <span class="modal-item-inp">¥{{specRentCost}}/月</span>
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">库存:</span>

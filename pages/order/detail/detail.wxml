@@ -51,7 +51,10 @@
           <text class="item-title">{{item.warename}}</text>
           <text class="item-day">数量：{{item.amount}}个</text>
           <text class="item-day">租赁时长：{{item.rent_date}}月</text>
-          <text class="item-price">¥{{item.rent_cost}}</text>
+          <text class="item-day">规格：{{item.sizename}}</text>
+          <text class="item-day">颜色：{{item.color}}</text>
+          <text class="item-day">押金：¥{{item.rent_cost}}/月</text>
+          <text class="item-price">¥{{item.price}}</text>
         </view>
       </view>
     </view>
@@ -81,7 +84,7 @@
       <button class="all-btn-com btn-zf" data-id="{{order.id}}" bindtap="shOrder">
         确认收货
       </button>
-      <button class="all-btn-com btn-qx" data-id="{{order.id}}">
+      <button class="all-btn-com btn-qx" data-id="{{order.id}}" catchtap="lookLogistics">
         查看物流
       </button>
     </view>
