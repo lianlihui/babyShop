@@ -145,6 +145,10 @@ Page({
       successCallback: function(res) {
         console.log('评论成功');
         wx.hideLoading();
+        //跳转到续租提交页面 
+        wx.redirectTo({
+          url: '/pages/comment/list/list'
+        })
       },
       failCallback: function(res) {
         wx.hideLoading();
