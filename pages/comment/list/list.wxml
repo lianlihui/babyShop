@@ -4,7 +4,7 @@
 
     <view class="comment-item" wx:for="{{list}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}">
       <view class="comment-item-top">
-        <image src="{{imageRootPath}}{{item1.avatarurl}}" class="comment-pic" />
+        <image src="{{item1.avatarurl}}" class="comment-pic" />
         <text class="comment-name">我</text>
       </view>
       <view class="comment-item-info">
