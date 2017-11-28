@@ -21,7 +21,9 @@
   <!-- 为你推荐 -->
   <view class="recommend-box" wx:for="{{warelabellist}}" wx:for-item="item">
     <block wx:if="{{item.warelist.length > 0}}">
-    <image src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
+      <view class="recommend-title">
+        <image src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
+      </view>
     </block>
 
     <!-- 为你推荐列表 -->
