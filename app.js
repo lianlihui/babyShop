@@ -8,24 +8,44 @@ App({
   //获取token
   getToken: function() {
     var self = this;
-    wx.login({
+     wx.login({ 
       success: function (res) {
-        var _code = res.code;
-        var url = self.globalData.serviceUrl + 'mwxgettoken.html?_code=' + _code;
-        var data = {_code: _code};
-        self.ajax({
-          url: url,
-          data: data,
-          method: 'GET',
-          successCallback: function(res) {
-            if (res.code == 0) {
-              self.globalData.token = res.data;
-            }
-          },
-          failCallback: function(res) {
-            console.log(res);
-          }
-        });
+      wx.getUserInfo({
+        success: function (res2) {
+        var userInfo = res2.userInfo
+        var nickName = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+        var gender = userInfo.gender //性别 0：未知、1：男、2：女
+        var province = userInfo.province
+        var city = userInfo.city
+        var  country = userInfo.country
+         var _code = res.code;
+         var url = self.globalData.serviceUrl + 'mwxgettoken.html?_code=' + _code;
+         var data = {
+           _code: _code,
+           nickname: nickName,
+           headimgurl: avatarUrl,
+           sex: gender,
+           province: province,
+           city: city,
+           country: country,
+         };
+         self.ajax({
+           url: url,
+           data: data,
+           method: 'GET',
+           successCallback: function (res) {
+             if (res.code == 0) {
+               self.globalData.token = res.data;
+             }
+           },
+           failCallback: function (res) {
+             console.log(res);
+           }
+         });
+
+       }
+      });
       },
       fail: function (res) {
         console.log(res);
