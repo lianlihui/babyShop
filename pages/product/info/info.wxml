@@ -69,6 +69,34 @@
     </view>
   </view>
 
+  <view class="comment-wrap">
+    <view class="comment-title">宝贝评价</view>
+    <view class="comment-box">
+    <view class="comment-tab-box">
+      <view class="comment-tab {{'hot' == curComment ? ' active' : ''}}" bindtap="commentFun" data-status="hot">最热</view>
+      <view class="comment-tab {{'new' == curComment ? ' active' : ''}}" bindtap="commentFun" data-status="new">最新</view>
+    </view>
+    <view class="comment-item" wx:for="{{list}}" wx:for-item="item1" wx:key="unique1">
+      <view class="comment-item-top">
+        <image src="{{imageRootPath}}{{item1.pic1}}" class="comment-pic" />
+        <text>{{item1.username}}</text>
+      </view>
+      <view class="comment-item-info">
+        <text class="comment-text">商品：{{item1.warename}}</text>
+        <text class="comment-text">颜色：{{item1.color}}</text>
+      </view>
+      <view class="comment-item-ct">
+        {{item1.content}}
+      </view>
+      <view class="comment-item-bt">
+          <image wx:if="{{item1.pica}}" src="{{imageRootPath}}{{item1.pica}}" class="upload-img"/>
+          <image wx:if="{{item1.picb}}" src="{{imageRootPath}}{{item1.picb}}" class="upload-img"/>
+          <image wx:if="{{item1.picc}}" src="{{imageRootPath}}{{item1.picc}}" class="upload-img"/>
+      </view>
+    </view>
+    </view>
+  </view>
+
   <view class="product-enjoy">
     <view class="product-enjoy-tag"> 
       猜你喜欢

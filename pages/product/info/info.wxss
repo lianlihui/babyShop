@@ -305,3 +305,72 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
+
+.comment-title {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  color: #000;
+  text-indent: 27rpx;
+}
+.comment-box {
+  background: #fff;
+}
+.comment-tab-box {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-bottom: 1px solid #d6d6d6;
+  font-size: 32rpx;
+}
+.comment-tab {
+  width: 150rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 20rpx;
+  display: inline-block;
+  vertical-align: middle;
+  border-bottom: 1px solid #d6d6d6;
+  position: relative;
+  top: -1px;
+}
+.comment-tab.active {
+  border-bottom: 1px solid #ff4965;
+}
+.comment-item {
+  padding: 28rpx;
+  border-bottom: 1px solid #d6d6d6;
+}
+.comment-pic {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.comment-name {
+  font-size: 28rpx;
+  color: #333;
+}
+.comment-item-ct {
+  margin: 20rpx 0;
+  font-size: 26rpx;
+  color: #888;
+}
+.upload-img {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.comment-item-info {
+  margin: 20rpx;
+}
+.comment-text {
+  margin-right: 20rpx;
+  font-size: 26rpx;
+  color: #888;
+}

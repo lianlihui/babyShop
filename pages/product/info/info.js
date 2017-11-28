@@ -21,7 +21,11 @@ Page({
     numbers:1,   //购买数量
     rentdates:1,    //租用月数
     isCart:0,   //加入购物车弹框
-    cartNums:0
+    cartNums:0,
+    hotList: [],
+    newList: [],
+    list: [],
+    curComment: 'hot'
   },
 
   /**
@@ -84,7 +88,10 @@ Page({
             waresizelist: res.data.waresizelist,
             suggestwarelist:res.data.suggestwarelist,
             specPrice: res.data.warebean.price,
-            specRentCost: res.data.warebean.rent_cost
+            specRentCost: res.data.warebean.rent_cost,
+            hotList: res.data.warepingjiazr,
+            newList: res.data.warepingjiazx,
+            list: res.data.warepingjiazr
           });
           //设置第一个规格库存显示
           if (res.data.waresizelist!=null){
@@ -155,6 +162,23 @@ Page({
       rentdates: e.detail.value
     });
   },
+
+  //评价切换
+  commentFun: function (e) {
+    var self = this;
+    var curComment = e.currentTarget.dataset.status;
+    var list = self.data.hotList;
+
+    if (curComment == 'new') {
+      list = self.data.newList;
+    }
+
+    this.setData({
+      curComment: curComment,
+      list: list
+    });
+  },
+
   //添加租用月数
   addRentdates:function(){
     var self=this;
