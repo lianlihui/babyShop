@@ -63,7 +63,7 @@
 .order-list-item-dzf-bd .item-day{
   color: #7b7b7b;
   font-size: 28rpx;
-  margin-bottom: 25rpx;
+  margin-bottom: 20rpx;
   display: block;
 }
 .order-list-item-dzf-bd .item-spec{
@@ -77,11 +77,14 @@
   display: inline-block;
 }
 
-.comment-text{
+.comment-wrap{
   padding: 0rpx 27rpx;
-  width:100%;
   position: relative;
-  height: 200rpx;
+}
+
+.comment-box {
+  padding: 10rpx;
+  border: 1rpx solid #d6d6d6;
 }
 
 .comment-text-textarea{
@@ -89,12 +92,7 @@
   font-size: 24rpx;
   color: #333;
   margin-top:2rpx;
-  border: 1rpx #d6d6d6 solid;
   padding:10rpx;
-  position: absolute;
-  top: 0rpx;
-  left: 27rpx;
-  right: 27rpx;
 }
 
 .comment-add-btn{
@@ -110,4 +108,31 @@
   font-size: 42rpx;
   color: #ffffff;
   border-radius: 100rpx;
+}
+.icon-upload {
+  width: 146rpx;
+  height: 146rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.img-item {
+  width: 146rpx;
+  height: 146rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20rpx;
+  position: relative;
+}
+.icon-delete {
+  width: 46rpx;
+  height: 46rpx;
+  position: absolute;
+  top: -23rpx;
+  right: -23rpx;
+}
+.upload-img {
+  width: 146rpx;
+  height: 146rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
 }

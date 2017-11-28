@@ -55,7 +55,7 @@
     </view>
     <view class="product-info-spec">
       <span class="item-tag">新旧程度</span>
-      <span class="item-txt">{{warebean.color}}</span>
+      <span class="item-txt">{{warebean.level}}</span>
     </view>
   </view>
 

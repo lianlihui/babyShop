@@ -24,13 +24,24 @@
       </view>
 </view>
 
-<view class="comment-text">
-  <textarea class="comment-text-textarea" placeholder="说说你的使用心得,分享给想买的他们吧">
-  </textarea>
+<view class="comment-wrap">
+  <view class="comment-box">
+    <textarea class="comment-text-textarea" placeholder="说说你的使用心得,分享给想买的他们吧" value="{{commentContent}}" bindblur="bindTextBlur" bindinput="bindTextInput">
+    </textarea>
+    <view class="upload-img-box">
+      <view class="img-item" wx:for="{{picA}}" wx:key="unique" wx:for-item="item">
+        <image src="{{item}}"  class="upload-img" data-index="{{index}}"/>
+        <image src="/images/comment/icon_delete.png" class="icon-delete" bindtap="deteleImg" data-index="{{index}}"/>
+      </view>
+      <image src="/images/comment/icon_upload.png"  class="icon-upload" bindtap="uploadImgClick"/>
+    </view>  
+
+  </view>
 </view>
 
+
 <view class="comment-add-btn">
-    <button class="comment-add-impl">
+    <button class="comment-add-impl" bindtap="publishCommentClick">
       发布
     </button>
 </view>

@@ -62,4 +62,9 @@ Page({
     wx.navigateTo({ url: "/pages/service/service" });
   },
 
+  //去评价
+  gotoComment: function() {
+    wx.navigateTo({ url: "/pages/comment/edit/edit" });
+  }
+
 });
