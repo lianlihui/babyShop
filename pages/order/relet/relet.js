@@ -239,7 +239,6 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function (res) {
-        self.showMsg(res.msg);
         if (res.code==0){
           //实现微信支付
           self.payOrder(res.data);
