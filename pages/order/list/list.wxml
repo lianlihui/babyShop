@@ -187,7 +187,7 @@
           <button class="all-btn-com btn-zf" data-id="{{item.id}}" catchtap="shOrder">
             确认收货
           </button>
-          <button class="all-btn-com btn-qx" data-id="{{item.id}}" catchtap="lookLogistics">
+          <button class="all-btn-com btn-qx" data-id="{{item.sendexpressnumber}}" catchtap="lookLogistics">
             查看物流
           </button>
         </view>

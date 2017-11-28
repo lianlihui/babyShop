@@ -37,7 +37,7 @@
           <text class="item-day">已租用月数：{{item.have_rent_time}}月</text>
           <text class="item-day">剩余月数：{{item.left_rent_time}}月</text>
           <view class="item-spec item-relative item-height-60">
-              <button class="btn-pj" data-id="{{item.warenumber}}" catchtap="pjOrder">
+              <button class="btn-pj" data-id="{{item.id}}" catchtap="pjOrder">
                 评价
               </button>
           </view>

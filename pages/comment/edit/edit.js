@@ -8,6 +8,8 @@ Page({
   data: {
     picA: [],
     uploadImgA: [],
+    imageRootPath:'',
+    havewaredetail:null,
     commentContent: '',
     wareid: '',
     waresizeid: '',
@@ -20,27 +22,27 @@ Page({
    */
   onLoad: function (options) { 
     var self = this;
-    var warenumbers = options.warenumbers;
+    var id = options.id;
     self.setData({
-      warenumbers: warenumbers
+      id: id
     });
     var self = this;
     var postData = {
       token: app.globalData.token,
-      warenumbers: warenumbers
+      id: id
     };
     app.ajax({
-      url: app.globalData.serviceUrl + 'tuihuoorderaffirm.htm',
+      url: app.globalData.serviceUrl + 'mhavewaredetail.htm',
       data: postData,
       method: 'GET',
       successCallback: function (res) {
-        if (res.code == 0 && res.data.warelist != null) {
+        if (res.code == 0) {
           self.setData({
             imageRootPath: res.data.imageRootPath,
-            warelist: res.data.warelist,
-            wareid: orderwarelist[0].wareid,
-            waresizeid: orderwarelist[0].wareid,
-            warenumber: orderwarelist[0].wnnumbers
+            havewaredetail: res.data.havewaredetail,
+            wareid: res.data.havewaredetail.wareid,
+            waresizeid: res.data.havewaredetail.waresizeid,
+            warenumber: res.data.havewaredetail.warenumber
           });
         }
       },

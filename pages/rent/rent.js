@@ -222,9 +222,9 @@ Page({
 
   //评价
   pjOrder: function (event) {
-    var warenumbers = event.currentTarget.dataset.id;
+    var id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/comment/edit/edit?warenumbers=' + warenumbers
+      url: '/pages/comment/edit/edit?id=' + id
     })
   },
 

@@ -217,10 +217,24 @@ Page({
 
   //查看物流
   lookLogistics: function (event){
-    var id = event.currentTarget.dataset.id;
-    wx.redirectTo({
-      url: 'https://m.kuaidi100.com/result.jsp?com=&nu=' + id
-    })
+    var num = event.currentTarget.dataset.id;
+    var postData = {
+      token: app.globalData.token,
+      num: num
+    };
+    app.ajax({
+      url: app.globalData.serviceUrl + 'mwuliu.html',
+      data: postData,
+      method: 'POST',
+      successCallback: function (res) {
+        if (res.code == 0) {
+          
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
   },
 
   //评价
