@@ -6,7 +6,9 @@ Page({
   data: {
     'imgUrls': [],
     'imageRootPath': '',
+    'warelabellist':[],
     'warelist': [],
+    'allwarelist': [],
     'indicatorDots': true,
     'indicatorColor': '#bdaea7',
     'indicatorActiveColor': '#5eaaf9',
@@ -38,7 +40,9 @@ Page({
         self.setData({
           imgUrls: res.data.poslinklist,
           imageRootPath: res.data.imageRootPath,
-          warelist: res.data.warelist
+          warelabellist: res.data.warelabellist,
+          allwarelist: res.data.warelist,
+          warelist: res.data.warelist[1]
         });
       },
       failCallback: function(res) {
@@ -46,6 +50,16 @@ Page({
       }
     });
 
+  },
+
+  //tab切换
+  productList: function (event) {
+    var idx = event.currentTarget.dataset.idx;
+    var self=this;
+    var allwarelist = self.data.allwarelist;
+    self.setData({
+      warelist: allwarelist[idx]
+    });
   },
 
   //商品详情

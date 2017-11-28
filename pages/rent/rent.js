@@ -157,7 +157,7 @@ Page({
       modalSpecShow: false
     });
     //跳转到续租提交页面 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/order/relet/relet?warenumbers=' + selIds + '&rentdates=' + updRentdateStr
     })
   },
@@ -186,7 +186,7 @@ Page({
       modalSpecShow: false
     });
     //跳转到续租提交页面 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/order/return/return?warenumbers=' + selIds
     })
   },
@@ -215,7 +215,7 @@ Page({
       modalSpecShow: false
     });
     //跳转到续租提交页面 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/order/exchange/exchange?warenumbers=' + selIds
     })
   },

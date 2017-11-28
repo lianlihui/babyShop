@@ -223,6 +223,14 @@ Page({
     })
   },
 
+  //评价
+  pjOrder: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/comment/edit/edit?id=' + id
+    })
+  },
+
   //订单支付
   payOrder:function(e){
     var id = e.currentTarget.dataset.id;

@@ -11,7 +11,11 @@ Page({
     warenumbers: '',
     address: null,
     transpotion_number: '', //物流单号
-    remarks: '' //备注
+    remarks: '', //备注
+    sys_rename:'',
+    sys_phone:'',
+    sys_address: '',
+    return_total_money: 0
   },
 
   /**
@@ -37,7 +41,11 @@ Page({
           self.setData({
             imageRootPath: res.data.imageRootPath,
             warelist: res.data.warelist,
-            address: res.data.address
+            address: res.data.address,
+            sys_rename: res.data.sys_rename,
+            sys_phone: res.data.sys_phone,
+            sys_address: res.data.sys_address,
+            return_total_money: res.data.return_total_money
           });
         }
       },

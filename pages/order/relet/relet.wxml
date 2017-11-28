@@ -1,19 +1,19 @@
 <view class="order-list">
     <view class="order-list-item-dzf">
-      <view class="order-list-item-dzf-head">
+      <!-- <view class="order-list-item-dzf-head">
         <view wx:if="{{selectAllStatus}}" class="orderno-icon active" bindtap="selectAll"></view>
         <view wx:else class="orderno-icon" bindtap="selectAll"></view>
         <span class="orderno-tag" bindtap="selectAll">全选</span>
         <span class="money" bindtap="editAllNums">编辑</span>
-      </view>
+      </view> -->
     
       <view wx:for="{{warelist}}" wx:key="unique1">
         <view class="order-list-item-dzf-bd">
           <image src="/images/order/edit.png" class="item-edit" bindtap="editNums" data-index="{{index}}"/>
-          <view class="item-left-icon">
+          <!-- <view class="item-left-icon">
             <view wx:if="{{item.selected}}" class="item-left-icon-top orderno-icon active" bindtap="selectList" data-index="{{index}}"></view>
             <view wx:else class="item-left-icon-top orderno-icon" bindtap="selectList" data-index="{{index}}"></view>
-          </view>
+          </view> -->
           <view class="item-left">
             <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
           </view>

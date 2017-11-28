@@ -89,7 +89,7 @@
       </button>
     </view>
     <view class="order-list-item-all-foot" wx:if="{{order.status == 4}}">
-      <button class="all-btn-com btn-zf" data-id="{{order.id}}">
+      <button class="all-btn-com btn-zf" data-id="{{order.id}}" catchtap="pjOrder">
         评价
       </button>
     </view>

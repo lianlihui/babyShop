@@ -37,9 +37,8 @@
   border-bottom: 1px solid #ebebeb;
 }
 .recommend-img {
-  display: block;
-  margin: 0 auto;
-  width: 354rpx;
+  display: inline-block;
+  width: 33%;
 }
 
 .product-list {

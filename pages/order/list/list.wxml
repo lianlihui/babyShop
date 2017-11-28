@@ -59,11 +59,9 @@
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
               <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
-                <navigator url="/pages/comment/edit/edit"> 
-                  <button class="btn-pj">
+                  <button class="btn-pj" data-id="{{item.id}}" catchtap="pjOrder">
                     评价
                   </button>
-                </navigator>
               </view>
             </view>
           </view>
@@ -231,8 +229,8 @@
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
               <view class="item-spec item-relative item-height-60" wx:if="{{item.status == 4 && orderware.iscomment==0}}">
-                <navigator url="/pages/comment/edit/edit"> 
-                  <button class="btn-pj">
+                <navigator url="/pages/comment/edit/edit?id=item.id"> 
+                  <button class="btn-pj" data-id="{{item.id}}" catchtap="pjOrder">
                     评价
                   </button>
                 </navigator>

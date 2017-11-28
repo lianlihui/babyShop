@@ -13,11 +13,11 @@
       
       <view class="address-right">
         <view class="address-accept">
-          <span class="address-name">收货人：{{address.ordername}}</span>
-          <span class="address-phone">{{address.ordername}}</span>
+          <span class="address-name">收货人：{{sys_rename}}</span>
+          <span class="address-phone">{{sys_phone}}</span>
         </view>
         <view class="address-info">
-          收货人地址：{{address.province}}{{address.city}}{{address.area}}{{address.detailaddress}}
+          收货人地址：{{sys_address}}
         </view>
       </view>
     </view>

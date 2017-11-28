@@ -21,7 +21,7 @@
   <!-- 为你推荐 -->
   <view class="recommend-box">
     <view class="recommend-title">
-      <image src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
+        <image wx:for="{{warelabellist}}" wx:for-item="item" data-idx="{{index}}" bindtap="productList" src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
     </view>
 
     <!-- 为你推荐列表 -->
