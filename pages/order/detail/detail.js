@@ -52,12 +52,12 @@ Page({
   },
   
   //订单支付
-  payOrder: function (e) {
+  payOrder:function(e){
     var id = e.currentTarget.dataset.id;
     var self = this;
     var postData = {
       token: app.globalData.token,
-      id
+      id: id
     }
     var url = app.globalData.serviceUrl + 'morderwxpay.htm'
     wx.showLoading({ title: '正在请求支付', mask: true })
@@ -67,23 +67,27 @@ Page({
       method: 'GET',
       successCallback: function (res) {
         wx.hideLoading()
-
-        //const { timeStamp, nonceStr, package: pkg, signType, paySign } = res;
-        var timeStamp = res.data.timestamp;
-        var nonceStr = res.data.noncestr;
-        var pkg = res.data.prepayid;
+        
+        var timeStamp = res.timeStamp;
+        var nonceStr = res.nonceStr;
+        var pkg = res.package;
         var signType = 'MD5';
-        var paySign = res.data.sign;
+        var paySign = res.paySign;
+
         wx.requestPayment({
-          timeStamp, nonceStr, package: pkg, signType, paySign,
-          success(res) {
-            success({ code: 0 })
-          },
-          fail(res) {
-            console.log(res)
-            self.showMsg('支付未完成，请重新支付！')
-          }
-        })
+           'timeStamp': timeStamp,
+           'nonceStr': nonceStr,
+           'package': pkg,
+           'signType': 'MD5',
+           'paySign': paySign,
+           'success':function(res){
+              success({ code: 0 });
+           },
+           'fail':function(res){
+              self.showMsg('支付未完成，请重新支付！')
+           }
+        });
+
         function success(res) {
           const { code, data, msg } = res
           if (code == 0) {
