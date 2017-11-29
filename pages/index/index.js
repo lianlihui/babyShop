@@ -76,7 +76,7 @@ Page({
 
   //跳转到搜索
   gotoSearch:function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/product/search/search?source=index'
     })
   },

@@ -16,7 +16,9 @@ Page({
     updKuncun:0,  //修改的库存
     updRentDate:0,  //修改的租赁月数
     updNums:0,  //修改的数量
-    totalMoney:0   //总金额
+    totalMoney:0,   //总金额
+    isEmpty: '',   //是否显示空
+    isShow: 'hide', //是否显示数据  
   },
 
   onShow: function () {
@@ -55,7 +57,9 @@ Page({
           self.setData({
             imageRootPath: res.data.imageRootPath,
             cartList: retList,
-            selectAllStatus:true
+            selectAllStatus:true,
+            isShow: retList.length > 0 ? '': 'hide',
+            isEmpty: retList.length > 0 ? '': 'show'
           });
 
           self.countTotalMoney();  //计算总金额

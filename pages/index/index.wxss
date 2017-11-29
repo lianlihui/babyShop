@@ -1,6 +1,9 @@
 /**index.wxss**/
+.swiper-wrap {
+  height: 335rpx;
+}
 .slide-image {
-  height: 334rpx;
+  height: 335rpx;
 }
 
 .search-box {
@@ -42,6 +45,10 @@
   width:354rpx;
 }
 
+.recommend-box {
+  width: 100%;
+  overflow: hidden;
+}
 .product-list {
   overflow: hidden;
   margin-right: -1px;

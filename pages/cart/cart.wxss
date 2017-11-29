@@ -283,3 +283,19 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
+
+.empty-box,
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.empty-box {
+  margin: 220rpx auto;
+}
+.empty-img {
+  width: 400rpx;
+  display: block;
+  margin: 0 auto;
+}

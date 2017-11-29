@@ -2,7 +2,7 @@
 <view class="container">
 
   <!--start banner -->
-  <swiper indicator-dots="true" autoplay="true" interval="1000" duration="500" indicator-color="#b2b2b2" indicator-active-color="#000000">
+  <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" indicator-color="#b2b2b2" indicator-active-color="#000000" class="swiper-wrap">
     <block wx:for="{{imgUrls}}" wx:key="unique">
       <navigator url="{{item.url}}">
       <swiper-item>
