@@ -167,6 +167,7 @@
   margin-left: 27rpx;
   margin-top:24rpx;
   position: relative;
+  overflow: visible;
 }
 .order-list-item-dzf-foot .item-edit-img{
   width: 57rpx;
