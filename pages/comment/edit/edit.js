@@ -81,25 +81,28 @@ Page({
   uploadImg: function(file) {
     var self = this;
     var index = self.data.index;
-    var postData = {
-      token: app.globalData.token,
-      name2: 'wximage',
-      filePath2: file
-    };
     var currentA = self.data.uploadImgA;
-    app.ajax({
-      url: app.globalData.serviceUrl + 'wxupload.htm',
-      data: postData,
-      method: 'POST',
-      successCallback: function(res) {
+
+    console.log('accll');
+    wx.uploadFile({
+      url: app.globalData.serviceUrl + 'wxupload.htm' + '?name2=wximage&filePath2=' + file + '&token=' + app.globalData.token,
+      filePath: file,
+      name: 'wximage',
+      formData: {'token': app.globalData.token },
+      success: function(res) {
+
+        console.log(res);
+
         index = index + 1;
 
         self.setData({
           index: index
         });
 
-        if (res.code == 0 && res.data) {
-          currentA.push(res.data.msg);
+        var obj = JSON.parse(res.data);
+
+        if (obj) {
+          currentA.push(obj.msg);
           self.setData({
             uploadImgA: currentA
           });
@@ -111,7 +114,8 @@ Page({
           self.uploadImg(self.data.picA[index]);
         }
       },
-      failCallback: function(res) {
+      fail: function(res) {
+        console.log(res);
       }
     });
   },
