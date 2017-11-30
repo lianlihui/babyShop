@@ -1,5 +1,5 @@
-var WxParse = require('../../wxParse/wxParse.js');
 var app = getApp();
+var WxParse = require('../../../wxParse/wxParse.js');
 
 Page({
 
@@ -44,6 +44,7 @@ Page({
     } 
     this.getInfoData();
     this.getCartNums();
+    
   },
 
   //获取原来购物车数据
@@ -101,10 +102,7 @@ Page({
               waresizes: res.data.waresizelist[0].id
             });
           }
-          //详情文本处理
-          var descript = res.data.warebean.descript;
-          WxParse.wxParse('descript', 'html', descript, self, 5);
-
+          
           var pro=res.data.warebean;
           var picItem={};
           var picList=[];
@@ -135,6 +133,16 @@ Page({
           self.setData({
             imgUrls:picList
           });
+          /** 
+            * WxParse.wxParse(bindName , type, data,target,imagePadding) 
+            * 1.bindName绑定的数据名(必填) 
+            * 2.type可以为html或者md(必填) 
+            * 3.data为传入的具体数据(必填) 
+            * 4.target为Page对象,一般为this(必填) 
+            * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选) 
+            */
+          var descript = res.data.warebean.descript;
+          WxParse.wxParse('descript', 'html', descript, self, 5);
         }
       },
       failCallback: function(res) {

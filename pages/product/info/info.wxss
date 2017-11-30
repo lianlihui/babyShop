@@ -1,7 +1,4 @@
-.wxParse-p{
-    word-break:break-all; overflow:auto;
-}
-
+@import "../../../wxParse/wxParse.wxss";
 .product{
   width: 100%;
   height: 100%;

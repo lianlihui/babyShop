@@ -158,7 +158,7 @@ Page({
             url: '/pages/comment/list/list'
           })
         } else {
-          console.log('接口返回错误');
+          self.showMsg('评论失败')
         }
       },
       failCallback: function(res) {

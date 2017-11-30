@@ -1,3 +1,4 @@
+<import src="../../../wxParse/wxParse.wxml" />
 <view class="product">
  
   <view class="product-header">
@@ -65,9 +66,7 @@
       产品描述
     </view>
     <view class="product-info-spec desc-color">
-      <!-- {{warebean.descript}} -->
-      <import src="../../wxParse/wxParse.wxml"/>
-      <template is="wxParse" data="{{wxParseData:descript.nodes}}"/>
+      <template is="wxParse" data="{{wxParseData:descript.nodes}}" />
     </view>
   </view>
 
@@ -142,7 +141,7 @@
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">数量:</span>
-        <span class="modal-item-inp"> 
+        <span class="modal-item-inp">
           <span class="ocon ocon-l" bindtap="reduceNumber">-</span>
           <input class="inp" bindinput="bindNumberChange" value="{{numbers}}"></input>
           <span class="ocon ocon-r" bindtap="addNumber">+</span>
