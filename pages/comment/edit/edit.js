@@ -99,20 +99,20 @@ Page({
           index: index
         });
 
-        // var obj = JSON.parse(res.data);
+        var obj = JSON.parse(res.data);
 
-        // if (obj) {
-        //   currentA.push(obj.msg);
-        //   self.setData({
-        //     uploadImgA: currentA
-        //   });
-        // }
+        if (obj) {
+          currentA.push(obj.msg);
+          self.setData({
+            uploadImgA: currentA
+          });
+        }
 
-        // if (index > self.data.picA.length - 1) {
-        //   self.publishComment();
-        // } else {
-        //   self.uploadImg(self.data.picA[index]);
-        // }
+        if (index > self.data.picA.length - 1) {
+          self.publishComment();
+        } else {
+          self.uploadImg(self.data.picA[index]);
+        }
       },
       fail: function(res) {
         console.log(res);
@@ -151,12 +151,15 @@ Page({
       data: postData,
       method: 'POST',
       successCallback: function(res) {
-        console.log('评论成功');
         wx.hideLoading();
         //跳转到续租提交页面 
-        wx.redirectTo({
-          url: '/pages/comment/list/list'
-        })
+        if (res.code == 0) {
+          wx.redirectTo({
+            url: '/pages/comment/list/list'
+          })
+        } else {
+          console.log('接口返回错误');
+        }
       },
       failCallback: function(res) {
         wx.hideLoading();
