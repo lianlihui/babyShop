@@ -298,22 +298,56 @@ Page({
       method: 'GET',
       successCallback: function (res) {
         if(res.code==0){
-          //修改成功，重新赋值
-          var cartList = self.data.cartList
-          for (var i = 0; i < cartList.length; i++) {
-            if (cartList[i].id == self.data.updId) {
-              cartList[i].rent_date = rentdates;
-              cartList[i].number = numbers;
-              break;
-            }
-          }
-          self.setData({
-            modalSpecShow: false,
-            cartList: cartList
-          });
+          //修改成功，重新赋值，还原勾选状态
+          var ycartList = self.data.cartList;  //原来数据
+          self.getACartInfo(ycartList);
         }
       }
     })
+  },
+
+  //获取列表数据
+  getACartInfo: function (ycartList) {
+    var self = this;
+    var postData = {
+      token: app.globalData.token
+    };
+
+    app.ajax({
+      url: app.globalData.serviceUrl + 'mrentlist.htm',
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        if (res.code == 0) {
+          var retList = [];
+          if (res.data.mrentlist != null && res.data.mrentlist.length > 0) {
+            for (var i = 0; i < res.data.mrentlist.length; i++) {
+              var singleObj = res.data.mrentlist[i];
+
+              for (var ii = 0; ii < ycartList.length; ii++) {
+                if (singleObj.id == ycartList[ii].id) {
+                  singleObj.selected = ycartList[ii].selected;
+                  break;
+                }
+              }
+              retList.push(singleObj);
+            }
+          }
+          self.setData({
+            imageRootPath: res.data.imageRootPath,
+            cartList: retList,
+            modalSpecShow: false,
+            isShow: retList.length > 0 ? '' : 'hide',
+            isEmpty: retList.length > 0 ? '' : 'show'
+          });
+
+          self.countTotalMoney();  //计算总金额
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
   },
 
   //提交删除
@@ -335,18 +369,9 @@ Page({
             method: 'POST',
             successCallback: function (res) {
               if (res.code == 0) {
-                //删除成功，直接在数组删除
-                var cartList = self.data.cartList
-                for (var i = 0; i < cartList.length;i++){
-                  if (cartList[i].id == self.data.updId){
-                    cartList.splice(i,1);
-                    break;
-                  }
-                }
-                self.setData({
-                  modalSpecShow: false,
-                  cartList: cartList
-                });
+                //删除成功，重新赋值，还原勾选状态
+                var ycartList = self.data.cartList;  //原来数据
+                self.getACartInfo(ycartList);
               }
             },
             failCallback: function (res) {

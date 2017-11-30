@@ -1,3 +1,4 @@
+var WxParse = require('../../wxParse/wxParse.js');
 var app = getApp();
 
 Page({
@@ -100,7 +101,10 @@ Page({
               waresizes: res.data.waresizelist[0].id
             });
           }
-          
+          //详情文本处理
+          var descript = res.data.warebean.descript;
+          WxParse.wxParse('descript', 'html', descript, self, 5);
+
           var pro=res.data.warebean;
           var picItem={};
           var picList=[];

@@ -19,7 +19,7 @@
             <view wx:else class="orderno-icon-45top orderno-icon" bindtap="selectList" data-index="{{index}}"></view>
           </view>
           <view class="item-left">
-            <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
+            <image class="item-img" src="{{imageRootPath}}{{item.pic1}}" bindtap="selectList" data-index="{{index}}"></image>
           </view>
           <view class="item-right" bindtap="updateCart" data-index="{{index}}">
             <text class="item-title">{{item.name}}</text>

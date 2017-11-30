@@ -1,14 +1,23 @@
 <view class="integral">
+  <view class="integral-my">
+    <image src="{{myInfo.headimgurl}}" class="integral-my-img"/>
+    <text class="integral-my-txt">我的积分:</text>
+    <text class="integral-my-point">{{myInfo.point}}</text>
+  </view>
+
+  <view class="integral-mx">
+    积分交易明细
+  </view>
 
   <view class="integral-list">
-
+ 
     <view wx:for="{{pointlist}}" wx:key="unique1">
       <view class="integral-item">
         <view class="integral-item-succ">{{item.memo}}</view>
         <view class="integral-item-time">{{item.operatetime}}</view>
         <image src="/images/integral/icon.png" class="integral-item-icon"/>
-        <view class="integral-item-point" wx:if="{{item.type == 1}}"><span>+{{item.point}}</span>积分</view>
-        <view class="integral-item-point" wx:if="{{item.type == 2}}"><span>-{{item.point}}</span>积分</view>
+        <view class="integral-item-point" wx:if="{{item.type == 1}}"><span>+{{item.point}}</span></view>
+        <view class="integral-item-point" wx:if="{{item.type == 2}}"><span>-{{item.point}}</span></view>
       </view>
     </view>
 

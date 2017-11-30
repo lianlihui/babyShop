@@ -8,7 +8,7 @@
         </view>
         <span class="orderno-tag item-mleft-45" bindtap="selectList" data-index="{{index}}">物品编码:</span>
         <span class="orderno-imp" bindtap="selectList" data-index="{{index}}">{{item.warenumber}}</span>
-        <span class="orderno-imp">
+        <span class="orderno-imp" bindtap="selectList">
         <view wx:if="{{item.status == 1}}">
           (在使用中)
         </view>
@@ -27,7 +27,7 @@
         </span>
       </view>
 
-      <view class="order-list-item-dzf-bd">
+      <view class="order-list-item-dzf-bd" bindtap="selectList" data-index="{{index}}">
         <view class="item-left">
           <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
         </view>
@@ -68,7 +68,11 @@
     <view class="modal-body">
       <view class="modal-item">
         <span class="modal-item-desc">续租月数:</span>
-        <span class="modal-item-inp"><input class="inp" value="{{updRentdates}}" bindinput="bindRentdatesChange"></input></span>
+        <span class="modal-item-inp">
+          <span class="ocon ocon-l" bindtap="reduceNumber">-</span>
+          <input class="inp" value="{{updRentdates}}" bindinput="bindRentdatesChange"></input>
+          <span class="ocon ocon-r" bindtap="addNumber">+</span>
+        </span>
       </view>
     </view>
     <view class="modal-footer">

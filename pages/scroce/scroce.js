@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    myInfo:null,
     pointlist: []
   },
 
@@ -16,7 +17,27 @@ Page({
   },
 
   onShow: function () {
+    this.getMyData();
     this.getPointlist();
+  },
+
+  //获取用户数据
+  getMyData: function () {
+    var self = this;
+    app.ajax({
+      url: app.globalData.serviceUrl + 'muser.htm',
+      data: { token: app.globalData.token },
+      method: 'POST',
+      successCallback: function (res) {
+        if (res.code == 0) {
+          self.setData({
+            myInfo: res.data.userbean
+          });
+        }
+      },
+      failCallback: function (res) {
+      }
+    });
   },
 
   //获取数据

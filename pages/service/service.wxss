@@ -1,18 +1,38 @@
 .service {
-  margin-top: 50rpx;
+  width: 100%;
 }
 .service-item {
-  padding-left: 30rpx;
-  margin-bottom: 30rpx;
-  font-size: 26rpx;
+  padding: 0rpx 27rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #ebebeb;
+  position: relative;
 }
 .service-icon {
-  width: 27rpx;
-  margin-right: 15rpx;
+  width: 44rpx;
+  height: 48rpx;
+  margin-right: 25rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2px;
 }
-.service-style1 {
-  color: #f68c29;
+.service-style {
+  position: absolute;
+  right: 27rpx;
+  color: #ff4965;
 }
-.service-style2 {
-  color: #75b1fe;
+.service-item-address {
+  padding: 30rpx 27rpx 90rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #ebebeb;
+  position: relative;
+}
+.service-style-address{
+  position: absolute;
+  left: 97rpx;
+  top:70rpx;
+  color: #7b7b7b;
+  font-size: 30rpx;
+  height: 60rpx;
 }

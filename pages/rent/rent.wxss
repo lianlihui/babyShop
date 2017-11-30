@@ -347,6 +347,28 @@
   color: #ff4965;
 }
 .modal-item-inp .inp{
+  display: inline-block;
+  vertical-align: middle;
+  border: 1rpx solid #ebebeb;
+  width: 100rpx;
+  text-align: center;
+}
+.modal-item-inp .ocon{
+  display: inline-block;
+  vertical-align: middle;
+  border: 1rpx solid #ebebeb;
+  width: 50rpx;
+  height:1.4rem;
+  line-height: 1.4rem;
+  text-align: center;
+}
+.modal-item-inp .ocon-l {
+  border-right: none;
+}
+.modal-item-inp .ocon-r {
+  border-left: none;
+}
+.modal-item-inp .inp{
   border: 1rpx #ebebeb solid;
   width: 280rpx;
 }

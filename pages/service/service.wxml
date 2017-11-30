@@ -1,27 +1,27 @@
 <view class="service">
 
   <view class="service-item">
-    <image src="/images/service/tel.png" class="service-icon" mode="widthFix"/> 
-    <text>客服热线：</text>
-    <text class="service-style1">{{sysphone}}</text>
+    <image src="/images/service/kf.png" class="service-icon" mode="widthFix"/> 
+    <text>客服热线</text>
+    <text class="service-style">{{sysphone}}</text>
   </view>
 
   <view class="service-item">
     <image src="/images/service/qq.png" class="service-icon" mode="widthFix"/>
-    <text>客服Q Q：</text>
-    <text class="service-style1">{{sysqq}}</text>
+    <text>客服QQ</text>
+    <text class="service-style">{{sysqq}}</text>
   </view>
 
   <view class="service-item">
-    <image src="/images/service/wx.png" class="service-icon" mode="widthFix"/>
-    <text>客服email：</text>
-    <text class="service-style2">{{sysemail}}</text>
+    <image src="/images/service/em.png" class="service-icon" mode="widthFix"/>
+    <text>客服email</text>
+    <text class="service-style">{{sysemail}}</text>
   </view>
 
-  <view class="service-item">
-    <image src="/images/service/time.png" class="service-icon" mode="widthFix"/>
-    <text>客服地址：</text>
-    <text class="service-style2">{{sysaddress}}</text>
+  <view class="service-item-address">
+    <image src="/images/service/ad.png" class="service-icon" mode="widthFix"/>
+    <text>客服地址</text>
+    <view class="service-style-address">{{sysaddress}}</view>
   </view>
   
 </view>

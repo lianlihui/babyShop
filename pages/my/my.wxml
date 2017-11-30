@@ -29,11 +29,11 @@
     <text>我的评价</text>
   </view>
   <view class="page-my-list-item" bindtap="gotoQuestion">
-    <image src="/images/my/icon5.png" class="page-my-item-icon" />
+    <image src="/images/my/icon6.png" class="page-my-item-icon" />
     <text>常见问题</text>
   </view>
   <view class="page-my-list-item" bindtap="gotoService">
-    <image src="/images/my/icon5.png" class="page-my-item-icon" />
+    <image src="/images/my/icon7.png" class="page-my-item-icon-o" />
     <text>联系客服</text>
   </view>
 </view>

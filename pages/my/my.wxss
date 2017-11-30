@@ -83,6 +83,15 @@
   display: inline-block;
   vertical-align: middle;
 }
+.page-my-item-icon-o {
+  width: 56rpx;
+  height: 51rpx;
+  margin-top: -2px;
+  margin-left: 30rpx;
+  margin-right: 26rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
 .page-my-item-arrow {
   width: 11rpx;
   height: 19rpx;

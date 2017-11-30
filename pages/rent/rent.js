@@ -107,6 +107,37 @@ Page({
     });
   },
 
+  //添加数量
+  addNumber: function () {
+    var self = this;
+    var updRentdates = self.data.updRentdates;
+    if (/^[0-9]+$/.test(updRentdates)) {
+      updRentdates = Number(updRentdates);
+      updRentdates = updRentdates + 1;
+      self.setData({
+        updRentdates: updRentdates
+      });
+    } else {
+      self.showMsg('请输入正确的续租月数');
+      return false;
+    }
+  },
+  //减少数量
+  reduceNumber: function () {
+    var self = this;
+    var updRentdates = self.data.updRentdates;
+    if (/^[0-9]+$/.test(updRentdates)) {
+      updRentdates = Number(updRentdates);
+      updRentdates = updRentdates > 1 ? updRentdates - 1 : 1;
+      self.setData({
+        updRentdates: updRentdates
+      });
+    } else {
+      self.showMsg('请输入正确的续租月数');
+      return false;
+    }
+  },
+
   //续租事件
   xzClick:function(e){
     //获取勾选项
