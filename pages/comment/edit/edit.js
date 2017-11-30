@@ -99,20 +99,20 @@ Page({
           index: index
         });
 
-        var obj = JSON.parse(res.data);
+        // var obj = JSON.parse(res.data);
 
-        if (obj) {
-          currentA.push(obj.msg);
-          self.setData({
-            uploadImgA: currentA
-          });
-        }
+        // if (obj) {
+        //   currentA.push(obj.msg);
+        //   self.setData({
+        //     uploadImgA: currentA
+        //   });
+        // }
 
-        if (index > self.data.picA.length - 1) {
-          self.publishComment();
-        } else {
-          self.uploadImg(self.data.picA[index]);
-        }
+        // if (index > self.data.picA.length - 1) {
+        //   self.publishComment();
+        // } else {
+        //   self.uploadImg(self.data.picA[index]);
+        // }
       },
       fail: function(res) {
         console.log(res);
