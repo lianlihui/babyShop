@@ -324,6 +324,7 @@
   text-align: center;
   border-bottom: 1px solid #d6d6d6;
   font-size: 32rpx;
+  overflow: visible;
 }
 .comment-tab {
   width: 150rpx;

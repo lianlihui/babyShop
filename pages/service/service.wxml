@@ -1,5 +1,8 @@
 <view class="service">
 
+ <view class="service-top">
+ 遇到任何问题请联系我们
+</view>
   <view class="service-item">
     <image src="/images/service/kf.png" class="service-icon" mode="widthFix"/> 
     <text>客服热线</text>

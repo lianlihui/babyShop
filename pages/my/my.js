@@ -65,6 +65,10 @@ Page({
   //去评价
   gotoComment: function() {
     wx.navigateTo({ url: "/pages/comment/list/list" });
+  },
+
+  gotoprotocol: function() {
+	wx.navigateTo({ url: "/pages/protocol/protocol" });
   }
 
 });

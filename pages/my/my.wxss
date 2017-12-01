@@ -38,6 +38,22 @@
   line-height: 1;
   color: #fff;
 }
+.user-know {
+  color: #fff;
+  font-size: 26rpx;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  margin-top: -4rpx;
+}
+.user-know image {
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -30rpx;
+}
 .page-my-top-score {
   line-height: 1;
   font-size: 36rpx;
@@ -75,16 +91,7 @@
           box-sizing: border-box;
 }
 .page-my-item-icon {
-  width: 48rpx;
-  height: 51rpx;
-  margin-top: -2px;
-  margin-left: 30rpx;
-  margin-right: 26rpx;
-  display: inline-block;
-  vertical-align: middle;
-}
-.page-my-item-icon-o {
-  width: 56rpx;
+  width: 58rpx;
   height: 51rpx;
   margin-top: -2px;
   margin-left: 30rpx;

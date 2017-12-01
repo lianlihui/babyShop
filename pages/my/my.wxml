@@ -4,7 +4,7 @@
     <image src="{{myInfo.headimgurl}}" class="page-my-top-img" />
   </view>
   <view class="page-my-top-rt">
-    <view class="page-my-top-name" >{{myInfo.nickname}}</view>
+    <view class="page-my-top-name" >{{myInfo.nickname}} <view class="user-know" bindtap="gotoprotocol">用户须知<image src="/images/my/icon8.png"/></view></view>
     <!--<view class="page-my-top-name" wx:if="{{myInfo.nickname}}">{{myInfo.nickname}}</view>-->
     <view class="page-my-top-score">{{myInfo.point}}积分</view>
   </view>
@@ -33,7 +33,7 @@
     <text>常见问题</text>
   </view>
   <view class="page-my-list-item" bindtap="gotoService">
-    <image src="/images/my/icon7.png" class="page-my-item-icon-o" />
+    <image src="/images/my/icon7.png" class="page-my-item-icon" />
     <text>联系客服</text>
   </view>
 </view>

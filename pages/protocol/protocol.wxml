@@ -1,0 +1,8 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="qu-title">
+  {{name}}
+</view>
+
+<view class="qu-content">
+  <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>
