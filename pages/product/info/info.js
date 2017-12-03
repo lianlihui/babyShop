@@ -99,6 +99,8 @@ Page({
           if (res.data.waresizelist!=null){
             self.setData({
               specKucun: res.data.waresizelist[0].kuncun,
+              specPrice: res.data.waresizelist[0].price,
+              specRentCost: res.data.waresizelist[0].rent_cost,
               waresizes: res.data.waresizelist[0].id
             });
           }
@@ -130,6 +132,7 @@ Page({
             picItem.url = pro.pic5;
             picList.push(picItem);
           }
+          console.log(picList);
           self.setData({
             imgUrls:picList
           });
@@ -350,9 +353,12 @@ Page({
   //选择规则
   selectSpec: function (e) {
     var data = e.target.dataset;
+    console.log(data);
     this.setData({
       modalSpecIndex: data.index,
       specKucun: data.kuncun,
+      specPrice: data.price,
+      specRentCost: data.rent_cost,
       waresizes: data.id
     });
   },

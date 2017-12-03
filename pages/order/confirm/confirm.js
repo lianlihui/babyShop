@@ -207,6 +207,18 @@ Page({
     })
   },
 
+  //修改地址
+  updateAddress: function () {
+    var self = this;
+    var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
+      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm';
+    var addressid = self.data.addressbean.id;
+    console.log(addressid);
+    wx.redirectTo({
+      url: '/pages/address/edit/edit?id=' + addressid+'&' + params
+    })
+  },
+
   showMsg: function (msg) {
     wx.showModal({
       title: '提示',

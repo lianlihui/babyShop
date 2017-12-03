@@ -1,6 +1,6 @@
 <view class="order">
   <!-- 地址信息 -->
-  <view class="address-wrap" wx:if="{{addressbean != null}}">
+  <view class="address-wrap" bindtap="updateAddress" wx:if="{{addressbean != null}}">
     <view class="address-left">
       <image class="address-icon" src="/images/order/addr-icon.png"></image>
     </view>
@@ -17,7 +17,7 @@
   </view>
   <view wx:else class="address-btn">
       <button class="address-btn-impl" bindtap="addAddress">
-        <span>+</span>添加寄货地址
+        <span>+</span>添加收货地址
       </button>
   </view>
 
@@ -31,9 +31,10 @@
         </view>
         <view class="item-right">
           <text class="item-title">{{item.name}}</text>
-          <text class="item-day">押金：¥{{item.rent_cost}}</text>
+          <text class="item-day">押金：¥{{item.rent_cost}}/月</text>
+          <text class="item-day">价格：¥{{item.price}}/月</text>
+          <text class="item-day">规格：{{item.guige}}</text>
           <text class="item-day">数量：{{item.num}}个</text>
-          <text class="item-day">当前单价：¥{{item.price}}/月</text>
           <text class="item-day">租赁时长：{{item.rent_date}}月</text>
           <text class="item-price">¥{{item.total_money}}</text>
         </view>
@@ -63,9 +64,12 @@
   </view> 
 
   <view class="order-list-item-dzf-foot">
-    <button class="all-btn-com btn-zf" bindtap="createOrder">
+    <button class="btn-qx" bindtap="createOrder">
       去支付
     </button>
+    <!-- <button class="all-btn-com btn-zf" bindtap="createOrder">
+      去支付
+    </button> -->
     <!-- <button class="all-btn-com btn-qx">
       取消订单
     </button> -->

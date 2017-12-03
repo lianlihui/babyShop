@@ -66,15 +66,15 @@ Page({
           list = res.data.orderlist;
           //处理状态显示
           for (var i = 0; i < list.length;i++){
-            var txt = self.getStatusTxt(list[i].status);
-            list[i].statusTxt=txt;
+            list[i].statusTxt = self.getStatusTxt(list[i].status).split(';')[0];
+            list[i].moneyCls = self.getStatusTxt(list[i].status).split(';')[1];
           }
         } else {
           var alist = res.data.orderlist;
           //处理状态显示
           for (var i = 0; i < alist.length; i++) {
-            var txt = self.getStatusTxt(alist[i].status);
-            alist[i].statusTxt = txt;
+            alist[i].statusTxt = self.getStatusTxt(alist[i].status).split(';')[0];
+            alist[i].moneyCls = self.getStatusTxt(alist[i].status).split(';')[1];
           }
           list = self.data.orderlist.concat(alist);
         }
@@ -328,7 +328,8 @@ Page({
                 for (var i = 0; i < orderlist.length;i++){
                   if (orderlist[i].id==id){
                     orderlist[i].status=7;
-                    orderlist[i].statusTxt = self.getStatusTxt(7);
+                    orderlist[i].statusTxt = self.getStatusTxt(7).split(';')[0];
+                    orderlist[i].moneyCls = self.getStatusTxt(7).split(';')[1];
                     break;
                   }
                 }
@@ -365,7 +366,8 @@ Page({
           for (var i = 0; i < orderlist.length; i++) {
             if (orderlist[i].id == id) {
               orderlist[i].status = 4;
-              orderlist[i].statusTxt = self.getStatusTxt(4);
+              orderlist[i].statusTxt = self.getStatusTxt(4).split(';')[0];
+              orderlist[i].moneyCls = self.getStatusTxt(4).split(';')[1];
               break;
             }
           }
@@ -392,17 +394,17 @@ Page({
   getStatusTxt:function(status){
     var ret='';
     if (status==1){
-      ret = '未支付';
+      ret = '未支付;money-wzf';
     } else if (status == 2) {
-      ret = '待发货';
+      ret = '待发货;money-bh';
     } else if (status == 3) {
-      ret = '配送中';
+      ret = '配送中;money-bh';
     } else if (status == 4) {
-      ret = '交易成功';
+      ret = '交易成功;money-cg';
     } else if (status == 5) {
-      ret = '备货中';
+      ret = '备货中;money-bh';
     } else if (status == 7) {
-      ret = '已取消';
+      ret = '已取消;money-yqx';
     }
     return ret;
   }

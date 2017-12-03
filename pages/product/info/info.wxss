@@ -52,7 +52,18 @@
   margin-top:30rpx;
   background: #ffffff;
 }
+.product-info-detail{
+  margin-top:30rpx;
+  background: #ffffff;
+}
 .product-info-tag{
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #343333;
+  font-size: 36rpx;
+}
+.product-info-tag-detail{
+  padding: 0rpx 27rpx;
   height: 100rpx;
   line-height: 100rpx;
   color: #343333;
@@ -69,6 +80,7 @@
   position: relative;
 }
 .desc-color{
+  padding: 0 5px;
   color:#414141;
 }
 .item-tag{
@@ -118,13 +130,18 @@
   text-overflow: ellipsis;
   white-space:nowrap;
 }
-.product-price {
-  font-size: 28rpx;
-  color: #585858;
-}
+
 .del-price {
   font-size: 32rpx;
   color: #ff4965;
+  display:inline-block;
+}
+.del-price-yj {
+  font-size: 26rpx;
+  color: #585858;
+  display: inline-block;
+  margin-left: 26rpx;
+  position: relative;
 }
 
 .order-list-item-dzf-foot{
@@ -188,12 +205,16 @@
 
 /**弹框样式*/
 .modal-close {
-  width: 22rpx;
-  height: 22rpx;
-  padding: 20rpx;
+  width: 62rpx;
+  height: 62rpx;
   position: absolute;
   top: 0;
   right: 0;
+}
+.modal-close-img {
+  width: 22rpx;
+  height: 22rpx;
+  margin-left:20rpx;
 }
 .modal-wrap {
   position: fixed;
@@ -212,10 +233,11 @@
   background: #fff;
   border-radius: 10rpx;
   position: relative;
-  overflow: hidden;
 }
 .modal-body {
   padding: 50rpx 20rpx 0rpx;
+  height:600rpx;
+  overflow: auto;
 }
 .modal-item{
   padding: 20rpx 0;
@@ -344,6 +366,9 @@
   padding: 28rpx;
   border-bottom: 1px solid #d6d6d6;
 }
+.comment-item-top{
+  position: relative;
+}
 .comment-pic {
   width: 60rpx;
   height: 60rpx;
@@ -355,6 +380,13 @@
 .comment-name {
   font-size: 28rpx;
   color: #333;
+}
+.comment-time{
+  font-size: 26rpx;
+  color: #888;
+  position: absolute;
+  right: 0rpx;
+  top:8rpx;
 }
 .comment-item-ct {
   margin: 20rpx 0;

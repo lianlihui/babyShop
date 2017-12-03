@@ -158,7 +158,7 @@
 }
 .order-list-item-dzf-foot{
   height: 110rpx;
-  padding:0rpx 27rpx;
+  line-height: 110rpx;
   position: fixed;
   bottom: 0rpx;
   width: 100%;
@@ -166,6 +166,17 @@
   border-top: 1rpx #ebebeb solid;
   z-index:1;
   background: #ffffff;
+}
+.btn-qx{
+  width:215rpx;
+  line-height: 110rpx;
+  height: 110rpx;
+  background: #ff4965;
+  font-size: 42rpx;
+  color: #ffffff;
+  display: block;
+  float: right;
+  border-radius: 0rpx;
 }
 .all-btn-com{
   margin-top:28rpx;
@@ -177,11 +188,6 @@
   display: block;
   float: right;
   border-radius: 100rpx;
-}
-.btn-qx{
-  color: #7b7b7b;
-  border: 1px #7b7b7b solid;
-  margin-right: 45rpx;
 }
 .btn-zf{
   color: #f2506d;

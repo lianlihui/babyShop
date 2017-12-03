@@ -71,10 +71,22 @@
   margin-left:30rpx; 
 }
 .order-list-item-dzf-head .money{
-  color: #ff4965;
   display: inline-block;
   margin-left:30rpx;
 }
+.order-item-sy-status-wzf{
+  color: #ff4965;
+}
+.order-item-sy-status-cg{
+  color: green;
+}
+.order-item-sy-status-yqx{
+  color: gray;
+}
+.order-item-sy-status-bh{
+  color: green;
+}
+
 .order-list-item-dzf-bd{
   padding:30rpx 27rpx;
   background:#fff;

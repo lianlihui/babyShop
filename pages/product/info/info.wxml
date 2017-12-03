@@ -3,10 +3,10 @@
  
   <view class="product-header">
     <view class="product-img">
-      <swiper class="swiper-image" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+      <swiper class="swiper-image" indicator-dots="true" autoplay="true" interval="3000" duration="500">
         <block wx:for="{{imgUrls}}" wx:key="unique">
           <swiper-item>
-            <image src="{{imageRootPath}}{{item.url}}" class="slide-image" mode="aspectFit"/>
+            <image src="{{imageRootPath}}{{item.url}}" class="slide-image" mode="aspectFill"/>
           </swiper-item>
         </block>
       </swiper>
@@ -14,8 +14,8 @@
 
     <view class="product-title">
       <text class="product-title-txt"> {{warebean.name}}</text>
-      <span class="product-title-price"><span class="product-price-red">¥{{warebean.price}}</span>/月</span>
-      <span class="product-title-price-del">¥{{warebean.rent_cost}}/月</span>
+      <span class="product-title-price">价格：<span class="product-price-red">¥{{warebean.price}}</span>/月</span>
+      <span class="product-title-price-del">押金：¥{{warebean.rent_cost}}/月</span>
     </view>
   </view>
 
@@ -61,8 +61,8 @@
     </view>
   </view>
 
-  <view class="product-info">
-    <view class="product-info-tag">
+  <view class="product-info-detail">
+    <view class="product-info-tag-detail">
       产品描述
     </view>
     <view class="product-info-spec desc-color">
@@ -81,6 +81,7 @@
       <view class="comment-item-top">
         <image src="{{item1.avatarurl}}" class="comment-pic" />
         <text class="comment-name">{{item1.username}}</text>
+        <text class="comment-time">{{item1.addtime}}</text>
       </view>
       <view class="comment-item-info">
         <text class="comment-text">商品：{{item1.warename}}</text>
@@ -106,7 +107,10 @@
       <view class="product-list-item" wx:for="{{suggestwarelist}}" wx:for-item="item" data-id="{{item.id}}" bindtap="productInfo">
           <image src="{{imageRootPath}}{{item.pic1}}" mode="aspectFit"  class="product-image"/>
           <view class="product-desc">{{item.name}}</view>
-          <view class="product-price"><span class="del-price">¥{{item.price}}</span>/月</view>
+          <view class="product-price">
+            <span class="del-price">¥{{item.price}}</span>
+            <span class="del-price-yj">押金：¥{{item.rent_cost}}</span>
+          </view>
       </view>
     </view>
   </view>
@@ -129,7 +133,9 @@
 <!-- 规格弹窗 -->
 <view hidden="{{!modalSpecShow}}" class="modal-spec modal-wrap vertical-center">
   <view class="modal">
-    <image src="/images/modal-close.png" class="modal-close" bindtap="closeModal" data-modal="specModal"></image>
+    <view class="modal-close" bindtap="closeModal" >
+      <image class="modal-close-img" src="/images/modal-close.png" data-modal="specModal"></image>
+    </view>
     <view class="modal-body">
       <view class="modal-item">
         <span class="modal-item-desc">租用月数:</span>
@@ -170,6 +176,8 @@
             data-index="{{index}}"
             data-name="{{item.name}}"
             data-kuncun="{{item.kuncun}}"
+            data-price="{{item.price}}"
+            data-rent_cost="{{item.rent_cost}}"
             data-id="{{item.id}}"
             >{{item.name}}
         </text>

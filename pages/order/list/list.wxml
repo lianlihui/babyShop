@@ -35,7 +35,7 @@
         <view class="order-list-item-dzf-head">
           <span class="orderno-tag">订单号:</span>
           <span class="orderno-imp">{{item.orderno}}</span>
-          <span class="money">{{item.statusTxt}}</span>
+          <span class="money {{item.moneyCls}}">{{item.statusTxt}}</span>
         </view>
 
         <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
@@ -95,7 +95,7 @@
         <view class="order-list-item-dzf-head">
           <span class="orderno-tag">订单号:</span>
           <span class="orderno-imp">{{item.orderno}}</span>
-          <span class="money">{{item.statusTxt}}</span>
+          <span class="money {{item.moneyCls}}">{{item.statusTxt}}</span>
         </view>
 
         <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
@@ -128,7 +128,7 @@
           <span class="item-num">共{{item.orderwarelist.length}}件商品</span>
         </view>
 
-        <view class="order-list-item-all-foot">
+        <view class="order-list-item-all-foot" wx:if="{{item.status == 1}}">
           <button class="all-btn-com btn-zf" data-id="{{item.id}}" catchtap="payOrder">
             去支付
           </button>
@@ -149,7 +149,7 @@
         <view class="order-list-item-dzf-head">
           <span class="orderno-tag">订单号:</span>
           <span class="orderno-imp">{{item.orderno}}</span>
-          <span class="money">{{item.statusTxt}}</span>
+          <span class="money {{item.moneyCls}}">{{item.statusTxt}}</span>
         </view>
 
         <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
@@ -205,7 +205,7 @@
         <view class="order-list-item-dzf-head">
           <span class="orderno-tag">订单号:</span>
           <span class="orderno-imp">{{item.orderno}}</span>
-          <span class="money">{{item.statusTxt}}</span>
+          <span class="money {{item.moneyCls}}">{{item.statusTxt}}</span>
         </view>
 
         <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">
@@ -257,7 +257,7 @@
         <view class="order-list-item-dzf-head">
           <span class="orderno-tag">订单号:</span>
           <span class="orderno-imp">{{item.orderno}}</span>
-          <span class="money">{{item.statusTxt}}</span>
+          <span class="money {{item.moneyCls}}">{{item.statusTxt}}</span>
         </view>
 
         <view wx:for="{{item.orderwarelist}}" wx:for-index="idx" wx:for-item="orderware">

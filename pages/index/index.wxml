@@ -15,7 +15,7 @@
   <!-- start 搜索 -->
   <view class="search-box" bindtap="gotoSearch">
       <image src="/images/index/search.png" class="search-img" mode="widthFix"/>
-      <span class="search-text">宝宝服饰</span>
+      <span class="search-text">请输入关键词</span>
   </view>
 
   <!-- 为你推荐 -->

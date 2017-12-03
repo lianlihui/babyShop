@@ -49,10 +49,21 @@
   margin-left:30rpx; 
 }
 .order-list-item-dzf-head .money{
-  color: #ff4965;
   display: inline-block;
   position: absolute;
   right: 27rpx;
+}
+.money-wzf{
+  color: #ff4965;
+}
+.money-cg{
+  color: green;
+}
+.money-yqx{
+  color: gray;
+}
+.money-bh{
+  color: green;
 }
 .order-list-item-dzf-bd{
   padding:30rpx 27rpx 12rpx;

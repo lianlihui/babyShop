@@ -29,7 +29,7 @@
             </view>
             <view class="item-spec">
               <span class="item-spec-one">规格：{{item.sizename}}</span>
-              <span>颜色：{{item.color}}</span>
+              <span>总价格：¥{{item.total_money}}</span>
             </view>
             <view class="item-spec">
               <span class="item-spec-one">价格：<span class="item-price-red">¥{{item.price}}</span>/月</span>
