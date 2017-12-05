@@ -22,7 +22,7 @@
   <view class="recommend-box" wx:for="{{warelabellist}}" wx:for-item="item">
     <block wx:if="{{item.warelist.length > 0}}">
       <view class="recommend-title">
-        <image src="/images/index/index_rec.png" class="recommend-img" mode="widthFix"/>
+        {{item.name}}
       </view>
     </block>
 

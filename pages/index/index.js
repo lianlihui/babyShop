@@ -45,6 +45,7 @@ Page({
           var warelist = allwarelist[i];
           warelabellist[i].warelist = warelist;
         }
+        console.log(warelabellist);
         self.setData({
           warelabellist: warelabellist
         });

@@ -1,4 +1,7 @@
 /**index.wxss**/
+.container {
+  padding-bottom: 20rpx;
+}
 .swiper-wrap {
   height: 335rpx;
 }
@@ -32,12 +35,16 @@
 
 .recommend-box {
   width: 100%;
-  padding-bottom: 20rpx;
 }
 .recommend-title {
   width: 100%;
   height: 92rpx;
+  line-height: 92rpx;
   border-bottom: 1px solid #ebebeb;
+  background: #f9f9f9;
+  color: #ff4965;
+  font-size: 36rpx;
+  text-align: center;
 }
 .recommend-img {
   display: block;
