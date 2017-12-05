@@ -6,7 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressList:[]
+    addressList:[],
+    isSelect: false,
+    className: '', // 是否出现选框
+    curid: 0, // 当前选中的id
+
+    source: '',   //跳转来源，有可能是订单提交页面跳转而来
+    wareids: '',
+    waresizes: '',
+    rentdates: 0,
+    numbers: 0
   },
 
   /**
@@ -17,6 +26,21 @@ Page({
       //wx.redirectTo({ url: "/pages/login/login" });
       console.log("no login");
       return false;
+    }
+
+    if (options.source == 'confirm') {
+      //判断是否为订单提交页面过来
+      this.setData({
+        source: options.source,
+        wareids: options.wareids,
+        numbers: options.numbers,
+        waresizes: options.waresizes,
+        rentdates: options.rentdates,
+
+        isSelect: options.select,
+        className: options.select ? 'show' : '',
+        curid: options.curid || 0
+      });
     }
   },
 
@@ -62,15 +86,46 @@ Page({
   //编辑地址信息
   editAddress: function (event) {
     var id = event.currentTarget.dataset.id;
-    wx.redirectTo({
-      url: '../edit/edit?id=' + id + (this.data.isSelect ? '&select=1' : '')
-    })
+    var self = this;
+    if (self.data.source == 'confirm') {
+      var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
+        + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm';
+      wx.redirectTo({
+        url: '/pages/address/edit/edit?id='+id+'&' + params
+      })
+    } else {
+      wx.redirectTo({
+        url: '../edit/edit?id=' + id
+      })
+    }
   },
 
   //添加地址信息
   addAddress: function (event) {
-    wx.redirectTo({
-      url: '/pages/address/edit/edit?id=-1'
-    })
+    var self = this;
+    if (self.data.source == 'confirm') {
+      var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
+        + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm';
+      wx.redirectTo({
+        url: '/pages/address/edit/edit?id=-1&' + params
+      })
+    }else{
+      wx.redirectTo({
+        url: '/pages/address/edit/edit?id=-1'
+      })
+    }
+  },
+
+  // 选择收货地址
+  selectAddr: function (event) {
+    var self = this;
+    if (self.data.isSelect) {
+      var id = event.currentTarget.dataset.id;
+      if (self.data.source == 'confirm') {
+        wx.redirectTo({
+          url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&raddressId=' + id
+        })
+      }
+    }
   }
 })

@@ -22,7 +22,10 @@ Page({
     maxpoint:0,  //最大积分
     userPoint:0,  //用户积分
     isPoint:0,  //是否选择积分抵扣
-    addressbean:null  //地址
+    addressbean:null,  //地址
+
+    payTxt:'去支付',  //控制支付状态
+    payIng:false
   },
 
   /**
@@ -36,6 +39,12 @@ Page({
       rentdates: options.rentdates,
       rentids: options.rentids
     });
+    console.log('raddressId:' + options.raddressId);
+    if (typeof (options.raddressId) != "undefined") {
+      this.setData({
+        addressid: options.raddressId
+      });
+    }
   },
 
   onShow: function () {
@@ -46,11 +55,13 @@ Page({
   //获取订单提交数据
   getConfirmInfo:function(){
     var self=this;
+    console.log('addressid:' + self.data.addressid);
     var postData = {
       token: app.globalData.token,
       sizeids: self.data.waresizes,
       rentdates: self.data.rentdates,
-      numbers: self.data.numbers
+      numbers: self.data.numbers,
+      addressid: self.data.addressid
     };
     app.ajax({
       url: app.globalData.serviceUrl + 'morderaffirm.htm',
@@ -101,40 +112,65 @@ Page({
   //生成订单
   createOrder:function(){
     var self = this;
-    var point=0;
-    //使用了积分抵扣
-    if (self.data.isPoint==1){
-      point = self.data.userPoint > self.data.maxpoint ? self.data.maxpoint : self.data.userPoint;
-    }
-    if (self.data.addressbean==null){
-      self.showMsg('请先填写寄货地址');
-      return false;
-    }
-    var postData = {
-      token: app.globalData.token,
-      wareids: self.data.wareids,   //物品id
-      numbers: self.data.numbers,   //数量
-      waresizes: self.data.waresizes,   //规格id
-      rentdates: self.data.rentdates,   //租用月数
-      addressid: self.data.addressbean.id,    //地址id
-      point: point,    //积分
-      remarks: self.data.remarks   //备注
-    };
-    if (self.data.rentids) {
-      postData.rentids = self.data.rentids
-    }
-    app.ajax({
-      url: app.globalData.serviceUrl + 'mordersub.htm',
-      data: postData,
-      method: 'GET',
-      successCallback: function (res) {
-        if (res.code == 0 && res.data != null) {
-          //实现微信支付
-          self.payOrder(res.data);
-        } else {
-          self.showMsg(res.msg);
-        }
+    //预防多次点击支付
+    if (!self.data.payIng){
+      var point=0;
+      //使用了积分抵扣
+      if (self.data.isPoint==1){
+        point = self.data.userPoint > self.data.maxpoint ? self.data.maxpoint : self.data.userPoint;
       }
+      if (self.data.addressbean==null){
+        self.showMsg('请先填写寄货地址');
+        return false;
+      }
+      var postData = {
+        token: app.globalData.token,
+        wareids: self.data.wareids,   //物品id
+        numbers: self.data.numbers,   //数量
+        waresizes: self.data.waresizes,   //规格id
+        rentdates: self.data.rentdates,   //租用月数
+        addressid: self.data.addressbean.id,    //地址id
+        point: point,    //积分
+        remarks: self.data.remarks   //备注
+      };
+      if (self.data.rentids) {
+        postData.rentids = self.data.rentids
+      }
+
+      self.lockPayFun();  //提示支付中，锁定支付状态
+
+      app.ajax({
+        url: app.globalData.serviceUrl + 'mordersub.htm',
+        data: postData,
+        method: 'GET',
+        successCallback: function (res) {
+          if (res.code == 0 && res.data != null) {
+            //实现微信支付
+            self.payOrder(res.data);
+          } else {
+            self.unlockPayFun();  //提示去支付，解锁支付状态
+            self.showMsg(res.msg);
+          }
+        }
+      });
+    }
+  },
+
+  //提示支付中，锁定支付状态
+  lockPayFun:function(){
+    var self=this;
+    self.setData({
+      payTxt: '支付中...',  //控制支付状态
+      payIng: true
+    });
+  },
+
+  //提示去支付，解锁支付状态
+  unlockPayFun: function () {
+    var self = this;
+    self.setData({
+      payTxt: '去支付',  //控制支付状态
+      payIng: false
     });
   },
 
@@ -170,6 +206,7 @@ Page({
               success({ code: 0 });
            },
            'fail':function(res){
+              self.unlockPayFun();  //提示去支付，解锁支付状态
               self.showMsg('支付未完成，请重新支付！')
            }
         });
@@ -187,11 +224,13 @@ Page({
               })
             }, 1500);
           } else {
-            console.error(msg)
+            self.unlockPayFun();  //提示去支付，解锁支付状态
+            console.error(msg);
           }
         }
       },
       failCallback: function (res) {
+        self.unlockPayFun();  //提示去支付，解锁支付状态
         console.log(res);
       }
     })
@@ -201,21 +240,21 @@ Page({
   addAddress:function(){
     var self=this;
     var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers 
-      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates +'&source=confirm';
+      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates +'&source=confirm&select=true';
     wx.redirectTo({
-      url: '/pages/address/edit/edit?id=-1&' + params
+      url: '/pages/address/list/list?' + params
     })
   },
 
   //修改地址
   updateAddress: function () {
     var self = this;
-    var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
-      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm';
     var addressid = self.data.addressbean.id;
     console.log(addressid);
+    var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
+      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm&select=true&curid=' + addressid;
     wx.redirectTo({
-      url: '/pages/address/edit/edit?id=' + addressid+'&' + params
+      url: '/pages/address/list/list?' + params
     })
   },
 

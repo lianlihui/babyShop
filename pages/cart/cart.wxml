@@ -24,16 +24,18 @@
           <view class="item-right" bindtap="updateCart" data-index="{{index}}">
             <text class="item-title">{{item.name}}</text>
             <view class="item-spec">
-              <span class="item-spec-one">租用月数：{{item.rent_date}}月</span>
-              <span>数量：{{item.number}}个</span>
+              <span>规格：{{item.sizename}}</span>
             </view>
             <view class="item-spec">
-              <span class="item-spec-one">规格：{{item.sizename}}</span>
               <span>总价格：¥{{item.total_money}}</span>
             </view>
             <view class="item-spec">
               <span class="item-spec-one">价格：<span class="item-price-red">¥{{item.price}}</span>/月</span>
-              <span>押金：{{item.rent_cost}}/月</span>
+              <span>押金：¥{{item.rent_cost}}/月</span>
+            </view>
+            <view class="item-spec">
+              <span class="item-spec-one">租用月数：{{item.rent_date}}月</span>
+              <span>数量：{{item.number}}个</span>
             </view>
           </view>
         </view>

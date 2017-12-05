@@ -14,6 +14,25 @@
   position: relative;
   border-bottom: 1px solid #ebebeb;
 }
+.address-item-lf {
+  width: 100%;
+  display: table;
+  vertical-align: middle;
+}
+.address-item-icon{
+  width: 72rpx;
+  height: 110rpx;
+  display: none;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAP1BMVEUAAACIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIjomaf9AAAAFHRSTlMA7A9MlR2SV+aAxYffrTYtx6B9JzUCBLIAAADJSURBVCjPhZNZEoQgDETDvo3LKPc/65hYCky08j4spSGNoYGG8TnWGrM3wNBJ1RuV9KiGWAdi6FVbGbap01nSGgd6N/a0mS7V0+d2++mtXx/w/bNAx/LBMfLXWCs6GHAR3bBewokz/DHjaAIAXFyAUXA5gDmrMMjT0La/o9J64SHTJA6VzWTtnmRH5vUAniCFHvpVpuL7e/GM3XvdmvBjQluEpgpHIhyoEIcWxNLCVK4wsSiCG6IoB5n81SiqIFwihvGrOqS1v4I/K0IXE8DYivEAAAAASUVORK5CYII=) no-repeat center center;
+  background-size: 30rpx;
+}
+.address-item-icon.show {
+  display: table-cell;
+}
+.address-item-icon.active {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAb1BMVEUAAAA8zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv/////5/v/J8v9Az//h+P+t6/+M4v9t2v9d1v9J0v/w+/+b5v9V1f/c9/++7/953f9z3P/z/P/C8P+27f+U5P9R0/+oSHXLAAAADnRSTlMA6pQE+VdMEMWA7K3HgaFmAEAAAAEDSURBVCjPhZPZkoQgDEVBFMHuBsRde5nt/79xiAKVxpniPkioU5ELSUgU44WgZUlFwRlJVUuqohpZv9MKIBKtEGSFOqlgkV7UH7oEHnLTfH+u+kfV7pmqRGvfDrs/8C9Tuhmtv/ZIOl+n5IfW+vO4HiM8paN2Wo+Yn2zbu6OdDeZFggdIfvqNIMnR8+JoG9+WlO+4d9RMYVd6vE3jDOtkHO5VxP7nrTHLYN3q6DJHTL21sQO/ryf4GlSUCBf7MUDgc7e4KtxHU6sPjcgoJ6wJ8asD+kCUMlwS+/2hzYawTAo69ytOrjPtkGmmTCvmGzk/BuD/1qAhutURoBG8wghe8Qj+Agb0J9qckcweAAAAAElFTkSuQmCC) no-repeat center center;
+  background-size: 30rpx;
+}
 .address-item-content-contact{
   font-size: 36rpx;
   color: #414141;
@@ -40,7 +59,20 @@
 .address-item-content-address .defaut{
   color: #ff4965;
 }
-
+.address-item-eidt{
+  width:92rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #08a1f9;
+  text-align: center;
+  margin-left: 37rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -35rpx;
+  right: 0;
+  border-left: 1px solid #d5d5d5;
+}
 .address-btn{
   width: 100%;
   position: fixed;

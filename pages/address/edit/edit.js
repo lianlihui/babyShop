@@ -76,9 +76,18 @@ Page({
       return false;
     }
 
+    var self = this;
+    var ddShow = true;
+
+    self.getProvince();
+    if (options.id == -1) {
+      ddShow = false;
+    }
+
     if (options.source=='confirm'){
-      //判断是否为订单提交页面过来
-      this.setData({
+      //判断是否为订单提交页面过来，地址不允许删除 
+      ddShow = false; 
+      self.setData({
         source:options.source,
         wareids: options.wareids,
         numbers: options.numbers,
@@ -86,19 +95,12 @@ Page({
         rentdates: options.rentdates
       });
     } else if (options.source == 'exchange' || options.source == 'return') {
-      //判断是否为换货提交页面过来
-      this.setData({
+      //判断是否为换货提交页面过来，地址不允许删除 
+      ddShow = false;
+      self.setData({
         source: options.source,
         warenumbers: options.warenumbers
       });
-    }
-
-    var self = this;
-    var ddShow = true;
-
-    self.getProvince();
-    if (options.id == -1) {
-      ddShow = false;
     }
 
     self.setData({
@@ -308,8 +310,9 @@ Page({
         if (res.code == 0) {
           //跳回订单提交页面
           if (self.data.source == 'confirm') {
+            var addressId=res.data.id;
             wx.redirectTo({
-              url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates
+              url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&raddressId=' + addressId
             })
           } else if (self.data.source == 'exchange') {
             wx.redirectTo({

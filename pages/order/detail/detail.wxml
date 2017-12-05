@@ -53,7 +53,8 @@
           <text class="item-day">租赁时长：{{item.rent_date}}月</text>
           <text class="item-day">规格：{{item.sizename}}</text>
           <text class="item-day">颜色：{{item.color}}</text>
-          <text class="item-day">押金：¥{{item.rent_cost}}/月</text>
+          <text class="item-day">租金：¥{{item.rent_cost}}</text>
+          <text class="item-day">押金：¥{{item.ya_cost}}/月</text>
           <text class="item-price">¥{{item.price}}</text>
         </view>
       </view>
@@ -74,7 +75,7 @@
 
     <view class="order-list-item-all-foot" wx:if="{{order.status == 1}}">
       <button class="all-btn-com btn-zf" data-id="{{order.id}}" bindtap="payOrder">
-        去支付
+        {{payTxt}}
       </button>
       <button class="all-btn-com btn-qx" data-id="{{order.id}}" bindtap="cancelOrder">
         取消订单

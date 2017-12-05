@@ -7,7 +7,10 @@ Page({
    */
   data: {
     imageRootPath: '',
-    order:null
+    order:null,
+
+    payTxt: '去支付',  //控制支付状态
+    payIng: false
   },
 
   /**
@@ -51,64 +54,89 @@ Page({
     })
   },
   
+  //提示支付中，锁定支付状态
+  lockPayFun: function () {
+    var self = this;
+    self.setData({
+      payTxt: '支付中...',  //控制支付状态
+      payIng: true
+    });
+  },
+
+  //提示去支付，解锁支付状态
+  unlockPayFun: function () {
+    var self = this;
+    self.setData({
+      payTxt: '去支付',  //控制支付状态
+      payIng: false
+    });
+  },
+
   //订单支付
   payOrder:function(e){
     var id = e.currentTarget.dataset.id;
     var self = this;
-    var postData = {
-      token: app.globalData.token,
-      id: id
-    }
-    var url = app.globalData.serviceUrl + 'morderwxpay.htm'
-    wx.showLoading({ title: '正在请求支付', mask: true })
-    app.ajax({
-      url,
-      data: postData,
-      method: 'GET',
-      successCallback: function (res) {
-        wx.hideLoading()
-        
-        var timeStamp = res.timeStamp;
-        var nonceStr = res.nonceStr;
-        var pkg = res.package;
-        var signType = 'MD5';
-        var paySign = res.paySign;
-
-        wx.requestPayment({
-           'timeStamp': timeStamp,
-           'nonceStr': nonceStr,
-           'package': pkg,
-           'signType': 'MD5',
-           'paySign': paySign,
-           'success':function(res){
-              success({ code: 0 });
-           },
-           'fail':function(res){
-              self.showMsg('支付未完成，请重新支付！')
-           }
-        });
-
-        function success(res) {
-          const { code, data, msg } = res
-          if (code == 0) {
-            wx.showToast({
-              title: '支付成功',
-              icon: 'success'
-            })
-            setTimeout(function () {
-              wx.redirectTo({
-                url: '/pages/order/detail/detail?id=' + id
-              })
-            }, 1500);
-          } else {
-            console.error(msg)
-          }
-        }
-      },
-      failCallback: function (res) {
-        console.log(res);
+    //预防多次点击支付
+    if (!self.data.payIng) {
+      self.lockPayFun();  //提示支付中，锁定支付状态
+      var postData = {
+        token: app.globalData.token,
+        id: id
       }
-    })
+      var url = app.globalData.serviceUrl + 'morderwxpay.htm'
+      wx.showLoading({ title: '正在请求支付', mask: true })
+      app.ajax({
+        url,
+        data: postData,
+        method: 'GET',
+        successCallback: function (res) {
+          wx.hideLoading()
+          
+          var timeStamp = res.timeStamp;
+          var nonceStr = res.nonceStr;
+          var pkg = res.package;
+          var signType = 'MD5';
+          var paySign = res.paySign;
+
+          wx.requestPayment({
+            'timeStamp': timeStamp,
+            'nonceStr': nonceStr,
+            'package': pkg,
+            'signType': 'MD5',
+            'paySign': paySign,
+            'success':function(res){
+                success({ code: 0 });
+            },
+            'fail':function(res){
+              self.unlockPayFun();  //提示去支付，解锁支付状态
+              self.showMsg('支付未完成，请重新支付！')
+            }
+          });
+
+          function success(res) {
+            const { code, data, msg } = res
+            if (code == 0) {
+              wx.showToast({
+                title: '支付成功',
+                icon: 'success'
+              })
+              setTimeout(function () {
+                wx.redirectTo({
+                  url: '/pages/order/detail/detail?id=' + id
+                })
+              }, 1500);
+            } else {
+              self.unlockPayFun();  //提示去支付，解锁支付状态
+              console.error(msg)
+            }
+          }
+        },
+        failCallback: function (res) {
+          self.unlockPayFun();  //提示去支付，解锁支付状态
+          console.log(res);
+        }
+      })
+    }
   },
 
   //取消订单

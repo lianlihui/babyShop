@@ -14,11 +14,15 @@ Page({
     'waretypeid': 0,
     'hide': 'hide'
   },
-  onShow: function() {
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onLoad: function (options) {
     this.setData({
       'warelist': [],
       'waretypelist': [],
-      'page':1,
+      'page': 1,
       'loading': true,
       'noData': false,
       'isFirst': true,
@@ -29,8 +33,12 @@ Page({
     console.log(this.data.waretypelist);
     if (!app.globalData.token) {
       app.getToken();
-    } 
+    }
     this.getIndexData();
+  },
+
+  onShow: function() {
+    
   },
 
   getIndexData: function() {

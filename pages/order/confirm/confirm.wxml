@@ -15,7 +15,7 @@
       </view>
     </view>
   </view>
-  <view wx:else class="address-btn">
+  <view wx:else class="address-btn"> 
       <button class="address-btn-impl" bindtap="addAddress">
         <span>+</span>添加收货地址
       </button>
@@ -65,7 +65,7 @@
 
   <view class="order-list-item-dzf-foot">
     <button class="btn-qx" bindtap="createOrder">
-      去支付
+      {{payTxt}}
     </button>
     <!-- <button class="all-btn-com btn-zf" bindtap="createOrder">
       去支付

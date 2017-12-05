@@ -108,7 +108,7 @@
           <image src="{{imageRootPath}}{{item.pic1}}" mode="aspectFit"  class="product-image"/>
           <view class="product-desc">{{item.name}}</view>
           <view class="product-price">
-            <span class="del-price">¥{{item.price}}</span>
+            <span class="del-price">价格：¥{{item.price}}</span>
             <span class="del-price-yj">押金：¥{{item.rent_cost}}</span>
           </view>
       </view>
@@ -133,9 +133,9 @@
 <!-- 规格弹窗 -->
 <view hidden="{{!modalSpecShow}}" class="modal-spec modal-wrap vertical-center">
   <view class="modal">
-    <view class="modal-close" bindtap="closeModal" >
+    <!-- <view class="modal-close" bindtap="closeModal" >
       <image class="modal-close-img" src="/images/modal-close.png" data-modal="specModal"></image>
-    </view>
+    </view> -->
     <view class="modal-body">
       <view class="modal-item">
         <span class="modal-item-desc">租用月数:</span>
@@ -186,6 +186,9 @@
     <view class="modal-footer">
       <button class="modal-qd" bindtap="confirmModal">
         确定
+      </button>
+      <button class="modal-qx" bindtap="closeModal">
+        关闭
       </button>
     </view>
   </view>

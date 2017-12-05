@@ -168,7 +168,8 @@
   background: #ffffff;
 }
 .btn-qx{
-  width:215rpx;
+  text-align: center;
+  width:245rpx;
   line-height: 110rpx;
   height: 110rpx;
   background: #ff4965;

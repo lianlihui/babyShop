@@ -6,6 +6,7 @@ Page({
   data: {
     'imageRootPath': '',
     'warelist': [],
+    'hotsKey':[],
     'source':'',   //入口来源
     'name':'',
     'searchStatus': false,    //是否进行搜索
@@ -19,6 +20,45 @@ Page({
     this.setData({
       source: options.source
     });
+
+    this.getHotsKey();//获取关键字列表
+  },
+
+  //获取关键字列表
+  getHotsKey:function(){
+    var self = this;
+    var postData = {};
+
+    app.ajax({
+      url: app.globalData.serviceUrl + '/msearchindex.html',
+      data: postData,
+      method: 'POST',
+      successCallback: function (res) {
+        if (res.data) {
+          self.setData({
+            hotsKey: res.data.hotkeywords
+          });
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
+  },
+
+  //关键字触发
+  productInfoByKey:function(e){
+    var name = e.currentTarget.dataset.name;
+    this.setData({
+      name: name
+    });
+    if (name != '') {
+      this.setData({
+        searchStatus: true
+      });
+    }
+
+    this.searchProduct();
   },
 
   //搜索框触发
@@ -81,7 +121,7 @@ Page({
 
   //跳转到产品详情
   productInfo: function (e) {
-    var id = event.currentTarget.dataset.id;
+    var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/product/info/info?id=' + id
     })

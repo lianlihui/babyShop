@@ -1,18 +1,27 @@
 <!--index.wxml-->
 <view class="container">
-
+ 
   <!-- start搜索 -->
   <view class="search-wrap">
     <view class="search-box">
-        <input placeholder="搜索产品" class="search-box-inp" bindinput="bindNameChange"/>
+        <input placeholder="搜索产品" class="search-box-inp" bindinput="bindNameChange" value="{{name}}"/>
     </view>
     <span class="search-box-qd" wx:if="{{searchStatus}}" bindtap="searchProduct">搜索</span>
     <span class="search-box-qd" wx:else bindtap="cancelSearch">取消</span>
    
   </view>
 
-  <!-- 产品列表 -->
+  <!--关键字列表-->
+    <view class="search-key">
+      <view class="search-key-title">
+        热门搜索
+      </view>
+      <view class="search-key-list">
+        <span class="search-key-tag" wx:for="{{hotsKey}}" wx:for-item="item" bindtap="productInfoByKey" data-name="{{item.name}}">{{item.name}}</span>
+      </view>
+    </view>
 
+  <!-- 产品列表 -->
   <view class="recommend-box">
     <view class="product-list">
 
