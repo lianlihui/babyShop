@@ -146,6 +146,9 @@ Page({
             */
           var descript = res.data.warebean.descript;
           WxParse.wxParse('descript', 'html', descript, self, 5);
+
+          var editor_detail = res.data.warebean.editor_detail;
+          WxParse.wxParse('editor_detail', 'html', editor_detail, self, 5);
         }
       },
       failCallback: function(res) {

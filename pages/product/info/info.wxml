@@ -19,7 +19,7 @@
     </view>
   </view>
 
-  <view class="product-info">
+  <!-- <view class="product-info">
     <view class="product-info-tag">
       产品详情
     </view>
@@ -59,7 +59,16 @@
       <span class="item-tag">新旧程度</span>
       <span class="item-txt">{{warebean.level}}</span>
     </view>
-  </view>
+  </view> -->
+
+  <view class="product-info-detail">
+    <view class="product-info-tag-detail">
+      产品详情
+    </view>
+    <view class="product-info-spec desc-color">
+      <template is="wxParse" data="{{wxParseData:editor_detail.nodes}}" />
+    </view>
+  </view> 
 
   <view class="product-info-detail">
     <view class="product-info-tag-detail">
