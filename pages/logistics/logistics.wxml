@@ -1,0 +1,37 @@
+<!--index.wxml -->
+<view class="container">
+
+  <view class="page-top">
+    <view class="page-top-lf">
+      <image src="/images/logistics/logo.png" class="page-top-img" />
+    </view>
+    <view class="page-top-rt">
+      <view class="page-top-name" >快递公司</view>
+      <view class="page-top-num">运单编号：138383838383838</view>
+    </view>
+  </view>
+
+  <view class="section-title">商品详情</view>
+  <view class="section-box">
+    <view class="section-lf">
+      <image src="/images/logistics/logo.png" class="section-img" mode="widthFix"/>
+    </view>
+    <view class="section-ct">
+      <view class="section-name">我是一个中国人啊啊职啊</view>
+      <view>规格：50*60</view>
+    </view>
+    <view class="section-rt">
+      <view class="section-price">价格</view>
+      <view class="section-num">1</view>
+    </view>
+  </view>
+
+  <view class="section-title">物流详情</view>
+  <view class="section-list">
+    <view class="section-item active">
+      <i></i>
+      <view></view>
+    </view>
+  </view>
+
+</view>

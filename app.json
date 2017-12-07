@@ -26,7 +26,8 @@
     "pages/question/detail/detail",
     "pages/service/service",
     "pages/comment/list/list",
-    "pages/protocol/protocol"
+    "pages/protocol/protocol",
+    "pages/logistics/logistics"
   ],
   "tabBar": {
     "color": "#414141",

@@ -36,5 +36,10 @@
     <image src="/images/my/icon7.png" class="page-my-item-icon" />
     <text>联系客服</text>
   </view>
+
+  <navigator url="/pages/logistics/logistics"class="page-my-list-item">
+    <image src="/images/my/icon7.png" class="page-my-item-icon" />
+    <text>物流页面</text>
+  </navigator>
 </view>
 
