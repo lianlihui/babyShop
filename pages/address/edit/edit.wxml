@@ -34,10 +34,10 @@
     </view>
 
     <view class="addrss-edit-item">
-      <view class="addrss-edit-item-implm">
-        <text class="addrss-edit-item-mtext" bindtap="defaultChange">设置默认地址</text>
-        <view wx:if="{{isdefault == 0}}" class="addrss-edit-item-icon" bindtap="defaultChange"></view>
-        <view wx:if="{{isdefault == 1}}" class="addrss-edit-item-icon active" bindtap="defaultChange"></view>
+      <view class="addrss-edit-item-implm" bindtap="defaultChange">
+        <view wx:if="{{isdefault == 0}}" class="addrss-edit-item-icon" ></view>
+        <view wx:if="{{isdefault == 1}}" class="addrss-edit-item-icon active"></view>
+        <text class="addrss-edit-item-mtext">设置默认地址</text>
       </view>
     </view>
 

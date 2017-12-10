@@ -29,7 +29,8 @@
   <view class="section-title">物流详情</view>
   <view class="section-list">
     <view class="section-item active">
-      <i></i>
+      <i class="icon-circle"></i>
+      <view>由【广东深圳罗湖】深圳市南山区科技园南区楼步步高深圳市南山区科技</view>
       <view></view>
     </view>
   </view>

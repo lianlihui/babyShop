@@ -22,7 +22,7 @@
   </view>
   <view class="page-my-list-item" bindtap="gotoMyAddress">
     <image src="/images/my/icon3.png" class="page-my-item-icon" />
-    <text>我的地址</text>
+    <text>地址管理</text>
   </view>
   <view class="page-my-list-item" bindtap="gotoComment">
     <image src="/images/my/icon5.png" class="page-my-item-icon"/>

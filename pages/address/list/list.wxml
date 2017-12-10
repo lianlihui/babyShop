@@ -13,8 +13,21 @@
             <span class="adrss">{{item.province}}{{item.city}}{{item.area}}{{item.detailaddress}}</span>
           </view>
         </view>
-        <view class="address-item-eidt" data-id="{{item.id}}" bindtap="editAddress">
-          <view class="address-item-icon {{item.isdefault == 1 ? 'active': ''}}"></view>
+        <view class="address-item-operate-box">
+          <view class="address-operate">
+            <view class="address-item-icon {{item.isdefault == 1 ? 'active': ''}}"></view>
+            <text class="address-operate-text">设为默认</text>
+          </view>
+          <view class="address-operate-rt">
+            <view class="address-operate" data-id="{{item.id}}" bindtap="editAddress">
+              <view class="address-item-edits"></view>
+              <text class="address-operate-text">编辑</text>
+            </view>
+            <view class="address-operate" data-id="{{item.id}}" data-index="{{index}}" bindtap="deleteAddress">
+              <view class="address-item-delete"></view>
+              <text class="address-operate-text">删除</text>
+            </view>
+          </view>
       </view>
       </view>
     </view>

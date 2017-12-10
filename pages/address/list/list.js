@@ -10,7 +10,6 @@ Page({
     isSelect: false,
     className: '', // 是否出现选框
     curid: 0, // 当前选中的id
-
     source: '',   //跳转来源，有可能是订单提交页面跳转而来
     wareids: '',
     waresizes: '',
@@ -127,5 +126,46 @@ Page({
         })
       }
     }
-  }
+  },
+
+  //删除地址
+  deleteAddress: function (event) {
+    var self = this;
+    var id = event.currentTarget.dataset.id;
+    var index = event.currentTarget.dataset.index;
+    console.log(id);
+    console.log(index);
+    wx.showModal({
+      title: '提示',
+      content: '确定删除该地址？',
+      success: function (res) {
+        if (res.confirm) {
+          var postData = {
+            token: app.globalData.token,
+            id: id
+          };
+          app.ajax({
+            url: app.globalData.serviceUrl + 'maddressdel.htm',
+            data: postData,
+            method: 'POST',
+            successCallback: function (res) {
+              if (res.code == 0) {
+                var addresslistCopy = self.data.addressList;
+                addresslistCopy.splice(index, 1);
+                self.setData({
+                  addressList: addresslistCopy
+                });
+                // wx.redirectTo({
+                //   url: '../list/list'
+                // });
+              }
+            },
+            failCallback: function (res) {
+              console.log(res);
+            }
+          });
+        }
+      }
+    })
+  },
 })
