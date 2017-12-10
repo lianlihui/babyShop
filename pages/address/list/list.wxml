@@ -2,11 +2,11 @@
 
   <view class="address-list">
     <view wx:for="{{addressList}}" wx:key="unique1">
-      <view class="address-item">
-        <view class="address-item-lf" bindtap="selectAddr" data-id="{{item.id}}">
+      <view class="address-item"  bindtap="selectAddr" data-id="{{item.id}}">
+        <view class="address-item-lf">
           <view class="address-item-content-contact">
             <span>{{item.ordername}}</span>
-            <span class="phone">{{item.mobile}}</span>
+            <span class="phone">{{item.xmobile}}</span>
           </view>
           <view class="address-item-content-address">
             <span class="defaut" wx:if="{{item.isdefault == 1}}">[默认]</span>
@@ -15,15 +15,15 @@
         </view>
         <view class="address-item-operate-box">
           <view class="address-operate">
-            <view class="address-item-icon {{item.isdefault == 1 ? 'active': ''}}"></view>
-            <text class="address-operate-text">设为默认</text>
+            <view class="address-item-icon {{item.isdefault == 1 ? 'active': ''}}" data-obj="{{item}}" catchtap="setAddress"></view>
+            <text class="address-operate-text" data-obj="{{item}}" catchtap="setAddress">设为默认</text>
           </view>
           <view class="address-operate-rt">
-            <view class="address-operate" data-id="{{item.id}}" bindtap="editAddress">
+            <view class="address-operate" data-id="{{item.id}}" catchtap="editAddress">
               <view class="address-item-edits"></view>
               <text class="address-operate-text">编辑</text>
             </view>
-            <view class="address-operate" data-id="{{item.id}}" data-index="{{index}}" bindtap="deleteAddress">
+            <view class="address-operate" data-id="{{item.id}}" data-index="{{index}}" catchtap="deleteAddress">
               <view class="address-item-delete"></view>
               <text class="address-operate-text">删除</text>
             </view>

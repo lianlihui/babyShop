@@ -14,7 +14,9 @@ Page({
     wareids: '',
     waresizes: '',
     rentdates: 0,
-    numbers: 0
+    numbers: 0,
+    colors:'',
+    rtype:1
   },
 
   /**
@@ -35,6 +37,8 @@ Page({
         numbers: options.numbers,
         waresizes: options.waresizes,
         rentdates: options.rentdates,
+        colors: options.colors,
+        rtype: options.rtype,
 
         isSelect: options.select,
         className: options.select ? 'show' : '',
@@ -62,12 +66,13 @@ Page({
       successCallback: function (res) {
         if (res.code == 0) {
           var retList = res.data.addresslist;
+          var yList=[];
           var setList = [];
           if (retList != null && retList.length > 0) {
             for (var i = 0; i < retList.length; i++) {
               var item = retList[i];
-              item.mobile = item.mobile.substring(0, 3) + '*****'
-                + item.mobile.substring(8);
+              item.xmobile = item.mobile.substring(0, 3) + '*****'
+                 + item.mobile.substring(8);
               setList.push(item);
             }
           }
@@ -88,7 +93,9 @@ Page({
     var self = this;
     if (self.data.source == 'confirm') {
       var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
-        + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm';
+        + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates 
+        + '&colors=' + self.data.colors + '&rtype=' + self.data.rtype 
+        + '&source=confirm';
       wx.redirectTo({
         url: '/pages/address/edit/edit?id='+id+'&' + params
       })
@@ -99,12 +106,39 @@ Page({
     }
   },
 
+  //设置为默认
+  setAddress: function (event){
+    var self = this;
+    var obj = event.currentTarget.dataset.obj;
+    delete obj.xmobile;
+    var postData=obj;
+    postData.token = app.globalData.token;
+    var url = app.globalData.serviceUrl + 'maddressupdate.htm';
+    postData.isdefault = obj.isdefault==0?1:0;
+    //添加地址   
+    app.ajax({
+      url: url,
+      data: postData,
+      method: 'POST',
+      successCallback: function (res) {
+        if (res.code == 0) {
+          self.getListInfo();
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
+  },
+
   //添加地址信息
   addAddress: function (event) {
     var self = this;
     if (self.data.source == 'confirm') {
       var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
-        + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm';
+        + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates 
+        + '&colors=' + self.data.colors + '&rtype=' + self.data.rtype 
+        + '&source=confirm';
       wx.redirectTo({
         url: '/pages/address/edit/edit?id=-1&' + params
       })
@@ -122,7 +156,7 @@ Page({
       var id = event.currentTarget.dataset.id;
       if (self.data.source == 'confirm') {
         wx.redirectTo({
-          url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&raddressId=' + id
+          url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&colors=' + self.data.colors + '&rtype=' + self.data.rtype + '&raddressId=' + id
         })
       }
     }
@@ -133,8 +167,7 @@ Page({
     var self = this;
     var id = event.currentTarget.dataset.id;
     var index = event.currentTarget.dataset.index;
-    console.log(id);
-    console.log(index);
+    
     wx.showModal({
       title: '提示',
       content: '确定删除该地址？',

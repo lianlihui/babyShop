@@ -24,7 +24,9 @@ Page({
     orderlist:[],
 
     payTxt: '去支付',  //控制支付状态
-    payIng: false
+    payIng: false,
+    isEmpty: '',   //是否显示空
+    isShow: 'show' //是否显示数据 
   },
 
   /**
@@ -58,10 +60,19 @@ Page({
       successCallback: function (res) {
         var list = [];
         if (res.code != 0 || res.data==null) {
-          self.setData({
-            noData: true,  //显示已经没有数据
-            loading: false  //滚动不用再触发
-          });
+          //第一次请求 判断是否有数据
+          if (self.data.page == 1) {
+            self.setData({
+              isShow: list.length > 0 ? '' : 'hide',
+              isEmpty: list.length > 0 ? '' : 'show',
+              loading: false  //滚动不用再触发
+            });
+          }else{
+            self.setData({
+              noData: true,  //显示已经没有数据
+              loading: false  //滚动不用再触发
+            });
+          }
           return false;
         }
         console.log(list);
@@ -182,6 +193,8 @@ Page({
       orderlist:[],
       loading: true,
       noData: false,
+      isEmpty: '',   //是否显示空
+      isShow: 'show' //是否显示数据 
     });
     self.getOrder();
   },
@@ -436,5 +449,12 @@ Page({
       ret = '已取消;money-yqx';
     }
     return ret;
+  },
+
+  //跳转到首页
+  gotoIndex:function(){
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   }
 })

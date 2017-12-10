@@ -248,7 +248,9 @@ Page({
   addAddress:function(){
     var self=this;
     var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers 
-      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates +'&source=confirm&select=true';
+      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates 
+      + '&colors=' + self.data.colors + '&rtype=' + self.data.rtype 
+      +'&source=confirm&select=true';
     wx.redirectTo({
       url: '/pages/address/list/list?' + params
     })
@@ -260,7 +262,9 @@ Page({
     var addressid = self.data.addressbean.id;
     console.log(addressid);
     var params = 'wareids=' + self.data.wareids + '&numbers=' + self.data.numbers
-      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&source=confirm&select=true&curid=' + addressid;
+      + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates 
+      + '&colors=' + self.data.colors + '&rtype=' + self.data.rtype 
+      + '&source=confirm&select=true&curid=' + addressid;
     wx.redirectTo({
       url: '/pages/address/list/list?' + params
     })

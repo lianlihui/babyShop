@@ -33,7 +33,9 @@ Page({
     waresizes:'',
     rentdates:0,
     numbers:0,
-    warenumbers:''
+    warenumbers:'',
+    colors: '',
+    rtype: 1
   },
 
   bindMultiPickerChange: function (e) {
@@ -92,7 +94,9 @@ Page({
         wareids: options.wareids,
         numbers: options.numbers,
         waresizes: options.waresizes,
-        rentdates: options.rentdates
+        rentdates: options.rentdates,
+        colors: options.colors,
+        rtype: options.rtype
       });
     } else if (options.source == 'exchange' || options.source == 'return') {
       //判断是否为换货提交页面过来，地址不允许删除 
@@ -312,7 +316,8 @@ Page({
           if (self.data.source == 'confirm') {
             var addressId=res.data.id;
             wx.redirectTo({
-              url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&raddressId=' + addressId
+              url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&colors=' + self.data.colors
+               + '&rtype=' + self.data.rtype  + '&raddressId=' + addressId
             })
           } else if (self.data.source == 'exchange') {
             wx.redirectTo({

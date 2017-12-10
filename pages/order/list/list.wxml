@@ -26,9 +26,19 @@
     </span>
   </view>
 </view>
-
+<view class="empty-box {{isEmpty}}">
+  <view class="empty-box-txt">
+    暂时没有数据
+  </view>
+  <view class="empty-box-btn">
+    <button class="empty-box-btn-cls" catchtap="gotoIndex">
+      去首页逛逛
+      <image src="/images/order/no_icon.png" class="empty-box-btn-img"></image>
+    </button>
+  </view>
+</view>
 <!--全部订单模块-->
-<view wx:if="{{allStatus}}">
+<view wx:if="{{allStatus}}" class="{{isShow}}">
   <view class="order-list">
     <view wx:for="{{orderlist}}" wx:key="unique1">
       <view class="order-list-item-dzf" data-id="{{item.id}}" bindtap="orderDetail">
@@ -89,7 +99,7 @@
 </view>
 
 <!--待支付订单模块-->
-<view wx:if="{{dzfStatus}}">
+<view wx:if="{{dzfStatus}}" class="{{isShow}}">
   <view class="order-list">
     <!--待支付-->
     <view wx:for="{{orderlist}}" wx:key="unique1">
@@ -146,7 +156,7 @@
 </view>
 
 <!--待收货订单模块-->
-<view wx:if="{{dshStatus}}">
+<view wx:if="{{dshStatus}}" class="{{isShow}}">
   <view class="order-list">
     <view wx:for="{{orderlist}}" wx:key="unique1">
       <view class="order-list-item-dzf" data-id="{{item.id}}" bindtap="orderDetail">
@@ -204,7 +214,7 @@
 </view>
 
 <!--已完成订单模块-->
-<view wx:if="{{ywcStatus}}">
+<view wx:if="{{ywcStatus}}" class="{{isShow}}">
   <view class="order-list">
     <view wx:for="{{orderlist}}" wx:key="unique1" data-id="{{item.id}}" bindtap="orderDetail">
       <view class="order-list-item-dzf" data-id="{{item.id}}" bindtap="orderDetail">
@@ -258,7 +268,7 @@
 </view>
 
 <!--已取消订单模块-->
-<view wx:if="{{yqxStatus}}">
+<view wx:if="{{yqxStatus}}" class="{{isShow}}">
   <view class="order-list">
     <view wx:for="{{orderlist}}" wx:key="unique1">
       <view class="order-list-item-dzf" data-id="{{item.id}}" bindtap="orderDetail">
