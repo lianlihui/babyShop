@@ -29,23 +29,75 @@
   font-size: 28rpx;
   margin: 25rpx 0rpx;
   display: block;
+  position: relative;
 }
+.product-title-txt-xz{
+  position: absolute;
+  display: block;
+  top: 0rpx;
+  right: 26rpx;
+  color: #7b7b7b;
+  font-size: 30rpx;
+}
+.product-title-txt-img{
+  position: absolute;
+  display: block;
+  top: 0rpx;
+  right: 0rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+.product-zj{
+  width: 100%;
+}
+.product-zj-item{
+  width: 25%;
+  display: inline-block;
+}
+.product-zj-item-btn{
+  width:150rpx;
+  line-height:40rpx;
+  height:40rpx;
+  font-size:28rpx;
+  display:block;
+  border-radius:100rpx;
+}
+.product-zj-item-btn.qx{
+  background:#f2506d;
+  color:#ffffff;
+}
+.product-zj-item-btn.jc{
+  background:#ff9dac;
+  color:#ffffff;
+}
+.product-zj-item-btn.bc{
+  background:#dddddd;
+  color:#7b7b7b;
+}
+.product-zj-item-btn.qc{
+  background:#dddddd;
+  color:#7b7b7b;
+}
+
 .product-title-price{
-  color: #414141;
-  font-size: 40rpx;
+  font-size:28rpx;
+  color:#585858;
   margin-bottom: 25rpx;
   display:inline-block;
+  text-align: left;
+  width: 33%;
 }
 .product-price-red{
   color: #ff4965;
-  font-size: 50rpx;
+  font-size: 40rpx;
 }
 .product-title-price-del{
   font-size:28rpx;
   color:#585858;
   display:inline-block;
-  margin-left:26rpx;
   position:relative;
+  width: 33%;
+  text-align: left;
 }
 .product-info{
   padding: 0rpx 27rpx;
@@ -234,8 +286,18 @@
   border-radius: 10rpx;
   position: relative;
 }
+.modal-header{
+  padding: 0rpx 20rpx;
+}
+.modal-header-item{
+  border-bottom:1rpx #ebebeb solid;
+  font-size:36rpx;
+  color:#343333;
+  height:100rpx;
+  line-height: 100rpx;
+}
 .modal-body {
-  padding: 50rpx 20rpx 0rpx;
+  padding: 0rpx 20rpx;
   height:600rpx;
   overflow: auto;
 }
@@ -284,6 +346,10 @@
   font-size: 28rpx;
   color: #414141;
 }
+.spec-wrap{
+  border-bottom:1rpx #ebebeb solid;
+  padding:20rpx 0;
+}
 .modal-body .spec {
   display: inline-block;
   height: 45rpx;
@@ -292,14 +358,15 @@
   color: #777;
   padding: 0 18rpx;
   box-sizing: border-box;
-  border: 1rpx solid #ebebeb;
-  border-radius: 5rpx;
+  border: 1rpx solid #7b7b7b;
+  border-radius: 15rpx;
   margin-right: 38rpx;
   margin-bottom: 10rpx;
 }
 .modal-body .spec.active {
   background: #ff4965;
   color: #ffffff;
+  border:none;
 }
 
 .modal-footer{
@@ -348,6 +415,9 @@
   color: #000;
   text-indent: 27rpx;
 }
+.comment-wrap{
+  margin-top:30rpx;
+}
 .comment-box {
   background: #fff;
 }
@@ -360,10 +430,9 @@
   overflow: visible;
 }
 .comment-tab {
-  width: 150rpx;
+  width: 33%;
   height: 100rpx;
   line-height: 100rpx;
-  margin: 0 20rpx;
   display: inline-block;
   vertical-align: middle;
   border-bottom: 1px solid #d6d6d6;

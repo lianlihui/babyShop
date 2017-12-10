@@ -1,0 +1,38 @@
+<view class="brand-list">
+
+  <view class="brand-item">
+    <view class="brand-item-left">
+      <image src="/images/brand/pp.png" class="brand-item-img"></image>
+    </view>
+    <view class="brand-item-right">
+      品牌1
+    </view>
+  </view>
+
+  <view class="brand-item">
+    <view class="brand-item-left">
+      <image src="/images/brand/pp.png" class="brand-item-img"></image>
+    </view>
+    <view class="brand-item-right">
+      品牌1
+    </view>
+  </view>
+
+  <view class="brand-item">
+    <view class="brand-item-left">
+      <image src="/images/brand/pp.png" class="brand-item-img"></image>
+    </view>
+    <view class="brand-item-right">
+      品牌1
+    </view>
+  </view>
+
+  <view class="brand-item">
+    <view class="brand-item-left">
+      <image src="/images/brand/pp.png" class="brand-item-img"></image>
+    </view>
+    <view class="brand-item-right">
+      品牌1
+    </view>
+  </view>
+</view>

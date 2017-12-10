@@ -1,0 +1,32 @@
+.brand-list{
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+.brand-item{
+  padding:0 30rpx;
+  background:#fff;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  display:-webkit-box;
+  border-bottom:1rpx #ebebeb solid;
+  position:relative;
+}
+.brand-item-left{
+  width:120rpx;
+  height:120rpx;
+  margin-right:50rpx;
+  padding: 45rpx 0rpx;
+  overflow:hidden;
+  background:#fff;
+}
+.brand-item-img{
+  width: 120rpx;
+  height: 120rpx;
+}
+.brand-item-right{
+  height: 210rpx;
+  line-height: 210rpx;
+  color: #414141;
+  font-size: 36rpx;
+}

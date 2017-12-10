@@ -82,6 +82,13 @@ Page({
     })
   },
 
+  //更多跳转
+  gotoMore: function () {
+    wx.switchTab({
+      url: '/pages/product/list/list'
+    })
+  },
+
   //分享
   onShareAppMessage: function () {
     return {

@@ -16,17 +16,26 @@ Page({
     imgUrls:[],
     modalSpecIndex:0,
     specKucun:0,
+    specSmprice: 0,
     specPrice:0,
     specRentCost:0,
     waresizes: '',   //购买规格id
     numbers:1,   //购买数量
     rentdates:1,    //租用月数
+    colors:'',  //购买颜色
+    rtype:1,   //购买类型
     isCart:0,   //加入购物车弹框
     cartNums:0,
     hotList: [],
     newList: [],
     list: [],
-    curComment: 'hot'
+    curComment: 'proInfo',
+
+    modalTypeIndex: 1,  //类型：1、我要租 2:我要买
+    modalColorIndex: 0, //颜色
+    colorsArr:[],  //商品详情颜色列表
+
+    zjList:[],  //折旧程度
   },
 
   /**
@@ -83,6 +92,17 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function(res) {
+        //初始化折旧程度
+        var jzTxts=["全新","九成新","八成新","七成新"];
+        var zjList=[];
+        for (var i = 0; i < jzTxts.length;i++){
+          var sobj={};
+          sobj.name = jzTxts[i];
+          sobj.cls='qc';
+          sobj.obj=null;
+          zjList.push(sobj);
+        }
+
         if(res.code==0&&res.data!=null){
           self.setData({
             imageRootPath: res.data.imageRootPath,
@@ -93,19 +113,59 @@ Page({
             specRentCost: res.data.warebean.rent_cost,
             hotList: res.data.warepingjiazr,
             newList: res.data.warepingjiazx,
-            list: res.data.warepingjiazr
+            list: res.data.warepingjiazx
           });
+          //设置购买类型
+          var modalTypeIndex = res.data.warebean.type == 3 ? 1 : res.data.warebean.type;
+          self.setData({
+            modalTypeIndex: modalTypeIndex
+          })
           //设置第一个规格库存显示
           if (res.data.waresizelist!=null){
             self.setData({
+              specSmprice: res.data.waresizelist[0].smprice,
               specKucun: res.data.waresizelist[0].kuncun,
               specPrice: res.data.waresizelist[0].price,
               specRentCost: res.data.waresizelist[0].rent_cost,
               waresizes: res.data.waresizelist[0].id
             });
+            //处理折旧程度
+            for (var i = 0; i < res.data.waresizelist.length;i++){
+              for (var j = 0; j < zjList.length;j++){
+                if (res.data.waresizelist[i].level == zjList[j].name) {
+                  zjList[j].cls='jc';
+                  zjList[j].obj = res.data.waresizelist[i];
+                  break;
+                }
+              }
+            }
+            console.log(zjList);
+            zjList[0].cls='qx';
+            self.setData({
+              zjList: zjList
+            });
           }
           
           var pro=res.data.warebean;
+          //处理颜色
+          var colorsArr=[];
+          if (pro.color != '' && pro.color!=null){
+            var cArr = pro.color.split(',');
+            for (var i = 0; i < cArr.length;i++){
+              if (cArr[i] != null && cArr[i] != '') {
+                var colorsItem = {};
+                colorsItem.id = i + 1;
+                colorsItem.name = cArr[i];
+                colorsArr.push(colorsItem);
+              }
+            }
+          }
+          console.log(colorsArr);
+          self.setData({
+            colors: colorsArr[0].name,  //默认选中第一个
+            colorsArr: colorsArr
+          })
+
           var picItem={};
           var picList=[];
           if (pro.pic1 != null && pro.pic1!=''){
@@ -157,6 +217,71 @@ Page({
     });
   },
 
+  //折旧切换
+  zjFun: function (e) {
+    var self = this;
+    var obj = e.currentTarget.dataset.obj;
+    if(obj!=null){
+      console.log(obj);
+      var zjList = self.data.zjList;
+      for (var i = 0; i < zjList.length;i++){
+        if (zjList[i].cls == 'qx'){
+          zjList[i].cls = 'jc';
+          continue;
+        }
+      }
+      for (var i = 0; i < zjList.length; i++) {
+        if (zjList[i].obj!=null&&obj.id == zjList[i].obj.id && zjList[i].cls == 'jc') {
+          zjList[i].cls = 'qx';
+          continue;
+        }
+      }
+      self.setData({
+        zjList: zjList
+      }); 
+
+      //更改颜色
+      var colorsArr = [];
+      if (obj.color != '' && obj.color != null) {
+        var cArr = obj.color.split(',');
+        for (var i = 0; i < cArr.length; i++) {
+          if (cArr[i] != null && cArr[i]!=''){
+            var colorsItem = {};
+            colorsItem.id = i + 1;
+            colorsItem.name = cArr[i];
+            colorsArr.push(colorsItem);
+          }
+        }
+      }
+      console.log(colorsArr);
+      self.setData({
+        modalColorIndex: 0,
+        colors: colorsArr[0].name,  //默认选中第一个
+        colorsArr: colorsArr
+      })
+
+      //设置购买类型
+      var modalTypeIndex = self.data.warebean.type == 3 ? 1 : self.data.warebean.type;
+      self.setData({
+        modalTypeIndex: modalTypeIndex
+      })
+
+      //更改价格
+      var warebean = self.data.warebean;
+      warebean.smprice = obj.smprice;
+      warebean.rent_cost = obj.rent_cost;
+      warebean.price = obj.price;
+      self.setData({
+        warebean: warebean,
+        specSmprice: obj.smprice,
+        specKucun: obj.kuncun,
+        specPrice: obj.price,
+        specRentCost: obj.rent_cost,
+        waresizes: obj.id
+      })
+    }
+  },
+
   //弹框选择规格
   openModal: function () {
     this.setData({
@@ -185,15 +310,9 @@ Page({
   commentFun: function (e) {
     var self = this;
     var curComment = e.currentTarget.dataset.status;
-    var list = self.data.hotList;
-
-    if (curComment == 'new') {
-      list = self.data.newList;
-    }
 
     this.setData({
-      curComment: curComment,
-      list: list
+      curComment: curComment
     });
   },
 
@@ -307,10 +426,15 @@ Page({
 
     var wareids = self.data.id;  //商品id
     var waresizes = self.data.waresizes;  //规格id
+  
+    var colors = self.data.colors;  //购买颜色
+    var rtype = self.data.rtype;   //购买类型1、我要租 2:我要买
+    if (rtype==2){
+      rentdates=0;  //租赁月数为0
+    }
     self.setData({
       modalSpecShow: false
     });
-
     if (self.data.isCart==1){
       //加入购物车
       var postData = {
@@ -318,7 +442,9 @@ Page({
         wareid: wareids,
         rent_date: rentdates,
         sizeid: waresizes,
-        number: numbers
+        number: numbers,
+        color: colors,
+        rtype: rtype
       };
       app.ajax({
         url: app.globalData.serviceUrl + 'mrentadd.htm',
@@ -327,10 +453,6 @@ Page({
         successCallback: function (res) {
           console.log(res);
           if (res.code == 0) {
-            // console.log('res:'+res);
-            // wx.switchTab({
-            //   url: '/pages/cart/cart'
-            // })
             var cartNums = self.data.cartNums+1;
             self.setData({
               cartNums: cartNums
@@ -341,7 +463,9 @@ Page({
     }else{
       //跳转到订单提交页面
       wx.redirectTo({
-        url: '/pages/order/confirm/confirm?wareids=' + wareids + '&numbers=' + numbers + '&waresizes=' + waresizes + '&rentdates=' + rentdates
+        url: '/pages/order/confirm/confirm?wareids=' + wareids + '&numbers=' + numbers + 
+        '&waresizes=' + waresizes + '&rentdates=' + rentdates 
+        + '&colors=' + colors + '&rtype=' + rtype
       })
     }
   },
@@ -363,6 +487,25 @@ Page({
       specPrice: data.price,
       specRentCost: data.rent_cost,
       waresizes: data.id
+    });
+  },
+
+  //选择购买类型
+  selectType: function (e) {
+    var data = e.target.dataset;
+    console.log(data);
+    this.setData({
+      modalTypeIndex: data.index,
+      rtype: data.index
+    });
+  },
+  //选择购买颜色
+  selectColor: function (e) {
+    var data = e.target.dataset;
+    console.log(data);
+    this.setData({
+      modalColorIndex: data.index,
+      colors: data.name
     });
   },
 

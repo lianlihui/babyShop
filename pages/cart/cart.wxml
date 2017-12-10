@@ -1,6 +1,14 @@
+<view class="comment-wrap">
+    <view class="comment-tab-box">
+      <view class="comment-tab {{1 == curComment ? ' active' : ''}}" bindtap="commentFun" data-type="1">我要租购物车</view>
+      <view class="comment-tab {{2 == curComment ? ' active' : ''}}" bindtap="commentFun" data-type="2">我要买购物车</view>
+    </view>
+</view>
+
 <view class="empty-box {{isEmpty}}">
   <image src="/images/cart/empty_cart.png" class="empty-img" mode="widthFix"/>
 </view>
+
 <view class="order-list {{isShow}}">
     <view class="order-list-item-dzf">
       <view class="order-list-item-dzf-head">
@@ -27,14 +35,16 @@
               <span>规格：{{item.sizename}}</span>
             </view>
             <view class="item-spec">
-              <span>总价格：¥{{item.total_money}}</span>
+              <span class="item-spec-one">总价格：¥{{item.total_money}}</span>
+              <span>颜色：{{item.color}}</span>
             </view>
-            <view class="item-spec">
+            <view class="item-spec" wx:if="{{rtype == 1}}">
               <span class="item-spec-one">价格：<span class="item-price-red">¥{{item.price}}</span>/月</span>
               <span>押金：¥{{item.rent_cost}}/月</span>
             </view>
             <view class="item-spec">
-              <span class="item-spec-one">租用月数：{{item.rent_date}}月</span>
+              <span class="item-spec-one" wx:if="{{rtype == 1}}">租用月数：{{item.rent_date}}月</span>
+              <span class="item-spec-one" wx:if="{{rtype == 2}}">零售价：¥{{item.smprice}}/月</span>
               <span>数量：{{item.number}}个</span>
             </view>
           </view>

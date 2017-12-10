@@ -12,6 +12,8 @@ Page({
     numbers: 0,   //	数量
     waresizes: '',  //规格ID
     rentdates: 0,   //租用月数
+    colors: '',  //购买颜色
+    rtype: 1,   //购买类型
     addressid:'',  //地址id
     point:0,  //积分
     remarks:'',  //备注
@@ -37,9 +39,11 @@ Page({
       numbers: options.numbers,
       waresizes: options.waresizes,
       rentdates: options.rentdates,
-      rentids: options.rentids
+      rentids: options.rentids,
+      colors: options.colors,  //购买颜色
+      rtype: options.rtype   //购买类型
     });
-    console.log('raddressId:' + options.raddressId);
+    console.log('raddressId:' + options.raddressId + ';colors:' + options.colors + ';rtype:' + options.rtype);
     if (typeof (options.raddressId) != "undefined") {
       this.setData({
         addressid: options.raddressId
@@ -61,7 +65,9 @@ Page({
       sizeids: self.data.waresizes,
       rentdates: self.data.rentdates,
       numbers: self.data.numbers,
-      addressid: self.data.addressid
+      addressid: self.data.addressid,
+      colors: self.data.colors,  //购买颜色
+      rtype: self.data.rtype   //购买类型
     };
     app.ajax({
       url: app.globalData.serviceUrl + 'morderaffirm.htm',
@@ -131,6 +137,8 @@ Page({
         rentdates: self.data.rentdates,   //租用月数
         addressid: self.data.addressbean.id,    //地址id
         point: point,    //积分
+        colors: self.data.colors,  //购买颜色
+        rtype: self.data.rtype,   //购买类型
         remarks: self.data.remarks   //备注
       };
       if (self.data.rentids) {

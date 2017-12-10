@@ -1,5 +1,12 @@
 <!--index.wxml -->
 <view class="container">
+  <!-- start 搜索 -->
+  <view class="search-view">
+    <view class="search-box" bindtap="gotoSearch">
+        <image src="/images/index/search.png" class="search-img" mode="widthFix"/>
+        <span class="search-text">请输入关键词</span>
+    </view>
+  </view>
 
   <!--start banner --> 
   <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" indicator-color="#b2b2b2" indicator-active-color="#000000" class="swiper-wrap">
@@ -12,17 +19,45 @@
     </block>
   </swiper>
 
-  <!-- start 搜索 -->
-  <view class="search-box" bindtap="gotoSearch">
-      <image src="/images/index/search.png" class="search-img" mode="widthFix"/>
-      <span class="search-text">请输入关键词</span>
+  <!-- list模块 -->
+  <view class="list-view">
+    <navigator url="/pages/guide/list/list">
+      <view class="list-item">
+        <image src="/images/index/icon1.png" class="list-item-img"></image>
+        <view class="list-item-txt">新手指南</view>
+      </view>
+    </navigator>
+
+    <view class="list-item">
+      <image src="/images/index/icon2.png" class="list-item-img"></image>
+      <view class="list-item-txt">客服咨询</view>
+    </view>
+
+    <navigator url="/pages/question/list/list">
+      <view class="list-item">
+        <image src="/images/index/icon3.png" class="list-item-img"></image>
+        <view class="list-item-txt">常见问题</view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/brand/list/list">
+      <view class="list-item">
+        <image src="/images/index/icon4.png" class="list-item-img"></image>
+        <view class="list-item-txt">品牌推介</view>
+      </view>
+    </navigator>
   </view>
+
 
   <!-- 为你推荐 -->
   <view class="recommend-box" wx:for="{{warelabellist}}" wx:for-item="item">
     <block wx:if="{{item.warelist.length > 0}}">
       <view class="recommend-title">
         {{item.name}}
+        <view class="recommend-more" bindtap="gotoMore">
+          更多
+          <image src="/images/index/more.png" class="recommend-more-img"></image>
+        </view>
       </view>
     </block>
 

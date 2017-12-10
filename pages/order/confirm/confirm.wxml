@@ -31,11 +31,13 @@
         </view>
         <view class="item-right">
           <text class="item-title">{{item.name}}</text>
-          <text class="item-day">押金：¥{{item.rent_cost}}/月</text>
-          <text class="item-day">价格：¥{{item.price}}/月</text>
+          <text class="item-day" wx:if="{{rtype == 1}}">押金：¥{{item.rent_cost}}/月</text>
+          <text class="item-day" wx:if="{{rtype == 1}}">价格：¥{{item.price}}/月</text>
+          <text class="item-day" wx:if="{{rtype == 2}}">零售价：¥{{item.smprice}}/月</text>
           <text class="item-day">规格：{{item.guige}}</text>
+          <text class="item-day">颜色：{{item.color}}</text>
           <text class="item-day">数量：{{item.num}}个</text>
-          <text class="item-day">租赁时长：{{item.rent_date}}月</text>
+          <text class="item-day" wx:if="{{rtype == 1}}">租赁时长：{{item.rent_date}}月</text>
           <text class="item-price">¥{{item.total_money}}</text>
         </view>
       </view>

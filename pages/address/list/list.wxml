@@ -4,7 +4,6 @@
     <view wx:for="{{addressList}}" wx:key="unique1">
       <view class="address-item">
         <view class="address-item-lf" bindtap="selectAddr" data-id="{{item.id}}">
-          <view class="address-item-icon {{className}} {{curid == item.id ? 'active': ''}}"></view>
           <view class="address-item-content-contact">
             <span>{{item.ordername}}</span>
             <span class="phone">{{item.mobile}}</span>
@@ -14,10 +13,9 @@
             <span class="adrss">{{item.province}}{{item.city}}{{item.area}}{{item.detailaddress}}</span>
           </view>
         </view>
-
         <view class="address-item-eidt" data-id="{{item.id}}" bindtap="editAddress">
-          编辑
-        </view>
+          <view class="address-item-icon {{item.isdefault == 1 ? 'active': ''}}"></view>
+      </view>
       </view>
     </view>
   </view>

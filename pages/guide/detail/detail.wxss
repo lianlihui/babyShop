@@ -1,0 +1,9 @@
+.qu-title {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.qu-content {
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}

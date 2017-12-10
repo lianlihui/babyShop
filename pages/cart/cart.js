@@ -18,7 +18,27 @@ Page({
     updNums:0,  //修改的数量
     totalMoney:0,   //总金额
     isEmpty: '',   //是否显示空
-    isShow: 'hide', //是否显示数据  
+    isShow: 'hide', //是否显示数据 
+    curComment:1,
+    rtype: 1  //购物车分类，1、我要租购物车 2、我要买购物车
+  },
+
+  //tab切换
+  commentFun: function (e) {
+    var self = this;  
+    this.setData({
+      curComment: e.currentTarget.dataset.type,
+      rtype: e.currentTarget.dataset.type,
+      modalSpecShow: false,
+      imageRootPath: '',
+      cartList: [],
+      selectAllStatus: true,  //默认全选
+      isEmpty: '',   //是否显示空
+      isShow: 'hide' //是否显示数据 
+    });
+
+    //重新获取数据
+    this.getCartInfo();
   },
 
   onShow: function () {
@@ -36,7 +56,8 @@ Page({
   getCartInfo:function(){
     var self = this;
     var postData = {
-      token: app.globalData.token
+      token: app.globalData.token,
+      rtype: self.data.rtype
     };
 
     app.ajax({
@@ -310,7 +331,8 @@ Page({
   getACartInfo: function (ycartList) {
     var self = this;
     var postData = {
-      token: app.globalData.token
+      token: app.globalData.token,
+      rtype: self.data.rtype
     };
 
     app.ajax({
@@ -393,6 +415,7 @@ Page({
     var rentdates = [];   //下单租赁月数
     var numbers = [];   //下单租赁数量
     var rentids = [];
+    var colors = [];
     var cartList = self.data.cartList;
     var selNums = 0;
 
@@ -405,6 +428,7 @@ Page({
         rentdates.push(selCart.rent_date);
         numbers.push(selCart.number);
         rentids.push(selCart.id);
+        colors.push(selCart.color);
         selNums = selNums + 1;
       }
     }
@@ -414,7 +438,7 @@ Page({
     }
     //跳转到订单提交页面 
     wx.navigateTo({
-      url: '/pages/order/confirm/confirm?wareids=' + wareids.join(",") + '&numbers=' + numbers.join(",") + '&waresizes=' + waresizes.join(",") + '&rentdates=' + rentdates.join(",") + '&rentids=' + rentids.join(",")
+      url: '/pages/order/confirm/confirm?wareids=' + wareids.join(",") + '&numbers=' + numbers.join(",") + '&waresizes=' + waresizes.join(",") + '&rentdates=' + rentdates.join(",") + '&rentids=' + rentids.join(",") + '&colors=' + colors.join(",") + '&rtype=' + self.data.rtype
     })
   },
 
