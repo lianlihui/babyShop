@@ -35,7 +35,7 @@
   position: absolute;
   display: block;
   top: 0rpx;
-  right: 26rpx;
+  right: 30rpx;
   color: #7b7b7b;
   font-size: 30rpx;
 }
@@ -49,6 +49,7 @@
 }
 .product-zj{
   width: 100%;
+  margin-bottom: 20rpx;
 }
 .product-zj-item{
   width: 25%;
@@ -56,8 +57,8 @@
 }
 .product-zj-item-btn{
   width:150rpx;
-  line-height:40rpx;
-  height:40rpx;
+  line-height:42rpx;
+  height:42rpx;
   font-size:28rpx;
   display:block;
   border-radius:100rpx;
@@ -260,17 +261,19 @@
   width: 62rpx;
   height: 62rpx;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -31rpx;
+  right: -31rpx;
+  z-index: 10;
 }
 .modal-close-img {
-  width: 22rpx;
-  height: 22rpx;
-  margin-left:20rpx;
+  width: 51rpx;
+  height: 51rpxrpx;
+  margin-top: 5rpx;
+  margin-left: 5rpx;
 }
 .modal-wrap {
   position: fixed;
-  overflow: auto;
+  overflow: visible;
   top: 0;
   right: 0;
   bottom: 0;
@@ -285,9 +288,10 @@
   background: #fff;
   border-radius: 10rpx;
   position: relative;
+  overflow: visible;
 }
 .modal-header{
-  padding: 0rpx 20rpx;
+  padding: 0rpx 30rpx;
 }
 .modal-header-item{
   border-bottom:1rpx #ebebeb solid;
@@ -297,7 +301,7 @@
   line-height: 100rpx;
 }
 .modal-body {
-  padding: 0rpx 20rpx;
+  padding: 0rpx 30rpx;
   height:600rpx;
   overflow: auto;
 }
@@ -371,18 +375,18 @@
 
 .modal-footer{
   margin-top:30rpx;
-  width:100%;
+  padding: 0 30rpx;
   margin-bottom:50rpx;
 }
 .modal-qd{
-  width:400rpx;
+  width: 100%;
   line-height: 80rpx;
   height: 80rpx;
   background: #ff4965;
   font-size: 30rpx;
   color: #ffffff;
   display: block;
-  border-radius: 100rpx;
+  border-radius: 10rpx;
 }
 .modal-qx{
   width:400rpx;

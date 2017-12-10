@@ -128,9 +128,9 @@
 <!-- 规格弹窗 -->
 <view hidden="{{!modalSpecShow}}" class="modal-spec modal-wrap vertical-center">
   <view class="modal">
-    <!-- <view class="modal-close" bindtap="closeModal" >
-      <image class="modal-close-img" src="/images/modal-close.png" data-modal="specModal"></image>
-    </view> -->
+    <view class="modal-close" bindtap="closeModal" >
+      <image class="modal-close-img" src="/images/product/modal_close.png" mode="widthFix"></image>
+    </view>
     <view class="modal-header">
       <view class="modal-header-item">
         立即购买
@@ -189,9 +189,6 @@
     <view class="modal-footer">
       <button class="modal-qd" bindtap="confirmModal">
         确定
-      </button>
-      <button class="modal-qx" bindtap="closeModal">
-        关闭
       </button>
     </view>
   </view>
