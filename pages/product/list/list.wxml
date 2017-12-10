@@ -9,6 +9,11 @@
     </view>
   </view>
 
+  <view class="category-tab-box">
+    <view class="category-tab active">我要租</view>
+    <view class="category-tab">我要买</view>
+  </view>
+
   <view class="category-content">
     <!-- 菜单分类导航 -->
     <scroll-view class="category-wrap" scroll-y="true">
