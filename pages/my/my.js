@@ -68,7 +68,12 @@ Page({
   },
 
   gotoprotocol: function() {
-	wx.navigateTo({ url: "/pages/protocol/protocol" });
+	  wx.navigateTo({ url: "/pages/protocol/protocol" });
+  },
+
+  //我的收藏
+  gotoCollection:function(){
+    wx.navigateTo({ url: "/pages/collection/collection" });
   }
 
 });

@@ -116,6 +116,12 @@
       <text class="item-edit-nums" wx:if="{{cartNums>0}}">{{cartNums}}</text>
       <text class="item-edit-nums" wx:else>+</text>
     </view>
+    <view class="item-edit-hh">
+      <image src="/images/info/hh.png" class="item-edit-img-hh"></image>
+    </view>
+    <view class="item-edit-sc" bindtap="scProduct">
+      <image src="/images/info/sc.png" class="item-edit-img-sc"></image>
+    </view>
     <button class="btn-buy" bindtap="openModal">
       立即下单
     </button>

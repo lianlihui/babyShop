@@ -245,6 +245,28 @@
   width: 57rpx;
   height: 53rpx;
 }
+.item-edit-hh{
+  display: inline-block;
+  width: 57rpx;
+  height:110rpx;
+  margin-left: 40rpx;
+}
+.item-edit-img-hh{
+  width: 52rpx;
+  height: 54rpx;
+  margin-top:27rpx;
+}
+.item-edit-sc{
+  display: inline-block;
+  width: 46rpx;
+  height:110rpx;
+  margin-left: 10rpx;
+}
+.item-edit-img-sc{
+  width: 46rpx;
+  height: 46rpx;
+  margin-top:27rpx;
+}
 .order-list-item-dzf-foot .item-edit-nums{
   padding: 0 8rpx;
   height: 30rpx;

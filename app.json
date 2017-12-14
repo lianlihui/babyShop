@@ -32,7 +32,8 @@
     "pages/brand/detail/detail",
     "pages/guide/list/list",
     "pages/guide/detail/detail",
-    "pages/depreciation/depreciation"
+    "pages/depreciation/depreciation",
+    "pages/collection/collection"
   ],
   "tabBar": {
     "color": "#414141",

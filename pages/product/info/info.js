@@ -543,5 +543,25 @@ Page({
     wx.navigateTo({
       url: '/pages/depreciation/depreciation'
     })
+  },
+
+  //收藏商品
+  scProduct:function(){
+    var self=this;
+    var wareids = self.data.id;  //商品id
+    var waresizes = self.data.waresizes;  //规格id
+    var postData = {
+      token: app.globalData.token,
+      wareid: wareids,
+      waresizeid: waresizes
+    };
+    app.ajax({
+      url: app.globalData.serviceUrl + 'mcollectsub.htm',
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        self.showMsg(res.msg);
+      }
+    })
   }
 })
