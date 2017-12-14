@@ -200,7 +200,6 @@
 
 .order-list-item-dzf-foot{
   height: 110rpx;
-  line-height: 110rpx;
   position: fixed;
   bottom: 0rpx;
   width: 100%;
@@ -234,10 +233,10 @@
 }
 .order-list-item-dzf-foot .item-edit{
   display: inline-block;
+  vertical-align: middle;
   width: 57rpx;
   height: 53rpx;
   margin-left: 27rpx;
-  margin-top:24rpx;
   position: relative;
   overflow: visible;
 }
@@ -247,9 +246,17 @@
 }
 .item-edit-hh{
   display: inline-block;
+  vertical-align: middle;
   width: 57rpx;
   height:110rpx;
   margin-left: 40rpx;
+  background: #fff;
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+}
+.item-edit-hh:after {
+  border: 0;
 }
 .item-edit-img-hh{
   width: 52rpx;
@@ -258,6 +265,7 @@
 }
 .item-edit-sc{
   display: inline-block;
+  vertical-align: middle;
   width: 46rpx;
   height:110rpx;
   margin-left: 10rpx;
@@ -265,7 +273,7 @@
 .item-edit-img-sc{
   width: 46rpx;
   height: 46rpx;
-  margin-top:27rpx;
+  margin-top:30rpx;
 }
 .order-list-item-dzf-foot .item-edit-nums{
   padding: 0 8rpx;
