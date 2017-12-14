@@ -47,6 +47,12 @@
   margin-right:0;
   padding-left:0;
   padding-right:0;
+  border-radius: 0;
+  border: 0;
+  background: #fff;
+}
+.no-cls:after {
+  border: 0;
 }
 .list-item{
   width: 25%;
@@ -69,6 +75,7 @@
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  line-height: 1.2;
 }
 
 .recommend-box {
