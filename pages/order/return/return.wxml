@@ -56,15 +56,18 @@
       <textarea class="order-remark-textarea" placeholder="备注信息" bindinput="bindRemarksChange"></textarea>
     </view>
 
-    <view class="order-wl">
-      <span class="yj">一键预约物流</span>
-      <span class="no">123456789</span>
+    <view class="order-wl-tab">
+      <view class="order-wl-item {{0 == otype ? ' active' : ''}}" bindtap="wlClick" data-otype="0">
+        一键预约物流
+      </view>
+      <view class="order-wl-item {{1 == otype ? ' active' : ''}}" bindtap="wlClick" data-otype="1">
+        自己预约物流
+      </view>
     </view>
-
-    <view class="order-zwl">
-      <span class="zyj">自己叫物流</span>
+    <view class="order-zwl" wx:if="{{otype == 1}}">
       <input class="zno" bindinput="bindTranspotionNumberChange"></input>
     </view>
+
 </view>
 
 <view class="order-list-item-dzf-foot">

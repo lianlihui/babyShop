@@ -262,7 +262,7 @@
 .order-zwl{
   width: 100%;
   background: #ffffff;
-  padding: 20rpx 27rpx 10rpx;
+  padding-top:10rpx;
   margin-bottom: 111rpx;
   position: relative;
 }
@@ -281,9 +281,36 @@
   height: 78rpx;
   line-height: 78rpx;
   font-size: 30rpx;
-  position: absolute;
-  left: 233rpx;
-  right: 0rpx;
-  top:20rpx;
+  width: 100%;
   border: 1rpx #ebebeb solid;
+}
+.order-wl-tab{
+  width: 100%;
+  background: #ffffff;
+  padding-top:22px;
+  height:78rpx;
+}
+.order-wl-item{
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height:78rpx;
+  line-height:78rpx;
+  background-color: #f6f6f6;
+  text-align: center;
+  color: #858585;
+  font-size: 30rpx;
+}
+.order-wl-item.active{
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height:78rpx;
+  line-height:78rpx;
+  background-color: #ff9dac;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30rpx;
 }

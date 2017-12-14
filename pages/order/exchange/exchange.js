@@ -14,7 +14,8 @@ Page({
     remarks:'', //备注
     sys_rename: '',
     sys_phone: '',
-    sys_address: ''
+    sys_address: '',
+    otype: 0  //物流类型 0一键预约物流 1自己预约物流
   },
 
   /**
@@ -102,14 +103,19 @@ Page({
     remarks = self.data.remarks;
     transpotion_number = self.data.transpotion_number;
     addressid=self.data.address.id;
-    console.log('warenumbers:' + warenumbers + ';addressid:' + addressid + ';transpotion_number:' + transpotion_number + ';remarks:' + remarks);
+
+    var type = self.data.otype;
+    var fhtime = self.getCurrentDate();
+    console.log('warenumbers:' + warenumbers + ';addressid:' + addressid + ';transpotion_number:' + transpotion_number + ';type:' + type + ';fhtime:' + fhtime);
 
     var postData = {
       token: app.globalData.token,
       warenumbers: warenumbers,
       addressid: addressid,
       transpotion_number: transpotion_number,
-      remarks: remarks
+      remarks: remarks,
+      type: type,
+      fhtime: fhtime
     };
     app.ajax({
       url: app.globalData.serviceUrl + 'mhuanhuoordersub.htm',
@@ -134,6 +140,15 @@ Page({
     });
   },
 
+  //物流类型切换
+  wlClick: function (event){
+    var otype = event.currentTarget.dataset.otype;
+    this.setData({
+      otype: otype,
+      transpotion_number:''
+    });
+  },
+
   showMsg: function (msg) {
     wx.showModal({
       title: '提示',
@@ -141,5 +156,35 @@ Page({
       showCancel: false,
       confirmText: '我知道了'
     });
+  },
+
+  getCurrentDate:function(){
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var hours=date.getHours();
+    if (hours >= 0 && hours <= 9) {
+      hours = "0" + hours;
+    }
+    var minutes = date.getMinutes();
+    if (minutes >= 0 && minutes <= 9) {
+      minutes = "0" + minutes;
+    }
+    var seconds = date.getSeconds();
+    if (seconds >= 0 && seconds <= 9) {
+      seconds = "0" + seconds;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+      + " " + hours + seperator2 + minutes
+      + seperator2 + seconds;
+    return currentdate;
   }
 })
