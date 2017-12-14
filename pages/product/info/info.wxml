@@ -13,7 +13,7 @@
     </view>
 
     <view class="product-title">
-      <view class="product-title-txt"> 
+      <view class="product-title-txt" bindtap="gotoDepreciation"> 
         {{warebean.name}}
         <view class="product-title-txt-xz">
           折旧需知
@@ -32,7 +32,7 @@
 
       <view>
         <span class="product-title-price-del">
-          零售价：¥{{specSmprice}}/月
+          零售价：¥{{specSmprice}}
         </span>
         <span class="product-title-price-del">
         押金：¥{{specRentCost}}/月
@@ -144,7 +144,7 @@
         <text wx:if="{{warebean.type == 1||warebean.type == 3}}" class="spec{{modalTypeIndex == 1 ? ' active' : ''}}" catchtap="selectType" data-index="1">我要租</text>
         <text wx:if="{{warebean.type == 2||warebean.type == 3}}" class="spec{{modalTypeIndex == 2 ? ' active' : ''}}" catchtap="selectType" data-index="2">我要买</text>
       </view>
-
+ 
       <view class="modal-spec-item">
         颜色:
       </view>
@@ -169,15 +169,15 @@
           <span class="ocon ocon-r" bindtap="addNumber">+</span>
         </span>
       </view>
-      <view class="modal-item">
+      <view class="modal-item"  wx:if="{{modalTypeIndex == 2}}">
         <span class="modal-item-desc">零售价:</span>
-        <span class="modal-item-inp">¥{{specSmprice}}/月</span>
+        <span class="modal-item-inp">¥{{specSmprice}}</span>
       </view>
-      <view class="modal-item">
+      <view class="modal-item"  wx:if="{{modalTypeIndex == 1}}">
         <span class="modal-item-desc">价格:</span>
         <span class="modal-item-inp">¥{{specPrice}}/月</span>
       </view>
-      <view class="modal-item">
+      <view class="modal-item"  wx:if="{{modalTypeIndex == 1}}">
         <span class="modal-item-desc">押金:</span>
         <span class="modal-item-inp">¥{{specRentCost}}/月</span>
       </view>

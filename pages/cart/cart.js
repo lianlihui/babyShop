@@ -285,13 +285,17 @@ Page({
   confirmModal: function (e, modalName) {
     var self = this;
     //租用月数
+    var rtype = self.data.rtype;
     var rentdates = self.data.updRentDate;
-    if (/^[0-9]+$/.test(rentdates) && rentdates != 0) {
-      rentdates = Number(rentdates)
-    } else {
-      self.showMsg('请输入正确的租用月数');
-      return false;
+    if (rtype==1){
+      if (/^[0-9]+$/.test(rentdates) && rentdates != 0) {
+        rentdates = Number(rentdates)
+      } else {
+        self.showMsg('请输入正确的租用月数');
+        return false;
+      }
     }
+    
 
     //租赁数量
     var numbers = self.data.updNums;

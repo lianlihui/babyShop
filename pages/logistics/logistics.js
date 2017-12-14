@@ -10,18 +10,19 @@ Page({
     if (!app.globalData.token) {
       app.getToken();
     } 
-    this.getIndexData();
+    this.getLogisticsData();
   },
 
-  getIndexData: function() {
+  getLogisticsData: function() {
     var self = this;
     var postData = {
-      token: ''
+      token: app.globalData.token,
+      num:66
     };
     
     //获取首页数据    
     app.ajax({
-      url: app.globalData.serviceUrl + 'mindex.html',
+      url: app.globalData.serviceUrl + 'mwuliu.html',
       data: postData,
       method: 'GET',
       successCallback: function(res) {

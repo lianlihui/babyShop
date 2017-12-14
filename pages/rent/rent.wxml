@@ -50,22 +50,19 @@
   <view wx:if="{{selectAllStatus}}" class="btn-icon active" bindtap="selectAll"></view>
   <view wx:else class="btn-icon" bindtap="selectAll"></view>
   <text class="btn-txt" bindtap="selectAll">全选</text>
-  <button class="syz-btn-com btn-hh" bindtap="hhClick">
-    换货 
-  </button>
-  <button class="syz-btn-com btn-th" bindtap="thClick">
-    退还
-  </button>
-  <button class="syz-btn-com btn-xz" bindtap="xzClick">
-    续租
+  
+  <button class="btn-buy" bindtap="czClick">
+      操作
   </button>
 </view>
 
 <!-- 修改弹窗 -->
 <view hidden="{{!modalSpecShow}}" class="modal-spec modal-wrap vertical-center">
   <view class="modal">
-    <image src="/images/modal-close.png" class="modal-close" bindtap="closeModal" data-modal="specModal"></image>
-    <view class="modal-body">
+    <view class="modal-close" bindtap="closeModal" >
+      <image class="modal-close-img" src="/images/product/modal_close.png" mode="widthFix"></image>
+    </view>
+    <view class="modal-body-xz">
       <view class="modal-item">
         <span class="modal-item-desc">续租月数:</span>
         <span class="modal-item-inp">
@@ -84,4 +81,42 @@
 </view>
 <!-- /修改弹窗 -->
 
+
+<!-- 操作弹窗 -->
+<view hidden="{{!modalOperShow}}" class="modal-spec modal-wrap vertical-center">
+  <view class="modal">
+    <view class="modal-close" bindtap="closeOperModal" >
+      <image class="modal-close-img" src="/images/product/modal_close.png" mode="widthFix"></image>
+    </view>
+    <view class="modal-header">
+      <view class="modal-header-item">
+        请选择
+      </view>
+    </view>
+    <view class="modal-body">
+      <view class="modal-body-item">
+        <button class="syz-btn-com ml {{1 == operIdx ? ' active' : ''}}" data-idx="1" bindtap="operClick">
+          租转买 
+        </button>
+        <button class="syz-btn-com mr {{2 == operIdx ? ' active' : ''}}" data-idx="2" bindtap="operClick">
+          续租
+        </button>
+      </view>
+      <view class="modal-body-item">
+        <button class="syz-btn-com ml {{3 == operIdx ? ' active' : ''}}" data-idx="3" bindtap="operClick">
+          退还
+        </button>
+        <button class="syz-btn-com mr {{4 == operIdx ? ' active' : ''}}" data-idx="4" bindtap="operClick">
+          换货
+        </button>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="modal-qd" bindtap="operClickImpl">
+        确定
+      </button>
+    </view>
+  </view>
+</view>
+<!-- /操作弹窗 -->
 

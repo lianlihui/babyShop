@@ -29,9 +29,45 @@
   <view class="section-title">物流详情</view>
   <view class="section-list">
     <view class="section-item active">
-      <i class="icon-circle"></i>
-      <view>由【广东深圳罗湖】深圳市南山区科技园南区楼步步高深圳市南山区科技</view>
-      <view></view>
+      <view class="orderno-icon active"></view>
+      <view class="section-time">
+        <view class="section-time-day active">11-30</view>
+        <view class="section-time-time active">20:30</view>
+      </view>
+      <view class="section-address">
+        <view class="section-address-info active">
+          由【广东深圳罗湖】深圳市南山区科技园南区楼步步高深圳市南山区科技
+        </view>
+        <view class="section-address-phone">
+          配送电话：123456789
+        </view>
+      </view>
+    </view>
+
+    <view class="section-item">
+      <view class="orderno-icon"></view>
+      <view class="section-time">
+        <view class="section-time-day">11-30</view>
+        <view class="section-time-time">20:30</view>
+      </view>
+      <view class="section-address">
+        <view class="section-address-info">
+          由【广东深圳罗湖】深圳市南山区科技园南区楼步步高深圳市南山区科技
+        </view>
+      </view>
+    </view>
+
+    <view class="section-item">
+      <view class="orderno-icon"></view>
+      <view class="section-time last">
+        <view class="section-time-day">11-30</view>
+        <view class="section-time-time">20:30</view>
+      </view>
+      <view class="section-address">
+        <view class="section-address-info">
+          由【广东深圳罗湖】深圳市南山区科技园南区楼步步高深圳市南山区科技
+        </view>
+      </view>
     </view>
   </view>
 

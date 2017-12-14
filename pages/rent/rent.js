@@ -10,7 +10,10 @@ Page({
     rentlist: [],
     selectAllStatus:false,
     modalSpecShow: false,
-    updRentdates:1  //续租月数
+    modalOperShow: false,
+    updRentdates:1,  //续租月数
+
+    operIdx:1  //操作类型
   },
 
   /**
@@ -90,6 +93,94 @@ Page({
     this.setData({
       selectAllStatus: selectAllStatus,
       rentlist: rentlist
+    });
+  },
+
+  //选择操作类型
+  operClick: function (event){
+    var self = this;
+    var idx = event.currentTarget.dataset.idx;
+    self.setData({
+      operIdx: idx
+    });
+  },
+
+  //确定操作
+  operClickImpl:function(){
+    var self = this;
+    var operIdx = self.data.operIdx;
+    if (operIdx==1){
+      //租转买
+    } else if (operIdx == 2) {
+      //续租
+      self.setData({
+        modalOperShow: false,
+        modalSpecShow: true,
+        updRentdates: 1
+      });
+    } else if (operIdx == 3) {
+      //退还
+      var rentlist = self.data.rentlist;
+      var selIds = '';
+      for (var i = 0; i < rentlist.length; i++) {
+        if (rentlist[i].status == 1 && rentlist[i].selected) {
+          selIds = selIds + rentlist[i].warenumber + ',';
+        }
+      }
+      selIds = selIds.substring(0, selIds.length - 1);
+      console.log('selIds:' + selIds);
+      self.setData({
+        modalOperShow: false
+      });
+      //跳转到续租提交页面 
+      wx.navigateTo({
+        url: '/pages/order/return/return?warenumbers=' + selIds
+      })
+    } else if (operIdx == 4) {
+      //换货
+      var rentlist = self.data.rentlist;
+      var selIds = '';
+      for (var i = 0; i < rentlist.length; i++) {
+        if (rentlist[i].status == 1 && rentlist[i].selected) {
+          selIds = selIds + rentlist[i].warenumber + ',';
+        }
+      }
+      selIds = selIds.substring(0, selIds.length - 1);
+      console.log('selIds:' + selIds);
+      self.setData({
+        modalOperShow: false
+      });
+      //跳转到续租提交页面 
+      wx.navigateTo({
+        url: '/pages/order/exchange/exchange?warenumbers=' + selIds
+      })
+    }
+  },
+
+  //操作弹框
+  czClick:function(){
+    var self = this;
+    var rentlist = self.data.rentlist;
+    var selNums = 0;
+    for (var i = 0; i < rentlist.length; i++) {
+      if (rentlist[i].status == 1 && rentlist[i].selected) {
+        selNums = selNums + 1;
+      }
+    }
+    if (selNums == 0) {
+      self.showMsg('至少选择一个操作');
+      return false;
+    }
+    this.setData({
+      operIdx:1,
+      modalOperShow: true
+    });
+  },
+
+  //关闭操作弹框
+  closeOperModal: function () {
+    this.setData({
+      modalOperShow: false
     });
   },
 

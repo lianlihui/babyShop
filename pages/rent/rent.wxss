@@ -183,7 +183,7 @@
 
 .order-list-item-dzf-foot{
   height: 110rpx;
-  padding:0rpx 27rpx;
+  padding-left:27rpx;
   position: fixed;
   bottom: 0rpx;
   width: 100%;
@@ -262,21 +262,6 @@
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAb1BMVEUAAAA8zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv88zv/////5/v/J8v9Az//h+P+t6/+M4v9t2v9d1v9J0v/w+/+b5v9V1f/c9/++7/953f9z3P/z/P/C8P+27f+U5P9R0/+oSHXLAAAADnRSTlMA6pQE+VdMEMWA7K3HgaFmAEAAAAEDSURBVCjPhZPZkoQgDEVBFMHuBsRde5nt/79xiAKVxpniPkioU5ELSUgU44WgZUlFwRlJVUuqohpZv9MKIBKtEGSFOqlgkV7UH7oEHnLTfH+u+kfV7pmqRGvfDrs/8C9Tuhmtv/ZIOl+n5IfW+vO4HiM8paN2Wo+Yn2zbu6OdDeZFggdIfvqNIMnR8+JoG9+WlO+4d9RMYVd6vE3jDOtkHO5VxP7nrTHLYN3q6DJHTL21sQO/ryf4GlSUCBf7MUDgc7e4KtxHU6sPjcgoJ6wJ8asD+kCUMlwS+/2hzYawTAo69ytOrjPtkGmmTCvmGzk/BuD/1qAhutURoBG8wghe8Qj+Agb0J9qckcweAAAAAElFTkSuQmCC) no-repeat right center;
   background-size: 30rpx;
 }
-.syz-btn-com{
-  margin-top: 28rpx;
-  width:170rpx;
-  line-height: 60rpx;
-  height: 60rpx;
-  background: #ffffff;
-  font-size: 30rpx;
-  border-radius: 100rpx;
-  display: block;
-  float: right;
-}
-.btn-hh{
-  color: #7b7b7b;
-  border: 1px #7b7b7b solid;
-}
 .btn-th{
   color: #7b7b7b;
   border: 1px #7b7b7b solid;
@@ -297,19 +282,36 @@
   font-size: 24rpx;
   background: #f4f4f4;
 }
+.btn-buy{
+  width:250rpx;
+  line-height: 110rpx;
+  height: 110rpx;
+  background: #ff4965;
+  font-size: 40rpx;
+  color: #ffffff;
+  display: block;
+  float: right;
+  border-radius: 0rpx;
+}
 
 /**弹框样式*/
 .modal-close {
-  width: 22rpx;
-  height: 22rpx;
-  padding: 20rpx;
+  width: 62rpx;
+  height: 62rpx;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -31rpx;
+  right: -31rpx;
+  z-index: 10;
+}
+.modal-close-img {
+  width: 51rpx;
+  height: 51rpxrpx;
+  margin-top: 5rpx;
+  margin-left: 5rpx;
 }
 .modal-wrap {
   position: fixed;
-  overflow: auto;
+  overflow: visible;
   top: 0;
   right: 0;
   bottom: 0;
@@ -320,14 +322,30 @@
   background: rgba(0,0,0,0.2);
 }
 .modal {
-  width: 615rpx;
+  width: 515rpx;
   background: #fff;
   border-radius: 10rpx;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+}
+.modal-header{
+  padding: 0rpx 30rpx;
+}
+.modal-header-item{
+  border-bottom:1rpx #ebebeb solid;
+  font-size:36rpx;
+  color:#343333;
+  height:100rpx;
+  line-height: 100rpx;
+}
+.modal-body-xz{
+  padding: 0rpx 30rpx;
+  overflow: auto;
 }
 .modal-body {
-  padding: 50rpx 20rpx 0rpx;
+  padding: 0rpx 30rpx;
+  height:230rpx;
+  overflow: auto;
 }
 .modal-item{
   padding: 20rpx 0;
@@ -368,36 +386,62 @@
 .modal-item-inp .ocon-r {
   border-left: none;
 }
-.modal-item-inp .inp{
-  border: 1rpx #ebebeb solid;
-  width: 280rpx;
+.modal-spec-item{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: #414141;
 }
+.spec-wrap{
+  border-bottom:1rpx #ebebeb solid;
+  padding:20rpx 0;
+}
+.modal-body .spec {
+  display: inline-block;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 24rpx;
+  color: #777;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #7b7b7b;
+  border-radius: 15rpx;
+  margin-right: 38rpx;
+  margin-bottom: 10rpx;
+}
+.modal-body .spec.active {
+  background: #ff4965;
+  color: #ffffff;
+  border:none;
+}
+
 .modal-footer{
   margin-top:30rpx;
-  width:100%;
+  padding: 0 30rpx;
   margin-bottom:50rpx;
 }
 .modal-qd{
-  width:400rpx;
+  width: 100%;
   line-height: 80rpx;
   height: 80rpx;
   background: #ff4965;
   font-size: 30rpx;
   color: #ffffff;
   display: block;
-  border-radius: 100rpx;
+  border-radius: 10rpx;
 }
-.modal-delete{
-  margin-top:10rpx;
-  width:400rpx;
+.modal-qx{
+  width:300rpx;
   line-height: 80rpx;
   height: 80rpx;
-  background: #ff4965;
+  background: #ff9dac;
   font-size: 30rpx;
   color: #ffffff;
   display: block;
   border-radius: 100rpx;
+  margin-top:20rpx;
 }
+
 .vertical-center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -408,4 +452,33 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+.modal-body-item{
+  width:100%;
+  height:90rpx;
+}
+.syz-btn-com{
+  margin-top: 28rpx;
+  width:170rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  background: #ffffff;
+  font-size: 30rpx;
+  border-radius: 100rpx;
+  display: block;
+  color: #7b7b7b;
+  border: 1px #7b7b7b solid;
+}
+.syz-btn-com.active{
+  color:#ffffff;
+  border: none;
+  background-color: #ff4965;
+}
+.ml{
+  float:left;
+  margin-left:20rpx;
+}
+.mr{
+  float:right;
+  margin-right:20rpx;
 }

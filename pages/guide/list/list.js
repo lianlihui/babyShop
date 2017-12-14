@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    guizelist: []
+    imageRootPath: '',
+    guidelist: []
   },
 
   /**
@@ -16,26 +17,28 @@ Page({
   },
 
   onShow: function () {
-    this.getGuizelist();
+    this.getGuidelist();
   },
 
   //获取数据
-  getGuizelist: function () {
+  getGuidelist: function () {
     var self = this;
     var postData = {
-      token: app.globalData.token
+      token: app.globalData.token,
+      cateid: 0
     };
 
     //获取首页数据    
     app.ajax({
-      url: app.globalData.serviceUrl + 'mguize.html',
+      url: app.globalData.serviceUrl + 'arclist.html',
       data: postData,
       method: 'GET',
       successCallback: function (res) {
         if (res.code == 0) {
-          var retList = res.data.guizelist;
+          var retList = res.data.arclist;
           self.setData({
-            guizelist: retList
+            imageRootPath: res.data.imageRootPath,
+            guidelist: retList
           });
         }
       },
@@ -47,10 +50,8 @@ Page({
 
   //跳转到详情
   gotoDetail: function (e) {
-    var index = e.currentTarget.dataset.index;    // 获取data- 传进来的index
-    var guizelist = this.data.guizelist;                    // 获取购物车列表
-    var id = guizelist[index].id;
+    var id = e.currentTarget.dataset.id;    // 获取data- 传进来的index
     console.log('id:' + id);
-    wx.redirectTo({ url: "/pages/guide/detail/detail?id=" + id });
+    wx.navigateTo({ url: "/pages/guide/detail/detail?id=" + id });
   }
 })

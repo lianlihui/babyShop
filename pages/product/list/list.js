@@ -12,7 +12,8 @@ Page({
     'noData': false,
     'isFirst': true,
     'waretypeid': 0,
-    'hide': 'hide'
+    'hide': 'hide',
+    'type':2  //获取产品的类型：1我要买2租赁产品,默认租赁产品
   },
 
   /**
@@ -45,6 +46,7 @@ Page({
     var self = this;
     var postData = {
       waretypeid: self.data.waretypeid,
+      type: self.data.type,
       page: self.data.page
     };
 
@@ -135,6 +137,25 @@ Page({
       warelist: [],
       waretypeid: id,
       hide: 'hide'
+    });
+
+    self.getIndexData();
+  },
+
+  //购买类型切换
+  buyTypeChange: function (event) {
+    console.log(event);
+    var buytype = event.currentTarget.dataset.type;
+    console.log(buytype);
+    var self = this;
+    self.setData({
+      page: 1,
+      loading: true,
+      noData: false,
+      warelist: [],
+      waretypeid: 0,
+      hide: 'hide',
+      type: buytype
     });
 
     self.getIndexData();

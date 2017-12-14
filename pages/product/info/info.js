@@ -118,7 +118,8 @@ Page({
           //设置购买类型
           var modalTypeIndex = res.data.warebean.type == 3 ? 1 : res.data.warebean.type;
           self.setData({
-            modalTypeIndex: modalTypeIndex
+            modalTypeIndex: modalTypeIndex,
+            rtype: modalTypeIndex
           })
           //设置第一个规格库存显示
           if (res.data.waresizelist!=null){
@@ -263,7 +264,8 @@ Page({
       //设置购买类型
       var modalTypeIndex = self.data.warebean.type == 3 ? 1 : self.data.warebean.type;
       self.setData({
-        modalTypeIndex: modalTypeIndex
+        modalTypeIndex: modalTypeIndex,
+        rtype: modalTypeIndex
       })
 
       //更改价格
@@ -512,7 +514,7 @@ Page({
   //商品详情
   productInfo: function (event) {
     var id = event.currentTarget.dataset.id;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/product/info/info?id=' + id
     })
   },
@@ -534,5 +536,12 @@ Page({
       desc: '母婴描述!',
       path: '/pages/product/info/info?id=' + id
     }
+  },
+
+  //折旧须知
+  gotoDepreciation:function(){
+    wx.navigateTo({
+      url: '/pages/depreciation/depreciation'
+    })
   }
 })

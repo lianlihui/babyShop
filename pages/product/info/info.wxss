@@ -152,6 +152,7 @@
   margin-top:30rpx;
   background: #ffffff;
   margin-bottom: 120rpx;
+  overflow: hidden;
 }
 .product-enjoy-tag{
   padding: 0rpx 27rpx;
@@ -207,6 +208,7 @@
   border-top: 1rpx #ebebeb solid;
   z-index:1;
   background: #ffffff;
+  overflow:hidden;
 }
 .btn-cart{
   width:250rpx;

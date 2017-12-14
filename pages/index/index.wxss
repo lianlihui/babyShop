@@ -40,6 +40,14 @@
   overflow:hidden;
   padding: 40rpx 0rpx;
 }
+.no-cls{
+  position:relative;
+  display:block;
+  margin-left:0;
+  margin-right:0;
+  padding-left:0;
+  padding-right:0;
+}
 .list-item{
   width: 25%;
   float: left;

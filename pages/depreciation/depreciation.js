@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     var self = this;
     var postData = {
-      id: 6
+      id: 7
     };
     //获取首页数据    
     app.ajax({
@@ -38,5 +38,5 @@ Page({
       }
     });
   }
-   
+
 })

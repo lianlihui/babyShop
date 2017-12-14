@@ -27,11 +27,14 @@
         <view class="list-item-txt">新手指南</view>
       </view>
     </navigator>
-
-    <view class="list-item">
+    <button class="list-item no-cls" open-type="contact">
       <image src="/images/index/icon2.png" class="list-item-img"></image>
       <view class="list-item-txt">客服咨询</view>
-    </view>
+    </button>
+    <!-- <view class="list-item">
+      <image src="/images/index/icon2.png" class="list-item-img"></image>
+      <view class="list-item-txt">客服咨询</view>
+    </view> -->
 
     <navigator url="/pages/question/list/list">
       <view class="list-item">

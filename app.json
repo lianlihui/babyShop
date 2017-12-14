@@ -29,8 +29,10 @@
     "pages/protocol/protocol",
     "pages/logistics/logistics",
     "pages/brand/list/list",
+    "pages/brand/detail/detail",
     "pages/guide/list/list",
-    "pages/guide/detail/detail"
+    "pages/guide/detail/detail",
+    "pages/depreciation/depreciation"
   ],
   "tabBar": {
     "color": "#414141",

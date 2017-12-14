@@ -79,7 +79,7 @@
         <span class="modal-item-desc">库存:</span>
         <span class="modal-item-inp">{{updKuncun}}</span>
       </view>
-      <view class="modal-item">
+      <view class="modal-item" wx:if="{{rtype == 1}}">
         <span class="modal-item-desc">租用月数:</span>
         <span class="modal-item-inp">
           <span class="ocon ocon-l" bindtap="reduceRentdates">-</span>
