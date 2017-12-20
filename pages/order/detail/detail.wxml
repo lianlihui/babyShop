@@ -50,12 +50,12 @@
         <view class="item-right">
           <text class="item-title">{{item.warename}}</text>
           <text class="item-day">数量：{{item.amount}}个</text>
-          <text class="item-day" wx:if="{{order.order_type == 0}}">租赁时长：{{item.rent_date}}月</text>
+          <text class="item-day" wx:if="{{order.order_type == 2}}">租赁时长：{{item.rent_date}}月</text>
           <text class="item-day">规格：{{item.sizename}}</text>
           <text class="item-day">颜色：{{item.color}}</text>
-          <text class="item-day" wx:if="{{order.order_type == 2}}">零售价：¥{{item.smprice}}</text>
-          <text class="item-day" wx:if="{{order.order_type == 0}}">租金：¥{{item.rent_cost}}</text>
-          <text class="item-day" wx:if="{{order.order_type == 0}}">押金：¥{{item.ya_cost}}/月</text>
+          <text class="item-day" wx:if="{{order.order_type == 0}}">零售价：¥{{item.smprice}}</text>
+          <text class="item-day" wx:if="{{order.order_type == 2}}">租金：¥{{item.rent_cost}}</text>
+          <text class="item-day" wx:if="{{order.order_type == 2}}">押金：¥{{item.ya_cost}}/月</text>
           <text class="item-price">¥{{item.price}}</text>
         </view>
       </view>

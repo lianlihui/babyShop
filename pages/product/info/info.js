@@ -31,7 +31,7 @@ Page({
     list: [],
     curComment: 'proInfo',
 
-    modalTypeIndex: 1,  //类型：1、我要租 2:我要买
+    modalTypeIndex: 1,  //类型：2、我要租 1:我要买
     modalColorIndex: 0, //颜色
     colorsArr:[],  //商品详情颜色列表
 
@@ -116,7 +116,8 @@ Page({
             list: res.data.warepingjiazx
           });
           //设置购买类型
-          var modalTypeIndex = res.data.warebean.type == 3 ? 1 : res.data.warebean.type;
+          var modalTypeIndex = res.data.warebean.type == 3 ? 2 : res.data.warebean.type;
+          console.log('modalTypeIndex------->' + modalTypeIndex);
           self.setData({
             modalTypeIndex: modalTypeIndex,
             rtype: modalTypeIndex
@@ -141,7 +142,13 @@ Page({
               }
             }
             console.log(zjList);
-            zjList[0].cls='qx';
+            for (var i = 0; i < zjList.length;i++){
+              if (zjList[i].cls=='jc'){
+                zjList[i].cls = 'qx';
+                break;
+              }
+            }
+            
             self.setData({
               zjList: zjList
             });
@@ -262,7 +269,7 @@ Page({
       })
 
       //设置购买类型
-      var modalTypeIndex = self.data.warebean.type == 3 ? 1 : self.data.warebean.type;
+      var modalTypeIndex = self.data.warebean.type == 3 ? 2 : self.data.warebean.type;
       self.setData({
         modalTypeIndex: modalTypeIndex,
         rtype: modalTypeIndex
@@ -430,10 +437,11 @@ Page({
     var waresizes = self.data.waresizes;  //规格id
   
     var colors = self.data.colors;  //购买颜色
-    var rtype = self.data.rtype;   //购买类型1、我要租 2:我要买
-    if (rtype==2){
+    var rtype = self.data.rtype;   //购买类型2、我要租 1:我要买
+    if (rtype==1){
       rentdates=0;  //租赁月数为0
     }
+    console.log('rtype=' + rtype);
     self.setData({
       modalSpecShow: false
     });

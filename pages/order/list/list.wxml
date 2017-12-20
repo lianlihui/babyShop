@@ -62,15 +62,15 @@
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">租用月数：{{orderware.rent_date}}月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">价格：{{orderware.price}}元/月</span>
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 2}}">
+              <view class="item-spec" wx:if="{{item.order_type == 0}}">
                 <span class="item-spec-one">零售价：{{orderware.smprice}}元</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
@@ -128,15 +128,15 @@
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">租用月数：{{orderware.rent_date}}月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one" >价格：{{orderware.price}}元/月</span>
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 2}}">
+              <view class="item-spec" wx:if="{{item.order_type == 0}}">
                 <span class="item-spec-one">零售价：{{orderware.smprice}}元</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
@@ -187,15 +187,15 @@
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">租用月数：{{orderware.rent_date}}月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">价格：{{orderware.price}}元/月</span>
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 2}}">
+              <view class="item-spec" wx:if="{{item.order_type == 0}}">
                 <span class="item-spec-one">零售价：{{orderware.smprice}}元</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
@@ -250,15 +250,15 @@
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">租用月数：{{orderware.rent_date}}月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">价格：{{orderware.price}}元/月</span>
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 2}}">
+              <view class="item-spec" wx:if="{{item.order_type == 0}}">
                 <span class="item-spec-one">零售价：{{orderware.smprice}}元</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
@@ -308,15 +308,15 @@
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">租用月数：{{orderware.rent_date}}月</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 0}}">
+              <view class="item-spec" wx:if="{{item.order_type == 2}}">
                 <span class="item-spec-one">价格：{{orderware.price}}元/月</span>
                 <span>押金：{{orderware.rent_cost}}元/月</span>
               </view>
-              <view class="item-spec" wx:if="{{item.order_type == 2}}">
+              <view class="item-spec" wx:if="{{item.order_type == 0}}">
                 <span class="item-spec-one">零售价：{{orderware.smprice}}元</span>
                 <span>数量：{{orderware.amount}}个</span>
               </view>
