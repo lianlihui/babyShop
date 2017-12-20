@@ -29,11 +29,11 @@
         <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
             <image src="{{imageRootPath}}{{item1.pic1}}" mode="aspectFit" class="product-image"/>
             <view class="product-desc">{{item1.name}}</view>
-            <view class="product-desc">
-              价格：¥{{item1.price}}/月
+            <view class="product-desc" wx:if="{{item1.type == 2||item1.type == 3}}">
+              租金¥{{item1.price}}/月起
             </view>
-            <view class="product-desc">
-              押金：¥{{item1.rent_cost}}/月
+            <view class="product-desc" wx:if="{{item1.type == 1}}">
+              ¥{{item1.smprice}}
             </view>
         </view>
       </view>

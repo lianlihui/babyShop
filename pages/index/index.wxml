@@ -9,7 +9,7 @@
   </view>
 
   <!--start banner --> 
-  <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" indicator-color="#b2b2b2" indicator-active-color="#000000" class="swiper-wrap">
+  <swiper indicator-dots="true" autoplay="true" interval="6000" duration="500" indicator-color="#b2b2b2" indicator-active-color="#000000" class="swiper-wrap">
     <block wx:for="{{imgUrls}}" wx:key="unique">
       <navigator url="{{item.url}}">
       <swiper-item>
@@ -69,7 +69,11 @@
       <view class="product-list-item" wx:for="{{item.warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
         <image src="{{imageRootPath}}{{item1.pic1}}" mode="aspectFit" class="product-image"/>
         <view class="product-desc">{{item1.name}}</view>
-        <view class="product-price"><span>¥{{item1.price}}</span><view class="del-price">押金：¥{{item1.rent_cost}}</view></view>
+        <view class="product-price">
+          <span wx:if="{{item1.type == 2||item1.type == 3}}">租金¥{{item1.price}}/月起</span>
+          <!-- <view wx:if="{{item1.type == 1||item1.type == 3}}" class="del-price">押金：¥{{item1.rent_cost}}</view> -->
+          <span wx:if="{{item1.type == 1}}">¥{{item1.smprice}}</span>
+        </view>
       </view>
     </view>
   </view>

@@ -111,6 +111,28 @@ Page({
     var operIdx = self.data.operIdx;
     if (operIdx==1){
       //租转买
+      var rentlist = self.data.rentlist;
+      var haveid = '';
+      var selNums=0;
+      for (var i = 0; i < rentlist.length; i++) {
+        if (rentlist[i].status == 1 && rentlist[i].selected) {
+          haveid = rentlist[i].id;
+          selNums = selNums+1;
+        }
+      }
+      if (selNums!=1){
+        self.showMsg('只能选择一个操作');
+        return false;
+      }
+      console.log('haveid:' + haveid);
+
+      self.setData({
+        modalOperShow: false
+      });
+      //跳转到续租提交页面 
+      wx.navigateTo({
+        url: '/pages/order/rentbuy/rentbuy?haveid=' + haveid
+      })
     } else if (operIdx == 2) {
       //续租
       self.setData({

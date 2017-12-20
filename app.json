@@ -33,7 +33,8 @@
     "pages/guide/list/list",
     "pages/guide/detail/detail",
     "pages/depreciation/depreciation",
-    "pages/collection/collection"
+    "pages/collection/collection",
+    "pages/order/rentbuy/rentbuy"
   ],
   "tabBar": {
     "color": "#414141",

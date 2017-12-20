@@ -1,4 +1,4 @@
-<view class="order-list">
+    <view class="order-list">
     <view class="address-btn" bindtap="addAddress">
         <button class="address-btn-impl">
           <span>+</span>添加寄货地址

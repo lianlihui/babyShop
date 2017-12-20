@@ -1,0 +1,41 @@
+<view class="order-list">
+    <view class="order-list-item-dzf">
+    
+      <view wx:for="{{warelist}}" wx:key="unique1">
+        <view class="order-list-item-dzf-bd">
+          <view class="item-left">
+            <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
+          </view>
+          <view class="item-right" bindtap="editNums" data-index="{{index}}">
+            <text class="item-title">{{item.name}}</text>
+            <text class="item-day">颜色：{{item.color}}</text>
+            <text class="item-day">单价：¥{{item.price}}/月</text>
+            <text class="item-day">押金：¥{{item.rent_cost}}/月</text>
+            <text class="item-day">数量：{{item.num}}个</text>
+            <span class="item-day">零售价：<span class="item-price-red">¥{{item.smprice}}</span></span>
+          </view>
+        </view>
+      </view>
+
+      <!-- <view class="order-list-item-dzf-head item-noborderbottom">
+        <view wx:if="{{isPoint == 0}}" class="orderno-icon" bindtap="pointChange"></view>
+        <view wx:if="{{isPoint == 1}}" class="orderno-icon active" bindtap="pointChange"></view>
+
+        <span class="orderno-jf" bindtap="pointChange">积分抵扣现金</span>
+        <span class="orderno-jfmoney">{{userPoint}}</span>
+      </view> -->
+    </view>
+
+    <!-- <view class="order-remark">
+      <textarea class="order-remark-textarea" placeholder="备注信息" bindinput="bindRemarksChange"></textarea>
+    </view> -->
+</view>
+
+<view class="order-list-item-dzf-foot">
+  <span class="foot-hj">合计金额:</span>
+  <span class="foot-je">¥{{totalMoney}}</span>
+  <button class="btn-qx" bindtap="createOrder">
+    提交订单
+  </button>
+</view>
+
