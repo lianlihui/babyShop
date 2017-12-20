@@ -98,17 +98,16 @@
   right: 27rpx;
   color: #414141;
   font-size: 28rpx;
-  width: 100rpx;
   height: 100%;
   text-align: left;
 }
 .recommend-more-img{
-  width: 40rpx;
-  height: 40rpx;
-  position: absolute;
-  display: block;
-  top: 27rpx;
-  right: 0rpx;
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: -5rpx;
+  margin-left: 4rpx;
+  display: inline-block;
+  vertical-align: middle;
 }
 .recommend-img {
   display: block;

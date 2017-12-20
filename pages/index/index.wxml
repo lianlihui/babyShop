@@ -23,29 +23,29 @@
   <view class="list-view">
     <navigator url="/pages/guide/list/list">
       <view class="list-item">
-        <image src="/images/index/icon1.png" class="list-item-img"></image>
+        <image src="/images/index/icon1.png" class="list-item-img" />
         <view class="list-item-txt">新手指南</view>
       </view>
     </navigator>
     <button class="list-item no-cls" open-type="contact">
-      <image src="/images/index/icon2.png" class="list-item-img"></image>
+      <image src="/images/index/icon2.png" class="list-item-img" />
       <view class="list-item-txt">客服咨询</view>
     </button>
     <!-- <view class="list-item">
-      <image src="/images/index/icon2.png" class="list-item-img"></image>
+      <image src="/images/index/icon2.png" class="list-item-img" />
       <view class="list-item-txt">客服咨询</view>
     </view> -->
 
     <navigator url="/pages/question/list/list">
       <view class="list-item">
-        <image src="/images/index/icon3.png" class="list-item-img"></image>
+        <image src="/images/index/icon3.png" class="list-item-img" />
         <view class="list-item-txt">常见问题</view>
       </view>
     </navigator>
 
     <navigator url="/pages/brand/list/list">
       <view class="list-item">
-        <image src="/images/index/icon4.png" class="list-item-img"></image>
+        <image src="/images/index/icon4.png" class="list-item-img" />
         <view class="list-item-txt">品牌推介</view>
       </view>
     </navigator>
@@ -59,7 +59,7 @@
         {{item.name}}
         <view class="recommend-more" bindtap="gotoMore">
           更多
-          <image src="/images/index/more.png" class="recommend-more-img"></image>
+          <image src="/images/index/more.png" class="recommend-more-img" />
         </view>
       </view>
     </block>

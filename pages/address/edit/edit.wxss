@@ -63,12 +63,11 @@
 }
 .addrss-edit-item-textarea{
   height: 20rpx;
-  padding: 0;
+  padding: 0rpx;
   font-size: 32rpx;
   color: #333;
   margin-left:190rpx;
-  width:548rpx;
-  margin-top:4rpx;
+  width:520rpx;
 }
 .addrss-edit-item-implm{
   border-bottom: 1rpx solid #f0f0f0;
@@ -170,7 +169,18 @@
   top:50%;
   margin-top:-40rpx;
   left:35rpx;
-
+}
+.picker-view-title-box {
+  width: 100%;
+  display: -webkit-box;
+}
+.picker-view-title-item {
+  height: 40rpx;
+  color: #333;
+  -webkit-box-flex: 1.0;
+          box-flex: 1.0;
+  text-align: center;
+  font-size: 30rpx;
 }
 .picker-view-impl{
   width: 100%; 

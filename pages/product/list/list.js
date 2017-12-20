@@ -30,8 +30,6 @@ Page({
       'waretypeid': 0,
       'hide': 'hide'
     });
-    console.log(this.data.warelist);
-    console.log(this.data.waretypelist);
     if (!app.globalData.token) {
       app.getToken();
     }
@@ -39,7 +37,6 @@ Page({
   },
 
   onShow: function() {
-    
   },
 
   getIndexData: function() {
@@ -50,7 +47,6 @@ Page({
       page: self.data.page
     };
 
-
     self.data.loading = false;
     //获取首页数据    
     app.ajax({
@@ -60,7 +56,7 @@ Page({
       successCallback: function(res) {
         var list = [];
 
-        if (res.code != 0 || res.data == null) {
+        if (res.code != 0 || res.data == null || res.data.waretypelist && res.data.waretypelist.length <= 0) {
           self.setData({
             noData: true,  //显示已经没有数据
             loading: false  //滚动不用再触发
@@ -90,7 +86,6 @@ Page({
           loading: true  //隐藏加载
         });
 
-        console.log(self.data.warelist);
       },
       failCallback: function(res) {
         console.log(res);
@@ -144,9 +139,7 @@ Page({
 
   //购买类型切换
   buyTypeChange: function (event) {
-    console.log(event);
     var buytype = event.currentTarget.dataset.type;
-    console.log(buytype);
     var self = this;
     self.setData({
       page: 1,
@@ -154,6 +147,7 @@ Page({
       noData: false,
       warelist: [],
       waretypeid: 0,
+      isFirst: true,
       hide: 'hide',
       type: buytype
     });
