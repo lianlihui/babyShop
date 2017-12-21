@@ -150,7 +150,14 @@
         <text wx:if="{{warebean.type == 2||warebean.type == 3}}" class="spec{{modalTypeIndex == 2 ? ' active' : ''}}" catchtap="selectType" data-index="2">我要租</text>
         <text wx:if="{{warebean.type == 1||warebean.type == 3}}" class="spec{{modalTypeIndex == 1 ? ' active' : ''}}" catchtap="selectType" data-index="1">我要买</text>
       </view>
- 
+
+      <view class="modal-spec-item">
+        新旧:
+      </view>
+      <view class="spec-wrap">
+        <text wx:for="{{waresizelist}}" class="spec{{item.id == waresizes ? ' active' : ''}}" catchtap="selectLevel" data-obj="{{item}}">{{item.level}}</text>
+      </view>
+
       <view class="modal-spec-item">
         颜色:
       </view>

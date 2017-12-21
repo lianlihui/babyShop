@@ -9,6 +9,7 @@
       </view>
       <view class="comment-item-info">
         <text class="comment-text">商品：{{item1.warename}}</text>
+        <text class="comment-text">新旧：{{item1.level}}</text>
         <text class="comment-text">颜色：{{item1.color}}</text>
       </view>
       <view class="comment-item-ct">

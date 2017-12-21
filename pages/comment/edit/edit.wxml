@@ -11,11 +11,11 @@
         <view class="item-right">
           <text class="item-title">{{havewaredetail.warename}}</text>
           <view class="item-spec">
-            <span class="item-spec-one">剩余租用天数：{{havewaredetail.left_rent_time}}月</span>
-            <span>规格：{{havewaredetail.sizename}}</span>
+            <span class="item-spec-one">剩余租用天数：{{havewaredetail.left_rent_time}}天</span>
+            <span>新旧：{{havewaredetail.level}}</span>
           </view>
           <view class="item-spec">
-            <span class="item-spec-one">已租赁时长：{{havewaredetail.have_rent_time}}月</span>
+            <span class="item-spec-one">已租赁时长：{{havewaredetail.have_rent_time}}天</span>
             <span>颜色：{{havewaredetail.color}}</span>
           </view>
         </view>

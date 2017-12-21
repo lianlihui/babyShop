@@ -57,7 +57,7 @@
             <view class="item-right">
               <text class="item-title">{{orderware.warename}}</text>
               <view class="item-spec">
-                <span>规格：{{orderware.sizename}}</span>
+                <span>新旧：{{orderware.level}}</span>
               </view>
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
@@ -123,7 +123,7 @@
             <view class="item-right">
               <text class="item-title">{{orderware.warename}}</text>
               <view class="item-spec">
-                <span>规格：{{orderware.sizename}}</span>
+                <span>新旧：{{orderware.level}}</span>
               </view>
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
@@ -182,7 +182,7 @@
             <view class="item-right">
               <text class="dfh-item-title">{{orderware.warename}}</text>
               <view class="item-spec">
-                <span>规格：{{orderware.sizename}}</span>
+                <span>新旧：{{orderware.level}}</span>
               </view>
               <view class="item-spec"> 
                 <span>颜色：{{orderware.color}}</span>
@@ -245,7 +245,7 @@
             <view class="item-right">
               <text class="item-title">{{orderware.warename}}</text>
               <view class="item-spec">
-                <span>规格：{{orderware.sizename}}</span>
+                <span>新旧：{{orderware.level}}</span>
               </view>
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>
@@ -303,7 +303,7 @@
             <view class="item-right">
               <text class="item-title">{{orderware.warename}}</text>
               <view class="item-spec">
-                <span>规格：{{orderware.sizename}}</span>
+                <span>新旧：{{orderware.level}}</span>
               </view>
               <view class="item-spec">
                 <span>颜色：{{orderware.color}}</span>

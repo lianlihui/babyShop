@@ -117,7 +117,6 @@ Page({
           });
           //设置购买类型
           var modalTypeIndex = res.data.warebean.type == 3 ? 2 : res.data.warebean.type;
-          console.log('modalTypeIndex------->' + modalTypeIndex);
           self.setData({
             modalTypeIndex: modalTypeIndex,
             rtype: modalTypeIndex
@@ -141,7 +140,6 @@ Page({
                 }
               }
             }
-            console.log(zjList);
             for (var i = 0; i < zjList.length;i++){
               if (zjList[i].cls=='jc'){
                 zjList[i].cls = 'qx';
@@ -168,7 +166,6 @@ Page({
               }
             }
           }
-          console.log(colorsArr);
           self.setData({
             colors: colorsArr[0].name,  //默认选中第一个
             colorsArr: colorsArr
@@ -200,7 +197,6 @@ Page({
             picItem.url = pro.pic5;
             picList.push(picItem);
           }
-          console.log(picList);
           self.setData({
             imgUrls:picList
           });
@@ -230,7 +226,6 @@ Page({
     var self = this;
     var obj = e.currentTarget.dataset.obj;
     if(obj!=null){
-      console.log(obj);
       var zjList = self.data.zjList;
       for (var i = 0; i < zjList.length;i++){
         if (zjList[i].cls == 'qx'){
@@ -261,7 +256,6 @@ Page({
           }
         }
       }
-      console.log(colorsArr);
       self.setData({
         modalColorIndex: 0,
         colors: colorsArr[0].name,  //默认选中第一个
@@ -291,6 +285,53 @@ Page({
     }
   },
 
+  //弹框几成新选择
+  selectLevel:function(e){
+    var self = this;
+    var obj = e.currentTarget.dataset.obj;
+    if (obj != null) {
+      //更改颜色
+      var colorsArr = [];
+      if (obj.color != '' && obj.color != null) {
+        var cArr = obj.color.split(',');
+        for (var i = 0; i < cArr.length; i++) {
+          if (cArr[i] != null && cArr[i] != '') {
+            var colorsItem = {};
+            colorsItem.id = i + 1;
+            colorsItem.name = cArr[i];
+            colorsArr.push(colorsItem);
+          }
+        }
+      }
+      self.setData({
+        modalColorIndex: 0,
+        colors: colorsArr[0].name,  //默认选中第一个
+        colorsArr: colorsArr
+      })
+
+      //设置购买类型
+      // var modalTypeIndex = self.data.warebean.type == 3 ? 2 : self.data.warebean.type;
+      // self.setData({
+      //   modalTypeIndex: modalTypeIndex,
+      //   rtype: modalTypeIndex
+      // })
+
+      //更改价格
+      var warebean = self.data.warebean;
+      warebean.smprice = obj.smprice;
+      warebean.rent_cost = obj.rent_cost;
+      warebean.price = obj.price;
+      self.setData({
+        warebean: warebean,
+        specSmprice: obj.smprice,
+        specKucun: obj.kuncun,
+        specPrice: obj.price,
+        specRentCost: obj.rent_cost,
+        waresizes: obj.id
+      })
+    }
+  },
+
   //弹框选择规格
   openModal: function () {
     this.setData({
@@ -301,7 +342,6 @@ Page({
 
   //关闭弹框
   closeModal: function () {
-    console.log('oo');
     this.setData({
       modalSpecShow: false,
       isCart: 0
@@ -441,12 +481,13 @@ Page({
     if (rtype==1){
       rentdates=0;  //租赁月数为0
     }
-    console.log('rtype=' + rtype + ';rentdates=' + rentdates);
     self.setData({
       modalSpecShow: false
     });
     rtype = rtype == 1 ? 2 : 1;  //下单类型1、我要租 2:我要买
-    
+    console.log('wareids = ' + wareids + ' & numbers=' + numbers + 
+        '&waresizes=' + waresizes + '&rentdates=' + rentdates
+      + '&colors=' + colors + '&rtype=' + rtype);
     if (self.data.isCart==1){
       //加入购物车
       var postData = {
@@ -492,7 +533,6 @@ Page({
   //选择规则
   selectSpec: function (e) {
     var data = e.target.dataset;
-    console.log(data);
     this.setData({
       modalSpecIndex: data.index,
       specKucun: data.kuncun,
@@ -505,7 +545,6 @@ Page({
   //选择购买类型
   selectType: function (e) {
     var data = e.target.dataset;
-    console.log(data);
     this.setData({
       modalTypeIndex: data.index,
       rtype: data.index
@@ -514,7 +553,6 @@ Page({
   //选择购买颜色
   selectColor: function (e) {
     var data = e.target.dataset;
-    console.log(data);
     this.setData({
       modalColorIndex: data.index,
       colors: data.name
