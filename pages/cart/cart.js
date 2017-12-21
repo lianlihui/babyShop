@@ -12,7 +12,8 @@ Page({
     selectAllStatus:true,  //默认全选
     updId:'',  //修改id
     updName:'',  //修改的商品
-    updSizeName:'',  //修改的规格
+    updSizeName:'',  //修改的颜色
+    updLevel:'',  //新旧
     updKuncun:0,  //修改的库存
     updRentDate:0,  //修改的租赁月数
     updNums:0,  //修改的数量
@@ -172,7 +173,8 @@ Page({
       updId: selCart.id,  //修改id
       updName: selCart.name,  //修改的商品
       updKuncun: selCart.kuncun,  //修改的商品库存
-      updSizeName: selCart.sizename,  //修改的规格
+      updSizeName: selCart.color,  //修改的颜色
+      updLevel: selCart.level,  //修改的新旧
       updRentDate: selCart.rent_date,  //修改的租赁月数
       updNums: selCart.number  //修改的数量
     });
@@ -188,7 +190,8 @@ Page({
       updId: selCart.id,  //修改id
       updName: selCart.name,  //修改的商品
       updKuncun: selCart.kuncun,  //修改的商品库存
-      updSizeName: selCart.sizename,  //修改的规格
+      updSizeName: selCart.color,  //修改的颜色
+      updLevel: selCart.level,  //修改的新旧
       updRentDate: selCart.rent_date,  //修改的租赁月数
       updNums: selCart.number //修改的数量
     });

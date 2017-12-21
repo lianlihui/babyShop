@@ -82,14 +82,14 @@
   line-height: 1.3;
   color: #414141;
   font-size: 28rpx;
-  margin-bottom: 25rpx;
+  margin-bottom: 15rpx;
   display: block;
 }
 
 .order-list-item-dzf-bd .item-day{
   color: #7b7b7b;
   font-size: 28rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
   display: block;
 }
 .order-list-item-dzf-bd .item-price{

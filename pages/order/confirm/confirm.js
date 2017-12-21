@@ -13,7 +13,7 @@ Page({
     waresizes: '',  //规格ID
     rentdates: 0,   //租用月数
     colors: '',  //购买颜色
-    rtype: 1,   //购买类型
+    rtype: 1,   //购买类型  1、我要租 2:我要买
     addressid:'',  //地址id
     point:0,  //积分
     remarks:'',  //备注

@@ -15,7 +15,8 @@ Page({
     remarks: '',  //备注
     isPoint: 0,  //是否选择积分抵扣
     userPoint: 0,   //用户积分
-    haveid:''
+    haveid:'',
+    xtotalMoney:0  //显示总金额
   },
 
   /**
@@ -45,11 +46,14 @@ Page({
       successCallback: function (res) {
         if (res.code == 0 && res.data.waredatalist != null) {
           var retList = [];
+          var totalmoney=res.data.totalmoney;
+          var xtotalMoney = Math.abs(totalmoney);
           self.setData({
             userPoint: res.data.point,  //用户积分
             imageRootPath: res.data.imageRootPath,
             warelist: res.data.waredatalist,
-            totalMoney: res.data.totalmoney
+            totalMoney: totalmoney,
+            xtotalMoney: xtotalMoney
           });
         }
       },
@@ -141,8 +145,16 @@ Page({
       method: 'GET',
       successCallback: function (res) {
         if (res.code == 0) {
-          //实现微信支付
-          self.payOrder(res.data);
+          //负数或者为0 无需支付
+          var totalMoney = self.data.totalMoney;
+          if (totalMoney>0){
+            //实现微信支付
+            self.payOrder(res.data);
+          }else{
+            self.showMsg('操作成功');
+            wx.redirectTo({ url: "/pages/rent/rent" });
+          }
+          
         } else {
           self.showMsg(res.msg);
         }

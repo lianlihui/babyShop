@@ -9,6 +9,9 @@
         <span class="orderno-tag item-mleft-45" bindtap="selectList" data-index="{{index}}">物品编码:</span>
         <span class="orderno-imp" bindtap="selectList" data-index="{{index}}">{{item.warenumber}}</span>
         <span class="orderno-imp" bindtap="selectList">
+        <view wx:if="{{item.status == 10000}}">
+          (已购买)
+        </view>
         <view wx:if="{{item.status == 1}}">
           (在使用中)
         </view>
@@ -33,9 +36,11 @@
         </view>
         <view class="item-right">
           <text class="dfh-item-title">{{item.warename}}</text>
-          <text class="item-day">租用月数：{{item.rent_time}}月</text>
-          <text class="item-day">已租用月数：{{item.have_rent_time}}月</text>
-          <text class="item-day">剩余月数：{{item.left_rent_time}}月</text>
+          <text class="item-day" wx:if="{{item.status == 10000}}">颜色：{{item.color}}天</text>
+          <text class="item-day" wx:if="{{item.status == 10000}}">新旧：{{item.level}}天</text>
+          <text class="item-day" wx:if="{{item.status != 10000}}">租用天数：{{item.rent_time}}天</text>
+          <text class="item-day" wx:if="{{item.status != 10000}}">已租用天数：{{item.have_rent_time}}天</text>
+          <text class="item-day" wx:if="{{item.status != 10000}}">剩余天数：{{item.left_rent_time}}天</text>
           <view class="item-spec item-relative item-height-60">
               <button class="btn-pj" data-id="{{item.id}}" catchtap="pjOrder">
                 评价

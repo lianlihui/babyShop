@@ -32,7 +32,7 @@
           <view class="item-right" bindtap="updateCart" data-index="{{index}}">
             <text class="item-title">{{item.name}}</text>
             <view class="item-spec">
-              <span>规格：{{item.sizename}}</span>
+              <span>新旧：{{item.level}}</span>
             </view>
             <view class="item-spec">
               <span class="item-spec-one">总价格：¥{{item.total_money}}</span>
@@ -40,11 +40,11 @@
             </view>
             <view class="item-spec" wx:if="{{rtype == 1}}">
               <span class="item-spec-one">价格：<span class="item-price-red">¥{{item.price}}</span>/月</span>
-              <span>押金：¥{{item.rent_cost}}/月</span>
+              <span>押金：¥{{item.rent_cost}}</span>
             </view>
             <view class="item-spec">
               <span class="item-spec-one" wx:if="{{rtype == 1}}">租用月数：{{item.rent_date}}月</span>
-              <span class="item-spec-one" wx:if="{{rtype == 2}}">零售价：¥{{item.smprice}}/月</span>
+              <span class="item-spec-one" wx:if="{{rtype == 2}}">零售价：¥{{item.smprice}}</span>
               <span>数量：{{item.number}}个</span>
             </view>
           </view>
@@ -72,8 +72,12 @@
         <span class="modal-item-inp">{{updName}}</span>
       </view>
       <view class="modal-item">
-        <span class="modal-item-desc">规格:</span>
+        <span class="modal-item-desc">颜色:</span>
         <span class="modal-item-inp">{{updSizeName}}</span>
+      </view>
+      <view class="modal-item">
+        <span class="modal-item-desc">新旧:</span>
+        <span class="modal-item-inp">{{updLevel}}</span>
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">库存:</span>

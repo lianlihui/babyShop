@@ -234,24 +234,11 @@ Page({
 
   //查看物流
   lookLogistics: function (event){
-    var num = event.currentTarget.dataset.id;
-    var postData = {
-      token: app.globalData.token,
-      num: num
-    };
-    app.ajax({
-      url: app.globalData.serviceUrl + 'mwuliu.html',
-      data: postData,
-      method: 'POST',
-      successCallback: function (res) {
-        if (res.code == 0) {
-          
-        }
-      },
-      failCallback: function (res) {
-        console.log(res);
-      }
-    });
+    var num = event.currentTarget.dataset.num;
+    var orderId = event.currentTarget.dataset.orderid;
+    wx.navigateTo({
+      url: '/pages/logistics/logistics?num=' + num + '&orderId=' + orderId
+    })
   },
 
   //评价

@@ -204,20 +204,10 @@ Page({
 
   //查看物流
   lookLogistics: function (event) {
-    var that = this;
-    wx.request({
-      url: 'http://localhost:1799/mwuliu.html?num=111',
-      method: 'POST',
-      data: {
-        'id': 13
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        var article = res.data[0].post;
-        WxParse.wxParse('article', 'html', article, that, 5);
-      }
+    var num = event.currentTarget.dataset.num;
+    var orderId = event.currentTarget.dataset.orderid;
+    wx.navigateTo({
+      url: '/pages/logistics/logistics?num=' + num + '&orderId=' + orderId
     })
   },
 

@@ -31,11 +31,11 @@
       </view>
 
       <view>
-        <span class="product-title-price-del" wx:if="{{warebean.type == 1}}">
+        <span class="product-title-price-del" wx:if="{{warebean.type == 1 ||warebean.type == 3 }}">
           零售价：¥{{specSmprice}}
         </span>
         <span class="product-title-price-del" wx:if="{{warebean.type == 2||warebean.type == 3}}">
-        押金：¥{{specRentCost}}/月
+        押金：¥{{specRentCost}}
         </span>
         <span class="product-title-price" wx:if="{{warebean.type == 2||warebean.type == 3}}">
         租金：<span class="product-price-red">¥{{specPrice}}/月</span>
@@ -185,7 +185,7 @@
       </view>
       <view class="modal-item"  wx:if="{{modalTypeIndex == 2}}">
         <span class="modal-item-desc">押金:</span>
-        <span class="modal-item-inp">¥{{specRentCost}}/月</span>
+        <span class="modal-item-inp">¥{{specRentCost}}</span>
       </view>
       <view class="modal-item">
         <span class="modal-item-desc">库存:</span>

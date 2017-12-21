@@ -66,7 +66,7 @@
   width: 40rpx;
   height: 41rpx;
   position: absolute;
-  top: 40rpx;
+  top: 25rpx;
   right: 27rpx;
 }
 .order-list-item-dzf-bd .item-left-icon{

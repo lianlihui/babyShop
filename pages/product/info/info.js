@@ -441,10 +441,12 @@ Page({
     if (rtype==1){
       rentdates=0;  //租赁月数为0
     }
-    console.log('rtype=' + rtype);
+    console.log('rtype=' + rtype + ';rentdates=' + rentdates);
     self.setData({
       modalSpecShow: false
     });
+    rtype = rtype == 1 ? 2 : 1;  //下单类型1、我要租 2:我要买
+    
     if (self.data.isCart==1){
       //加入购物车
       var postData = {

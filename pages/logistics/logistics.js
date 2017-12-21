@@ -3,21 +3,56 @@
 var app = getApp();
 
 Page({
-  data: {
+  data: { 
+    phone:-1,
+    traces:[],
+    traceNo:'',
+    imageRootPath: '',
+    order: null
   },
 
-  onShow: function() {
+  onLoad: function (options) {
     if (!app.globalData.token) {
       app.getToken();
-    } 
-    this.getLogisticsData();
+    }
+    var orderId = options.orderId;
+    this.getOrderDetail(orderId);
+
+    var num = options.num;
+    this.getLogisticsData(num);
   },
 
-  getLogisticsData: function() {
+  //获取商品信息
+  getOrderDetail:function(orderId){
     var self = this;
     var postData = {
       token: app.globalData.token,
-      num:66
+      id: orderId
+    };
+    app.ajax({
+      url: app.globalData.serviceUrl + 'morderdetail.htm',
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        if (res.code == 0 && res.data.orderbean != null) {
+          self.setData({
+            order: res.data.orderbean,
+            imageRootPath: res.data.imageRootPath
+          });
+        }
+      },
+      failCallback: function (res) {
+        console.log(res);
+      }
+    });
+  },
+
+  //获取物流信息
+  getLogisticsData: function (num) {
+    var self = this;
+    var postData = {
+      token: app.globalData.token,
+      num: num
     };
     
     //获取首页数据    
@@ -26,13 +61,28 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function(res) {
+        if (res.Success){
+          var retList = res.Traces;
+          var rphone='';
+          if (retList != null && retList.length>0){
+            for (var i = 0; i < retList.length;i++){
+              var day = retList[i].AcceptTime.substring(5,10);
+              var time = retList[i].AcceptTime.substring(11, 16);
+              retList[i].day = day;
+              retList[i].time = time;
+            }
+          }
+          self.setData({
+            traces: retList,
+            traceNo: res.LogisticCode
+          })
+        }
         console.log(res);
       },
       failCallback: function(res) {
         console.log(res);
       }
     });
-
   }
   
 })

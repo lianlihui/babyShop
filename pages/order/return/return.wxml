@@ -37,9 +37,9 @@
           <view class="item-right">
             <text class="item-title">{{item.warename}}</text>
             <text class="item-day">物品号：{{item.warenumber}}</text>
-            <text class="item-day">总时长：{{item.rent_time}}月</text>
-            <text class="item-day">已租赁时长：{{item.have_rent_time}}月</text>
-            <text class="item-day">剩余租用天数：{{item.left_rent_time}}月</text>
+            <text class="item-day">总时长：{{item.rent_time}}天</text>
+            <text class="item-day">已租赁时长：{{item.have_rent_time}}天</text>
+            <text class="item-day">剩余租用天数：{{item.left_rent_time}}天</text>
             <text class="item-day item-price-red">{{return_total_money}}</text>
           </view>
         </view>

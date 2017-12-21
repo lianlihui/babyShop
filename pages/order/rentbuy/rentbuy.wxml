@@ -10,8 +10,11 @@
             <text class="item-title">{{item.name}}</text>
             <text class="item-day">颜色：{{item.color}}</text>
             <text class="item-day">单价：¥{{item.price}}/月</text>
-            <text class="item-day">押金：¥{{item.rent_cost}}/月</text>
+            <text class="item-day">押金：¥{{item.rent_cost}}</text>
             <text class="item-day">数量：{{item.num}}个</text>
+            <!-- <text class="item-day">总时长：{{item.rent_time}}天</text>
+            <text class="item-day">已租赁时长：{{item.have_rent_time}}天</text>
+            <text class="item-day">剩余租用天数：{{item.left_rent_time}}天</text> -->
             <span class="item-day">零售价：<span class="item-price-red">¥{{item.smprice}}</span></span>
           </view>
         </view>
@@ -32,8 +35,10 @@
 </view>
 
 <view class="order-list-item-dzf-foot">
-  <span class="foot-hj">合计金额:</span>
-  <span class="foot-je">¥{{totalMoney}}</span>
+  <span class="foot-hj" wx:if="{{totalMoney > 0}}">合计金额:</span>
+  <span class="foot-je" wx:if="{{totalMoney > 0}}">¥{{xtotalMoney}}</span>
+  <span class="foot-hj" wx:if="{{totalMoney <= 0}}">应退金额:</span>
+  <span class="foot-je" wx:if="{{totalMoney <= 0}}">¥{{xtotalMoney}}</span>
   <button class="btn-qx" bindtap="createOrder">
     提交订单
   </button>

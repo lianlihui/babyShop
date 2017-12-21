@@ -33,7 +33,7 @@
 .order-list-item-dzf{
   background: #ffffff;
   margin-bottom: 30rpx;
-  padding-top: 30rpx;
+  padding-top: 20rpx;
 }
 .order-list-item-dzf-head{
   padding: 0rpx 27rpx;
@@ -56,7 +56,7 @@
   right: 27rpx;
 }
 .order-list-item-dzf-bd{
-  padding:30rpx 27rpx 12rpx;
+  padding:20rpx 27rpx 12rpx;
   background:#fff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -106,7 +106,7 @@
 .order-list-item-dzf-bd .item-day{
   color: #7b7b7b;
   font-size: 28rpx;
-  margin-bottom: 25rpx;
+  margin-bottom: 15rpx;
   display: block;
 }
 .order-list-item-dzf-bd .item-spec{
