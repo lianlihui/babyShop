@@ -210,7 +210,7 @@
   overflow:hidden;
 }
 .btn-cart{
-  width:250rpx;
+  width:220rpx;
   line-height: 110rpx;
   height: 110rpx;
   background: #ff9dac;
@@ -221,7 +221,7 @@
   border-radius: 0rpx;
 }
 .btn-buy{
-  width:250rpx;
+  width:220rpx;
   line-height: 110rpx;
   height: 110rpx;
   background: #ff4965;
@@ -247,7 +247,7 @@
 .item-edit-hh{
   display: inline-block;
   vertical-align: middle;
-  width: 57rpx;
+  width: 97rpx;
   height:110rpx;
   margin-left: 40rpx;
   background: #fff;
@@ -266,7 +266,7 @@
 .item-edit-sc{
   display: inline-block;
   vertical-align: middle;
-  width: 46rpx;
+  width: 76rpx;
   height:110rpx;
   margin-left: 10rpx;
 }

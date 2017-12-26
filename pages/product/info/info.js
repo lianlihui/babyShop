@@ -36,6 +36,7 @@ Page({
     colorsArr:[],  //商品详情颜色列表
 
     zjList:[],  //折旧程度
+    scTag:0,  //0未收藏，1已收藏
   },
 
   /**
@@ -209,10 +210,14 @@ Page({
             * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选) 
             */
           var descript = res.data.warebean.descript;
-          WxParse.wxParse('descript', 'html', descript, self, 5);
+          if (descript != null && descript!=''){
+            WxParse.wxParse('descript', 'html', descript, self, 5);
+          }
 
           var editor_detail = res.data.warebean.editor_detail;
-          WxParse.wxParse('editor_detail', 'html', editor_detail, self, 5);
+          if (editor_detail != null && editor_detail != '') {
+            WxParse.wxParse('editor_detail', 'html', editor_detail, self, 5);
+          }
         }
       },
       failCallback: function(res) {
@@ -608,6 +613,9 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function (res) {
+        self.setData({
+          scTag:1
+        });
         self.showMsg(res.msg);
       }
     })

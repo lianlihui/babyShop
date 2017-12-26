@@ -119,8 +119,11 @@
     <button class="item-edit-hh" open-type="contact">
       <image src="/images/info/hh.png" class="item-edit-img-hh"></image>
     </button>
-    <view class="item-edit-sc" bindtap="scProduct">
+    <view class="item-edit-sc" wx:if="{{scTag == 0 }}" bindtap="scProduct">
       <image src="/images/info/sc.png" class="item-edit-img-sc"></image>
+    </view>
+    <view class="item-edit-sc" wx:if="{{scTag == 1 }}">
+      <image src="/images/info/ysc.jpg" class="item-edit-img-sc"></image>
     </view>
     <button class="btn-buy" bindtap="openModal">
       立即下单

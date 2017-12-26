@@ -372,6 +372,14 @@ Page({
     })
   },
 
+  //商品详情
+  productInfo: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/product/info/info?id=' + id
+    })
+  },
+  
   showMsg: function (msg) {
     wx.showModal({
       title: '提示',

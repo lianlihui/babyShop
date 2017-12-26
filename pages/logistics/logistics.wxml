@@ -3,10 +3,10 @@
 
   <view class="page-top">
     <view class="page-top-lf">
-      <image src="/images/logistics/logo.png" class="page-top-img" />
+      <image src="/images/logistics/logo.jpg" class="page-top-img" />
     </view>
     <view class="page-top-rt">
-      <view class="page-top-name" >快递公司  </view>
+      <view class="page-top-name" >德邦物流</view>
       <view class="page-top-num">运单编号：{{traceNo}}</view>
     </view>
   </view>

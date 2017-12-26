@@ -43,7 +43,7 @@
     </view>
 
     <view wx:for="{{order.orderwarelist}}" wx:for-index="idx">
-      <view class="order-list-item-dzf-bd">
+      <view class="order-list-item-dzf-bd" data-id="{{item.wareid}}" bindtap="productInfo">
         <view class="item-left">
           <image class="item-img" src="{{imageRootPath}}{{item.pic}}"></image>
         </view>

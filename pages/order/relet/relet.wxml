@@ -9,7 +9,7 @@
     
       <view wx:for="{{warelist}}" wx:key="unique1">
         <view class="order-list-item-dzf-bd">
-          <image src="/images/order/edit.png" class="item-edit" bindtap="editNums" data-index="{{index}}"/>
+          <!--<image src="/images/order/edit.png" class="item-edit" bindtap="editNums" data-index="{{index}}"/>-->
           <!-- <view class="item-left-icon">
             <view wx:if="{{item.selected}}" class="item-left-icon-top orderno-icon active" bindtap="selectList" data-index="{{index}}"></view>
             <view wx:else class="item-left-icon-top orderno-icon" bindtap="selectList" data-index="{{index}}"></view>

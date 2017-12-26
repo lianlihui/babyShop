@@ -30,7 +30,7 @@
         </span>
       </view>
 
-      <view class="order-list-item-dzf-bd" bindtap="selectList" data-index="{{index}}">
+      <view class="order-list-item-dzf-bd" data-id="{{item.wareid}}" bindtap="productInfo" data-index="{{index}}">
         <view class="item-left">
           <image class="item-img" src="{{imageRootPath}}{{item.pic1}}"></image>
         </view>
