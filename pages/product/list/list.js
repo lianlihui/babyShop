@@ -56,7 +56,7 @@ Page({
       successCallback: function(res) {
         var list = [];
 
-        if (res.code != 0 || res.data == null || res.data.waretypelist && res.data.waretypelist.length <= 0) {
+        if (res.code != 0 || res.data == null || res.data.warelablelist == 0) {
           self.setData({
             noData: true,  //显示已经没有数据
             loading: false  //滚动不用再触发
@@ -72,10 +72,12 @@ Page({
         } 
 
         if (self.data.page == 1 && res.data.warelablelist.length == 0) {
-          self.setData({hide: 'show'})
+          self.setData({
+            hide: 'show',
+            loading: false  //隐藏加载
+          })
           return false;
         }
-
         var alist = res.data.warelablelist;
         list = self.data.warelist.concat(alist);
 
@@ -86,6 +88,11 @@ Page({
           loading: true  //隐藏加载
         });
 
+        if (self.data.page == 1 && res.data.warelablelist.length < 10) {
+          self.setData({
+            loading: false  //隐藏加载
+          });
+        }
       },
       failCallback: function(res) {
         console.log(res);
@@ -94,7 +101,7 @@ Page({
   },
 
   //滚动分页
-  onReachBottom: function () {
+  bindDownLoad: function () {
     //可以分页
     if (this.data.loading) {
       var page = this.data.page + 1;

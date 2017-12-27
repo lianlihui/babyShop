@@ -23,7 +23,7 @@
     <!-- /菜单分类导航 -->
 
     <!-- 菜单列表 -->
-    <scroll-view class="menu-wrap" scroll-y="true">
+    <scroll-view class="menu-wrap" scroll-y="true" bindscrolltolower="bindDownLoad">
       <view class="product-list">
         <view class="product-empty {{hide}}"> 抱歉，没找到商品！ </view>
         <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
@@ -36,11 +36,12 @@
               ¥{{item1.smprice}}
             </view>
         </view>
+        <view wx:if="{{loading}}" class="loading-status">加载中...</view>
+        <view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>
       </view>
     </scroll-view>
     <!-- /菜单列表 -->
-    <view wx:if="{{!loading}}" class="loading-status">加载中...</view>
-    <view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>
+    
   </view>
 
 
