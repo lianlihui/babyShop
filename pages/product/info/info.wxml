@@ -22,7 +22,7 @@
       </view>
       
       <!--折旧程度-->
-      <view class="product-zj">
+      <view class="product-zj" wx:if="{{warebean.type == 2 ||warebean.type == 3 }}">
         <view class="product-zj-item" wx:for="{{zjList}}">
           <button class="product-zj-item-btn {{item.cls}}" bindtap="zjFun" data-obj="{{item.obj}}">
             {{item.name}}
