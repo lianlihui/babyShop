@@ -90,7 +90,7 @@
 }
 .product-price-red{
   color: #ff4965;
-  font-size: 40rpx;
+  font-size: 28rpx;
 }
 .product-title-price-del{
   font-size:28rpx;
@@ -214,7 +214,7 @@
   line-height: 110rpx;
   height: 110rpx;
   background: #ff9dac;
-  font-size: 40rpx;
+  font-size: 30rpx;
   color: #ffffff;
   display: block;
   float: right;
@@ -225,7 +225,7 @@
   line-height: 110rpx;
   height: 110rpx;
   background: #ff4965;
-  font-size: 40rpx;
+  font-size: 30rpx;
   color: #ffffff;
   display: block;
   float: right;

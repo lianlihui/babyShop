@@ -22,6 +22,29 @@ Page({
     } 
     this.getIndexData();
   },
+  onLoad: function (options) {
+    // options 中的 scene 需要使用 decodeURIComponent 才能获取到生成二维码时传入的 scene
+    var scene = decodeURIComponent(options.scene)
+    console.log("scene:" + scene);
+    if (scene !='undefined'){//调用接口修改改用户为某实体店用户
+      var postData = {
+        token: app.globalData.token,
+        agentid: scene,
+      };
+      app.ajax({
+        url: app.globalData.serviceUrl + 'mbindagent.htm',
+        data: postData,
+        method: 'GET',
+        successCallback: function (res) {
+          if (res.code == 0 && res.data != null) {
+            self.showMsg(res.msg);
+          } else {
+            self.showMsg('用户已绑定');
+          }
+        }
+      });
+    }
+  },
 
   getIndexData: function() {
     var self = this;

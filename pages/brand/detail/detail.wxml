@@ -1,7 +1,7 @@
 <import src="../../../wxParse/wxParse.wxml" />
-<view class="qu-title">
+<!--<view class="qu-title">
   {{arcdetail.name}}
-</view>
+</view>-->
 
 <view class="qu-content">
   <template is="wxParse" data="{{wxParseData:content.nodes}}" />
