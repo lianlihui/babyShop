@@ -17,12 +17,12 @@
       <image src="{{imageRootPath}}{{item.pic}}" class="section-img" mode="widthFix"/>
     </view>
     <view class="section-ct">
-      <view class="section-name">{{item.warename}}</view>
+      <view class="section-name">{{item.warename}}我是一个中国人啊中国人啊啊啊</view>
       <view>{{item.sizename}}</view>
     </view>
     <view class="section-rt">
-      <view class="section-price" wx:if="{{order.order_type == 2}}">¥{{item.smprice}}</view>
-      <view class="section-price" wx:if="{{order.order_type == 0}}">¥{{item.price}}</view>
+      <view class="section-price" wx:if="{{order.order_type == 2}}">¥{{item.smprice}}4509符合你</view>
+      <view class="section-price" wx:if="{{order.order_type == 0}}">¥{{item.price}}4509符合你</view>
       <view class="section-num">x{{item.amount}}</view>
     </view>
   </view>

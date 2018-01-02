@@ -55,11 +55,14 @@
   border-bottom: 1px solid #ebebeb;
 }
 .section-box {
+  width: 100%;
   display: -webkit-box;
   padding: 30rpx 0 30rpx 25rpx;
   border-bottom: 30rpx solid #f4f4f4;
   font-size: 28rpx;
   color: #7b7b7b;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .section-lf {
   width: 128rpx;
@@ -75,9 +78,11 @@
           box-flex: 1.0;
 }
 .section-ct {
+  width: 360rpx;
   padding: 0 25rpx;
 }
 .section-rt {
+  padding-top: 10rpx;
   padding-right: 25rpx;
   text-align: right;
 }
@@ -86,8 +91,9 @@
   line-height: 1.5;
 }
 .section-name {
+  margin-top: 10rpx;
   line-height: 1.5;
-  margin-bottom: 30rpx;
+  margin-bottom: 20rpx;
 }
 
 .section-list{
