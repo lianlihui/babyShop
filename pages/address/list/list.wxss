@@ -8,6 +8,7 @@ page{
 }
 .address-list{
   width:100%;
+  margin-bottom:150rpx;
 }
 .address-item{
   margin-bottom: 30rpx;

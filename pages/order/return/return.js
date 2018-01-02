@@ -16,7 +16,9 @@ Page({
     sys_phone:'',
     sys_address: '',
     return_total_money: 0,
-    otype: 0  //物流类型 1一键预约物流 2自己预约物流
+    otype: 0,  //物流类型 1一键预约物流 2自己预约物流
+    addressbean: null,  //地址
+    addressid: ''
   },
 
   /**
@@ -24,6 +26,12 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
+    if (typeof (options.raddressId) != "undefined") {
+      self.setData({
+        addressid: options.raddressId
+      });
+    }
+
     var warenumbers = options.warenumbers;
     self.setData({
       warenumbers: warenumbers
@@ -31,7 +39,8 @@ Page({
     var self = this;
     var postData = {
       token: app.globalData.token,
-      warenumbers: warenumbers
+      warenumbers: warenumbers,
+      addressid: self.data.addressid
     };
     app.ajax({
       url: app.globalData.serviceUrl + 'tuihuoorderaffirm.htm',
@@ -46,7 +55,8 @@ Page({
             sys_rename: res.data.sys_rename,
             sys_phone: res.data.sys_phone,
             sys_address: res.data.sys_address,
-            return_total_money: res.data.return_total_money
+            return_total_money: res.data.return_total_money,
+            addressbean: res.data.address  //地址
           });
         }
       },
@@ -76,6 +86,18 @@ Page({
     var params = 'warenumbers=' + self.data.warenumbers + '&source=return';
     wx.redirectTo({
       url: '/pages/address/edit/edit?id=-1&' + params
+    })
+  },
+
+  //修改地址
+  updateAddress: function () {
+    var self = this;
+    var addressid = self.data.addressbean.id;
+    console.log(addressid);
+    var params = 'warenumbers=' + self.data.warenumbers
+      + '&source=return&select=true&curid=' + addressid;
+    wx.redirectTo({
+      url: '/pages/address/list/list?' + params
     })
   },
 

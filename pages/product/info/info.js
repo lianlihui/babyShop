@@ -585,7 +585,7 @@ Page({
   onShareAppMessage: function () {
     var id = this.data.id;
     return {
-      title: '母婴',
+      title: this.data.warebean.name,
       desc: '母婴描述!',
       path: '/pages/product/info/info?id=' + id
     }

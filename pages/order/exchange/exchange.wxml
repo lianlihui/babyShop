@@ -1,12 +1,29 @@
     <view class="order-list">
-    <view class="address-btn" bindtap="addAddress">
-        <button class="address-btn-impl">
+
+    <!-- 地址信息 -->
+  <view class="address-wrap" bindtap="updateAddress" wx:if="{{addressbean != null}}">
+    <view class="address-left">
+      <image class="address-icon" src="/images/order/addr-icon.png"></image>
+    </view>
+    
+    <view class="address-right">
+      <view class="address-accept">
+        <span class="address-name">寄货人：{{addressbean.ordername}}</span>
+        <span class="address-phone">{{addressbean.mobile}}</span>
+      </view>
+      <view class="address-info">
+        寄货人地址：{{addressbean.province}}{{addressbean.city}}{{addressbean.area}}{{addressbean.detailaddress}}
+      </view>
+    </view>
+  </view>
+  <view wx:else class="address-btn"> 
+      <button class="address-btn-impl" bindtap="addAddress">
           <span>+</span>添加寄货地址
         </button>
-    </view>
+  </view>
 
     <!--地址信息-->
-    <view class="address-wrap" wx:if="{{address != null}}">
+    <view class="address-wrap">
       <view class="address-left">
         <image class="address-icon" src="/images/order/addr-icon.png"></image>
       </view>
@@ -18,7 +35,7 @@
         </view>
         <view class="address-info">
           收货人地址：{{sys_address}}
-        </view>
+        </view> 
       </view>
     </view>
 

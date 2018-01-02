@@ -312,20 +312,20 @@ Page({
       method: 'POST',
       successCallback: function (res) {
         if (res.code == 0) {
+          var addressId = res.data.id;
           //跳回订单提交页面
-          if (self.data.source == 'confirm') {
-            var addressId=res.data.id;
+          if (self.data.source == 'confirm') {  
             wx.redirectTo({
               url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&colors=' + self.data.colors
                + '&rtype=' + self.data.rtype  + '&raddressId=' + addressId
             })
           } else if (self.data.source == 'exchange') {
             wx.redirectTo({
-              url: '/pages/order/exchange/exchange?warenumbers=' + self.data.warenumbers
+              url: '/pages/order/exchange/exchange?warenumbers=' + self.data.warenumbers + '&raddressId=' + addressId
             })
           } else if (self.data.source == 'return') {
             wx.redirectTo({
-              url: '/pages/order/return/return?warenumbers=' + self.data.warenumbers
+              url: '/pages/order/return/return?warenumbers=' + self.data.warenumbers + '&raddressId=' + addressId
             })
           }else {
             wx.redirectTo({

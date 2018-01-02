@@ -8,7 +8,7 @@
         </view>
         <span class="orderno-tag item-mleft-45" bindtap="selectList" data-index="{{index}}">物品编码:</span>
         <span class="orderno-imp" bindtap="selectList" data-index="{{index}}">{{item.warenumber}}</span>
-        <span class="orderno-imp" bindtap="selectList">
+        <span class="orderno-imp" bindtap="selectList" data-index="{{index}}">
         <view wx:if="{{item.status == 10000}}">
           (已购买)
         </view>

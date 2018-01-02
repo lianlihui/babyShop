@@ -16,7 +16,8 @@ Page({
     rentdates: 0,
     numbers: 0,
     colors:'',
-    rtype:1
+    rtype:1,
+    warenumbers:''
   },
 
   /**
@@ -28,7 +29,7 @@ Page({
       console.log("no login");
       return false;
     }
-
+    console.log(options);
     if (options.source == 'confirm') {
       //判断是否为订单提交页面过来
       this.setData({
@@ -39,6 +40,16 @@ Page({
         rentdates: options.rentdates,
         colors: options.colors,
         rtype: options.rtype,
+
+        isSelect: options.select,
+        className: options.select ? 'show' : '',
+        curid: options.curid || 0
+      });
+    } else if (options.source == 'exchange' || options.source == 'return'){
+      //判断是否为我的出租换货提交页面过来
+      this.setData({
+        source: options.source,
+        warenumbers: options.warenumbers,
 
         isSelect: options.select,
         className: options.select ? 'show' : '',
@@ -99,6 +110,11 @@ Page({
       wx.redirectTo({
         url: '/pages/address/edit/edit?id='+id+'&' + params
       })
+    } else if (self.data.source == 'exchange' || self.data.source == 'return') {
+      var params = 'warenumbers=' + self.data.warenumbers + '&source=' + self.data.source;
+      wx.redirectTo({
+        url: '/pages/address/edit/edit?id=' + id + '&' + params
+      })
     } else {
       wx.redirectTo({
         url: '../edit/edit?id=' + id
@@ -142,6 +158,11 @@ Page({
       wx.redirectTo({
         url: '/pages/address/edit/edit?id=-1&' + params
       })
+    } else if (self.data.source == 'exchange' || self.data.source == 'return') {
+      var params = 'warenumbers=' + self.data.warenumbers + '&source=' + self.data.source;
+      wx.redirectTo({
+        url: '/pages/address/edit/edit?id=-1&' + params
+      })
     }else{
       wx.redirectTo({
         url: '/pages/address/edit/edit?id=-1'
@@ -152,11 +173,21 @@ Page({
   // 选择收货地址
   selectAddr: function (event) {
     var self = this;
+    console.log(self.data.isSelect);
+    console.log(self.data.source);
     if (self.data.isSelect) {
       var id = event.currentTarget.dataset.id;
       if (self.data.source == 'confirm') {
         wx.redirectTo({
           url: '/pages/order/confirm/confirm?wareids=' + self.data.wareids + '&numbers=' + self.data.numbers + '&waresizes=' + self.data.waresizes + '&rentdates=' + self.data.rentdates + '&colors=' + self.data.colors + '&rtype=' + self.data.rtype + '&raddressId=' + id
+        })
+      } else if (self.data.source == 'exchange') {
+        wx.redirectTo({
+          url: '/pages/order/exchange/exchange?warenumbers=' + self.data.warenumbers + '&raddressId=' + id
+        })
+      } else if (self.data.source == 'return') {
+        wx.redirectTo({
+          url: '/pages/order/return/return?warenumbers=' + self.data.warenumbers + '&raddressId=' + id
         })
       }
     }

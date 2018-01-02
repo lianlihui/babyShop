@@ -36,11 +36,11 @@ Page({
         data: postData,
         method: 'GET',
         successCallback: function (res) {
-          if (res.code == 0 && res.data != null) {
-            self.showMsg(res.msg);
-          } else {
-            self.showMsg('用户已绑定');
-          }
+      //    if (res.code == 0 && res.data != null) {
+        //    self.showMsg(res.msg);
+        //  } else {
+         //   self.showMsg('用户已绑定');
+        //  }
         }
       });
     }

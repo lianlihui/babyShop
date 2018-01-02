@@ -3,7 +3,7 @@ var app = getApp();
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始数据 
    */
   data: {
     imageRootPath: '',
@@ -15,7 +15,9 @@ Page({
     sys_rename: '',
     sys_phone: '',
     sys_address: '',
-    otype: 0  //物流类型 0一键预约物流 1自己预约物流
+    otype: 0,  //物流类型 0一键预约物流 1自己预约物流
+    addressbean: null,  //地址
+    addressid:''
   },
 
   /**
@@ -27,14 +29,20 @@ Page({
       return false;
     }
     var self = this;
+    if (typeof (options.raddressId) != "undefined") {
+      self.setData({
+        addressid: options.raddressId
+      });
+    }
+
     var warenumbers = options.warenumbers;
     self.setData({
       warenumbers: warenumbers
     });
-    var self = this;
     var postData = {
       token: app.globalData.token,
-      warenumbers: warenumbers
+      warenumbers: warenumbers,
+      addressid: self.data.addressid
     };
     app.ajax({
       url: app.globalData.serviceUrl + 'huanhuoorderaffirm.htm',
@@ -48,7 +56,8 @@ Page({
             address: res.data.address,
             sys_rename: res.data.sys_rename,
             sys_phone: res.data.sys_phone,
-            sys_address: res.data.sys_address
+            sys_address: res.data.sys_address,
+            addressbean: res.data.address  //地址
           });
         }
       },
@@ -78,6 +87,18 @@ Page({
     var params = 'warenumbers=' + self.data.warenumbers + '&source=exchange';
     wx.redirectTo({
       url: '/pages/address/edit/edit?id=-1&' + params
+    })
+  },
+
+  //修改地址
+  updateAddress: function () {
+    var self = this;
+    var addressid = self.data.addressbean.id;
+    console.log(addressid);
+    var params = 'warenumbers=' + self.data.warenumbers 
+      + '&source=exchange&select=true&curid=' + addressid;
+    wx.redirectTo({
+      url: '/pages/address/list/list?' + params
     })
   },
 
