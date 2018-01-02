@@ -16,8 +16,8 @@ Page({
     dshCls: 'span-item',
     ywcCls: 'span-item',
     yqxCls: 'span-item',
-    loading:true,
-    noData:false,
+    loading: false,
+    noData: false,
     imageRootPath:'',
     page:1,
     status:0,
@@ -50,6 +50,12 @@ Page({
 
     if(self.data.status!=0){
       postData.status = self.data.status;
+    }
+
+    if (self.data.page > 1) {
+      self.setData({
+        loading: true
+      });
     }
 
     //获取首页数据    

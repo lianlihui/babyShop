@@ -6,7 +6,7 @@
       <swiper class="swiper-image" indicator-dots="true" autoplay="true" interval="3000" duration="500">
         <block wx:for="{{imgUrls}}" wx:key="unique">
           <swiper-item>
-            <image src="{{imageRootPath}}{{item.url}}" class="slide-image" mode="aspectFill"/>
+            <image src="{{imageRootPath}}{{item.url}}" class="slide-image" mode="widthFix"/>
           </swiper-item>
         </block>
       </swiper>
@@ -15,10 +15,10 @@
     <view class="product-title">
       <view class="product-title-txt" bindtap="gotoDepreciation"> 
         {{warebean.name}}
-        <view class="product-title-txt-xz">
-          折旧需知
+        <view class="product-title-txt-xz" wx:if="{{warebean.type == 2 ||warebean.type == 3 }}">
+          折旧须知
         </view>
-        <image class="product-title-txt-img" src="/images/product/icon.png" ></image>
+        <image class="product-title-txt-img" src="/images/product/icon.png" wx:if="{{warebean.type == 2 ||warebean.type == 3 }}"></image>
       </view>
       
       <!--折旧程度-->
@@ -141,8 +141,11 @@
       <image class="modal-close-img" src="/images/product/modal_close.png" mode="widthFix"></image>
     </view>
     <view class="modal-header">
-      <view class="modal-header-item">
-        立即购买
+      <view class="modal-header-item" wx:if="{{isCart == 1}}">
+        加入购买车
+      </view>
+      <view class="modal-header-item" wx:if="{{isCart != 1}}">
+        立即下单
       </view>
     </view>
     <view class="modal-body">
@@ -197,10 +200,10 @@
         <span class="modal-item-desc">押金:</span>
         <span class="modal-item-inp">¥{{specRentCost}}</span>
       </view>
-      <view class="modal-item">
+      <!--<view class="modal-item">
         <span class="modal-item-desc">库存:</span>
         <span class="modal-item-inp">{{specKucun}}个</span>
-      </view>
+      </view>-->
     </view>
     <view class="modal-footer">
       <button class="modal-qd" bindtap="confirmModal">

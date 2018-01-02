@@ -12,8 +12,9 @@ Page({
     modalSpecShow: false,
     modalOperShow: false,
     updRentdates:1,  //续租月数
-
-    operIdx:1  //操作类型
+    operIdx:1,  //操作类型
+    isEmpty: 'hide',   //是否显示空
+    isShow: 'hide' //是否显示数据 
   },
 
   /**
@@ -36,7 +37,8 @@ Page({
       method: 'GET',
       successCallback: function (res) {
         var retList = [];
-        if (res.data.mrentlist != null && res.data.mrentlist.length > 0) {
+
+        if (res.data.mrentlist.length > 0) {
           for (var i = 0; i < res.data.mrentlist.length; i++) {
             var singleObj = res.data.mrentlist[i];
             if (singleObj.status==1){
@@ -44,14 +46,24 @@ Page({
             }
             retList.push(singleObj);
           }
+          self.setData({
+            imageRootPath: res.data.imageRootPath,
+            rentlist: retList,
+            isShow: 'show',
+            isEmpty: 'hide',
+          });
+        } else {
+          self.setData({
+            isShow: 'hide',
+            isEmpty: 'show',
+          });
         }
-        self.setData({
-          imageRootPath: res.data.imageRootPath,
-          rentlist: retList
-        });
       },
       failCallback: function (res) {
-        console.log(res);
+          self.setData({
+            isShow: 'hide',
+            isEmpty: 'show',
+          });
       }
     });
   },
@@ -386,6 +398,12 @@ Page({
       content: msg,
       showCancel: false,
       confirmText: '我知道了'
+    });
+  },
+
+  gotoIndex: function() {
+    wx.switchTab({
+      url: '/pages/index/index'
     });
   }
 })

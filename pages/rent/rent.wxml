@@ -1,4 +1,16 @@
-<view class="order-list">
+<view class="empty-box {{isEmpty}}">
+  <view class="empty-box-txt">
+    暂时没有数据
+  </view>
+  <view class="empty-box-btn">
+    <button class="empty-box-btn-cls" catchtap="gotoIndex">
+      去首页逛逛
+      <image src="/images/order/no_icon.png" class="empty-box-btn-img"></image>
+    </button>
+  </view>
+</view>
+
+<view class="order-list {{isShow}}">
   <view wx:for="{{rentlist}}" wx:key="unique1">
     <view class="order-list-item-dzf item-nobottom">
       <view class="order-list-item-dzf-head">
@@ -51,7 +63,7 @@
     </view>
   </view>
 </view>
-<view class="order-list-item-dzf-foot">
+<view class="order-list-item-dzf-foot {{isShow}}">
   <view wx:if="{{selectAllStatus}}" class="btn-icon active" bindtap="selectAll"></view>
   <view wx:else class="btn-icon" bindtap="selectAll"></view>
   <text class="btn-txt" bindtap="selectAll">全选</text>

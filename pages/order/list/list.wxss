@@ -158,7 +158,7 @@
 .order-list-item-dzf-bd .item-spec{
   color: #7b7b7b;
   font-size: 28rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
   display: block;
 }
 .order-list-item-dzf-bd .item-spec-one{

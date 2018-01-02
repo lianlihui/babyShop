@@ -34,7 +34,7 @@
           (交易成功)
         </view>
         <view class="order-item-sy-status-bh" wx:if="{{order.status == 5}}">
-          (备货中)
+          (已出库)
         </view>
         <view class="order-item-sy-status-yqx" wx:if="{{order.status == 7}}">
           (已取消)

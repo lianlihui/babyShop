@@ -550,6 +550,6 @@
 </view> -->
 
 <view wx:if="{{loading}}" class="loading-status">加载中...</view>
-<view wx:if="{{noData}}" class="loading-status">没有数据喽...</view>
+<view wx:if="{{noData}}" class="loading-status"></view>
 
 
