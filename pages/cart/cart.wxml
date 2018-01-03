@@ -17,7 +17,7 @@
         <view wx:else class="orderno-icon orderno-icon-30top" bindtap="selectAll"></view>
 
         <span class="orderno-tag" bindtap="selectAll">全选</span>
-        <span class="money" bindtap="updateCartBySel">编辑</span>
+        <!-- <span class="money" bindtap="updateCartBySel">编辑</span> -->
       </view>
     
       <view wx:for="{{cartList}}" wx:key="unique1">
