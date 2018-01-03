@@ -1,5 +1,4 @@
 var app = getApp();
-var WxParse = require('../../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -17,13 +16,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onLoad: function (options) {
+    var self = this;
     if (!app.globalData.token) {
-      //wx.redirectTo({ url: "/pages/login/login" });
-      return false;
+      app.getToken(function(){
+        self.getOrderDetail(options);
+      });
+    } else {
+      self.getOrderDetail(options);
     }
+  },
 
-    var self=this;
+  getOrderDetail: function(options) {
+    var self = this;
     var id = options.id;
+    console.log(id);
     var postData = {
       token: app.globalData.token,
       id: id

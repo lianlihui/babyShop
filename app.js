@@ -6,7 +6,7 @@ App({
   },
 
   //获取token
-  getToken: function() {
+  getToken: function(callback) {
     var self = this;
      wx.login({ 
       success: function (res) {
@@ -37,6 +37,9 @@ App({
            successCallback: function (res) {
              if (res.code == 0) {
                self.globalData.token = res.data;
+               if (callback) {
+                  callback();
+               }
              }
            },
            failCallback: function (res) {
