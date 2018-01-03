@@ -64,5 +64,9 @@ Page({
         console.log(res);
       }
     });
-  }
+  },
+
+  gotoscrocegz: function () {
+    wx.navigateTo({ url: "/pages/protocol/protocol?id=10" });
+  },
 })

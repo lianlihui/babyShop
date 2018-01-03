@@ -68,7 +68,7 @@ Page({
   },
 
   gotoprotocol: function() {
-	  wx.navigateTo({ url: "/pages/protocol/protocol" });
+	  wx.navigateTo({ url: "/pages/protocol/protocol?id=6" });
   },
 
   //我的收藏

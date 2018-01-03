@@ -14,8 +14,9 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
+    var id=options.id;
     var postData = {
-      id: 6
+      id: id
     };
     //获取首页数据    
     app.ajax({
