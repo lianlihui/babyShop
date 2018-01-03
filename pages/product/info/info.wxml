@@ -122,7 +122,7 @@
     <view class="item-edit-sc" wx:if="{{scTag == 0 }}" bindtap="scProduct">
       <image src="/images/info/sc.png" class="item-edit-img-sc"></image>
     </view>
-    <view class="item-edit-sc" wx:if="{{scTag == 1 }}">
+    <view class="item-edit-sc" wx:if="{{scTag == 1 }}" bindtap="qxProduct">
       <image src="/images/info/ysc.jpg" class="item-edit-img-sc"></image>
     </view>
     <button class="btn-buy" bindtap="openModal">

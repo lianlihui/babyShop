@@ -37,6 +37,7 @@ Page({
 
     zjList:[],  //折旧程度
     scTag:0,  //0未收藏，1已收藏
+    scId:0,  //收藏id
   },
 
   /**
@@ -86,10 +87,11 @@ Page({
   getInfoData: function() {
     var self = this;
     var postData = {
-      id: self.data.id
+      id: self.data.id,
+      token: app.globalData.token
     };   
     app.ajax({
-      url: app.globalData.serviceUrl + 'mWareDetail.html',
+      url: app.globalData.serviceUrl + 'mWareDetail.htm',
       data: postData,
       method: 'GET',
       successCallback: function(res) {
@@ -105,6 +107,8 @@ Page({
         }
 
         if(res.code==0&&res.data!=null){
+          var scId = res.data.iscollect == 'nocollect' ? 0 : res.data.iscollect;
+          var scTag = res.data.iscollect=='nocollect'?0:1;
           self.setData({
             imageRootPath: res.data.imageRootPath,
             warebean: res.data.warebean,
@@ -114,7 +118,9 @@ Page({
             specRentCost: res.data.warebean.rent_cost,
             hotList: res.data.warepingjiazr,
             newList: res.data.warepingjiazx,
-            list: res.data.warepingjiazx
+            list: res.data.warepingjiazx,
+            scTag: scTag,
+            scId: scId
           });
           //设置购买类型
           var modalTypeIndex = res.data.warebean.type == 3 ? 2 : res.data.warebean.type;
@@ -613,10 +619,41 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function (res) {
-        self.setData({
-          scTag:1
-        });
-        self.showMsg(res.msg);
+        if (res.code == 0) {
+          self.setData({
+            scTag: 1,
+            scId: 0
+          });
+          self.showMsg('收藏成功');
+        } else {
+          self.showMsg(res.msg);
+        }
+      }
+    })
+  },
+
+  //取消收藏
+  qxProduct:function(){
+    var self = this;
+    var cid = self.data.scId;  //收藏id
+    var postData = {
+      token: app.globalData.token,
+      cid: cid
+    };
+    app.ajax({
+      url: app.globalData.serviceUrl + 'mcollectdel.htm',
+      data: postData,
+      method: 'GET',
+      successCallback: function (res) {
+        if (res.code==0){
+          self.setData({
+            scTag: 0,
+            scId: 0
+          });
+          self.showMsg('取消成功');
+        }else{
+          self.showMsg(res.msg);
+        }
       }
     })
   }
