@@ -456,5 +456,11 @@ Page({
       showCancel: false,
       confirmText: '我知道了'
     });
+  },
+
+  gotoIndex: function() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   }
 })

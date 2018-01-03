@@ -3,6 +3,7 @@
     <image src="{{myInfo.headimgurl}}" class="integral-my-img"/>
     <text class="integral-my-txt">我的积分:</text>
     <text class="integral-my-point">{{myInfo.point}}</text>
+    <view class="score-rule">积分规则</view>
   </view>
 
   <view class="integral-mx">

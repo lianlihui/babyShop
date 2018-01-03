@@ -2,6 +2,20 @@
   width:100%;
   height: 100%;
   background-color: #fff;
+  position: relative;
+}
+.score-rule {
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  background: #ff4965;
+  position: absolute;
+  top: 45rpx;
+  right: 30rpx;
+  border-radius: 10rpx;
 }
 .integral-my{
   height: 140rpx;

@@ -324,3 +324,8 @@
   display: block;
   margin: 0 auto;
 }
+.empty-box view {
+  font-size:30rpx;
+  color: #A9A9A9;
+  text-align: center;
+}

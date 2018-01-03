@@ -2,12 +2,12 @@
 <view class="container">
 
   <!-- start 搜索 -->
-  <view class="search-wrap">
+  <!--<view class="search-wrap">
     <view class="search-box" bindtap="gotoSearch">
         <image src="/images/index/search.png" class="search-img" mode="widthFix"/>
         <span class="search-text">请输入关键词</span>
     </view>
-  </view>
+  </view>-->
 
   <view class="category-tab-box">
     <view class="category-tab {{2 == type ? 'active' : ''}}" data-type="2" bindtap="buyTypeChange">我要租</view>
@@ -28,12 +28,14 @@
         <view class="product-empty {{hide}}"> 抱歉，没找到商品！ </view>
         <view class="product-list-item" wx:for="{{warelist}}" wx:for-item="item1" wx:key="unique1" data-id="{{item1.id}}" bindtap="productInfo">
             <image src="{{imageRootPath}}{{item1.pic1}}" mode="aspectFit" class="product-image"/>
-            <view class="product-desc">{{item1.name}}</view>
-            <view class="product-desc" wx:if="{{item1.type == 2||item1.type == 3}}">
-              租金¥{{item1.price}}/月起
-            </view>
-            <view class="product-desc" wx:if="{{item1.type == 1}}">
-              ¥{{item1.smprice}}
+            <view class="product-list-item-ct">
+              <view class="product-desc">{{item1.name}}</view>
+              <view class="product-item-price" wx:if="{{item1.type == 2||item1.type == 3}}">
+                租金：<text class="product-price-strong">¥{{item1.price}}</text>/月起
+              </view>
+              <view class="product-desc" wx:if="{{item1.type == 1}}">
+                <text class="product-price-strong">¥{{item1.smprice}}</text>
+              </view>
             </view>
         </view>
         <view wx:if="{{loading}}" class="loading-status">加载中...</view>

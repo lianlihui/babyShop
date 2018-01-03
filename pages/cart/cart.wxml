@@ -5,8 +5,9 @@
     </view>
 </view>
 
-<view class="empty-box {{isEmpty}}">
+<view class="empty-box {{isEmpty}}" bindtap="gotoIndex">
   <image src="/images/cart/empty_cart.png" class="empty-img" mode="widthFix"/>
+  <view>去首页看看吧</view>
 </view>
 
 <view class="order-list {{isShow}}">
