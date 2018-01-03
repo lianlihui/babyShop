@@ -68,9 +68,9 @@
   <view wx:else class="btn-icon" bindtap="selectAll"></view>
   <text class="btn-txt" bindtap="selectAll">全选</text>
   
-  <button class="btn-buy" bindtap="czClick">
+  <!--<button class="btn-buy" bindtap="czClick">
       操作
-  </button>
+  </button>-->
 </view>
 
 <!-- 修改弹窗 -->
