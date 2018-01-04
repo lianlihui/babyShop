@@ -1,6 +1,7 @@
 .order{
   width:100%;
   background: #f4f4f4;
+  margin-bottom:101rpx;
 }
 .address-wrap{
   width: 100%;
@@ -179,4 +180,19 @@
 .btn-zf{
   color: #f2506d;
   border: 1px #f2506d solid;
+}
+
+.order-list-item-dzf-index{
+  height: 100rpx;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  right: 0rpx;
+  border-top: 1rpx #ebebeb solid;
+  z-index:1;
+  background: #fe9eac;
+  text-align: center;
+  color: #ffffff;
+  font-size: 36rpx;
 }

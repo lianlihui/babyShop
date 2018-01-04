@@ -62,16 +62,19 @@
         </view>
       </view>
       <view wx:if="{{'proCom' == curComment}}">
-        <view class="comment-item" wx:for="{{list}}" wx:for-item="item1" wx:key="unique1">
+        <view class="comment-item-nodata" wx:if="{{hasComment == 0 }}">
+          暂无评价信息
+        </view>
+        <view class="comment-item" wx:if="{{hasComment == 1 }}" wx:for="{{list}}" wx:for-item="item1" wx:key="unique1">
           <view class="comment-item-top">
             <image src="{{item1.avatarurl}}" class="comment-pic" />
             <text class="comment-name">{{item1.username}}</text>
             <text class="comment-time">{{item1.addtime}}</text>
           </view>
-          <view class="comment-item-info">
+          <!-- <view class="comment-item-info">
             <text class="comment-text">商品：{{item1.warename}}</text>
             <text class="comment-text">颜色：{{item1.color}}</text>
-          </view>
+          </view> -->
           <view class="comment-item-ct">
             {{item1.content}}
           </view>
@@ -123,7 +126,7 @@
       <image src="/images/info/sc.png" class="item-edit-img-sc"></image>
     </view>
     <view class="item-edit-sc" wx:if="{{scTag == 1 }}" bindtap="qxProduct">
-      <image src="/images/info/ysc.jpg" class="item-edit-img-sc"></image>
+      <image src="/images/info/ysc.png" class="item-edit-img-sc"></image>
     </view>
     <button class="btn-buy" bindtap="openModal">
       立即下单

@@ -15,17 +15,24 @@ Page({
     'duration': 1000,
     'foodList': []
   },
-
-  onShow: function() {
-    if (!app.globalData.token) {
-      app.getToken();
-    } 
-    this.getIndexData();
-  },
+  
   onLoad: function (options) {
-    // options 中的 scene 需要使用 decodeURIComponent 才能获取到生成二维码时传入的 scene
+    var self = this;
+    if (!app.globalData.token) {
+      app.getToken(function () {
+        self.getIndexData();
+        self.getScene(options);
+      });
+    } else {
+      self.getIndexData();
+      self.getScene(options);
+    }    
+  },
+
+  //options 中的 scene 需要使用 decodeURIComponent 才能获取到生成二维码时传入的 scene
+  getScene: function (options){
     var scene = decodeURIComponent(options.scene)
-    if (scene !='undefined'){//调用接口修改改用户为某实体店用户
+    if (scene != 'undefined') {//调用接口修改改用户为某实体店用户
       var postData = {
         token: app.globalData.token,
         agentid: scene,
@@ -35,11 +42,11 @@ Page({
         data: postData,
         method: 'GET',
         successCallback: function (res) {
-      //    if (res.code == 0 && res.data != null) {
-        //    self.showMsg(res.msg);
-        //  } else {
-         //   self.showMsg('用户已绑定');
-        //  }
+          //    if (res.code == 0 && res.data != null) {
+          //    self.showMsg(res.msg);
+          //  } else {
+          //   self.showMsg('用户已绑定');
+          //  }
         }
       });
     }

@@ -38,6 +38,7 @@ Page({
     zjList:[],  //折旧程度
     scTag:0,  //0未收藏，1已收藏
     scId:0,  //收藏id
+    hasComment:0,  //是否有评价信息，0没有，1有
   },
 
   /**
@@ -119,6 +120,7 @@ Page({
             hotList: res.data.warepingjiazr,
             newList: res.data.warepingjiazx,
             list: res.data.warepingjiazx,
+            hasComment: res.data.warepingjiazx.length>0?1:0,
             scTag: scTag,
             scId: scId
           });
@@ -622,7 +624,7 @@ Page({
         if (res.code == 0) {
           self.setData({
             scTag: 1,
-            scId: 0
+            scId: res.data
           });
           self.showMsg('收藏成功');
         } else {

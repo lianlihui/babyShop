@@ -30,10 +30,14 @@ Page({
       'waretypeid': 0,
       'hide': 'hide'
     });
+    var self=this;
     if (!app.globalData.token) {
-      app.getToken();
+      app.getToken(function () {
+        self.getIndexData();
+      });
+    } else {
+      self.getIndexData();
     }
-    this.getIndexData();
   },
 
   onShow: function() {

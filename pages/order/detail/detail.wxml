@@ -98,3 +98,7 @@
   </view>
 
 </view>
+
+<view class="order-list-item-dzf-index" bindtap="gotoIndex">
+  返回首页
+</view>
