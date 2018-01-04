@@ -51,37 +51,14 @@ Page({
   },
 
   onShow: function() {
-    if (!app.globalData.token) {
-      app.getToken();
-    } 
-    this.getInfoData();
-    this.getCartNums();
-    
-  },
-
-  //获取原来购物车数据
-  getCartNums:function(){
     var self = this;
-    var postData = {
-      token: app.globalData.token
-    };
-    app.ajax({
-      url: app.globalData.serviceUrl + 'mrentlist.htm',
-      data: postData,
-      method: 'GET',
-      successCallback: function (res) {
-        if (res.code == 0) {
-          if (res.data.mrentlist != null && res.data.mrentlist.length > 0) {
-            self.setData({
-              cartNums: res.data.mrentlist.length
-            });
-          }
-        }
-      },
-      failCallback: function (res) {
-        console.log(res);
-      }
-    });
+    if (!app.globalData.token) {
+      app.getToken(function(){
+        self.getInfoData();
+      });
+    } else {
+      self.getInfoData();
+    }
   },
 
   //获取产品详情信息
@@ -107,7 +84,7 @@ Page({
           zjList.push(sobj);
         }
 
-        if(res.code==0&&res.data!=null){
+        if(res.code == 0 && res.data!=null){
           var scId = res.data.iscollect == 'nocollect' ? 0 : res.data.iscollect;
           var scTag = res.data.iscollect=='nocollect'?0:1;
           self.setData({
@@ -122,7 +99,8 @@ Page({
             list: res.data.warepingjiazx,
             hasComment: res.data.warepingjiazx.length>0?1:0,
             scTag: scTag,
-            scId: scId
+            scId: scId,
+            cartNums: res.data.rentcount > 0 ? Number(res.data.rentcount) : 0
           });
           //设置购买类型
           var modalTypeIndex = res.data.warebean.type == 3 ? 2 : res.data.warebean.type;
@@ -498,9 +476,6 @@ Page({
       modalSpecShow: false
     });
     rtype = rtype == 1 ? 2 : 1;  //下单类型1、我要租 2:我要买
-    console.log('wareids = ' + wareids + ' & numbers=' + numbers + 
-        '&waresizes=' + waresizes + '&rentdates=' + rentdates
-      + '&colors=' + colors + '&rtype=' + rtype);
     if (self.data.isCart==1){
       //加入购物车
       var postData = {
@@ -517,7 +492,6 @@ Page({
         data: postData,
         method: 'GET',
         successCallback: function (res) {
-          console.log(res);
           if (res.code == 0) {
             var cartNums = self.data.cartNums+1;
             self.setData({
