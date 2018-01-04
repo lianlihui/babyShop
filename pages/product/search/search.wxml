@@ -4,7 +4,7 @@
   <!-- start搜索 -->
   <view class="search-wrap">
     <view class="search-box">
-        <input placeholder="搜索产品" class="search-box-inp" bindinput="bindNameChange" value="{{name}}"/>
+        <input placeholder="搜索产品" class="search-box-inp" bindinput="bindinputFun"/>
     </view>
     <span class="search-box-qd" wx:if="{{searchStatus}}" bindtap="searchProduct">搜索</span>
     <span class="search-box-qd" wx:else bindtap="cancelSearch">取消</span>

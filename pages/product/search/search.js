@@ -61,21 +61,18 @@ Page({
     this.searchProduct();
   },
 
-  //搜索框触发
-  bindNameChange:function(e){
+  bindinputFun: function(e){
     var name = e.detail.value;
-    this.setData({
-      name: name
-    });
-    if (name!=''){
-      this.setData({
-        searchStatus: true
-      });
-    }else{
-      this.setData({
-        searchStatus: false
-      });
+    var searchStatus = false;
+    if (name) {
+      searchStatus = true;
+    } else {
+      searchStatus = false;
     }
+    this.setData({
+      name: name,
+      searchStatus: searchStatus
+    });
   },
 
   //搜索商品
