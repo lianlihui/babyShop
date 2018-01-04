@@ -33,14 +33,18 @@ Page({
             isEmpty: res.data.orderlist.length > 0 ? '' : 'show',
           });
         }
-        self.setData({
-          isShow: res.data.orderlist.length < 0 ? '' : 'hide',
-          isEmpty: res.data.orderlist.length < 0 ? '' : 'show',
-        });
       },
       failCallback: function (res) {
       }
     });
+  },
+
+  //商品详情
+  productInfo: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/product/info/info?id=' + id
+    })
   },
 
   //跳转到首页

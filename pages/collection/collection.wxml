@@ -12,33 +12,15 @@
 
 <view class="order-list {{isShow}}">
     <view class="order-list-item-dzf">
-      <view wx:for="{{cartList}}" wx:key="unique1">
-        <view class="order-list-item-dzf-bd">
-          <image src="/images/order/edit.png" class="item-edit" bindtap="updateCart" data-index="{{index}}"/>
-          <view class="item-left-icon">
-            <view wx:if="{{item.selected}}" class="orderno-icon-45top orderno-icon active" bindtap="selectList" data-index="{{index}}"></view>
-            <view wx:else class="orderno-icon-45top orderno-icon" bindtap="selectList" data-index="{{index}}"></view>
-          </view>
+      <view wx:for="{{list}}" wx:key="unique1">
+        <view class="order-list-item-dzf-bd" data-id="{{item.wareid}}" bindtap="productInfo">
           <view class="item-left">
             <image class="item-img" src="{{imageRootPath}}{{item.pic1}}" bindtap="selectList" data-index="{{index}}"></image>
           </view>
           <view class="item-right" bindtap="updateCart" data-index="{{index}}">
             <text class="item-title">{{item.name}}</text>
             <view class="item-spec">
-              <span>新旧：{{item.level}}</span>
-            </view>
-            <view class="item-spec">
-              <span class="item-spec-one">总价格：¥{{item.total_money}}</span>
-              <span>颜色：{{item.color}}</span>
-            </view>
-            <view class="item-spec" wx:if="{{rtype == 1}}">
-              <span class="item-spec-one">价格：<span class="item-price-red">¥{{item.price}}</span>/月</span>
-              <span>押金：¥{{item.rent_cost}}</span>
-            </view>
-            <view class="item-spec">
-              <span class="item-spec-one" wx:if="{{rtype == 1}}">租用月数：{{item.rent_date}}月</span>
-              <span class="item-spec-one" wx:if="{{rtype == 2}}">零售价：¥{{item.smprice}}</span>
-              <span>数量：{{item.number}}个</span>
+              <span>{{item.system_time}}</span>
             </view>
           </view>
         </view>

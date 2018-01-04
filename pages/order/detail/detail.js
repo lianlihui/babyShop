@@ -225,6 +225,13 @@ Page({
     })
   },
 
+  //返回首页
+  gotoIndex: function () {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
+
   showMsg: function (msg) {
     wx.showModal({
       title: '提示',

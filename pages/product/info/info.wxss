@@ -260,8 +260,8 @@
   border: 0;
 }
 .item-edit-img-hh{
-  width: 52rpx;
-  height: 54rpx;
+  width: 46rpx;
+  height: 46rpx;
   margin-top:27rpx;
 }
 .item-edit-sc{
@@ -525,4 +525,13 @@
   margin-right: 20rpx;
   font-size: 26rpx;
   color: #888;
+}
+.comment-item-nodata{
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 100%;
+  text-align: center;
+  background: #ffffff;
+  color: #585858;
+  font-size: 28rpx;
 }

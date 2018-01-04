@@ -56,7 +56,7 @@
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "我要租",
+        "text": "购物车",
         "iconPath": "images/nav/cart.png",
         "selectedIconPath": "images/nav/cart_active.png"
       },
