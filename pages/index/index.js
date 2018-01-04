@@ -64,6 +64,7 @@ Page({
       data: postData,
       method: 'GET',
       successCallback: function(res) {
+        console.log(res);
         self.setData({
           imgUrls: res.data.poslinklist,
           imageRootPath: res.data.imageRootPath
