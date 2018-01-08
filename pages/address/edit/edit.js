@@ -39,7 +39,6 @@ Page({
   },
   //选择地址确定事件
   bindMultiPickerChange: function (e) {
-    console.log('select');
     var self = this;
     var current_value = e.detail.value;
     //地址选中确定，拼装地址信息显示
