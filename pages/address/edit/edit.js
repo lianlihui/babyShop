@@ -24,7 +24,7 @@ Page({
     detailaddress: '', //详细地址
     isdefault: 0,  //是否默认
 
-    areaArray: [[], [], []],
+    areaArray: [[], [], []],  //地址信息，三维数据，省，市，区
     areaIndex: [0, 0, 0],
     readySelArea:0,
 
@@ -37,12 +37,12 @@ Page({
     colors: '',
     rtype: 1
   },
-
+  //选择地址确定事件
   bindMultiPickerChange: function (e) {
     console.log('select');
     var self = this;
     var current_value = e.detail.value;
-
+    //地址选中确定，拼装地址信息显示
     var address = self.data.areaArray[0][current_value[0]].name
       + '/' + self.data.areaArray[1][current_value[1]].name
       + '/' + self.data.areaArray[2][current_value[2]].name;
@@ -52,17 +52,19 @@ Page({
       readySelArea:1
     });
   },
+
+  //选择地址切换事件，比如选择省重新加载地市，选择地市重新加载区域
   bindMultiPickerColumnChange: function (e) {
     var self = this;
 
     var col = e.detail.column;
     var val = e.detail.value;
-    //切换省份
+    //重新加载地市
     if (col == 0) {
       var code = self.data.areaArray[0][val].code;
       self.getCityByProvinceCode(code);
     }
-    //切换地市
+    //重新加载区域
     if (col == 1) {
       var code = self.data.areaArray[1][val].code;
       self.getCountiesByCityCode(code);
@@ -81,6 +83,7 @@ Page({
     var self = this;
     var ddShow = true;
 
+    //页面加载先获取省份信息
     self.getProvince();
     if (options.id == -1) {
       ddShow = false;
@@ -196,7 +199,7 @@ Page({
           thisPage.setData({
             areaArray: areaArray
           });
-
+          //添加时才需要默认获取
           if (thisPage.data.id == -1) {
             //根据第一个地市获取区
             thisPage.getCountiesByCityCode(cities[0].code);
@@ -383,11 +386,12 @@ Page({
     })
   },
 
-  //地址获取code
+  //修改时初始化地址信息
   getAreaByName: function (provinceName, cityName, countyName) {
     var thisPage = this;
     var areaIndex = thisPage.data.areaIndex;
-
+    console.log(areaIndex);
+    console.log(provinceName + ':' + cityName + ':' + countyName);
     wx.request({
       url: app.globalData.serviceUrl + 'getProvince.html',
       data: {},
@@ -401,6 +405,7 @@ Page({
             break;
           }
         }
+        console.log(areaIndex);
 
         wx.request({
           url: app.globalData.serviceUrl + 'getArea.html',
@@ -415,11 +420,13 @@ Page({
                 break;
               }
             }
-
-            if (thisPage.data.id != -1) {
-              //根据第一个地市获取区
-              thisPage.getCountiesByCityCode(cities[areaIndex[1]].code);
-            }
+            //设置地市信息
+            var areaArray = thisPage.data.areaArray;
+            areaArray[1] = cities;
+            thisPage.setData({
+              areaArray: areaArray
+            });
+            console.log(areaIndex);
 
             wx.request({
               url: app.globalData.serviceUrl + 'getArea.html',
@@ -434,9 +441,14 @@ Page({
                     break;
                   }
                 }
+                //设置区域信息
+                var areaArray = thisPage.data.areaArray;
+                areaArray[2] = counties;
                 thisPage.setData({
+                  areaArray: areaArray,
                   areaIndex: areaIndex
                 });
+
                 console.log(areaIndex);
               }
             });
