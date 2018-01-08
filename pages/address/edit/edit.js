@@ -41,10 +41,11 @@ Page({
   bindMultiPickerChange: function (e) {
     var self = this;
     var current_value = e.detail.value;
+    console.log(current_value);
     //地址选中确定，拼装地址信息显示
     var address = self.data.areaArray[0][current_value[0]].name
-      + '/' + self.data.areaArray[1][current_value[1]].name
-      + '/' + self.data.areaArray[2][current_value[2]].name;
+      + (self.data.areaArray[1].length > 0 ? '/' +self.data.areaArray[1][current_value[1]].name:'')
+      + (self.data.areaArray[2].length > 0 ? '/' +self.data.areaArray[2][current_value[2]].name:'');
     self.setData({
       areaIndex: current_value,
       address: address,
@@ -129,8 +130,9 @@ Page({
         successCallback: function (res) {
           if (res.code == 0) {
             var obj = res.data.addressbean;
-            var address = obj.province + '/'
-              + obj.city + '/' + obj.area;
+            var address = obj.province +
+              (obj.city == '' ? '' : '/' +obj.city)+
+              (obj.area == '' ? '' : '/' +obj.area);
 
             self.getAreaByName(obj.province, obj.city, obj.area);
 
@@ -171,7 +173,9 @@ Page({
           });
 
           //根据第一个省份获取地市
-          thisPage.getCityByProvinceCode(provinces[0].code);
+          if (thisPage.data.id == -1) {
+            thisPage.getCityByProvinceCode(provinces[0].code);
+          }
         }
 
       },
@@ -192,17 +196,17 @@ Page({
         var data = res.data;
         if (data.code == 0) {
           cities = data.data.list;
-
           var areaArray = thisPage.data.areaArray;
           areaArray[1] = cities;
+          if (cities.length>0){
+              //根据第一个地市获取区
+              thisPage.getCountiesByCityCode(cities[0].code);
+          }else{
+            areaArray[2] = [];
+          }
           thisPage.setData({
             areaArray: areaArray
           });
-          //添加时才需要默认获取
-          if (thisPage.data.id == -1) {
-            //根据第一个地市获取区
-            thisPage.getCountiesByCityCode(cities[0].code);
-          }
         }
       },
       fail: function () {
@@ -222,7 +226,6 @@ Page({
         var data = res.data;
         if (data.code == 0) {
           counties = data.data.list;
-
           var areaArray = thisPage.data.areaArray;
           areaArray[2] = counties;
           thisPage.setData({
@@ -389,8 +392,6 @@ Page({
   getAreaByName: function (provinceName, cityName, countyName) {
     var thisPage = this;
     var areaIndex = thisPage.data.areaIndex;
-    console.log(areaIndex);
-    console.log(provinceName + ':' + cityName + ':' + countyName);
     wx.request({
       url: app.globalData.serviceUrl + 'getProvince.html',
       data: {},
@@ -404,54 +405,56 @@ Page({
             break;
           }
         }
-        console.log(areaIndex);
 
-        wx.request({
-          url: app.globalData.serviceUrl + 'getArea.html',
-          data: { 'code': provinces[areaIndex[0]].code },
-          method: 'GET',
-          success: function (res) {
-            var data = res.data;
-            var cities = data.data.list;
-            for (var ii = 0; ii < cities.length; ii++) {
-              if (cityName == cities[ii].name) {
-                areaIndex[1] = ii;
-                break;
+        if (cityName!=''){
+          wx.request({
+            url: app.globalData.serviceUrl + 'getArea.html',
+            data: { 'code': provinces[areaIndex[0]].code },
+            method: 'GET',
+            success: function (res) {
+              var data = res.data;
+              var cities = data.data.list;
+              for (var ii = 0; ii < cities.length; ii++) {
+                if (cityName == cities[ii].name) {
+                  areaIndex[1] = ii;
+                  break;
+                }
+              }
+              //设置地市信息
+              var areaArray = thisPage.data.areaArray;
+              areaArray[1] = cities;
+              thisPage.setData({
+                areaArray: areaArray
+              });
+              if (countyName != '') {
+                wx.request({
+                  url: app.globalData.serviceUrl + 'getArea.html',
+                  data: { 'code': cities[areaIndex[1]].code },
+                  method: 'GET',
+                  success: function (res) {
+                    var data = res.data;
+                    var counties = data.data.list;
+                    for (var iii = 0; iii < counties.length; iii++) {
+                      if (countyName == counties[iii].name) {
+                        areaIndex[2] = iii;
+                        break;
+                      }
+                    }
+                    //设置区域信息
+                    var areaArray = thisPage.data.areaArray;
+                    areaArray[2] = counties;
+                    thisPage.setData({
+                      areaArray: areaArray
+                    });
+                  }
+                });
               }
             }
-            //设置地市信息
-            var areaArray = thisPage.data.areaArray;
-            areaArray[1] = cities;
-            thisPage.setData({
-              areaArray: areaArray
-            });
-            console.log(areaIndex);
+          });
+        }
 
-            wx.request({
-              url: app.globalData.serviceUrl + 'getArea.html',
-              data: { 'code': cities[areaIndex[1]].code },
-              method: 'GET',
-              success: function (res) {
-                var data = res.data;
-                var counties = data.data.list;
-                for (var iii = 0; iii < counties.length; iii++) {
-                  if (countyName == counties[iii].name) {
-                    areaIndex[2] = iii;
-                    break;
-                  }
-                }
-                //设置区域信息
-                var areaArray = thisPage.data.areaArray;
-                areaArray[2] = counties;
-                thisPage.setData({
-                  areaArray: areaArray,
-                  areaIndex: areaIndex
-                });
-
-                console.log(areaIndex);
-              }
-            });
-          }
+        thisPage.setData({
+          areaIndex: areaIndex
         });
       },
       fail: function () {
