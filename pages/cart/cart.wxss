@@ -15,7 +15,6 @@
   line-height: 100rpx;
   display: inline-block;
   vertical-align: middle;
-  border-bottom: 1px solid #d6d6d6;
   position: relative;
   top: -1px;
 }
