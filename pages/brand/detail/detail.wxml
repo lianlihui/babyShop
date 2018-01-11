@@ -6,3 +6,19 @@
 <view class="qu-content">
   <template is="wxParse" data="{{wxParseData:content.nodes}}" />
 </view>
+
+<!-- <view class="product-enjoy">
+    <view class="product-enjoy-tag"> 
+      猜你喜欢
+    </view>
+    <view class="product-list">
+      <view class="product-list-item" wx:for="{{suggestwarelist}}" wx:for-item="item" data-id="{{item.id}}" bindtap="productInfo">
+          <image src="{{imageRootPath}}{{item.pic1}}" mode="aspectFit"  class="product-image"/>
+          <view class="product-desc">{{item.name}}</view>
+          <view class="product-price">
+            <span class="del-price">价格：¥{{item.price}}</span>
+            <span class="del-price-yj">押金：¥{{item.rent_cost}}</span>
+          </view>
+      </view>
+    </view>
+  </view> -->

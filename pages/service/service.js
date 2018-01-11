@@ -50,4 +50,12 @@ Page({
       }
     });
   },
+
+  phone: function (event){
+    var sysphone = event.currentTarget.dataset.sysphone;
+    console.log(sysphone);
+    wx.makePhoneCall({
+      phoneNumber: sysphone
+    })
+  }
 })

@@ -52,5 +52,45 @@ Page({
     wx.switchTab({
       url: '/pages/index/index'
     })
+  },
+
+  //删除
+  deleteCollection: function (event){
+    var self = this;
+    var cid = event.currentTarget.dataset.id;
+
+    wx.showModal({
+      title: '提示',
+      content: '确定删除该收藏？',
+      success: function (res) {
+        if (res.confirm) {
+          var postData = {
+            token: app.globalData.token,
+            cid: cid
+          };
+          app.ajax({
+            url: app.globalData.serviceUrl + 'mcollectdel.htm',
+            data: postData,
+            method: 'GET',
+            successCallback: function (res) {
+              if (res.code == 0) {
+                self.getIndexData();
+              } else {
+                self.showMsg(res.msg);
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+
+  showMsg: function (msg) {
+    wx.showModal({
+      title: '提示',
+      content: msg,
+      showCancel: false,
+      confirmText: '我知道了'
+    });
   }
 });

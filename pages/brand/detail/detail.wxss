@@ -7,3 +7,56 @@
 .qu-content {
   padding: 0 20rpx;
 }
+.wxParse-p{
+  overflow: hidden;
+}
+
+.product-enjoy{
+  margin-top:30rpx;
+  background: #ffffff;
+  margin-bottom: 120rpx;
+  overflow: hidden;
+}
+.product-enjoy-tag{
+  padding: 0rpx 27rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #343333;
+  font-size: 36rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.product-list {
+  overflow: hidden;
+  margin-right: -1px;
+}
+.product-list-item {
+  width: 50%;
+  float: left;
+  padding: 23rpx 15rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+.product-desc {
+  font-size: 28rpx;
+  color: #414141;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+
+.del-price {
+  font-size: 28rpx;
+  color: #ff4965;
+  display:inline-block;
+}
+.del-price-yj {
+  font-size: 24rpx;
+  color: #585858;
+  display: inline-block;
+  margin-left: 20rpx;
+  position: relative;
+}

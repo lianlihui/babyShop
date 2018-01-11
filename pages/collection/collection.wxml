@@ -22,6 +22,10 @@
             <view class="item-spec">
               <span>{{item.system_time}}</span>
             </view>
+
+            <view class="item-right-delete" data-id="{{item.id}}" catchtap="deleteCollection">
+              删除
+            </view>
           </view>
         </view>
       </view>
