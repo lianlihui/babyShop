@@ -10,6 +10,10 @@
     </view>
   </view>-->
 
+  <view class="search-wrap" bindtap="gotoSearch">
+    <image src="/images/product/icon_search.png" class="search-img" />
+  </view>
+
   <view class="category-tab-box">
     <view class="category-tab {{2 == type ? 'active' : ''}}" data-type="2" bindtap="buyTypeChange">我要租</view>
     <view class="category-tab {{1 == type ? 'active' : ''}}" data-type="1" bindtap="buyTypeChange">我要买</view>

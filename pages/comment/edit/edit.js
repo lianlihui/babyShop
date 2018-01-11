@@ -65,9 +65,6 @@ Page({
       sizeType: ['compressed'],
       success: function(res) {
         var tempFilePaths = self.data.picA.concat(res.tempFilePaths);
-        console.log('微信给的');
-        console.log(tempFilePaths);
-        console.log('微信给的结束');
         self.setData({
           picA: tempFilePaths
         });
