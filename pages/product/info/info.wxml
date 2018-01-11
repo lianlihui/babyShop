@@ -79,9 +79,9 @@
             {{item1.content}}
           </view>
           <view class="comment-item-bt">
-              <image wx:if="{{item1.pica}}" src="{{item1.pica}}" class="upload-img"/>
-              <image wx:if="{{item1.picb}}" src="{{item1.picb}}" class="upload-img"/>
-              <image wx:if="{{item1.picc}}" src="{{item1.picc}}" class="upload-img"/>
+              <image wx:if="{{item1.pica}}" src="{{item1.pica}}" class="upload-img" mode="aspectFill"/>
+              <image wx:if="{{item1.picb}}" src="{{item1.picb}}" class="upload-img" mode="aspectFill"/>
+              <image wx:if="{{item1.picc}}" src="{{item1.picc}}" class="upload-img" mode="aspectFill"/>
           </view>
         </view>
       </view>
