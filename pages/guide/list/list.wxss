@@ -14,6 +14,7 @@
   border-bottom: 1px solid #ebebeb;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: block;
 }
 .page-my-item-arrow {
   width: 11rpx;

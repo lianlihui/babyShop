@@ -3,6 +3,8 @@
   width: 180rpx;
   height: 90rpx;
   z-index: 11;
+  display: block;
+  background: #fff;
 }
 .search-img {
   width: 125rpx;
@@ -94,6 +96,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
+  background: #fff;
 }
 .product-image {
   width: 160rpx;

@@ -1,9 +1,9 @@
 
 <view class="page-my-list"> 
-  <view wx:for="{{guizelist}}" wx:key="unique1">
-    <view class="page-my-list-item" bindtap="gotoDetail" data-index="{{index}}">
+  <view wx:for="{{guizelist}}" wx:for-item="item" wx:key="unique1">
+    <navigator url="/pages/question/detail/detail?id={{item.id}}" class="page-my-list-item" data-index="{{index}}">
       <text>{{index+1}}、{{item.title}}</text>
-    </view>
+    </navigator>
   </view> 
 </view>
 
