@@ -6,12 +6,12 @@
   <view class="service-item">
     <image src="/images/service/kf.png" class="service-icon" mode="widthFix"/> 
     <text>客服热线</text>
-    <text class="service-style">{{sysphone}}</text>
+    <text class="service-style" data-sysphone="{{sysphone}}" bindtap="phone">{{sysphone}}</text>
   </view>
 
   <view class="service-item">
     <image src="/images/service/qq.png" class="service-icon" mode="widthFix"/>
-    <text>客服QQ</text>
+    <text>客服微信</text>
     <text class="service-style">{{sysqq}}</text>
   </view>
 
@@ -21,10 +21,10 @@
     <text class="service-style">{{sysemail}}</text>
   </view>
 
-  <view class="service-item-address">
+  <!-- <view class="service-item-address">
     <image src="/images/service/ad.png" class="service-icon" mode="widthFix"/>
     <text>客服地址</text>
     <view class="service-style-address">{{sysaddress}}</view>
-  </view>
+  </view> -->
   
 </view>
