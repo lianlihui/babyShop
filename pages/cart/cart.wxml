@@ -1,7 +1,7 @@
 <view class="comment-wrap">
     <view class="comment-tab-box">
-      <view class="comment-tab {{1 == curComment ? ' active' : ''}}" bindtap="commentFun" data-type="1">我要租购物车</view>
-      <view class="comment-tab {{2 == curComment ? ' active' : ''}}" bindtap="commentFun" data-type="2">我要买购物车</view>
+      <view class="comment-tab {{1 == curComment ? ' active' : ''}}" bindtap="commentFun" data-type="1">我要租</view>
+      <view class="comment-tab {{2 == curComment ? ' active' : ''}}" bindtap="commentFun" data-type="2">我要买</view>
     </view>
 </view>
 

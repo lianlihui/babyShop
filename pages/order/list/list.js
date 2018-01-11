@@ -437,7 +437,7 @@ Page({
     } else if (status == 4) {
       ret = '交易成功;money-cg';
     } else if (status == 5) {
-      ret = '备货中;money-bh';
+      ret = '出库中;money-bh';
     } else if (status == 7) {
       ret = '已取消;money-yqx';
     }

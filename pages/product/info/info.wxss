@@ -403,7 +403,7 @@
 .modal-body .spec.active {
   background: #ff4965;
   color: #ffffff;
-  border:none;
+  border: 1rpx solid #ff4965;
 }
 
 .modal-footer{
