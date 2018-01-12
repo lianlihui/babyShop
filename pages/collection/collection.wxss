@@ -97,7 +97,7 @@
   -webkit-box-flex: 1.0;
 }
 .order-list-item-dzf-bd .item-title{
-  padding-right:95rpx;
+  padding-right:125rpx;
   line-height: 1.3;
   color: #414141;
   font-size: 28rpx;

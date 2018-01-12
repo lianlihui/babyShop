@@ -1,9 +1,9 @@
 
 <view class="page-my-list">
   <view wx:for="{{guidelist}}" wx:key="unique1">
-    <view class="page-my-list-item" bindtap="gotoDetail" data-id="{{item.id}}">
+    <navigator url="/pages/guide/detail/detail?id={{item.id}}" class="page-my-list-item" data-id="{{item.id}}">
       <text>{{index+1}}、{{item.name}}</text>
-    </view>
+    </navigator>
   </view> 
 </view>
 

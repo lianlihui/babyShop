@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    arcdetail: []
+    arcdetail: [],
+    imageRootPath: '',
+    suggestwarelist:[]
   },
 
   /**
@@ -29,7 +31,9 @@ Page({
         if (res.code == 0) {
           var arcdetail = res.data.arcdetail;
           self.setData({
-            arcdetail: arcdetail
+            arcdetail: arcdetail,
+            imageRootPath: res.data.imageRootPath,
+            suggestwarelist: res.data.suggestwarelist
           });
 
           var content = arcdetail.content;

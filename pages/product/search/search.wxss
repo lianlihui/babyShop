@@ -91,6 +91,7 @@
   -webkit-box-sizing: border-box;
   border-right: 1px solid #ebebeb;
   border-bottom: 1px solid #ebebeb;
+  background: #fff;
 }
 .product-desc {
   font-size: 28rpx;

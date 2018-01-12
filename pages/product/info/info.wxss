@@ -242,8 +242,8 @@
   overflow: visible;
 }
 .order-list-item-dzf-foot .item-edit-img{
-  width: 57rpx;
-  height: 53rpx;
+  width: 67rpx;
+  height: 62rpx;
 }
 .item-edit-hh{
   display: inline-block;
@@ -260,8 +260,8 @@
   border: 0;
 }
 .item-edit-img-hh{
-  width: 50rpx;
-  height: 50rpx;
+  width: 67rpx;
+  height: 62rpx;
   margin-top:27rpx;
 }
 .item-edit-sc{
@@ -272,8 +272,8 @@
   margin-left: 10rpx;
 }
 .item-edit-img-sc{
-  width: 46rpx;
-  height: 46rpx;
+  width: 67rpx;
+  height: 62rpx;
   margin-top:30rpx;
 }
 .order-list-item-dzf-foot .item-edit-nums{

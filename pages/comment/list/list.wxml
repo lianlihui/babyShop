@@ -7,18 +7,20 @@
         <image src="{{item1.avatarurl}}" class="comment-pic" />
         <text class="comment-name">我</text>
       </view>
-      <view class="comment-item-info" data-id="{{item1.wareid}}" bindtap="productInfo">
-        <text class="comment-text">商品：{{item1.warename}}</text>
-        <text class="comment-text">新旧：{{item1.level}}</text>
-        <text class="comment-text">颜色：{{item1.color}}</text>
-      </view>
+      <navigator url="/pages/product/info/info?id={{item1.wareid}}">
+        <view class="comment-item-info">
+          <text class="comment-text">商品：{{item1.warename}}</text>
+          <text class="comment-text">新旧：{{item1.level}}</text>
+          <text class="comment-text">颜色：{{item1.color}}</text>
+        </view>
+      </navigator>
       <view class="comment-item-ct">
         {{item1.content}}
       </view>
       <view class="comment-item-bt">
-          <image wx:if="{{item1.pica}}" src="{{item1.pica}}" />
-          <image wx:if="{{item1.picb}}" src="{{item1.picb}}" />
-          <image wx:if="{{item1.picc}}" src="{{item1.picc}}" />
+          <image wx:if="{{item1.pica}}" src="{{item1.pica}}" mode="aspectFill"/>
+          <image wx:if="{{item1.picb}}" src="{{item1.picb}}" mode="aspectFill"/>
+          <image wx:if="{{item1.picc}}" src="{{item1.picc}}" mode="aspectFill"/>
       </view>
     </view>
 </view>

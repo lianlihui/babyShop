@@ -1,5 +1,5 @@
 var app = getApp();
-
+ 
 Page({
 
   /**
@@ -21,7 +21,10 @@ Page({
     isEmpty: '',   //是否显示空
     isShow: 'hide', //是否显示数据 
     curComment:1,
-    rtype: 1  //购物车分类，1、我要租购物车 2、我要买购物车
+    rtype: 1,  //购物车分类，1、我要租购物车 2、我要买购物车
+    specSmprice: 0,
+    specPrice: 0,
+    specRentCost: 0,
   },
 
   //tab切换
@@ -176,7 +179,10 @@ Page({
       updSizeName: selCart.color,  //修改的颜色
       updLevel: selCart.level,  //修改的新旧
       updRentDate: selCart.rent_date,  //修改的租赁月数
-      updNums: selCart.number  //修改的数量
+      updNums: selCart.number,  //修改的数量
+      specSmprice: selCart.smprice,
+      specPrice: selCart.price,
+      specRentCost: selCart.rent_cost
     });
   },
 
@@ -193,7 +199,10 @@ Page({
       updSizeName: selCart.color,  //修改的颜色
       updLevel: selCart.level,  //修改的新旧
       updRentDate: selCart.rent_date,  //修改的租赁月数
-      updNums: selCart.number //修改的数量
+      updNums: selCart.number, //修改的数量
+      specSmprice: selCart.smprice,
+      specPrice: selCart.price,
+      specRentCost: selCart.rent_cost
     });
   },
 
@@ -251,15 +260,9 @@ Page({
   addNumber: function () {
     var self = this;
     var updNums = self.data.updNums;
-    var updKuncun = self.data.updKuncun;
     if (/^[0-9]+$/.test(updNums)) {
       updNums = Number(updNums);
-      updKuncun = Number(updKuncun);
-      if (updNums + 1 < updKuncun) {
-        updNums = updNums + 1;
-      } else {
-        updNums = updKuncun;
-      }
+      updNums = updNums + 1;
       self.setData({
         updNums: updNums
       });
@@ -298,7 +301,6 @@ Page({
         return false;
       }
     }
-    
 
     //租赁数量
     var numbers = self.data.updNums;
@@ -307,11 +309,6 @@ Page({
     } else {
       self.showMsg('请输入正确的数量');
       return false;
-    }
-    var updKuncun = self.data.updKuncun;
-    if (numbers > updKuncun) {
-       self.showMsg('数量不能大于库存');
-       return false;
     }
 
     var postData = {

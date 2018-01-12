@@ -1,11 +1,13 @@
 <view class="brand-list">
 
-  <view class="brand-item" wx:for="{{brandlist}}" wx:key="unique1" bindtap="gotoDetail" data-id="{{item.id}}">
-    <view class="brand-item-left">
-      <image src="{{imageRootPath}}{{item.pic1}}" class="brand-item-img"></image>
+  <navigator url="/pages/brand/detail/detail?id={{item.id}}" wx:for="{{brandlist}}" wx:key="unique1">
+    <view class="brand-item">
+      <view class="brand-item-left">
+        <image src="{{imageRootPath}}{{item.pic1}}" class="brand-item-img"></image>
+      </view>
+      <view class="brand-item-right">
+        {{item.name}}
+      </view>
     </view>
-    <view class="brand-item-right">
-      {{item.name}}
-    </view>
-  </view>
+  </navigator>
 </view>
