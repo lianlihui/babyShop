@@ -9,7 +9,11 @@ Page({
     order:null,
 
     payTxt: '去支付',  //控制支付状态
-    payIng: false
+    payIng: false,
+
+    modalWlShow: false,
+    wlorderno: '',
+    wlnoArr: []
   },
 
   /**
@@ -211,10 +215,39 @@ Page({
   //查看物流
   lookLogistics: function (event) {
     var num = event.currentTarget.dataset.num;
-    var orderId = event.currentTarget.dataset.orderid;
-    wx.navigateTo({
-      url: '/pages/logistics/logistics?num=' + num + '&orderId=' + orderId
+    var orderno = event.currentTarget.dataset.orderno;
+    console.log('orderno:' + orderno + ';num=' + num);
+    var wlnoArr = [];
+    if (num != null && num != '') {
+      wlnoArr = num.split(',');
+    }
+    this.setData({
+      modalWlShow: true,
+      wlorderno: orderno,
+      wlnoArr: wlnoArr
+    });
+  },
+
+  //复制
+  copywxno: function (event) {
+    var self = this;
+    var wxno = event.currentTarget.dataset.wxno;
+    console.log("wxno:" + wxno);
+    wx.setClipboardData({
+      data: wxno,
+      success: function (res) {
+        self.showMsg('复制成功');
+      },
+      fail: function (res) {
+        self.showMsg('复制失败');
+      }
     })
+  },
+
+  closeWlModal: function () {
+    this.setData({
+      modalWlShow: false
+    });
   },
   
   //商品详情

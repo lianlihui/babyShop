@@ -4,45 +4,68 @@
     <image src="{{myInfo.headimgurl}}" class="page-my-top-img" />
   </view>
   <view class="page-my-top-rt">
-    <view class="page-my-top-name" >{{myInfo.nickname}} <view class="user-know" bindtap="gotoprotocol">用户须知<image src="/images/my/icon8.png"/></view></view>
+    <view class="page-my-top-name" >{{myInfo.nickname}}<view class="user-know">
+          <navigator url="/pages/protocol/protocol?id=6">
+          用户须知<image src="/images/my/icon8.png"/>
+           </navigator>
+    </view>
+    </view>
     <!--<view class="page-my-top-name" wx:if="{{myInfo.nickname}}">{{myInfo.nickname}}</view>-->
     <view class="page-my-top-score">{{myInfo.point}}积分</view>
   </view>
-  <view class="page-my-top-right-score" bindtap="gotoScore">积分明细</view>
+  <navigator url="/pages/scroce/scroce">
+    <view class="page-my-top-right-score">积分明细</view>
+  </navigator>
 </view>
 
 <view class="page-my-list">
-  <view class="page-my-list-item" bindtap="gotoMyOrder">
-    <image src="/images/my/icon1.png" class="page-my-item-icon" />
-    <text>全部订单</text>
-  </view>
-  <view class="page-my-list-item" bindtap="gotoMyRent">
-    <image src="/images/my/icon2.png" class="page-my-item-icon" />
-    <text>正在租用</text>
-  </view>
-  <view class="page-my-list-item" bindtap="gotoCollection">
-    <image src="/images/my/icon9.png" class="page-my-item-icon" />
-    <text>我的收藏</text>
-  </view> 
-  <view class="page-my-list-item" bindtap="gotoMyAddress">
-    <image src="/images/my/icon3.png" class="page-my-item-icon" />
-    <text>地址管理</text>
-  </view>
-  <view class="page-my-list-item" bindtap="gotoComment">
-    <image src="/images/my/icon5.png" class="page-my-item-icon"/>
-    <text>我的评价</text>
-  </view>
-  <view class="page-my-list-item" bindtap="gotoQuestion">
-    <image src="/images/my/icon6.png" class="page-my-item-icon" />
-    <text>常见问题</text>
-  </view>
-  <view class="page-my-list-item" bindtap="gotoService">
-    <image src="/images/my/icon7.png" class="page-my-item-icon" />
-    <text>联系客服</text>
-  </view>
-  <!-- <navigator url="/pages/logistics/logistics"class="page-my-list-item">
-    <image src="/images/my/icon7.png" class="page-my-item-icon" />
-    <text>物流页面</text>
-  </navigator> -->
+  <navigator url="/pages/order/list/list">
+    <view class="page-my-list-item">
+      <image src="/images/my/icon1.png" class="page-my-item-icon" />
+      <text>全部订单</text>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/rent/rent">
+    <view class="page-my-list-item">
+      <image src="/images/my/icon2.png" class="page-my-item-icon" />
+      <text>正在租用</text>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/collection/collection"> 
+    <view class="page-my-list-item">
+      <image src="/images/my/icon9.png" class="page-my-item-icon" />
+      <text>我的收藏</text>
+    </view> 
+  </navigator>
+
+  <navigator url="/pages/address/list/list">
+    <view class="page-my-list-item">
+      <image src="/images/my/icon3.png" class="page-my-item-icon" />
+      <text>地址管理</text>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/comment/list/list">
+    <view class="page-my-list-item">
+      <image src="/images/my/icon5.png" class="page-my-item-icon"/>
+      <text>我的评价</text>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/question/list/list">
+    <view class="page-my-list-item">
+      <image src="/images/my/icon6.png" class="page-my-item-icon" />
+      <text>常见问题</text>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/service/service">
+    <view class="page-my-list-item">
+      <image src="/images/my/icon7.png" class="page-my-item-icon" />
+      <text>联系客服</text>
+    </view>
+  </navigator>
 </view>
 

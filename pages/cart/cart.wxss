@@ -230,6 +230,8 @@
 }
 .modal-body {
   padding: 50rpx 20rpx 0rpx;
+  height:600rpx;
+  overflow: auto;
 }
 .modal-item{
   padding: 20rpx 0;

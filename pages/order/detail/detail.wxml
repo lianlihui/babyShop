@@ -43,22 +43,24 @@
     </view>
 
     <view wx:for="{{order.orderwarelist}}" wx:for-index="idx">
-      <view class="order-list-item-dzf-bd" data-id="{{item.wareid}}" bindtap="productInfo">
-        <view class="item-left">
-          <image class="item-img" src="{{imageRootPath}}{{item.pic}}"></image>
+      <navigator url="/pages/product/info/info?id={{item.wareid}}">
+        <view class="order-list-item-dzf-bd">
+          <view class="item-left">
+            <image class="item-img" src="{{imageRootPath}}{{item.pic}}"></image>
+          </view>
+          <view class="item-right">
+            <text class="item-title">{{item.warename}}</text>
+            <text class="item-day">数量：{{item.amount}}个</text>
+            <text class="item-day" wx:if="{{order.order_type == 0}}">租赁时长：{{item.rent_date}}月</text>
+            <text class="item-day">新旧：{{item.level}}</text>
+            <text class="item-day">颜色：{{item.color}}</text>
+            <text class="item-day" wx:if="{{order.order_type == 2}}">零售价：¥{{item.smprice}}</text>
+            <text class="item-day" wx:if="{{order.order_type == 0}}">租金：¥{{item.rent_cost}}</text>
+            <text class="item-day" wx:if="{{order.order_type == 0}}">押金：¥{{item.ya_cost}}</text>
+            <text class="item-price" wx:if="{{order.order_type == 0}}">¥{{item.price}}</text>
+          </view>
         </view>
-        <view class="item-right">
-          <text class="item-title">{{item.warename}}</text>
-          <text class="item-day">数量：{{item.amount}}个</text>
-          <text class="item-day" wx:if="{{order.order_type == 0}}">租赁时长：{{item.rent_date}}月</text>
-          <text class="item-day">新旧：{{item.level}}</text>
-          <text class="item-day">颜色：{{item.color}}</text>
-          <text class="item-day" wx:if="{{order.order_type == 2}}">零售价：¥{{item.smprice}}</text>
-          <text class="item-day" wx:if="{{order.order_type == 0}}">租金：¥{{item.rent_cost}}</text>
-          <text class="item-day" wx:if="{{order.order_type == 0}}">押金：¥{{item.ya_cost}}</text>
-          <text class="item-price" wx:if="{{order.order_type == 0}}">¥{{item.price}}</text>
-        </view>
-      </view>
+      </navigator>
     </view>
 
     <!--<view class="order-list-item-foot">
@@ -86,15 +88,15 @@
       <button class="all-btn-com btn-zf" data-id="{{order.id}}" bindtap="shOrder">
         确认收货
       </button>
-      <button class="all-btn-com btn-qx" data-num="{{order.sendexpressnumber}}" data-orderid="{{order.id}}" catchtap="lookLogistics">
+      <button class="all-btn-com btn-qx" data-num="{{order.sendexpressnumber}}" data-orderno="{{order.orderno}}" catchtap="lookLogistics">
         查看物流
       </button>
     </view>
-    <!-- <view class="order-list-item-all-foot" wx:if="{{order.status == 4}}">
+    <!--  <view class="order-list-item-all-foot" wx:if="{{order.status == 4}}">
       <button class="all-btn-com btn-zf" data-id="{{order.id}}" catchtap="pjOrder">
         评价
       </button>
-    </view> -->
+    </view>  -->
   </view>
 
 </view>
@@ -102,3 +104,26 @@
 <view class="order-list-item-dzf-index" bindtap="gotoIndex">
   返回首页
 </view>
+
+<!-- 物流信息弹窗 -->
+<view hidden="{{!modalWlShow}}" class="modal-spec modal-wrap vertical-center">
+  <view class="modal modal-width">
+    <view class="modal-close" bindtap="closeWlModal" >
+      <image class="modal-close-img" src="/images/product/modal_close.png" mode="widthFix"></image>
+    </view>
+    <view class="modal-header">
+      <view class="modal-header-item">
+        订单号：{{wlorderno}}
+      </view>
+    </view>
+    <view class="modal-body modal-body-wl">
+      <view class="modal-body-wl-item" wx:for="{{wlnoArr}}" wx:for-item="wxno">
+        <text class="modal-body-wl-item-txt">物流单号：{{wxno}}</text>
+        <button class="modal-body-wl-item-btn" data-wxno="{{wxno}}" bindtap="copywxno">
+          复制
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- /物流信息弹窗 -->

@@ -9,7 +9,8 @@ Page({
     sysaddress:'',
     sysemail: '',
     sysqq: '',
-    sysphone: ''
+    sysphone: '',
+    sywx:''
   },
 
   /**
@@ -41,7 +42,8 @@ Page({
             sysaddress: res.data.sysaddress,
             sysemail: res.data.sysemail,
             sysqq: res.data.sysqq,
-            sysphone: res.data.sysphone
+            sysphone: res.data.sysphone,
+            sywx: res.data.sywx
           });
         }
       },
@@ -57,5 +59,30 @@ Page({
     wx.makePhoneCall({
       phoneNumber: sysphone
     })
+  },
+
+  //复制
+  copywxno: function (event) {
+    var self = this;
+    var wxno = event.currentTarget.dataset.wxno;
+    console.log("wxno:" + wxno);
+    wx.setClipboardData({
+      data: wxno,
+      success: function (res) {
+        self.showMsg('复制成功');
+      },
+      fail: function (res) {
+        self.showMsg('复制失败');
+      }
+    })
+  },
+
+  showMsg: function (msg) {
+    wx.showModal({
+      title: '提示',
+      content: msg,
+      showCancel: false,
+      confirmText: '我知道了'
+    });
   }
 })

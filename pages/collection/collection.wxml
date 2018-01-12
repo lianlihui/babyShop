@@ -12,8 +12,8 @@
 
 <view class="order-list {{isShow}}">
     <view class="order-list-item-dzf">
-      <view wx:for="{{list}}" wx:key="unique1">
-        <view class="order-list-item-dzf-bd" data-id="{{item.wareid}}" bindtap="productInfo">
+      <navigator wx:for="{{list}}" wx:key="unique1" url="/pages/product/info/info?id={{item.wareid}}">
+        <view class="order-list-item-dzf-bd">
           <view class="item-left">
             <image class="item-img" src="{{imageRootPath}}{{item.pic1}}" bindtap="selectList" data-index="{{index}}"></image>
           </view>
@@ -28,7 +28,7 @@
             </view>
           </view>
         </view>
-      </view>
+      </navigator>
 
     </view>
 </view>
